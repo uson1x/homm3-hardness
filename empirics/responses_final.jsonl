@@ -155,7 +155,9 @@
 {"task_id": "naturalM-k2-04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Efreet Sultan\", 1], [\"Minotaur\", 1]]}"}
 {"task_id": "naturalM-k2-04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Minotaur\", 1], [\"Efreet Sultan\", 1]]}"}
 {"task_id": "naturalM-k2-05::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Ogre\", 5], null]}"}
+{"task_id": "naturalM-k2-05::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Goblin\", 5], [\"Ogre\", 5]]}"}
 {"task_id": "naturalM-k3-00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Dendroid Guard\", 5], [\"Energy Elemental\", 5], null]}"}
+{"task_id": "naturalM-k3-00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Dendroid Guard\", 5], [\"Wraith\", 1], null]}"}
 {"task_id": "naturalM-k3-01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, [\"Efreeti\", 1], null]}"}
 {"task_id": "naturalM-k3-01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Psychic Elemental\", 1], [\"Efreeti\", 1], [\"Dwarf\", 1]]}"}
 {"task_id": "naturalM-k3-02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Ogre Mage\", 2], null, null]}"}
@@ -757,15 +759,25 @@
 {"task_id": "naturalM-k4-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Magic Elemental\", 2], null, null, null]}"}
 {"task_id": "naturalM-k4-04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Magic Elemental\", 2], [\"Battle Dwarf\", 2], null, [\"Zombie\", 2]]}"}
 {"task_id": "naturalM-k4-05::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Troll\", 6], [\"Battle Dwarf\", 6], null, null]}"}
+{"task_id": "naturalM-k4-05::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Troll\", 6], [\"Battle Dwarf\", 6], null, null]}"}
 {"task_id": "naturalM-k5-00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Pit Lord\", 3], [\"Demon\", 4], [\"Psychic Elemental\", 1], [\"Pit Lord\", 1], [\"Psychic Elemental\", 3]]}"}
+{"task_id": "naturalM-k5-00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Demon\", 4], [\"Pit Lord\", 3], [\"Pit Lord\", 1], [\"Psychic Elemental\", 1], [\"Psychic Elemental\", 3]]}"}
 {"task_id": "naturalM-k5-01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Devil\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k5-01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Devil\", 1], null, null, null]}"}
 {"task_id": "naturalM-k5-02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Serpent Fly\", 7], null, null, null, null]}"}
+{"task_id": "naturalM-k5-02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Serpent Fly\", 7], [\"Troglodyte\", 7], null, null]}"}
 {"task_id": "naturalM-k5-03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Efreeti\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k5-03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Fire Elemental\", 1], null, [\"Efreeti\", 1], null, null]}"}
 {"task_id": "naturalM-k5-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Vampire\", 4], [\"Stone Golem\", 3], null, [\"Stone Gargoyle\", 4]]}"}
+{"task_id": "naturalM-k5-04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Vampire\", 4], [\"Stone Golem\", 4], null, null]}"}
 {"task_id": "naturalM-k5-05::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Arch Devil\", 4], null, null, null, null]}"}
+{"task_id": "naturalM-k5-05::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, null, [\"Arch Devil\", 4], null, [\"Familiar\", 4]]}"}
 {"task_id": "naturalM-k6-00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Swordsman\", 1], null, [\"Swordsman\", 1], null, null, [\"Diamond Golem\", 2]]}"}
+{"task_id": "naturalM-k6-00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Swordsman\", 1], [\"Diamond Golem\", 2], null, null, [\"Swordsman\", 1]]}"}
 {"task_id": "naturalM-k6-01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Dwarf\", 6], null, [\"Master Genie\", 1], [\"Master Genie\", 5], null, null]}"}
+{"task_id": "naturalM-k6-01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Dwarf\", 6], [\"Master Genie\", 5], [\"Master Genie\", 1], null, null, null]}"}
 {"task_id": "naturalM-k6-02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Angel\", 1], null, null, null, [\"Psychic Elemental\", 1], null]}"}
+{"task_id": "naturalM-k6-02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Psychic Elemental\", 1], null, null, [\"Angel\", 1], null]}"}
 {"task_id": "naturalM-k6-03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Troll\", 3], [\"Horned Demon\", 3], null, null, null, null]}"}
 {"task_id": "naturalM-k6-03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Troll\", 3], null, null, [\"Horned Demon\", 3], null]}"}
 {"task_id": "naturalM-k6-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Angel\", 1], null, null, null, null, [\"Ogre Mage\", 1]]}"}
