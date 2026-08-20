@@ -1,0 +1,122 @@
+{
+ "id": "naturalM-k4-03",
+ "family": "natural-multi",
+ "size": 4,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Wight": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 3,
+   "dmg_max": 3,
+   "hp": 18,
+   "speed": 5,
+   "value": 252,
+   "shooter": false
+  },
+  "Obsidian Gargoyle": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 16,
+   "speed": 9,
+   "value": 201,
+   "shooter": false
+  },
+  "Pit Fiend": {
+   "attack": 13,
+   "defense": 13,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 45,
+   "speed": 6,
+   "value": 765,
+   "shooter": false
+  },
+  "Iron Golem": {
+   "attack": 9,
+   "defense": 10,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 35,
+   "speed": 5,
+   "value": 412,
+   "shooter": false
+  },
+  "Efreeti": {
+   "attack": 16,
+   "defense": 12,
+   "dmg_min": 16,
+   "dmg_max": 16,
+   "hp": 90,
+   "speed": 9,
+   "value": 1670,
+   "shooter": false
+  },
+  "Peasant": {
+   "attack": 1,
+   "defense": 1,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 1,
+   "speed": 3,
+   "value": 15,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Wight",
+   "stock": 2
+  },
+  {
+   "type": "Obsidian Gargoyle",
+   "stock": 2
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93
+ ],
+ "enemies": [
+  {
+   "type": "Pit Fiend",
+   "count": 5,
+   "hex": 172
+  },
+  {
+   "type": "Iron Golem",
+   "count": 1,
+   "hex": 15
+  },
+  {
+   "type": "Efreeti",
+   "count": 5,
+   "hex": 100
+  },
+  {
+   "type": "Peasant",
+   "count": 3,
+   "hex": 185
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Wight",
+   "Obsidian Gargoyle"
+  ]
+ }
+}

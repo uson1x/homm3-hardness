@@ -1,0 +1,155 @@
+{
+ "id": "naturalM-k7-03",
+ "family": "natural-multi",
+ "size": 7,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Rogue": {
+   "attack": 8,
+   "defense": 3,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 10,
+   "speed": 6,
+   "value": 135,
+   "shooter": false
+  },
+  "Familiar": {
+   "attack": 4,
+   "defense": 4,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 4,
+   "speed": 7,
+   "value": 60,
+   "shooter": false
+  },
+  "Arch Devil": {
+   "attack": 26,
+   "defense": 28,
+   "dmg_min": 30,
+   "dmg_max": 30,
+   "hp": 200,
+   "speed": 17,
+   "value": 7115,
+   "shooter": false
+  },
+  "Pixie": {
+   "attack": 2,
+   "defense": 2,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 3,
+   "speed": 7,
+   "value": 55,
+   "shooter": false
+  },
+  "Minotaur King": {
+   "attack": 15,
+   "defense": 15,
+   "dmg_min": 12,
+   "dmg_max": 12,
+   "hp": 50,
+   "speed": 8,
+   "value": 1068,
+   "shooter": false
+  },
+  "Harpy Hag": {
+   "attack": 6,
+   "defense": 6,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 14,
+   "speed": 9,
+   "value": 238,
+   "shooter": false
+  },
+  "Stone Gargoyle": {
+   "attack": 6,
+   "defense": 6,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 16,
+   "speed": 6,
+   "value": 165,
+   "shooter": false
+  },
+  "Walking Dead": {
+   "attack": 5,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 15,
+   "speed": 3,
+   "value": 98,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Rogue",
+   "stock": 1
+  },
+  {
+   "type": "Familiar",
+   "stock": 1
+  },
+  {
+   "type": "Arch Devil",
+   "stock": 1
+  },
+  {
+   "type": "Pixie",
+   "stock": 1
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96,
+  125,
+  129
+ ],
+ "enemies": [
+  {
+   "type": "Minotaur King",
+   "count": 2,
+   "hex": 185
+  },
+  {
+   "type": "Harpy Hag",
+   "count": 5,
+   "hex": 8
+  },
+  {
+   "type": "Stone Gargoyle",
+   "count": 4,
+   "hex": 172
+  },
+  {
+   "type": "Walking Dead",
+   "count": 2,
+   "hex": 2
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Rogue",
+   "Familiar",
+   "Arch Devil",
+   "Pixie"
+  ]
+ }
+}

@@ -1,0 +1,76 @@
+{
+ "id": "naturalS-k3-02",
+ "family": "natural-single",
+ "size": 3,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Iron Golem": {
+   "attack": 9,
+   "defense": 10,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 35,
+   "speed": 5,
+   "value": 412,
+   "shooter": false
+  },
+  "Gnoll": {
+   "attack": 3,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 6,
+   "speed": 4,
+   "value": 56,
+   "shooter": false
+  },
+  "Genie": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 40,
+   "speed": 7,
+   "value": 884,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Iron Golem",
+   "stock": 15
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90
+ ],
+ "enemies": [
+  {
+   "type": "Gnoll",
+   "count": 2,
+   "hex": 15
+  },
+  {
+   "type": "Genie",
+   "count": 2,
+   "hex": 100
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Iron Golem"
+  ]
+ }
+}

@@ -1,0 +1,106 @@
+{
+ "id": "naturalM-k3-02",
+ "family": "natural-multi",
+ "size": 3,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Ogre Mage": {
+   "attack": 13,
+   "defense": 7,
+   "dmg_min": 6,
+   "dmg_max": 6,
+   "hp": 60,
+   "speed": 5,
+   "value": 672,
+   "shooter": false
+  },
+  "Skeleton": {
+   "attack": 5,
+   "defense": 4,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 6,
+   "speed": 4,
+   "value": 60,
+   "shooter": false
+  },
+  "Devil": {
+   "attack": 19,
+   "defense": 21,
+   "dmg_min": 30,
+   "dmg_max": 30,
+   "hp": 160,
+   "speed": 11,
+   "value": 5101,
+   "shooter": false
+  },
+  "Air Elemental": {
+   "attack": 9,
+   "defense": 9,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 25,
+   "speed": 7,
+   "value": 356,
+   "shooter": false
+  },
+  "Infernal Troglodyte": {
+   "attack": 5,
+   "defense": 4,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 6,
+   "speed": 5,
+   "value": 84,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Ogre Mage",
+   "stock": 2
+  },
+  {
+   "type": "Skeleton",
+   "stock": 2
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90
+ ],
+ "enemies": [
+  {
+   "type": "Devil",
+   "count": 2,
+   "hex": 8
+  },
+  {
+   "type": "Air Elemental",
+   "count": 1,
+   "hex": 185
+  },
+  {
+   "type": "Infernal Troglodyte",
+   "count": 5,
+   "hex": 2
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Ogre Mage",
+   "Skeleton"
+  ]
+ }
+}

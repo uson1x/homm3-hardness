@@ -1,0 +1,107 @@
+{
+ "id": "naturalS-k4-03",
+ "family": "natural-single",
+ "size": 4,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Crusader": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 7,
+   "dmg_max": 7,
+   "hp": 35,
+   "speed": 6,
+   "value": 588,
+   "shooter": false
+  },
+  "Rogue": {
+   "attack": 8,
+   "defense": 3,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 10,
+   "speed": 6,
+   "value": 135,
+   "shooter": false
+  },
+  "Goblin": {
+   "attack": 4,
+   "defense": 2,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 5,
+   "speed": 5,
+   "value": 60,
+   "shooter": false
+  },
+  "Wight": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 3,
+   "dmg_max": 3,
+   "hp": 18,
+   "speed": 5,
+   "value": 252,
+   "shooter": false
+  },
+  "Minotaur": {
+   "attack": 14,
+   "defense": 12,
+   "dmg_min": 12,
+   "dmg_max": 12,
+   "hp": 50,
+   "speed": 6,
+   "value": 835,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Crusader",
+   "stock": 17
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93
+ ],
+ "enemies": [
+  {
+   "type": "Rogue",
+   "count": 4,
+   "hex": 87
+  },
+  {
+   "type": "Goblin",
+   "count": 3,
+   "hex": 8
+  },
+  {
+   "type": "Wight",
+   "count": 5,
+   "hex": 185
+  },
+  {
+   "type": "Minotaur",
+   "count": 2,
+   "hex": 100
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Crusader"
+  ]
+ }
+}

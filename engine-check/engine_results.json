@@ -1,0 +1,677 @@
+{
+  "engine": {
+    "source": "/Users/ivanparfenchuk/Projects/AI/vcmi-upstream",
+    "attack_point_damage_factor": 0.05,
+    "attack_point_damage_factor_cap": 4,
+    "defense_point_damage_factor": 0.025,
+    "defense_point_damage_factor_cap": 0.7000000000000001
+  },
+  "results": [
+    {
+      "id": "R-part-a3-c2",
+      "kind": "damage",
+      "attacker_count": 2,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 3,
+      "damage_min": 2,
+      "damage_max": 2,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "R-part-a3-c3",
+      "kind": "damage",
+      "attacker_count": 3,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 3,
+      "damage_min": 3,
+      "damage_max": 3,
+      "kills_min": 1,
+      "kills_max": 1
+    },
+    {
+      "id": "R-part-a3-c4",
+      "kind": "damage",
+      "attacker_count": 4,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 3,
+      "damage_min": 4,
+      "damage_max": 4,
+      "kills_min": 1,
+      "kills_max": 1
+    },
+    {
+      "id": "R-part-a5-c4",
+      "kind": "damage",
+      "attacker_count": 4,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 5,
+      "damage_min": 4,
+      "damage_max": 4,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "R-part-a5-c5",
+      "kind": "damage",
+      "attacker_count": 5,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 5,
+      "damage_min": 5,
+      "damage_max": 5,
+      "kills_min": 1,
+      "kills_max": 1
+    },
+    {
+      "id": "R-part-a5-c6",
+      "kind": "damage",
+      "attacker_count": 6,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 5,
+      "damage_min": 6,
+      "damage_max": 6,
+      "kills_min": 1,
+      "kills_max": 1
+    },
+    {
+      "id": "R-part-retaliation",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 5,
+      "defender_first_hp_left": 5,
+      "damage_min": 1,
+      "damage_max": 1,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "R-3part-a2",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 9,
+      "damage_min": 2,
+      "damage_max": 2,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "R-3part-a3",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 9,
+      "damage_min": 3,
+      "damage_max": 3,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "R-3part-a4",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 9,
+      "damage_min": 4,
+      "damage_max": 4,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "R-3part-third-blow",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 4,
+      "damage_min": 4,
+      "damage_max": 4,
+      "kills_min": 1,
+      "kills_max": 1
+    },
+    {
+      "id": "R-part-wounded-attacker",
+      "kind": "damage",
+      "attacker_count": 5,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 10000,
+      "damage_min": 5,
+      "damage_max": 5,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-linear-1",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 100000,
+      "damage_min": 7,
+      "damage_max": 7,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-linear-2",
+      "kind": "damage",
+      "attacker_count": 2,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 100000,
+      "damage_min": 14,
+      "damage_max": 14,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-linear-5",
+      "kind": "damage",
+      "attacker_count": 5,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 100000,
+      "damage_min": 35,
+      "damage_max": 35,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-linear-100",
+      "kind": "damage",
+      "attacker_count": 100,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 100000,
+      "damage_min": 700,
+      "damage_max": 700,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-attack-10",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 100000,
+      "damage_min": 100,
+      "damage_max": 100,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-attack-11",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 11,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 100000,
+      "damage_min": 105,
+      "damage_max": 105,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-attack-20",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 20,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 100000,
+      "damage_min": 150,
+      "damage_max": 150,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-attack-90",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 90,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 100000,
+      "damage_min": 500,
+      "damage_max": 500,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-attack-210",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 210,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 100000,
+      "damage_min": 500,
+      "damage_max": 500,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-defense-10",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 100000,
+      "damage_min": 100,
+      "damage_max": 100,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-defense-11",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 11,
+      "defender_count": 1,
+      "defender_first_hp_left": 100000,
+      "damage_min": 97,
+      "damage_max": 97,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-defense-20",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 20,
+      "defender_count": 1,
+      "defender_first_hp_left": 100000,
+      "damage_min": 75,
+      "damage_max": 75,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-defense-38",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 38,
+      "defender_count": 1,
+      "defender_first_hp_left": 100000,
+      "damage_min": 29,
+      "damage_max": 29,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-defense-200",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 200,
+      "defender_count": 1,
+      "defender_first_hp_left": 100000,
+      "damage_min": 29,
+      "damage_max": 29,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-clamp-to-1",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 100,
+      "defender_count": 1,
+      "defender_first_hp_left": 1000,
+      "damage_min": 1,
+      "damage_max": 1,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-floor-3",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 100,
+      "defender_count": 1,
+      "defender_first_hp_left": 1000,
+      "damage_min": 2,
+      "damage_max": 2,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-shooter-melee",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 1000,
+      "damage_min": 5,
+      "damage_max": 5,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-shooter-melee-exempt",
+      "kind": "damage",
+      "attacker_count": 1,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 1,
+      "defender_first_hp_left": 1000,
+      "damage_min": 10,
+      "damage_max": 10,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-kills-24",
+      "kind": "damage",
+      "attacker_count": 24,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 4,
+      "defender_first_hp_left": 25,
+      "damage_min": 24,
+      "damage_max": 24,
+      "kills_min": 0,
+      "kills_max": 0
+    },
+    {
+      "id": "S-kills-25",
+      "kind": "damage",
+      "attacker_count": 25,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 4,
+      "defender_first_hp_left": 25,
+      "damage_min": 25,
+      "damage_max": 25,
+      "kills_min": 1,
+      "kills_max": 1
+    },
+    {
+      "id": "S-kills-26",
+      "kind": "damage",
+      "attacker_count": 26,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 4,
+      "defender_first_hp_left": 25,
+      "damage_min": 26,
+      "damage_max": 26,
+      "kills_min": 1,
+      "kills_max": 1
+    },
+    {
+      "id": "S-kills-50",
+      "kind": "damage",
+      "attacker_count": 50,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 4,
+      "defender_first_hp_left": 25,
+      "damage_min": 50,
+      "damage_max": 50,
+      "kills_min": 2,
+      "kills_max": 2
+    },
+    {
+      "id": "S-kills-100",
+      "kind": "damage",
+      "attacker_count": 100,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 4,
+      "defender_first_hp_left": 25,
+      "damage_min": 100,
+      "damage_max": 100,
+      "kills_min": 4,
+      "kills_max": 4
+    },
+    {
+      "id": "S-kills-10000",
+      "kind": "damage",
+      "attacker_count": 10000,
+      "attacker_attack": 10,
+      "defender_defense": 10,
+      "defender_count": 4,
+      "defender_first_hp_left": 25,
+      "damage_min": 10000,
+      "damage_max": 10000,
+      "kills_min": 4,
+      "kills_max": 4
+    },
+    {
+      "id": "S-health-vcmi-damage",
+      "kind": "health",
+      "steps": [
+        {
+          "requested": 0,
+          "absorbed": 0,
+          "count": 300,
+          "first_hp_left": 123,
+          "available": 36900
+        },
+        {
+          "requested": 122,
+          "absorbed": 122,
+          "count": 300,
+          "first_hp_left": 1,
+          "available": 36778
+        },
+        {
+          "requested": 1,
+          "absorbed": 1,
+          "count": 299,
+          "first_hp_left": 123,
+          "available": 36777
+        },
+        {
+          "requested": 36777,
+          "absorbed": 36777,
+          "count": 0,
+          "first_hp_left": 0,
+          "available": 0
+        },
+        {
+          "requested": 1337,
+          "absorbed": 0,
+          "count": 0,
+          "first_hp_left": 0,
+          "available": 0
+        }
+      ]
+    },
+    {
+      "id": "S-health-overkill",
+      "kind": "health",
+      "steps": [
+        {
+          "requested": 1000,
+          "absorbed": 300,
+          "count": 0,
+          "first_hp_left": 0,
+          "available": 0
+        }
+      ]
+    },
+    {
+      "id": "S-health-partial",
+      "kind": "health",
+      "steps": [
+        {
+          "requested": 99,
+          "absorbed": 99,
+          "count": 300,
+          "first_hp_left": 24,
+          "available": 36801
+        }
+      ]
+    },
+    {
+      "id": "S-health-reduction",
+      "kind": "health",
+      "steps": [
+        {
+          "requested": 4,
+          "absorbed": 4,
+          "count": 1,
+          "first_hp_left": 1,
+          "available": 1
+        },
+        {
+          "requested": 1,
+          "absorbed": 1,
+          "count": 0,
+          "first_hp_left": 0,
+          "available": 0
+        }
+      ]
+    },
+    {
+      "id": "S-retal-basic",
+      "kind": "retaliation",
+      "able_initially": true,
+      "events": [
+        {
+          "event": "retaliate",
+          "able": false
+        },
+        {
+          "event": "retaliate",
+          "able": false
+        },
+        {
+          "event": "new_round",
+          "able": true
+        },
+        {
+          "event": "retaliate",
+          "able": false
+        }
+      ]
+    },
+    {
+      "id": "S-retal-none",
+      "kind": "retaliation",
+      "able_initially": false,
+      "events": [
+        {
+          "event": "retaliate",
+          "able": false
+        },
+        {
+          "event": "new_round",
+          "able": false
+        }
+      ]
+    },
+    {
+      "id": "S-retal-attacking-does-not-consume",
+      "kind": "retaliation",
+      "able_initially": true,
+      "events": [
+        {
+          "event": "attack",
+          "able": true
+        },
+        {
+          "event": "attack",
+          "able": true
+        },
+        {
+          "event": "retaliate",
+          "able": false
+        }
+      ]
+    },
+    {
+      "id": "T-normal-desc",
+      "kind": "turn_order",
+      "order": [
+        "s13",
+        "s10",
+        "s6",
+        "s1"
+      ]
+    },
+    {
+      "id": "T-wait-after-normal",
+      "kind": "turn_order",
+      "order": [
+        "player6",
+        "fly13"
+      ]
+    },
+    {
+      "id": "T-wait-increasing",
+      "kind": "turn_order",
+      "order": [
+        "front20",
+        "w4",
+        "w6",
+        "w13"
+      ]
+    },
+    {
+      "id": "T-defend-out-of-round",
+      "kind": "turn_order",
+      "order": [
+        "s5",
+        "s3"
+      ]
+    },
+    {
+      "id": "T-tie-normal-alternation",
+      "kind": "turn_order",
+      "order": [
+        "a0",
+        "d0",
+        "a1"
+      ]
+    },
+    {
+      "id": "T-tie-wait-alternation",
+      "kind": "turn_order",
+      "order": [
+        "n9",
+        "wd",
+        "wa"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+ "id": "naturalS-k6-02",
+ "family": "natural-single",
+ "size": 6,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Efreet Sultan": {
+   "attack": 16,
+   "defense": 14,
+   "dmg_min": 16,
+   "dmg_max": 16,
+   "hp": 90,
+   "speed": 13,
+   "value": 1848,
+   "shooter": false
+  },
+  "Wight": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 3,
+   "dmg_max": 3,
+   "hp": 18,
+   "speed": 5,
+   "value": 252,
+   "shooter": false
+  },
+  "Genie": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 40,
+   "speed": 7,
+   "value": 884,
+   "shooter": false
+  },
+  "Peasant": {
+   "attack": 1,
+   "defense": 1,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 1,
+   "speed": 3,
+   "value": 15,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Efreet Sultan",
+   "stock": 4
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96,
+  125
+ ],
+ "enemies": [
+  {
+   "type": "Wight",
+   "count": 1,
+   "hex": 172
+  },
+  {
+   "type": "Genie",
+   "count": 5,
+   "hex": 100
+  },
+  {
+   "type": "Peasant",
+   "count": 3,
+   "hex": 185
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Efreet Sultan"
+  ]
+ }
+}

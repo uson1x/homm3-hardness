@@ -1,0 +1,77 @@
+{
+ "id": "naturalS-k4-05",
+ "family": "natural-single",
+ "size": 4,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Minotaur King": {
+   "attack": 15,
+   "defense": 15,
+   "dmg_min": 12,
+   "dmg_max": 12,
+   "hp": 50,
+   "speed": 8,
+   "value": 1068,
+   "shooter": false
+  },
+  "Stone Gargoyle": {
+   "attack": 6,
+   "defense": 6,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 16,
+   "speed": 6,
+   "value": 165,
+   "shooter": false
+  },
+  "Stone Golem": {
+   "attack": 7,
+   "defense": 10,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 30,
+   "speed": 3,
+   "value": 250,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Minotaur King",
+   "stock": 2
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93
+ ],
+ "enemies": [
+  {
+   "type": "Stone Gargoyle",
+   "count": 1,
+   "hex": 2
+  },
+  {
+   "type": "Stone Golem",
+   "count": 2,
+   "hex": 185
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Minotaur King"
+  ]
+ }
+}

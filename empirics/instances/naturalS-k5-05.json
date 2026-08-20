@@ -1,0 +1,108 @@
+{
+ "id": "naturalS-k5-05",
+ "family": "natural-single",
+ "size": 5,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Psychic Elemental": {
+   "attack": 15,
+   "defense": 13,
+   "dmg_min": 10,
+   "dmg_max": 10,
+   "hp": 75,
+   "speed": 7,
+   "value": 1669,
+   "shooter": false
+  },
+  "Air Elemental": {
+   "attack": 9,
+   "defense": 9,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 25,
+   "speed": 7,
+   "value": 356,
+   "shooter": false
+  },
+  "Efreet Sultan": {
+   "attack": 16,
+   "defense": 14,
+   "dmg_min": 16,
+   "dmg_max": 16,
+   "hp": 90,
+   "speed": 13,
+   "value": 1848,
+   "shooter": false
+  },
+  "Sprite": {
+   "attack": 2,
+   "defense": 2,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 3,
+   "speed": 9,
+   "value": 95,
+   "shooter": false
+  },
+  "Master Genie": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 40,
+   "speed": 11,
+   "value": 942,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Psychic Elemental",
+   "stock": 12
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96
+ ],
+ "enemies": [
+  {
+   "type": "Air Elemental",
+   "count": 2,
+   "hex": 100
+  },
+  {
+   "type": "Efreet Sultan",
+   "count": 5,
+   "hex": 8
+  },
+  {
+   "type": "Sprite",
+   "count": 3,
+   "hex": 185
+  },
+  {
+   "type": "Master Genie",
+   "count": 5,
+   "hex": 172
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Psychic Elemental"
+  ]
+ }
+}

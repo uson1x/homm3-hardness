@@ -1,0 +1,870 @@
+{"task_id": "corridor-k2-n00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [5, 2]}"}
+{"task_id": "corridor-k2-n00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [5, 2]}"}
+{"task_id": "corridor-k2-n01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 3]}"}
+{"task_id": "corridor-k2-n01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 3]}"}
+{"task_id": "corridor-k2-n02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 1]}"}
+{"task_id": "corridor-k2-n02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 1]}"}
+{"task_id": "corridor-k2-n03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 3]}"}
+{"task_id": "corridor-k2-n03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 3]}"}
+{"task_id": "corridor-k2-n04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [5, 2]}"}
+{"task_id": "corridor-k2-n04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [5, 2]}"}
+{"task_id": "corridor-k2-y00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [9, 0]}"}
+{"task_id": "corridor-k2-y00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [9, 0]}"}
+{"task_id": "corridor-k2-y01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [8, 0]}"}
+{"task_id": "corridor-k2-y01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [8, 0]}"}
+{"task_id": "corridor-k2-y02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [7, 0]}"}
+{"task_id": "corridor-k2-y02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [7, 0]}"}
+{"task_id": "corridor-k2-y03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [8, 0]}"}
+{"task_id": "corridor-k2-y03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [8, 0]}"}
+{"task_id": "corridor-k2-y04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [5, 0]}"}
+{"task_id": "corridor-k2-y04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [5, 0]}"}
+{"task_id": "corridor-k3-n00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 9]}"}
+{"task_id": "corridor-k3-n00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 9]}"}
+{"task_id": "corridor-k3-n01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 9]}"}
+{"task_id": "corridor-k3-n01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 9]}"}
+{"task_id": "corridor-k3-n02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 3, 0]}"}
+{"task_id": "corridor-k3-n02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 3, 0]}"}
+{"task_id": "corridor-k3-n03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 6]}"}
+{"task_id": "corridor-k3-n03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 6]}"}
+{"task_id": "corridor-k3-n04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 7]}"}
+{"task_id": "corridor-k3-n04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 7]}"}
+{"task_id": "corridor-k3-y00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 2, 0]}"}
+{"task_id": "corridor-k3-y01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 2, 0]}"}
+{"task_id": "corridor-k3-y02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 6, 0]}"}
+{"task_id": "corridor-k3-y04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 6, 0]}"}
+{"task_id": "corridor-k4-n00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 0, 8]}"}
+{"task_id": "corridor-k4-n00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 0, 8]}"}
+{"task_id": "corridor-k4-n01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 0, 9]}"}
+{"task_id": "corridor-k4-n01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 0, 9]}"}
+{"task_id": "corridor-k4-n02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [4, 0, 0, 7]}"}
+{"task_id": "corridor-k4-n02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [4, 0, 0, 7]}"}
+{"task_id": "corridor-k4-n03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 0, 7]}"}
+{"task_id": "corridor-k4-n03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 0, 7]}"}
+{"task_id": "corridor-k4-n04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 2, 3, 0]}"}
+{"task_id": "corridor-k4-n04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 2, 3, 0]}"}
+{"task_id": "corridor-k4-y00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [5, 0, 0, 7]}"}
+{"task_id": "corridor-k4-y00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [5, 0, 0, 7]}"}
+{"task_id": "corridor-k4-y01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 4, 4, 0]}"}
+{"task_id": "corridor-k4-y01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 4, 4, 0]}"}
+{"task_id": "corridor-k4-y02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 5, 8, 0]}"}
+{"task_id": "corridor-k4-y02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 5, 8, 0]}"}
+{"task_id": "corridor-k4-y03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 1, 4, 0]}"}
+{"task_id": "corridor-k4-y03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 1, 4, 0]}"}
+{"task_id": "corridor-k4-y04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 1, 6, 0]}"}
+{"task_id": "corridor-k4-y04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 1, 6, 0]}"}
+{"task_id": "corridor-k5-n00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 2, 0, 0, 9]}"}
+{"task_id": "corridor-k5-n00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 2, 0, 0, 9]}"}
+{"task_id": "corridor-k5-n01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k5-n01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k5-n02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 0, 0, 7]}"}
+{"task_id": "corridor-k5-n02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 0, 0, 7]}"}
+{"task_id": "corridor-k5-n03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 1, 2, 3, 1]}"}
+{"task_id": "corridor-k5-n03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 1, 2, 3, 1]}"}
+{"task_id": "corridor-k5-n04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 9, 9, 0]}"}
+{"task_id": "corridor-k5-n04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 9, 9, 0]}"}
+{"task_id": "corridor-k5-y00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 2, 0, 0, 6]}"}
+{"task_id": "corridor-k5-y00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 2, 0, 0, 6]}"}
+{"task_id": "corridor-k5-y01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [4, 5, 6, 0, 0]}"}
+{"task_id": "corridor-k5-y01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [4, 5, 6, 0, 0]}"}
+{"task_id": "corridor-k5-y02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 4, 0, 7, 0]}"}
+{"task_id": "corridor-k5-y02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 4, 0, 7, 0]}"}
+{"task_id": "corridor-k5-y03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 5, 0, 6, 0]}"}
+{"task_id": "corridor-k5-y03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 5, 0, 6, 0]}"}
+{"task_id": "corridor-k5-y04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 1, 0, 0, 9]}"}
+{"task_id": "corridor-k5-y04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 1, 0, 0, 9]}"}
+{"task_id": "corridor-k6-n00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 0, 5, 0, 9]}"}
+{"task_id": "corridor-k6-n00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 0, 5, 0, 9]}"}
+{"task_id": "corridor-k6-n01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [5, 5, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k6-n01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [5, 5, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k6-n02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 0, 0, 0, 9, 9]}"}
+{"task_id": "corridor-k6-n02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 0, 0, 0, 9, 9]}"}
+{"task_id": "corridor-k6-n03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 1, 1, 0, 9, 0]}"}
+{"task_id": "corridor-k6-n03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 1, 1, 0, 9, 0]}"}
+{"task_id": "corridor-k6-n04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [4, 0, 0, 5, 5, 0]}"}
+{"task_id": "corridor-k6-n04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [4, 0, 0, 5, 5, 0]}"}
+{"task_id": "corridor-k6-y00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 0, 0, 4, 8, 0]}"}
+{"task_id": "corridor-k6-y00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 0, 0, 4, 8, 0]}"}
+{"task_id": "corridor-k6-y01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 4, 0, 0, 9]}"}
+{"task_id": "corridor-k6-y01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 4, 0, 0, 9]}"}
+{"task_id": "corridor-k6-y02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 4, 6, 0, 0, 7]}"}
+{"task_id": "corridor-k6-y02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 4, 6, 0, 0, 7]}"}
+{"task_id": "corridor-k6-y03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 0, 6, 0, 7]}"}
+{"task_id": "corridor-k6-y03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 0, 6, 0, 7]}"}
+{"task_id": "corridor-k6-y04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 0, 5, 0, 9]}"}
+{"task_id": "corridor-k6-y04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 0, 5, 0, 9]}"}
+{"task_id": "corridor-k7-n00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 4, 0, 5, 8, 0, 0]}"}
+{"task_id": "corridor-k7-n00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 4, 0, 5, 8, 0, 0]}"}
+{"task_id": "corridor-k7-n01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 3, 5, 6, 0, 0, 0]}"}
+{"task_id": "corridor-k7-n01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 3, 5, 6, 0, 0, 0]}"}
+{"task_id": "corridor-k7-n02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 3, 8, 8, 0, 0, 0]}"}
+{"task_id": "corridor-k7-n02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 3, 8, 8, 0, 0, 0]}"}
+{"task_id": "corridor-k7-n03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 1, 0, 7, 0, 8, 0]}"}
+{"task_id": "corridor-k7-n03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 1, 0, 7, 0, 8, 0]}"}
+{"task_id": "corridor-k7-n04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 5, 7, 7, 0, 0]}"}
+{"task_id": "corridor-k7-n04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 5, 7, 7, 0, 0]}"}
+{"task_id": "corridor-k7-y00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 2, 0, 0, 0, 7, 8]}"}
+{"task_id": "corridor-k7-y00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 2, 0, 0, 0, 7, 8]}"}
+{"task_id": "corridor-k7-y01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 3, 6, 0, 0, 0, 8]}"}
+{"task_id": "corridor-k7-y01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 3, 6, 0, 0, 0, 8]}"}
+{"task_id": "corridor-k7-y02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 3, 0, 0, 7, 9, 0]}"}
+{"task_id": "corridor-k7-y02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 3, 0, 0, 7, 9, 0]}"}
+{"task_id": "corridor-k7-y03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 0, 0, 0, 4, 0, 5]}"}
+{"task_id": "corridor-k7-y03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [1, 0, 0, 0, 4, 0, 5]}"}
+{"task_id": "corridor-k7-y04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 3, 0, 0, 6, 0, 9]}"}
+{"task_id": "corridor-k7-y04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 3, 0, 0, 6, 0, 9]}"}
+{"task_id": "flower-k3-y00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k6-n00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C1\", 1], [\"C2\", 1], [\"C4\", 1], null, null, null]}"}
+{"task_id": "flower-k6-n00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C1\", 1], [\"C2\", 1], [\"C4\", 1], null, null, null]}"}
+{"task_id": "flower-k6-n01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C4\", 1], null, null, null]}"}
+{"task_id": "flower-k6-n01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C4\", 1], null, null, null]}"}
+{"task_id": "flower-k6-n02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C0\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C0\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C1\", 1], [\"C2\", 1], [\"C0\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C1\", 1], [\"C2\", 1], [\"C0\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C5\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1]]}"}
+{"task_id": "flower-k6-n04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C5\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1]]}"}
+{"task_id": "flower-k6-y00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C3\", 1], [\"C5\", 1], [\"C1\", 1], [\"C2\", 1], [\"C4\", 1]]}"}
+{"task_id": "flower-k6-y00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C3\", 1], [\"C5\", 1], [\"C1\", 1], [\"C2\", 1], [\"C4\", 1]]}"}
+{"task_id": "flower-k6-y01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C3\", 1], [\"C2\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C3\", 1], [\"C2\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C3\", 1], [\"C2\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C3\", 1], [\"C2\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C4\", 1], [\"C2\", 1], [\"C3\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C4\", 1], [\"C2\", 1], [\"C3\", 1], [\"C5\", 1]]}"}
+{"task_id": "naturalM-k2-00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Devil\", 2], null]}"}
+{"task_id": "naturalM-k2-00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Devil\", 2], null]}"}
+{"task_id": "naturalM-k2-01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Vampire\", 1], null]}"}
+{"task_id": "naturalM-k2-01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Vampire\", 1], null]}"}
+{"task_id": "naturalM-k2-02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, [\"Minotaur King\", 2]]}"}
+{"task_id": "naturalM-k2-02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, [\"Minotaur King\", 2]]}"}
+{"task_id": "naturalM-k2-03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Minotaur\", 5], null]}"}
+{"task_id": "naturalM-k2-03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Minotaur\", 5], null]}"}
+{"task_id": "naturalM-k2-04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Efreet Sultan\", 1], [\"Minotaur\", 1]]}"}
+{"task_id": "naturalM-k2-04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Efreet Sultan\", 1], [\"Minotaur\", 1]]}"}
+{"task_id": "naturalM-k2-05::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Ogre\", 5], null]}"}
+{"task_id": "naturalM-k2-05::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Ogre\", 5], null]}"}
+{"task_id": "naturalM-k3-00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Dendroid Guard\", 5], [\"Energy Elemental\", 5], null]}"}
+{"task_id": "naturalM-k3-00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Dendroid Guard\", 5], [\"Energy Elemental\", 5], null]}"}
+{"task_id": "naturalM-k3-01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, [\"Efreeti\", 1], null]}"}
+{"task_id": "naturalM-k3-01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, [\"Efreeti\", 1], null]}"}
+{"task_id": "naturalM-k3-02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Ogre Mage\", 2], null, null]}"}
+{"task_id": "naturalM-k3-02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Ogre Mage\", 2], null, null]}"}
+{"task_id": "naturalM-k3-03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Angel\", 2], null, null]}"}
+{"task_id": "naturalM-k3-03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Angel\", 2], null, null]}"}
+{"task_id": "naturalM-k3-04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Magic Elemental\", 4], [\"Vampire Lord\", 4], [\"Swordsman\", 4]]}"}
+{"task_id": "naturalM-k3-04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Magic Elemental\", 4], [\"Vampire Lord\", 4], [\"Swordsman\", 4]]}"}
+{"task_id": "naturalM-k3-05::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Demon\", 1], [\"Air Elemental\", 10], [\"Demon\", 9]]}"}
+{"task_id": "naturalM-k3-05::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Demon\", 1], [\"Air Elemental\", 10], [\"Demon\", 9]]}"}
+{"task_id": "naturalM-k4-00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Wraith\", 1], null, null, null]}"}
+{"task_id": "naturalM-k4-00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Wraith\", 1], null, null, null]}"}
+{"task_id": "naturalM-k4-01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Gold Golem\", 1], null, [\"Fire Elemental\", 1], null]}"}
+{"task_id": "naturalM-k4-01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Gold Golem\", 1], null, [\"Fire Elemental\", 1], null]}"}
+{"task_id": "naturalM-k4-02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, [\"Psychic Elemental\", 3], null, null]}"}
+{"task_id": "naturalM-k4-02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, [\"Psychic Elemental\", 3], null, null]}"}
+{"task_id": "naturalM-k4-03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, [\"Obsidian Gargoyle\", 2], null, null]}"}
+{"task_id": "naturalM-k4-03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, [\"Obsidian Gargoyle\", 2], null, null]}"}
+{"task_id": "naturalM-k4-04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Magic Elemental\", 2], null, null, null]}"}
+{"task_id": "naturalM-k4-04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Magic Elemental\", 2], null, null, null]}"}
+{"task_id": "naturalM-k4-05::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, null, [\"Troll\", 5], [\"Troll\", 1]]}"}
+{"task_id": "naturalM-k4-05::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, null, [\"Troll\", 5], [\"Troll\", 1]]}"}
+{"task_id": "naturalM-k5-00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Pit Lord\", 4], null, [\"Psychic Elemental\", 4], null, [\"Demon\", 4]]}"}
+{"task_id": "naturalM-k5-00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Pit Lord\", 4], null, [\"Psychic Elemental\", 4], null, [\"Demon\", 4]]}"}
+{"task_id": "naturalM-k5-01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Devil\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k5-01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Devil\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k5-02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Serpent Fly\", 7], null, null, null, null]}"}
+{"task_id": "naturalM-k5-02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Serpent Fly\", 7], null, null, null, null]}"}
+{"task_id": "naturalM-k5-03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Efreeti\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k5-03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Efreeti\", 1], null, null, null, null]]}"}
+{"task_id": "naturalM-k5-04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Vampire\", 4], null, null, null, null]}"}
+{"task_id": "naturalM-k5-04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Vampire\", 4], null, null, null, null]}"}
+{"task_id": "naturalM-k5-05::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Arch Devil\", 4], null, null, null, null]}"}
+{"task_id": "naturalM-k5-05::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Arch Devil\", 4], null, null, null, null]}"}
+{"task_id": "naturalM-k6-00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, null, [\"Diamond Golem\", 2], null, null, [\"Swordsman\", 2]]}"}
+{"task_id": "naturalM-k6-00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, null, [\"Diamond Golem\", 2], null, null, [\"Swordsman\", 2]]}"}
+{"task_id": "naturalM-k6-01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Master Genie\", 6], null, null, null, null, null]}"}
+{"task_id": "naturalM-k6-01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Master Genie\", 6], null, null, null, null, null]}"}
+{"task_id": "naturalM-k6-02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Angel\", 1], null, null, null, null, null]}"}
+{"task_id": "naturalM-k6-02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Angel\", 1], null, null, null, null, null]}"}
+{"task_id": "naturalM-k6-03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Troll\", 1], null, null, null, null, null]}"}
+{"task_id": "naturalM-k6-03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Troll\", 1], null, null, null, null, null]}"}
+{"task_id": "naturalM-k6-04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, null, null, null, [\"Angel\", 1], null]}"}
+{"task_id": "naturalM-k6-04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, null, null, null, [\"Angel\", 1], null]}"}
+{"task_id": "naturalM-k6-05::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Wraith\", 2], null, null, null, [\"Iron Golem\", 2], null]}"}
+{"task_id": "naturalM-k6-05::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Wraith\", 2], null, null, null, [\"Iron Golem\", 2], null]}"}
+{"task_id": "naturalM-k7-00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Magic Elemental\", 1], null, null, null, null, null, null]}"}
+{"task_id": "naturalM-k7-00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Magic Elemental\", 1], null, null, null, null, null, null]}"}
+{"task_id": "naturalM-k7-01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Arch Devil\", 1], [\"Arch Devil\", 1], null, [\"Arch Devil\", 1], null, null, null]}"}
+{"task_id": "naturalM-k7-01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Arch Devil\", 1], [\"Arch Devil\", 1], null, [\"Arch Devil\", 1], null, null, null]}"}
+{"task_id": "naturalM-k7-02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Mummy\", 1], null, [\"Mummy\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k7-02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Mummy\", 1], null, [\"Mummy\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k7-03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Arch Devil\", 1], null, null, null, null, null, null]}"}
+{"task_id": "naturalM-k7-03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Arch Devil\", 1], null, null, null, null, null, null]}"}
+{"task_id": "naturalM-k7-04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Psychic Elemental\", 1], null, [\"Psychic Elemental\", 2], null, null, null, null]}"}
+{"task_id": "naturalM-k7-04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [[\"Psychic Elemental\", 1], null, [\"Psychic Elemental\", 2], null, null, null, null]}"}
+{"task_id": "naturalM-k7-05::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, null, [\"Ogre\", 2], null, null, null, null]}"}
+{"task_id": "naturalM-k7-05::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [null, null, [\"Ogre\", 2], null, null, null, null]}"}
+{"task_id": "naturalS-k2-00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 13]}"}
+{"task_id": "naturalS-k2-00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 13]}"}
+{"task_id": "naturalS-k2-01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 15]}"}
+{"task_id": "naturalS-k2-01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 15]}"}
+{"task_id": "naturalS-k2-02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [7, 14]}"}
+{"task_id": "naturalS-k2-02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [7, 14]}"}
+{"task_id": "naturalS-k2-03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0]}"}
+{"task_id": "naturalS-k2-03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0]}"}
+{"task_id": "naturalS-k2-04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0]}"}
+{"task_id": "naturalS-k2-04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0]}"}
+{"task_id": "naturalS-k2-05::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 13]}"}
+{"task_id": "naturalS-k2-05::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 13]}"}
+{"task_id": "naturalS-k3-00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 1, 0]}"}
+{"task_id": "naturalS-k3-00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 1, 0]}"}
+{"task_id": "naturalS-k3-01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 2, 3]}"}
+{"task_id": "naturalS-k3-01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 2, 3]}"}
+{"task_id": "naturalS-k3-02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 15, 0]}"}
+{"task_id": "naturalS-k3-02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 15, 0]}"}
+{"task_id": "naturalS-k3-03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [13, 0, 0]}"}
+{"task_id": "naturalS-k3-03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [13, 0, 0]}"}
+{"task_id": "naturalS-k3-04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [8, 1, 6]}"}
+{"task_id": "naturalS-k3-04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [8, 1, 6]}"}
+{"task_id": "naturalS-k3-05::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 18, 0]}"}
+{"task_id": "naturalS-k3-05::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 18, 0]}"}
+{"task_id": "naturalS-k4-00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 9, 0]}"}
+{"task_id": "naturalS-k4-00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 9, 0]}"}
+{"task_id": "naturalS-k4-01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 15, 0]}"}
+{"task_id": "naturalS-k4-01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 15, 0]}"}
+{"task_id": "naturalS-k4-02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 0, 0]}"}
+{"task_id": "naturalS-k4-02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 0, 0]}"}
+{"task_id": "naturalS-k4-03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 14, 0, 0]}"}
+{"task_id": "naturalS-k4-03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 14, 0, 0]}"}
+{"task_id": "naturalS-k4-04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 8, 0, 0]}"}
+{"task_id": "naturalS-k4-04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 8, 0, 0]}"}
+{"task_id": "naturalS-k4-05::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 0, 0]}"}
+{"task_id": "naturalS-k4-05::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [22, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [22, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 8, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 8, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [10, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [10, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 1, 1, 0, 0]}"}
+{"task_id": "naturalS-k5-03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 1, 1, 0, 0]}"}
+{"task_id": "naturalS-k5-04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 1, 0, 0]}"}
+{"task_id": "naturalS-k5-04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 1, 0, 0]}"}
+{"task_id": "naturalS-k5-05::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 6, 5, 0, 1]}"}
+{"task_id": "naturalS-k5-05::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 6, 5, 0, 1]}"}
+{"task_id": "naturalS-k6-00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 4, 2, 0, 0, 5]}"}
+{"task_id": "naturalS-k6-00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 4, 2, 0, 0, 5]}"}
+{"task_id": "naturalS-k6-01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 1, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 1, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 8, 0, 0, 15, 0]}"}
+{"task_id": "naturalS-k6-03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [2, 8, 0, 0, 15, 0]}"}
+{"task_id": "naturalS-k6-04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 0, 0, 8, 0]}"}
+{"task_id": "naturalS-k6-04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 0, 0, 8, 0]}"}
+{"task_id": "naturalS-k6-05::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-05::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [3, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-00::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 3, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-00::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 3, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-01::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [8, 5, 0, 0, 2, 0, 0]}"}
+{"task_id": "naturalS-k7-01::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [8, 5, 0, 0, 2, 0, 0]}"}
+{"task_id": "naturalS-k7-02::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 2, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-02::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 2, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-03::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-03::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-04::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 0, 1, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-04::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 0, 0, 1, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-05::assisted", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 1, 0, 0, 0, 0, 9]}"}
+{"task_id": "naturalS-k7-05::raw", "model": "claude-haiku-4-5", "response": "{\"allocation\": [0, 1, 0, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k2-n00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [5, 0]}"}
+{"task_id": "corridor-k2-n00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [5, 0]}"}
+{"task_id": "corridor-k2-n01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 0]}"}
+{"task_id": "corridor-k2-n01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 0]}"}
+{"task_id": "corridor-k2-n02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 0]}"}
+{"task_id": "corridor-k2-n02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 0]}"}
+{"task_id": "corridor-k2-n03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 0]}"}
+{"task_id": "corridor-k2-n03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 0]}"}
+{"task_id": "corridor-k2-n04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [5, 0]}"}
+{"task_id": "corridor-k2-n04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [5, 0]}"}
+{"task_id": "corridor-k2-y00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [9, 0]}"}
+{"task_id": "corridor-k2-y00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [9, 0]}"}
+{"task_id": "corridor-k2-y01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [8, 0]}"}
+{"task_id": "corridor-k2-y01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [8, 0]}"}
+{"task_id": "corridor-k2-y02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [7, 0]}"}
+{"task_id": "corridor-k2-y02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [7, 0]}"}
+{"task_id": "corridor-k2-y03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [8, 0]}"}
+{"task_id": "corridor-k2-y03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [8, 0]}"}
+{"task_id": "corridor-k2-y04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [5, 0]}"}
+{"task_id": "corridor-k2-y04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [5, 0]}"}
+{"task_id": "corridor-k3-n00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 9]}"}
+{"task_id": "corridor-k3-n00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 9]}"}
+{"task_id": "corridor-k3-n01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 9]}"}
+{"task_id": "corridor-k3-n01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 9]}"}
+{"task_id": "corridor-k3-n02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 3, 0]}"}
+{"task_id": "corridor-k3-n02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 3, 0]}"}
+{"task_id": "corridor-k3-n03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 6]}"}
+{"task_id": "corridor-k3-n03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 6]}"}
+{"task_id": "corridor-k3-n04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 7]}"}
+{"task_id": "corridor-k3-n04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 7]}"}
+{"task_id": "corridor-k3-y00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 2, 0]}"}
+{"task_id": "corridor-k3-y01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 2, 0]}"}
+{"task_id": "corridor-k3-y02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 6, 0]}"}
+{"task_id": "corridor-k3-y04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 6, 0]}"}
+{"task_id": "corridor-k4-n00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 0, 8]}"}
+{"task_id": "corridor-k4-n00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 0, 8]}"}
+{"task_id": "corridor-k4-n01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 0, 9, 0]}"}
+{"task_id": "corridor-k4-n01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 0, 9, 0]}"}
+{"task_id": "corridor-k4-n02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [4, 0, 7, 0]}"}
+{"task_id": "corridor-k4-n02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [4, 0, 7, 0]}"}
+{"task_id": "corridor-k4-n03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 0, 7]}"}
+{"task_id": "corridor-k4-n03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 0, 7]}"}
+{"task_id": "corridor-k4-n04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 2, 3, 0]}"}
+{"task_id": "corridor-k4-n04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 2, 3, 0]}"}
+{"task_id": "corridor-k4-y00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [5, 0, 0, 7]}"}
+{"task_id": "corridor-k4-y00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [5, 0, 0, 7]}"}
+{"task_id": "corridor-k4-y01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 0, 0, 6]}"}
+{"task_id": "corridor-k4-y01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 0, 0, 6]}"}
+{"task_id": "corridor-k4-y02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [4, 0, 0, 9]}"}
+{"task_id": "corridor-k4-y02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [4, 0, 0, 9]}"}
+{"task_id": "corridor-k4-y03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 0, 6]}"}
+{"task_id": "corridor-k4-y03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 0, 6]}"}
+{"task_id": "corridor-k4-y04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 0, 8]}"}
+{"task_id": "corridor-k4-y04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 0, 8]}"}
+{"task_id": "corridor-k5-n00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 2, 0, 0, 8]}"}
+{"task_id": "corridor-k5-n00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 2, 0, 0, 8]}"}
+{"task_id": "corridor-k5-n01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k5-n01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k5-n02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 0, 0, 7]}"}
+{"task_id": "corridor-k5-n02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 0, 0, 7]}"}
+{"task_id": "corridor-k5-n03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 1, 2, 3, 0]}"}
+{"task_id": "corridor-k5-n03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 1, 2, 3, 0]}"}
+{"task_id": "corridor-k5-n04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 9, 9, 0]}"}
+{"task_id": "corridor-k5-n04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 9, 9, 0]}"}
+{"task_id": "corridor-k5-y00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 4, 5, 0]}"}
+{"task_id": "corridor-k5-y00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 4, 5, 0]}"}
+{"task_id": "corridor-k5-y01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 0, 7, 8]}"}
+{"task_id": "corridor-k5-y01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 0, 7, 8]}"}
+{"task_id": "corridor-k5-y02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 5, 0, 9]}"}
+{"task_id": "corridor-k5-y02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 5, 0, 9]}"}
+{"task_id": "corridor-k5-y03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 5, 0, 0, 7]}"}
+{"task_id": "corridor-k5-y03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 5, 0, 0, 7]}"}
+{"task_id": "corridor-k5-y04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 4, 7, 0]}"}
+{"task_id": "corridor-k5-y04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 4, 7, 0]}"}
+{"task_id": "corridor-k6-n00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 2, 5, 5, 0, 0]}"}
+{"task_id": "corridor-k6-n00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 2, 5, 5, 0, 0]}"}
+{"task_id": "corridor-k6-n01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [5, 5, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k6-n01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [5, 5, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k6-n02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 0, 0, 9, 9]}"}
+{"task_id": "corridor-k6-n02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 0, 0, 9, 9]}"}
+{"task_id": "corridor-k6-n03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 1, 1, 0, 9, 0]}"}
+{"task_id": "corridor-k6-n03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 1, 1, 0, 9, 0]}"}
+{"task_id": "corridor-k6-n04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [4, 0, 0, 5, 5, 0]}"}
+{"task_id": "corridor-k6-n04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [4, 0, 0, 5, 5, 0]}"}
+{"task_id": "corridor-k6-y00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 3, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k6-y00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 3, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k6-y01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 4, 0, 0, 9]}"}
+{"task_id": "corridor-k6-y01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 4, 0, 0, 9]}"}
+{"task_id": "corridor-k6-y02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 0, 0, 7, 7, 0]}"}
+{"task_id": "corridor-k6-y02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 0, 0, 7, 7, 0]}"}
+{"task_id": "corridor-k6-y03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 0, 0, 6, 7, 0]}"}
+{"task_id": "corridor-k6-y03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 0, 0, 6, 7, 0]}"}
+{"task_id": "corridor-k6-y04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 0, 5, 0, 9]}"}
+{"task_id": "corridor-k6-y04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 0, 5, 0, 9]}"}
+{"task_id": "corridor-k7-n00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 4, 0, 5, 8, 0, 0]}"}
+{"task_id": "corridor-k7-n00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 4, 0, 5, 8, 0, 0]}"}
+{"task_id": "corridor-k7-n01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 0, 6, 6, 6, 0]}"}
+{"task_id": "corridor-k7-n01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 0, 6, 6, 6, 0]}"}
+{"task_id": "corridor-k7-n02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 3, 0, 0, 0, 9, 9]}"}
+{"task_id": "corridor-k7-n02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 3, 0, 0, 0, 9, 9]}"}
+{"task_id": "corridor-k7-n03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 1, 0, 0, 0, 8, 8]}"}
+{"task_id": "corridor-k7-n03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 1, 0, 0, 0, 8, 8]}"}
+{"task_id": "corridor-k7-n04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 5, 0, 7, 0, 9, 0]}"}
+{"task_id": "corridor-k7-n04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 5, 0, 7, 0, 9, 0]}"}
+{"task_id": "corridor-k7-y00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 2, 0, 0, 0, 7, 8]}"}
+{"task_id": "corridor-k7-y00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 2, 0, 0, 0, 7, 8]}"}
+{"task_id": "corridor-k7-y01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 3, 6, 0, 0, 0, 8]}"}
+{"task_id": "corridor-k7-y01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 3, 6, 0, 0, 0, 8]}"}
+{"task_id": "corridor-k7-y02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 0, 0, 0, 9, 9]}"}
+{"task_id": "corridor-k7-y02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 0, 0, 0, 9, 9]}"}
+{"task_id": "corridor-k7-y03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 0, 0, 4, 0, 5]}"}
+{"task_id": "corridor-k7-y03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 0, 0, 4, 0, 5]}"}
+{"task_id": "corridor-k7-y04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 0, 0, 0, 8, 9]}"}
+{"task_id": "corridor-k7-y04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 0, 0, 0, 8, 9]}"}
+{"task_id": "flower-k3-y00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k6-n00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C4\", 1], [\"C1\", 1], [\"C2\", 1], [\"C0\", 1], [\"C3\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C4\", 1], [\"C1\", 1], [\"C2\", 1], [\"C0\", 1], [\"C3\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C4\", 1], [\"C5\", 1], [\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1]]}"}
+{"task_id": "flower-k6-n01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C4\", 1], [\"C5\", 1], [\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1]]}"}
+{"task_id": "flower-k6-n02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C0\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C0\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C5\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1]]}"}
+{"task_id": "flower-k6-y01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C5\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1]]}"}
+{"task_id": "flower-k6-y02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C3\", 1], [\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C3\", 1], [\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C5\", 1], [\"C1\", 1], [\"C2\", 1], [\"C0\", 1], [\"C4\", 1], [\"C3\", 1]]}"}
+{"task_id": "flower-k6-y04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"C5\", 1], [\"C1\", 1], [\"C2\", 1], [\"C0\", 1], [\"C4\", 1], [\"C3\", 1]]}"}
+{"task_id": "naturalM-k2-00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Wight\", 2], [\"Devil\", 2]]}"}
+{"task_id": "naturalM-k2-00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Wight\", 2], [\"Devil\", 2]]}"}
+{"task_id": "naturalM-k2-01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Vampire\", 1], null]}"}
+{"task_id": "naturalM-k2-01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Vampire\", 1], null]}"}
+{"task_id": "naturalM-k2-02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Minotaur King\", 2]]}"}
+{"task_id": "naturalM-k2-02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Minotaur King\", 2]]}"}
+{"task_id": "naturalM-k2-03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Minotaur\", 5], null]}"}
+{"task_id": "naturalM-k2-03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Minotaur\", 5], null]}"}
+{"task_id": "naturalM-k2-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Minotaur\", 1], [\"Efreet Sultan\", 1]]}"}
+{"task_id": "naturalM-k2-04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Minotaur\", 1], [\"Efreet Sultan\", 1]]}"}
+{"task_id": "naturalM-k2-05::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Ogre\", 5], null]}"}
+{"task_id": "naturalM-k2-05::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Ogre\", 5], null]}"}
+{"task_id": "naturalM-k3-00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Dendroid Guard\", 5], [\"Energy Elemental\", 5], null]}"}
+{"task_id": "naturalM-k3-00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Dendroid Guard\", 5], [\"Energy Elemental\", 5], null]}"}
+{"task_id": "naturalM-k3-01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Efreeti\", 1], null]}"}
+{"task_id": "naturalM-k3-01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Efreeti\", 1], null]}"}
+{"task_id": "naturalM-k3-02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Ogre Mage\", 2], null, [\"Skeleton\", 2]]}"}
+{"task_id": "naturalM-k3-02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Ogre Mage\", 2], null, [\"Skeleton\", 2]]}"}
+{"task_id": "naturalM-k3-03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Angel\", 1], [\"Angel\", 1], null]}"}
+{"task_id": "naturalM-k3-03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Angel\", 1], [\"Angel\", 1], null]}"}
+{"task_id": "naturalM-k3-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Magic Elemental\", 4], [\"Vampire Lord\", 4], [\"Swordsman\", 4]]}"}
+{"task_id": "naturalM-k3-04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Magic Elemental\", 4], [\"Vampire Lord\", 4], [\"Swordsman\", 4]]}"}
+{"task_id": "naturalM-k3-05::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Demon\", 2], [\"Air Elemental\", 10], [\"Demon\", 8]]}"}
+{"task_id": "naturalM-k3-05::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Demon\", 2], [\"Air Elemental\", 10], [\"Demon\", 8]]}"}
+{"task_id": "naturalM-k4-00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Wraith\", 3], null, [\"Wight\", 3], [\"Gnoll Marauder\", 3]]}"}
+{"task_id": "naturalM-k4-00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Wraith\", 3], null, [\"Wight\", 3], [\"Gnoll Marauder\", 3]]}"}
+{"task_id": "naturalM-k4-01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Gold Golem\", 4], [\"Fire Elemental\", 4], null, null]}"}
+{"task_id": "naturalM-k4-01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Gold Golem\", 4], [\"Fire Elemental\", 4], null, null]}"}
+{"task_id": "naturalM-k4-02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Psychic Elemental\", 3], null, null]}"}
+{"task_id": "naturalM-k4-02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Psychic Elemental\", 3], null, null]}"}
+{"task_id": "naturalM-k4-03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, null, null, [\"Obsidian Gargoyle\", 2]]}"}
+{"task_id": "naturalM-k4-03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, null, null, [\"Obsidian Gargoyle\", 2]]}"}
+{"task_id": "naturalM-k4-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Magic Elemental\", 2], null, null, null]}"}
+{"task_id": "naturalM-k4-04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Magic Elemental\", 2], null, null, null]}"}
+{"task_id": "naturalM-k4-05::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Troll\", 6], [\"Battle Dwarf\", 6], null, null]}"}
+{"task_id": "naturalM-k4-05::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Troll\", 6], [\"Battle Dwarf\", 6], null, null]}"}
+{"task_id": "naturalM-k5-00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Pit Lord\", 3], [\"Demon\", 4], [\"Psychic Elemental\", 1], [\"Pit Lord\", 1], [\"Psychic Elemental\", 3]]}"}
+{"task_id": "naturalM-k5-00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Pit Lord\", 3], [\"Demon\", 4], [\"Psychic Elemental\", 1], [\"Pit Lord\", 1], [\"Psychic Elemental\", 3]]}"}
+{"task_id": "naturalM-k5-01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Devil\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k5-01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Devil\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k5-02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Serpent Fly\", 7], null, null, null, null]}"}
+{"task_id": "naturalM-k5-02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Serpent Fly\", 7], null, null, null, null]}"}
+{"task_id": "naturalM-k5-03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Efreeti\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k5-03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Efreeti\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k5-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Vampire\", 4], [\"Stone Golem\", 3], null, [\"Stone Gargoyle\", 4]]}"}
+{"task_id": "naturalM-k5-04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, [\"Vampire\", 4], [\"Stone Golem\", 3], null, [\"Stone Gargoyle\", 4]]}"}
+{"task_id": "naturalM-k5-05::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Arch Devil\", 4], null, null, null, null]}"}
+{"task_id": "naturalM-k5-05::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Arch Devil\", 4], null, null, null, null]}"}
+{"task_id": "naturalM-k6-00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Swordsman\", 1], null, [\"Swordsman\", 1], null, null, [\"Diamond Golem\", 2]]}"}
+{"task_id": "naturalM-k6-00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Swordsman\", 1], null, [\"Swordsman\", 1], null, null, [\"Diamond Golem\", 2]]}"}
+{"task_id": "naturalM-k6-01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Dwarf\", 6], null, [\"Master Genie\", 1], [\"Master Genie\", 5], null, null]}"}
+{"task_id": "naturalM-k6-01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Dwarf\", 6], null, [\"Master Genie\", 1], [\"Master Genie\", 5], null, null]}"}
+{"task_id": "naturalM-k6-02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Angel\", 1], null, null, null, [\"Psychic Elemental\", 1], null]}"}
+{"task_id": "naturalM-k6-02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Angel\", 1], null, null, null, [\"Psychic Elemental\", 1], null]}"}
+{"task_id": "naturalM-k6-03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Troll\", 3], [\"Horned Demon\", 3], null, null, null, null]}"}
+{"task_id": "naturalM-k6-03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Troll\", 3], [\"Horned Demon\", 3], null, null, null, null]}"}
+{"task_id": "naturalM-k6-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Angel\", 1], null, null, null, null, [\"Ogre Mage\", 1]]}"}
+{"task_id": "naturalM-k6-04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Angel\", 1], null, null, null, null, [\"Ogre Mage\", 1]]}"}
+{"task_id": "naturalM-k6-05::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Wraith\", 2], [\"Serpent Fly\", 2], [\"Iron Golem\", 2], [\"Pikeman\", 2], null, null]}"}
+{"task_id": "naturalM-k6-05::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Wraith\", 2], [\"Serpent Fly\", 2], [\"Iron Golem\", 2], [\"Pikeman\", 2], null, null]}"}
+{"task_id": "naturalM-k7-00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, null, [\"Magic Elemental\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k7-00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [null, null, [\"Magic Elemental\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k7-01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Arch Devil\", 3], null, null, null, [\"Pit Fiend\", 3], null, null]}"}
+{"task_id": "naturalM-k7-01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Arch Devil\", 3], null, null, null, [\"Pit Fiend\", 3], null, null]}"}
+{"task_id": "naturalM-k7-02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Harpy Hag\", 3], null, [\"Mummy\", 3], null, null, null, null]}"}
+{"task_id": "naturalM-k7-02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Harpy Hag\", 3], null, [\"Mummy\", 3], null, null, null, null]}"}
+{"task_id": "naturalM-k7-03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Arch Devil\", 1], null, null, null, null, null, null]}"}
+{"task_id": "naturalM-k7-03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Arch Devil\", 1], null, null, null, null, null, null]}"}
+{"task_id": "naturalM-k7-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Dendroid Soldier\", 3], null, null, null, [\"Psychic Elemental\", 3], null, null]}"}
+{"task_id": "naturalM-k7-04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Dendroid Soldier\", 3], null, null, null, [\"Psychic Elemental\", 3], null, null]}"}
+{"task_id": "naturalM-k7-05::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Hobgoblin\", 2], null, [\"Ogre\", 2], null, null, [\"Infernal Troglodyte\", 2], null]}"}
+{"task_id": "naturalM-k7-05::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [[\"Hobgoblin\", 2], null, [\"Ogre\", 2], null, null, [\"Infernal Troglodyte\", 2], null]}"}
+{"task_id": "naturalS-k2-00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 15]}"}
+{"task_id": "naturalS-k2-00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 15]}"}
+{"task_id": "naturalS-k2-01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 13]}"}
+{"task_id": "naturalS-k2-01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 13]}"}
+{"task_id": "naturalS-k2-02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [15, 3]}"}
+{"task_id": "naturalS-k2-02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [15, 3]}"}
+{"task_id": "naturalS-k2-03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 0]}"}
+{"task_id": "naturalS-k2-03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 0]}"}
+{"task_id": "naturalS-k2-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 2]}"}
+{"task_id": "naturalS-k2-04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 2]}"}
+{"task_id": "naturalS-k2-05::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [5, 8]}"}
+{"task_id": "naturalS-k2-05::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [5, 8]}"}
+{"task_id": "naturalS-k3-00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 1, 0]}"}
+{"task_id": "naturalS-k3-00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 1, 0]}"}
+{"task_id": "naturalS-k3-01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 2, 3]}"}
+{"task_id": "naturalS-k3-01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 2, 3]}"}
+{"task_id": "naturalS-k3-02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 15, 0]}"}
+{"task_id": "naturalS-k3-02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 15, 0]}"}
+{"task_id": "naturalS-k3-03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [7, 6, 0]}"}
+{"task_id": "naturalS-k3-03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [7, 6, 0]}"}
+{"task_id": "naturalS-k3-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [7, 1, 6]}"}
+{"task_id": "naturalS-k3-04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [7, 1, 6]}"}
+{"task_id": "naturalS-k3-05::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [17, 0, 0]}"}
+{"task_id": "naturalS-k3-05::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [17, 0, 0]}"}
+{"task_id": "naturalS-k4-00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 0, 2, 0]}"}
+{"task_id": "naturalS-k4-00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 0, 2, 0]}"}
+{"task_id": "naturalS-k4-01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [13, 0, 0, 4]}"}
+{"task_id": "naturalS-k4-01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [13, 0, 0, 4]}"}
+{"task_id": "naturalS-k4-02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 1, 0]}"}
+{"task_id": "naturalS-k4-02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 1, 0]}"}
+{"task_id": "naturalS-k4-03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 15, 0, 0]}"}
+{"task_id": "naturalS-k4-03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 15, 0, 0]}"}
+{"task_id": "naturalS-k4-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 8, 0, 0]}"}
+{"task_id": "naturalS-k4-04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 8, 0, 0]}"}
+{"task_id": "naturalS-k4-05::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 2, 0, 0]}"}
+{"task_id": "naturalS-k4-05::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 2, 0, 0]}"}
+{"task_id": "naturalS-k5-00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 11, 0, 10]}"}
+{"task_id": "naturalS-k5-00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 11, 0, 10]}"}
+{"task_id": "naturalS-k5-01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 8, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 8, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [10, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [10, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 1, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 1, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 1, 0, 0]}"}
+{"task_id": "naturalS-k5-04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 1, 0, 0]}"}
+{"task_id": "naturalS-k5-05::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [11, 0, 0, 0, 1]}"}
+{"task_id": "naturalS-k5-05::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [11, 0, 0, 0, 1]}"}
+{"task_id": "naturalS-k6-00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [5, 4, 2, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [5, 4, 2, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [4, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [4, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 1, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [3, 1, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 8, 0, 14, 0, 0]}"}
+{"task_id": "naturalS-k6-03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [2, 8, 0, 14, 0, 0]}"}
+{"task_id": "naturalS-k6-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [8, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [8, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-05::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [4, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-05::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [4, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-00::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 3, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-00::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 0, 3, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-01::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [14, 2, 0, 0, 3, 0, 0]}"}
+{"task_id": "naturalS-k7-01::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [14, 2, 0, 0, 3, 0, 0]}"}
+{"task_id": "naturalS-k7-02::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [9, 0, 1, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-02::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [9, 0, 1, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-03::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 18, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-03::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [0, 18, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-04::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-04::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [1, 0, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-05::assisted", "model": "claude-sonnet-5", "response": "{\"allocation\": [9, 0, 0, 0, 0, 0, 1]}"}
+{"task_id": "naturalS-k7-05::raw", "model": "claude-sonnet-5", "response": "{\"allocation\": [9, 0, 0, 0, 0, 0, 1]}"}
+{"task_id": "corridor-k2-n00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [7, 0]}"}
+{"task_id": "corridor-k2-n00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [7, 0]}"}
+{"task_id": "corridor-k2-n01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [6, 0]}"}
+{"task_id": "corridor-k2-n01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [6, 0]}"}
+{"task_id": "corridor-k2-n02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [3, 0]}"}
+{"task_id": "corridor-k2-n02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [3, 0]}"}
+{"task_id": "corridor-k2-n03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [6, 0]}"}
+{"task_id": "corridor-k2-n03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [6, 0]}"}
+{"task_id": "corridor-k2-n04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [7, 0]}"}
+{"task_id": "corridor-k2-n04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [7, 0]}"}
+{"task_id": "corridor-k2-y00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C\", 9], null]}"}
+{"task_id": "corridor-k2-y00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C\", 9], null]}"}
+{"task_id": "corridor-k2-y01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C\", 8], null]}"}
+{"task_id": "corridor-k2-y01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C\", 8], null]}"}
+{"task_id": "corridor-k2-y02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C\", 7], null]}"}
+{"task_id": "corridor-k2-y02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C\", 7], null]}"}
+{"task_id": "corridor-k2-y03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C\", 8], null]}"}
+{"task_id": "corridor-k2-y03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C\", 8], null]}"}
+{"task_id": "corridor-k2-y04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C\", 5], null]}"}
+{"task_id": "corridor-k2-y04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C\", 5], null]}"}
+{"task_id": "corridor-k3-n00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 9]}"}
+{"task_id": "corridor-k3-n00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 9]}"}
+{"task_id": "corridor-k3-n01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 9]}"}
+{"task_id": "corridor-k3-n01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 9]}"}
+{"task_id": "corridor-k3-n02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 3, 0]}"}
+{"task_id": "corridor-k3-n02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 3, 0]}"}
+{"task_id": "corridor-k3-n03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 6]}"}
+{"task_id": "corridor-k3-n03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 6]}"}
+{"task_id": "corridor-k3-n04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 7]}"}
+{"task_id": "corridor-k3-n04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 7]}"}
+{"task_id": "corridor-k3-y00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 2, 0]}"}
+{"task_id": "corridor-k3-y01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 2, 0]}"}
+{"task_id": "corridor-k3-y02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 6, 0]}"}
+{"task_id": "corridor-k3-y04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 6, 0]}"}
+{"task_id": "corridor-k3-y04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 6, 0]}"}
+{"task_id": "corridor-k4-n00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 0, 8]}"}
+{"task_id": "corridor-k4-n00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 0, 8]}"}
+{"task_id": "corridor-k4-n01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 0, 9, 0]}"}
+{"task_id": "corridor-k4-n01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 0, 9, 0]}"}
+{"task_id": "corridor-k4-n02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [4, 0, 7, 0]}"}
+{"task_id": "corridor-k4-n02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [4, 0, 7, 0]}"}
+{"task_id": "corridor-k4-n03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 0, 5, 0]}"}
+{"task_id": "corridor-k4-n03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 0, 5, 0]}"}
+{"task_id": "corridor-k4-n04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 2, 3, 0]}"}
+{"task_id": "corridor-k4-n04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 2, 3, 0]}"}
+{"task_id": "corridor-k4-y00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 6, 6, 0]}"}
+{"task_id": "corridor-k4-y00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 6, 6, 0]}"}
+{"task_id": "corridor-k4-y01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 4, 4, 0]}"}
+{"task_id": "corridor-k4-y01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 4, 4, 0]}"}
+{"task_id": "corridor-k4-y02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 5, 8, 0]}"}
+{"task_id": "corridor-k4-y02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 5, 8, 0]}"}
+{"task_id": "corridor-k4-y03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 1, 4, 0]}"}
+{"task_id": "corridor-k4-y03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 1, 4, 0]}"}
+{"task_id": "corridor-k4-y04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 1, 6, 0]}"}
+{"task_id": "corridor-k4-y04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 1, 6, 0]}"}
+{"task_id": "corridor-k5-n00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 2, 0, 0, 8]}"}
+{"task_id": "corridor-k5-n00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 2, 0, 0, 8]}"}
+{"task_id": "corridor-k5-n01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 0, 4, 5, 0]}"}
+{"task_id": "corridor-k5-n01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 0, 4, 5, 0]}"}
+{"task_id": "corridor-k5-n02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 3, 0, 4, 0]}"}
+{"task_id": "corridor-k5-n02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 3, 0, 4, 0]}"}
+{"task_id": "corridor-k5-n03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 1, 2, 3, 0]}"}
+{"task_id": "corridor-k5-n03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 1, 2, 3, 0]}"}
+{"task_id": "corridor-k5-n04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 9, 9, 0]}"}
+{"task_id": "corridor-k5-n04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 9, 9, 0]}"}
+{"task_id": "corridor-k5-y00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 4, 5, 0]}"}
+{"task_id": "corridor-k5-y00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 4, 5, 0]}"}
+{"task_id": "corridor-k5-y01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [4, 5, 6, 0, 0]}"}
+{"task_id": "corridor-k5-y01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [4, 5, 6, 0, 0]}"}
+{"task_id": "corridor-k5-y02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 5, 0, 9]}"}
+{"task_id": "corridor-k5-y02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 5, 0, 9]}"}
+{"task_id": "corridor-k5-y03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 5, 0, 0, 7]}"}
+{"task_id": "corridor-k5-y03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 5, 0, 0, 7]}"}
+{"task_id": "corridor-k5-y04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 4, 7, 0]}"}
+{"task_id": "corridor-k5-y04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 4, 7, 0]}"}
+{"task_id": "corridor-k6-n00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 2, 5, 5, 0, 0]}"}
+{"task_id": "corridor-k6-n00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 2, 5, 5, 0, 0]}"}
+{"task_id": "corridor-k6-n01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [5, 5, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k6-n01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [5, 5, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k6-n02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 0, 0, 0, 9, 9]}"}
+{"task_id": "corridor-k6-n02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 0, 0, 0, 9, 9]}"}
+{"task_id": "corridor-k6-n03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 1, 1, 0, 9, 0]}"}
+{"task_id": "corridor-k6-n03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 1, 1, 0, 9, 0]}"}
+{"task_id": "corridor-k6-n04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [4, 0, 0, 5, 5, 0]}"}
+{"task_id": "corridor-k6-n04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [4, 0, 0, 5, 5, 0]}"}
+{"task_id": "corridor-k6-y00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [3, 3, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k6-y00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [3, 3, 0, 0, 0, 9]}"}
+{"task_id": "corridor-k6-y01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 1, 0, 5, 6, 0]}"}
+{"task_id": "corridor-k6-y01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 1, 0, 5, 6, 0]}"}
+{"task_id": "corridor-k6-y02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [3, 0, 0, 7, 7, 0]}"}
+{"task_id": "corridor-k6-y02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [3, 0, 0, 7, 7, 0]}"}
+{"task_id": "corridor-k6-y03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 0, 0, 6, 7, 0]}"}
+{"task_id": "corridor-k6-y03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 0, 0, 6, 7, 0]}"}
+{"task_id": "corridor-k6-y04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 3, 4, 6, 0, 0]}"}
+{"task_id": "corridor-k6-y04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 3, 4, 6, 0, 0]}"}
+{"task_id": "corridor-k7-n00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 4, 0, 5, 8, 0, 0]}"}
+{"task_id": "corridor-k7-n00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 4, 0, 5, 8, 0, 0]}"}
+{"task_id": "corridor-k7-n01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [3, 0, 0, 6, 0, 0, 9]}"}
+{"task_id": "corridor-k7-n01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [3, 0, 0, 6, 0, 0, 9]}"}
+{"task_id": "corridor-k7-n02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 3, 0, 0, 0, 9, 9]}"}
+{"task_id": "corridor-k7-n02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 3, 0, 0, 0, 9, 9]}"}
+{"task_id": "corridor-k7-n03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 1, 0, 0, 0, 8, 8]}"}
+{"task_id": "corridor-k7-n03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 1, 0, 0, 0, 8, 8]}"}
+{"task_id": "corridor-k7-n04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 5, 5, 0, 0, 9, 0]}"}
+{"task_id": "corridor-k7-n04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 5, 5, 0, 0, 9, 0]}"}
+{"task_id": "corridor-k7-y00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 2, 0, 6, 0, 0, 8]}"}
+{"task_id": "corridor-k7-y00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 2, 0, 6, 0, 0, 8]}"}
+{"task_id": "corridor-k7-y01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 6, 6, 6, 0, 0]}"}
+{"task_id": "corridor-k7-y01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 6, 6, 6, 0, 0]}"}
+{"task_id": "corridor-k7-y02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 3, 0, 0, 7, 9, 0]}"}
+{"task_id": "corridor-k7-y02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 3, 0, 0, 7, 9, 0]}"}
+{"task_id": "corridor-k7-y03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 2, 2, 0, 0, 0, 5]}"}
+{"task_id": "corridor-k7-y03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 2, 2, 0, 0, 0, 5]}"}
+{"task_id": "corridor-k7-y04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 3, 0, 5, 0, 0, 9]}"}
+{"task_id": "corridor-k7-y04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 3, 0, 5, 0, 0, 9]}"}
+{"task_id": "flower-k3-y00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k3-y02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1]]}"}
+{"task_id": "flower-k6-n00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C4\", 1], [\"C1\", 1], [\"C2\", 1], [\"C0\", 1], [\"C3\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C4\", 1], [\"C1\", 1], [\"C2\", 1], [\"C0\", 1], [\"C3\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C4\", 1], [\"C5\", 1], [\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1]]}"}
+{"task_id": "flower-k6-n01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C4\", 1], [\"C5\", 1], [\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1]]}"}
+{"task_id": "flower-k6-n02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C0\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C0\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C1\", 1], [\"C2\", 1], [\"C0\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C1\", 1], [\"C2\", 1], [\"C0\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-n04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C5\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1]]}"}
+{"task_id": "flower-k6-n04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C5\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1]]}"}
+{"task_id": "flower-k6-y00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C3\", 1], [\"C5\", 1], [\"C1\", 1], [\"C0\", 1], [\"C2\", 1], [\"C4\", 1]]}"}
+{"task_id": "flower-k6-y00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C3\", 1], [\"C5\", 1], [\"C1\", 1], [\"C0\", 1], [\"C2\", 1], [\"C4\", 1]]}"}
+{"task_id": "flower-k6-y01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C3\", 1], [\"C2\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C3\", 1], [\"C2\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C3\", 1], [\"C2\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C1\", 1], [\"C3\", 1], [\"C2\", 1], [\"C4\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C4\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C5\", 1]]}"}
+{"task_id": "flower-k6-y04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"C0\", 1], [\"C4\", 1], [\"C1\", 1], [\"C2\", 1], [\"C3\", 1], [\"C5\", 1]]}"}
+{"task_id": "naturalM-k2-00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Wight\", 2], [\"Devil\", 2]]}"}
+{"task_id": "naturalM-k2-00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Wight\", 2], [\"Devil\", 2]]}"}
+{"task_id": "naturalM-k2-01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Vampire\", 5], [\"Sprite\", 5]]}"}
+{"task_id": "naturalM-k2-01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Vampire\", 5], [\"Sprite\", 5]]}"}
+{"task_id": "naturalM-k2-02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [null, [\"Minotaur King\", 2]]}"}
+{"task_id": "naturalM-k2-02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [null, [\"Minotaur King\", 2]]}"}
+{"task_id": "naturalM-k2-03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Minotaur\", 5], null]}"}
+{"task_id": "naturalM-k2-03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Minotaur\", 5], null]}"}
+{"task_id": "naturalM-k2-04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Minotaur\", 1], [\"Efreet Sultan\", 1]]}"}
+{"task_id": "naturalM-k2-04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Minotaur\", 1], [\"Efreet Sultan\", 1]]}"}
+{"task_id": "naturalM-k2-05::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Ogre\", 5], [\"Goblin\", 5]]}"}
+{"task_id": "naturalM-k2-05::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Ogre\", 5], [\"Goblin\", 5]]}"}
+{"task_id": "naturalM-k3-00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Dendroid Guard\", 5], [\"Wraith\", 5], [\"Energy Elemental\", 5]]}"}
+{"task_id": "naturalM-k3-00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Dendroid Guard\", 5], [\"Wraith\", 5], [\"Energy Elemental\", 5]]}"}
+{"task_id": "naturalM-k3-01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [null, null, [\"Efreeti\", 1]]}"}
+{"task_id": "naturalM-k3-01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [null, null, [\"Efreeti\", 1]]}"}
+{"task_id": "naturalM-k3-02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Ogre Mage\", 2], null, [\"Skeleton\", 2]]}"}
+{"task_id": "naturalM-k3-02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Ogre Mage\", 2], null, [\"Skeleton\", 2]]}"}
+{"task_id": "naturalM-k3-03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Angel\", 2], null, null]}"}
+{"task_id": "naturalM-k3-03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Angel\", 2], null, null]}"}
+{"task_id": "naturalM-k3-04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Magic Elemental\", 4], [\"Vampire Lord\", 4], [\"Swordsman\", 4]]}"}
+{"task_id": "naturalM-k3-04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Magic Elemental\", 4], [\"Vampire Lord\", 4], [\"Swordsman\", 4]]}"}
+{"task_id": "naturalM-k3-05::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Demon\", 2], [\"Air Elemental\", 10], [\"Demon\", 8]]}"}
+{"task_id": "naturalM-k3-05::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Demon\", 2], [\"Air Elemental\", 10], [\"Demon\", 8]]}"}
+{"task_id": "naturalM-k4-00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Wight\", 3], null, [\"Wraith\", 3], null]}"}
+{"task_id": "naturalM-k4-00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Wight\", 3], null, [\"Wraith\", 3], null]}"}
+{"task_id": "naturalM-k4-01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Gold Golem\", 4], [\"Fire Elemental\", 4], null, null]}"}
+{"task_id": "naturalM-k4-01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Gold Golem\", 4], [\"Fire Elemental\", 4], null, null]}"}
+{"task_id": "naturalM-k4-02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [null, [\"Psychic Elemental\", 5], null, null]}"}
+{"task_id": "naturalM-k4-02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [null, [\"Psychic Elemental\", 5], null, null]}"}
+{"task_id": "naturalM-k4-03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [null, [\"Obsidian Gargoyle\", 2], null, null]}"}
+{"task_id": "naturalM-k4-03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [null, [\"Obsidian Gargoyle\", 2], null, null]}"}
+{"task_id": "naturalM-k4-04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Magic Elemental\", 2], null, null, null]}"}
+{"task_id": "naturalM-k4-04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Magic Elemental\", 2], null, null, null]}"}
+{"task_id": "naturalM-k4-05::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Troll\", 6], [\"Battle Dwarf\", 6], null, null]}"}
+{"task_id": "naturalM-k4-05::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Troll\", 6], [\"Battle Dwarf\", 6], null, null]}"}
+{"task_id": "naturalM-k5-00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Pit Lord\", 3], [\"Demon\", 4], [\"Psychic Elemental\", 1], [\"Pit Lord\", 1], [\"Psychic Elemental\", 3]]}"}
+{"task_id": "naturalM-k5-00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Pit Lord\", 3], [\"Demon\", 4], [\"Psychic Elemental\", 1], [\"Pit Lord\", 1], [\"Psychic Elemental\", 3]]}"}
+{"task_id": "naturalM-k5-01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Devil\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k5-01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Devil\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k5-02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Serpent Fly\", 7], null, null, null, null]}"}
+{"task_id": "naturalM-k5-02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Serpent Fly\", 7], null, null, null, null]}"}
+{"task_id": "naturalM-k5-03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Efreeti\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k5-03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Efreeti\", 1], null, null, null, null]}"}
+{"task_id": "naturalM-k5-04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [null, [\"Vampire\", 4], [\"Stone Golem\", 4], null, [\"Stone Gargoyle\", 4]]}"}
+{"task_id": "naturalM-k5-04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [null, [\"Vampire\", 4], [\"Stone Golem\", 4], null, [\"Stone Gargoyle\", 4]]}"}
+{"task_id": "naturalM-k5-05::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Arch Devil\", 4], null, null, null, null]}"}
+{"task_id": "naturalM-k5-05::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Arch Devil\", 4], null, null, null, null]}"}
+{"task_id": "naturalM-k6-00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Swordsman\", 1], null, [\"Swordsman\", 1], null, null, [\"Diamond Golem\", 2]]}"}
+{"task_id": "naturalM-k6-00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Swordsman\", 1], null, [\"Swordsman\", 1], null, null, [\"Diamond Golem\", 2]]}"}
+{"task_id": "naturalM-k6-01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Master Genie\", 6], [\"Dwarf\", 6], null, null, null, null]}"}
+{"task_id": "naturalM-k6-01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Master Genie\", 6], [\"Dwarf\", 6], null, null, null, null]}"}
+{"task_id": "naturalM-k6-02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Angel\", 1], null, null, null, [\"Psychic Elemental\", 1], null]}"}
+{"task_id": "naturalM-k6-02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Angel\", 1], null, null, null, [\"Psychic Elemental\", 1], null]}"}
+{"task_id": "naturalM-k6-03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Troll\", 1], null, null, null, null, null]}"}
+{"task_id": "naturalM-k6-03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Troll\", 1], null, null, null, null, null]}"}
+{"task_id": "naturalM-k6-04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [null, null, null, null, [\"Angel\", 1], [\"Ogre Mage\", 1]]}"}
+{"task_id": "naturalM-k6-04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [null, null, null, null, [\"Angel\", 1], [\"Ogre Mage\", 1]]}"}
+{"task_id": "naturalM-k6-05::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Iron Golem\", 2], [\"Wraith\", 2], null, [\"Serpent Fly\", 2], [\"Pikeman\", 2], null]}"}
+{"task_id": "naturalM-k6-05::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Iron Golem\", 2], [\"Wraith\", 2], null, [\"Serpent Fly\", 2], [\"Pikeman\", 2], null]}"}
+{"task_id": "naturalM-k7-00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [null, null, null, null, null, [\"Magic Elemental\", 1], null]}"}
+{"task_id": "naturalM-k7-00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [null, null, null, null, null, [\"Magic Elemental\", 1], null]}"}
+{"task_id": "naturalM-k7-01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [null, null, null, null, [\"Pit Fiend\", 3], null, [\"Arch Devil\", 3]]}"}
+{"task_id": "naturalM-k7-01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [null, null, null, null, [\"Pit Fiend\", 3], null, [\"Arch Devil\", 3]]}"}
+{"task_id": "naturalM-k7-02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Mummy\", 1], [\"Harpy Hag\", 2], null, null, null, [\"Mummy\", 2], [\"Harpy Hag\", 1]]}"}
+{"task_id": "naturalM-k7-02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Mummy\", 1], [\"Harpy Hag\", 2], null, null, null, [\"Mummy\", 2], [\"Harpy Hag\", 1]]}"}
+{"task_id": "naturalM-k7-03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Arch Devil\", 1], null, null, null, null, null, null]}"}
+{"task_id": "naturalM-k7-03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Arch Devil\", 1], null, null, null, null, null, null]}"}
+{"task_id": "naturalM-k7-04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Dendroid Soldier\", 3], [\"Psychic Elemental\", 3], null, null, null, null, null]}"}
+{"task_id": "naturalM-k7-04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Dendroid Soldier\", 3], [\"Psychic Elemental\", 3], null, null, null, null, null]}"}
+{"task_id": "naturalM-k7-05::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Hobgoblin\", 2], null, null, null, null, [\"Ogre\", 2], null]}"}
+{"task_id": "naturalM-k7-05::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Hobgoblin\", 2], null, null, null, null, [\"Ogre\", 2], null]}"}
+{"task_id": "naturalS-k2-00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Magma Elemental\", 3], [\"Magma Elemental\", 15]]}"}
+{"task_id": "naturalS-k2-00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [[\"Magma Elemental\", 3], [\"Magma Elemental\", 15]]}"}
+{"task_id": "naturalS-k2-01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 13]}"}
+{"task_id": "naturalS-k2-01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 13]}"}
+{"task_id": "naturalS-k2-02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [15, 6]}"}
+{"task_id": "naturalS-k2-02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [15, 6]}"}
+{"task_id": "naturalS-k2-03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [3, 14]}"}
+{"task_id": "naturalS-k2-03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [3, 14]}"}
+{"task_id": "naturalS-k2-04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 3]}"}
+{"task_id": "naturalS-k2-04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 3]}"}
+{"task_id": "naturalS-k2-05::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [5, 8]}"}
+{"task_id": "naturalS-k2-05::raw", "model": "claude-opus-5", "response": "{\"allocation\": [5, 8]}"}
+{"task_id": "naturalS-k3-00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 1, 0]}"}
+{"task_id": "naturalS-k3-00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 1, 0]}"}
+{"task_id": "naturalS-k3-01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [3, 2, 3]}"}
+{"task_id": "naturalS-k3-01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [3, 2, 3]}"}
+{"task_id": "naturalS-k3-02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 15, 0]}"}
+{"task_id": "naturalS-k3-02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 15, 0]}"}
+{"task_id": "naturalS-k3-03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [7, 6, 0]}"}
+{"task_id": "naturalS-k3-03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [7, 6, 0]}"}
+{"task_id": "naturalS-k3-04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [9, 2, 9]}"}
+{"task_id": "naturalS-k3-04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [9, 2, 9]}"}
+{"task_id": "naturalS-k3-05::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [18, 0, 0]}"}
+{"task_id": "naturalS-k3-05::raw", "model": "claude-opus-5", "response": "{\"allocation\": [18, 0, 0]}"}
+{"task_id": "naturalS-k4-00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [5, 0, 6, 0]}"}
+{"task_id": "naturalS-k4-00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [5, 0, 6, 0]}"}
+{"task_id": "naturalS-k4-01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [13, 0, 0, 4]}"}
+{"task_id": "naturalS-k4-01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [13, 0, 0, 4]}"}
+{"task_id": "naturalS-k4-02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 1, 1, 0]}"}
+{"task_id": "naturalS-k4-02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 1, 1, 0]}"}
+{"task_id": "naturalS-k4-03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 15, 0, 0]}"}
+{"task_id": "naturalS-k4-03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 15, 0, 0]}"}
+{"task_id": "naturalS-k4-04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [3, 8, 3, 0]}"}
+{"task_id": "naturalS-k4-04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [3, 8, 3, 0]}"}
+{"task_id": "naturalS-k4-05::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 2, 0, 0]}"}
+{"task_id": "naturalS-k4-05::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 2, 0, 0]}"}
+{"task_id": "naturalS-k5-00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 11, 0, 11]}"}
+{"task_id": "naturalS-k5-00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 11, 0, 11]}"}
+{"task_id": "naturalS-k5-01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 8, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 8, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [10, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [10, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [3, 1, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [3, 1, 0, 0, 0]}"}
+{"task_id": "naturalS-k5-04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 1, 0, 0]}"}
+{"task_id": "naturalS-k5-04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 1, 0, 0]}"}
+{"task_id": "naturalS-k5-05::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [11, 0, 0, 0, 1]}"}
+{"task_id": "naturalS-k5-05::raw", "model": "claude-opus-5", "response": "{\"allocation\": [11, 0, 0, 0, 1]}"}
+{"task_id": "naturalS-k6-00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 4, 5, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 4, 5, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 4, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 4, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [1, 0, 0, 0, 3, 0]}"}
+{"task_id": "naturalS-k6-02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [1, 0, 0, 0, 3, 0]}"}
+{"task_id": "naturalS-k6-03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [2, 8, 0, 15, 0, 0]}"}
+{"task_id": "naturalS-k6-03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [2, 8, 0, 15, 0, 0]}"}
+{"task_id": "naturalS-k6-04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 0, 8, 0, 0]}"}
+{"task_id": "naturalS-k6-04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 0, 8, 0, 0]}"}
+{"task_id": "naturalS-k6-05::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [4, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k6-05::raw", "model": "claude-opus-5", "response": "{\"allocation\": [4, 0, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-00::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 3, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-00::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 3, 0, 0, 0, 0]}"}
+{"task_id": "naturalS-k7-01::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 2, 14, 0, 3, 0, 0]}"}
+{"task_id": "naturalS-k7-01::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 2, 14, 0, 3, 0, 0]}"}
+{"task_id": "naturalS-k7-02::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 9, 0, 0, 0, 1, 0]}"}
+{"task_id": "naturalS-k7-02::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 9, 0, 0, 0, 1, 0]}"}
+{"task_id": "naturalS-k7-03::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 0, 0, 18, 0, 0]}"}
+{"task_id": "naturalS-k7-03::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 0, 0, 18, 0, 0]}"}
+{"task_id": "naturalS-k7-04::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 0, 0, 0, 1, 0]}"}
+{"task_id": "naturalS-k7-04::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 0, 0, 0, 1, 0]}"}
+{"task_id": "naturalS-k7-05::assisted", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 0, 9, 1, 0, 0]}"}
+{"task_id": "naturalS-k7-05::raw", "model": "claude-opus-5", "response": "{\"allocation\": [0, 0, 0, 9, 1, 0, 0]}"}

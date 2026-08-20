@@ -1,0 +1,106 @@
+{
+ "id": "naturalM-k3-05",
+ "family": "natural-multi",
+ "size": 3,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Air Elemental": {
+   "attack": 9,
+   "defense": 9,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 25,
+   "speed": 7,
+   "value": 356,
+   "shooter": false
+  },
+  "Demon": {
+   "attack": 10,
+   "defense": 10,
+   "dmg_min": 7,
+   "dmg_max": 7,
+   "hp": 35,
+   "speed": 5,
+   "value": 445,
+   "shooter": false
+  },
+  "Gnoll": {
+   "attack": 3,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 6,
+   "speed": 4,
+   "value": 56,
+   "shooter": false
+  },
+  "Imp": {
+   "attack": 2,
+   "defense": 3,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 4,
+   "speed": 5,
+   "value": 50,
+   "shooter": false
+  },
+  "Ogre Mage": {
+   "attack": 13,
+   "defense": 7,
+   "dmg_min": 6,
+   "dmg_max": 6,
+   "hp": 60,
+   "speed": 5,
+   "value": 672,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Air Elemental",
+   "stock": 10
+  },
+  {
+   "type": "Demon",
+   "stock": 10
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90
+ ],
+ "enemies": [
+  {
+   "type": "Gnoll",
+   "count": 4,
+   "hex": 15
+  },
+  {
+   "type": "Imp",
+   "count": 4,
+   "hex": 2
+  },
+  {
+   "type": "Ogre Mage",
+   "count": 3,
+   "hex": 172
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Air Elemental",
+   "Demon"
+  ]
+ }
+}

@@ -1,0 +1,106 @@
+{
+ "id": "naturalM-k3-00",
+ "family": "natural-multi",
+ "size": 3,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Dendroid Guard": {
+   "attack": 9,
+   "defense": 12,
+   "dmg_min": 10,
+   "dmg_max": 10,
+   "hp": 55,
+   "speed": 3,
+   "value": 517,
+   "shooter": false
+  },
+  "Energy Elemental": {
+   "attack": 12,
+   "defense": 8,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 35,
+   "speed": 8,
+   "value": 470,
+   "shooter": false
+  },
+  "Wraith": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 3,
+   "dmg_max": 3,
+   "hp": 18,
+   "speed": 7,
+   "value": 315,
+   "shooter": false
+  },
+  "Pit Fiend": {
+   "attack": 13,
+   "defense": 13,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 45,
+   "speed": 6,
+   "value": 765,
+   "shooter": false
+  },
+  "Pixie": {
+   "attack": 2,
+   "defense": 2,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 3,
+   "speed": 7,
+   "value": 55,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Dendroid Guard",
+   "stock": 5
+  },
+  {
+   "type": "Energy Elemental",
+   "stock": 5
+  },
+  {
+   "type": "Wraith",
+   "stock": 5
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90
+ ],
+ "enemies": [
+  {
+   "type": "Pit Fiend",
+   "count": 4,
+   "hex": 8
+  },
+  {
+   "type": "Pixie",
+   "count": 1,
+   "hex": 100
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Dendroid Guard",
+   "Energy Elemental",
+   "Wraith"
+  ]
+ }
+}

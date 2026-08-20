@@ -1,0 +1,107 @@
+{
+ "id": "naturalS-k4-04",
+ "family": "natural-single",
+ "size": 4,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Obsidian Gargoyle": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 16,
+   "speed": 9,
+   "value": 201,
+   "shooter": false
+  },
+  "Harpy": {
+   "attack": 6,
+   "defense": 5,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 14,
+   "speed": 6,
+   "value": 154,
+   "shooter": false
+  },
+  "Infernal Troglodyte": {
+   "attack": 5,
+   "defense": 4,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 6,
+   "speed": 5,
+   "value": 84,
+   "shooter": false
+  },
+  "Efreet Sultan": {
+   "attack": 16,
+   "defense": 14,
+   "dmg_min": 16,
+   "dmg_max": 16,
+   "hp": 90,
+   "speed": 13,
+   "value": 1848,
+   "shooter": false
+  },
+  "Pixie": {
+   "attack": 2,
+   "defense": 2,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 3,
+   "speed": 7,
+   "value": 55,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Obsidian Gargoyle",
+   "stock": 14
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93
+ ],
+ "enemies": [
+  {
+   "type": "Harpy",
+   "count": 3,
+   "hex": 8
+  },
+  {
+   "type": "Infernal Troglodyte",
+   "count": 3,
+   "hex": 100
+  },
+  {
+   "type": "Efreet Sultan",
+   "count": 3,
+   "hex": 185
+  },
+  {
+   "type": "Pixie",
+   "count": 2,
+   "hex": 172
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Obsidian Gargoyle"
+  ]
+ }
+}

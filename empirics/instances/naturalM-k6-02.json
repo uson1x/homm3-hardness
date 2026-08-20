@@ -1,0 +1,124 @@
+{
+ "id": "naturalM-k6-02",
+ "family": "natural-multi",
+ "size": 6,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Angel": {
+   "attack": 20,
+   "defense": 20,
+   "dmg_min": 50,
+   "dmg_max": 50,
+   "hp": 200,
+   "speed": 12,
+   "value": 5019,
+   "shooter": false
+  },
+  "Psychic Elemental": {
+   "attack": 15,
+   "defense": 13,
+   "dmg_min": 10,
+   "dmg_max": 10,
+   "hp": 75,
+   "speed": 7,
+   "value": 1669,
+   "shooter": false
+  },
+  "Energy Elemental": {
+   "attack": 12,
+   "defense": 8,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 35,
+   "speed": 8,
+   "value": 470,
+   "shooter": false
+  },
+  "Stone Gargoyle": {
+   "attack": 6,
+   "defense": 6,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 16,
+   "speed": 6,
+   "value": 165,
+   "shooter": false
+  },
+  "Genie": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 40,
+   "speed": 7,
+   "value": 884,
+   "shooter": false
+  },
+  "Magic Elemental": {
+   "attack": 15,
+   "defense": 13,
+   "dmg_min": 15,
+   "dmg_max": 15,
+   "hp": 80,
+   "speed": 9,
+   "value": 2012,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Angel",
+   "stock": 1
+  },
+  {
+   "type": "Psychic Elemental",
+   "stock": 1
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96,
+  125
+ ],
+ "enemies": [
+  {
+   "type": "Energy Elemental",
+   "count": 3,
+   "hex": 8
+  },
+  {
+   "type": "Stone Gargoyle",
+   "count": 4,
+   "hex": 172
+  },
+  {
+   "type": "Genie",
+   "count": 2,
+   "hex": 15
+  },
+  {
+   "type": "Magic Elemental",
+   "count": 1,
+   "hex": 185
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Angel",
+   "Psychic Elemental"
+  ]
+ }
+}

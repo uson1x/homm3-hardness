@@ -1,0 +1,110 @@
+{
+ "id": "naturalM-k7-02",
+ "family": "natural-multi",
+ "size": 7,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Harpy Hag": {
+   "attack": 6,
+   "defense": 6,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 14,
+   "speed": 9,
+   "value": 238,
+   "shooter": false
+  },
+  "Mummy": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 3,
+   "dmg_max": 3,
+   "hp": 30,
+   "speed": 5,
+   "value": 270,
+   "shooter": false
+  },
+  "Minotaur King": {
+   "attack": 15,
+   "defense": 15,
+   "dmg_min": 12,
+   "dmg_max": 12,
+   "hp": 50,
+   "speed": 8,
+   "value": 1068,
+   "shooter": false
+  },
+  "Troglodyte": {
+   "attack": 4,
+   "defense": 3,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 5,
+   "speed": 4,
+   "value": 59,
+   "shooter": false
+  },
+  "Gremlin": {
+   "attack": 3,
+   "defense": 3,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 4,
+   "speed": 4,
+   "value": 44,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Harpy Hag",
+   "stock": 3
+  },
+  {
+   "type": "Mummy",
+   "stock": 3
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96,
+  125,
+  129
+ ],
+ "enemies": [
+  {
+   "type": "Minotaur King",
+   "count": 2,
+   "hex": 87
+  },
+  {
+   "type": "Troglodyte",
+   "count": 5,
+   "hex": 2
+  },
+  {
+   "type": "Gremlin",
+   "count": 5,
+   "hex": 172
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Harpy Hag",
+   "Mummy"
+  ]
+ }
+}

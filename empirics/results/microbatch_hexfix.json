@@ -1,0 +1,32 @@
+[
+ [
+  "naturalS-k7-01::assisted",
+  "claude-haiku-4-5",
+  0.7091,
+  0.7748
+ ],
+ [
+  "naturalS-k7-01::raw",
+  "claude-haiku-4-5",
+  0.7091,
+  0.7748
+ ],
+ [
+  "naturalM-k7-05::raw",
+  "claude-opus-5",
+  0.8889,
+  1.0
+ ],
+ [
+  "naturalM-k7-05::assisted",
+  "claude-sonnet-5",
+  0.8889,
+  1.0
+ ],
+ [
+  "naturalM-k7-05::raw",
+  "claude-sonnet-5",
+  0.8889,
+  1.0
+ ]
+]

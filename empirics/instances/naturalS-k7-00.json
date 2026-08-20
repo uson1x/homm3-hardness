@@ -1,0 +1,110 @@
+{
+ "id": "naturalS-k7-00",
+ "family": "natural-single",
+ "size": 7,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Stone Golem": {
+   "attack": 7,
+   "defense": 10,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 30,
+   "speed": 3,
+   "value": 250,
+   "shooter": false
+  },
+  "Pixie": {
+   "attack": 2,
+   "defense": 2,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 3,
+   "speed": 7,
+   "value": 55,
+   "shooter": false
+  },
+  "Halberdier": {
+   "attack": 6,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 10,
+   "speed": 5,
+   "value": 115,
+   "shooter": false
+  },
+  "Gremlin": {
+   "attack": 3,
+   "defense": 3,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 4,
+   "speed": 4,
+   "value": 44,
+   "shooter": false
+  },
+  "Gold Golem": {
+   "attack": 11,
+   "defense": 12,
+   "dmg_min": 8,
+   "dmg_max": 8,
+   "hp": 50,
+   "speed": 5,
+   "value": 600,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Stone Golem",
+   "stock": 3
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96,
+  125,
+  129
+ ],
+ "enemies": [
+  {
+   "type": "Pixie",
+   "count": 1,
+   "hex": 172
+  },
+  {
+   "type": "Halberdier",
+   "count": 1,
+   "hex": 2
+  },
+  {
+   "type": "Gremlin",
+   "count": 4,
+   "hex": 87
+  },
+  {
+   "type": "Gold Golem",
+   "count": 3,
+   "hex": 8
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Stone Golem"
+  ]
+ }
+}

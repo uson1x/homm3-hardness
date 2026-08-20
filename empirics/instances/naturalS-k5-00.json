@@ -1,0 +1,98 @@
+{
+ "id": "naturalS-k5-00",
+ "family": "natural-single",
+ "size": 5,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Gnoll": {
+   "attack": 3,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 6,
+   "speed": 4,
+   "value": 56,
+   "shooter": false
+  },
+  "Pikeman": {
+   "attack": 4,
+   "defense": 5,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 10,
+   "speed": 4,
+   "value": 80,
+   "shooter": false
+  },
+  "Angel": {
+   "attack": 20,
+   "defense": 20,
+   "dmg_min": 50,
+   "dmg_max": 50,
+   "hp": 200,
+   "speed": 12,
+   "value": 5019,
+   "shooter": false
+  },
+  "Pit Lord": {
+   "attack": 13,
+   "defense": 13,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 45,
+   "speed": 7,
+   "value": 1224,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Gnoll",
+   "stock": 22
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96
+ ],
+ "enemies": [
+  {
+   "type": "Pikeman",
+   "count": 5,
+   "hex": 2
+  },
+  {
+   "type": "Angel",
+   "count": 1,
+   "hex": 8
+  },
+  {
+   "type": "Gnoll",
+   "count": 4,
+   "hex": 100
+  },
+  {
+   "type": "Pit Lord",
+   "count": 4,
+   "hex": 15
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Gnoll"
+  ]
+ }
+}

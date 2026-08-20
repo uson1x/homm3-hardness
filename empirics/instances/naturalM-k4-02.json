@@ -1,0 +1,122 @@
+{
+ "id": "naturalM-k4-02",
+ "family": "natural-multi",
+ "size": 4,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Iron Golem": {
+   "attack": 9,
+   "defense": 10,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 35,
+   "speed": 5,
+   "value": 412,
+   "shooter": false
+  },
+  "Psychic Elemental": {
+   "attack": 15,
+   "defense": 13,
+   "dmg_min": 10,
+   "dmg_max": 10,
+   "hp": 75,
+   "speed": 7,
+   "value": 1669,
+   "shooter": false
+  },
+  "Halberdier": {
+   "attack": 6,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 10,
+   "speed": 5,
+   "value": 115,
+   "shooter": false
+  },
+  "Fire Elemental": {
+   "attack": 10,
+   "defense": 8,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 35,
+   "speed": 6,
+   "value": 345,
+   "shooter": false
+  },
+  "Walking Dead": {
+   "attack": 5,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 15,
+   "speed": 3,
+   "value": 98,
+   "shooter": false
+  },
+  "Efreet Sultan": {
+   "attack": 16,
+   "defense": 14,
+   "dmg_min": 16,
+   "dmg_max": 16,
+   "hp": 90,
+   "speed": 13,
+   "value": 1848,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Iron Golem",
+   "stock": 5
+  },
+  {
+   "type": "Psychic Elemental",
+   "stock": 5
+  },
+  {
+   "type": "Halberdier",
+   "stock": 5
+  },
+  {
+   "type": "Fire Elemental",
+   "stock": 5
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93
+ ],
+ "enemies": [
+  {
+   "type": "Walking Dead",
+   "count": 3,
+   "hex": 15
+  },
+  {
+   "type": "Efreet Sultan",
+   "count": 4,
+   "hex": 87
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Iron Golem",
+   "Psychic Elemental",
+   "Halberdier",
+   "Fire Elemental"
+  ]
+ }
+}

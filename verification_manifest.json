@@ -1,0 +1,446 @@
+{
+  "_comment": [
+    "Single source of truth for the verification table in paper/main.md and",
+    "paper/main.tex (round-8 codex recommendation: the table rows drifted from",
+    "the artifacts twice; now scripts/gen_verification_table.py renders both",
+    "tables from this file, and test_regressions.py both re-renders them in",
+    "check mode and compares the counters below against the artifacts that",
+    "generate them).",
+    "Counters are numbers cited anywhere in prose; rows reference them as",
+    "{name} placeholders so a number lives in exactly one place.",
+    "Each row's `literals` lists every digit-run that legitimately appears",
+    "verbatim in its templates (constants, file names, section numbers);",
+    "gen_verification_table.py fails if the templates carry any other digits.",
+    "Round 11 (P11-1/2) showed the digit audit alone is NOT enough: a counter",
+    "retyped as a digit already declared in `literals` passed, and swapping two",
+    "placeholders inside a row passed. Each row's `placeholders` therefore",
+    "declares the exact ORDERED sequence of counter names its templates carry;",
+    "gen_verification_table.py fails unless the md cells, the tex cells and",
+    "this declaration all agree, order included. test_regressions.py drills",
+    "both historical mutations against the validators every run."
+  ],
+  "counters": {
+    "mechanics_checks": 90,
+    "obstacle_checks": 158,
+    "dp_random_instances": 2000,
+    "dp_game_instances": 40,
+    "brute_force_base": 28,
+    "brute_force_sharp": 14,
+    "brute_force_tri_yes": 11,
+    "brute_force_tri_no": 3,
+    "featureless_runs": 46,
+    "x3c_default_built": 31,
+    "x3c_default_yes": 17,
+    "x3c_default_no": 14,
+    "x3c_full_vacate_built": 55,
+    "x3c_full_vacate_yes": 30,
+    "x3c_full_vacate_no": 25,
+    "x3c_full_vacate_skipped": 4,
+    "crosscheck_full_built": 37,
+    "crosscheck_full_yes": 23,
+    "crosscheck_full_no": 14,
+    "crosscheck_full_skipped": 3,
+    "crosscheck_default_instances": 25,
+    "crosscheck_default_yes": 14,
+    "crosscheck_default_no": 11,
+    "hp_objective_instances": 16,
+    "hp_objective_yes": 10,
+    "hp_objective_no": 6,
+    "empirical_instances": 145,
+    "scored_responses": 870,
+    "legacy_mismatches": 14,
+    "legacy_round5_violations": 6,
+    "regressions": 219,
+    "banned_claims": 16,
+    "engine_cases": 49,
+    "engine_exact": 46,
+    "engine_explained": 3,
+    "engine_turn_order_cases": 6,
+    "lemma_families": 61,
+    "lemma_built": 44,
+    "lemma_nonplanar": 0,
+    "lemma_degenerate_no": 17,
+    "lemma_degenerate_nonplanar": 3,
+    "lemma_endtoend": 3,
+    "sep_pairs": 28151,
+    "lemma_malformed": 17
+  },
+  "rows": [
+    {
+      "id": "verify_mechanics",
+      "placeholders": [
+        "mechanics_checks"
+      ],
+      "md": [
+        "`verify_mechanics.py`",
+        "{mechanics_checks} checks",
+        "all pass"
+      ],
+      "tex": [
+        "\\src{verify\\_mechanics.py}",
+        "{mechanics_checks} checks",
+        "all pass"
+      ],
+      "literals": []
+    },
+    {
+      "id": "brute_force",
+      "placeholders": [
+        "brute_force_base",
+        "brute_force_sharp",
+        "brute_force_tri_yes",
+        "brute_force_tri_no"
+      ],
+      "md": [
+        "`brute_force.py`",
+        "{brute_force_base} + {brute_force_sharp} instances × 3 defence variants (`hold`, literal `(‡)`, attacking + `NO_RETALIATION`); the 3-PARTITION tier is m = 2 only, {brute_force_tri_yes} yes / {brute_force_tri_no} no",
+        "all agree with PARTITION / 3-PARTITION"
+      ],
+      "tex": [
+        "\\src{brute\\_force.py}",
+        "{brute_force_base} + {brute_force_sharp} instances $\\times$ 3 defence variants (\\src{hold}, literal $(\\ddagger)$, attacking + \\src{NO\\_RETALIATION}); the \\THREEPART{} tier is $m=2$ only, {brute_force_tri_yes} yes / {brute_force_tri_no} no",
+        "all agree with \\PARTITION{} / \\THREEPART{}"
+      ],
+      "literals": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "test_obstacles",
+      "placeholders": [
+        "obstacle_checks"
+      ],
+      "md": [
+        "`test_obstacles.py`",
+        "{obstacle_checks} checks",
+        "all pass"
+      ],
+      "tex": [
+        "\\src{test\\_obstacles.py}",
+        "{obstacle_checks} checks",
+        "all pass"
+      ],
+      "literals": []
+    },
+    {
+      "id": "dp_single_type",
+      "placeholders": [
+        "dp_random_instances",
+        "dp_game_instances"
+      ],
+      "md": [
+        "`dp_single_type.py`",
+        "{dp_random_instances} random instances against exhaustive knapsack search, {dp_game_instances} single-creature corridors played out exhaustively in the game model, plus a multi-creature negative control",
+        "agrees everywhere; the control disagrees, exactly as Proposition 1.1's hypotheses require"
+      ],
+      "tex": [
+        "\\src{dp\\_single\\_type.py}",
+        "{dp_random_instances} random instances against exhaustive knapsack search, {dp_game_instances} single-creature corridors played out exhaustively in the game model, plus a multi-creature negative control",
+        "agrees everywhere; the control disagrees, exactly as Proposition 1.1's hypotheses require"
+      ],
+      "literals": [
+        "1.1"
+      ]
+    },
+    {
+      "id": "verify_featureless",
+      "placeholders": [
+        "featureless_runs"
+      ],
+      "md": [
+        "`verify_featureless.py`",
+        "{featureless_runs} instance runs, `m ∈ {2,3}`, two defence variants",
+        "no mismatches"
+      ],
+      "tex": [
+        "\\src{verify\\_featureless.py}",
+        "{featureless_runs} instance runs, $m\\in\\{2,3\\}$, two defence variants",
+        "no mismatches"
+      ],
+      "literals": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "verify_x3c_default",
+      "placeholders": [
+        "x3c_default_built",
+        "x3c_default_yes",
+        "x3c_default_no"
+      ],
+      "md": [
+        "`verify_x3c.py`",
+        "{x3c_default_built} instances ({x3c_default_yes} yes, {x3c_default_no} no), `q ≤ 2`, historical constants (`def 41`, `μ = 0.3`)",
+        "all agree, all winners canonical"
+      ],
+      "tex": [
+        "\\src{verify\\_x3c.py}",
+        "{x3c_default_built} instances ({x3c_default_yes} yes, {x3c_default_no} no), $q\\le 2$, historical constants (\\src{def 41}, $\\mu=0.3$)",
+        "all agree, all winners canonical"
+      ],
+      "literals": [
+        "0.3",
+        "2",
+        "3",
+        "41"
+      ]
+    },
+    {
+      "id": "verify_x3c_vacate",
+      "placeholders": [
+        "x3c_default_built"
+      ],
+      "md": [
+        "`verify_x3c.py --vacate`",
+        "the same {x3c_default_built}, pure movement admitted",
+        "identical answers"
+      ],
+      "tex": [
+        "\\src{verify\\_x3c.py --vacate}",
+        "the same {x3c_default_built}, pure movement admitted",
+        "identical answers"
+      ],
+      "literals": [
+        "3"
+      ]
+    },
+    {
+      "id": "verify_x3c_defend",
+      "placeholders": [
+        "x3c_default_built"
+      ],
+      "md": [
+        "`verify_x3c.py --defend`",
+        "the same {x3c_default_built}, defence executing `(‡)` literally",
+        "identical answers"
+      ],
+      "tex": [
+        "\\src{verify\\_x3c.py --defend}",
+        "the same {x3c_default_built}, defence executing $(\\ddagger)$ literally",
+        "identical answers"
+      ],
+      "literals": [
+        "3"
+      ]
+    },
+    {
+      "id": "verify_x3c_full_vacate",
+      "placeholders": [
+        "x3c_full_vacate_built",
+        "x3c_full_vacate_yes",
+        "x3c_full_vacate_no",
+        "x3c_full_vacate_skipped"
+      ],
+      "md": [
+        "`verify_x3c.py --full --vacate`",
+        "{x3c_full_vacate_built} instances ({x3c_full_vacate_yes} yes, {x3c_full_vacate_no} no), `q ≤ 4`, {x3c_full_vacate_skipped} skipped by the router",
+        "all agree"
+      ],
+      "tex": [
+        "\\src{verify\\_x3c.py --full --vacate}",
+        "{x3c_full_vacate_built} instances ({x3c_full_vacate_yes} yes, {x3c_full_vacate_no} no), $q\\le 4$, {x3c_full_vacate_skipped} skipped by the router",
+        "all agree"
+      ],
+      "literals": [
+        "3",
+        "4"
+      ]
+    },
+    {
+      "id": "crosscheck_full",
+      "placeholders": [
+        "crosscheck_full_built",
+        "crosscheck_full_yes",
+        "crosscheck_full_no",
+        "crosscheck_full_skipped"
+      ],
+      "md": [
+        "`crosscheck_sol.py --full`",
+        "{crosscheck_full_built} machine-built planar boards ({crosscheck_full_yes} yes, {crosscheck_full_no} no), {crosscheck_full_skipped} skipped by the router, under the **published** Theorem 3 constants (`def 27`, `hp 4`, `μ = 0.35`)",
+        "all agree"
+      ],
+      "tex": [
+        "\\src{crosscheck\\_sol.py --full}",
+        "{crosscheck_full_built} machine-built planar boards ({crosscheck_full_yes} yes, {crosscheck_full_no} no), {crosscheck_full_skipped} skipped by the router, under the \\textbf{published} Theorem 3 constants (\\src{def 27}, \\src{hp 4}, $\\mu=0.35$)",
+        "all agree"
+      ],
+      "literals": [
+        "0.35",
+        "27",
+        "3",
+        "4"
+      ]
+    },
+    {
+      "id": "crosscheck_defend",
+      "placeholders": [
+        "crosscheck_default_instances"
+      ],
+      "md": [
+        "`crosscheck_sol.py --defend`",
+        "{crosscheck_default_instances} instances, published constants AND literal `(‡)` — the combination round 8 found had never been run",
+        "all agree"
+      ],
+      "tex": [
+        "\\src{crosscheck\\_sol.py --defend}",
+        "{crosscheck_default_instances} instances, published constants AND literal $(\\ddagger)$---the combination round 8 found had never been run",
+        "all agree"
+      ],
+      "literals": [
+        "8"
+      ]
+    },
+    {
+      "id": "verify_embedding",
+      "placeholders": [
+        "lemma_families",
+        "lemma_built",
+        "lemma_degenerate_no",
+        "lemma_degenerate_nonplanar",
+        "lemma_nonplanar",
+        "lemma_malformed",
+        "sep_pairs",
+        "lemma_endtoend"
+      ],
+      "md": [
+        "`verify_embedding.py`",
+        "{lemma_families} corpus families through the Lemma D.4 embedding algorithm itself (DMP planarity → orthogonal drawing → `λ = 20` scaling, adapters, stubs): {lemma_built} boards built; {lemma_degenerate_no} certified degenerate no-instances, {lemma_degenerate_nonplanar} of them also non-planar; {lemma_nonplanar} certified non-planar — plus a separate battery of {lemma_malformed} malformed encodings and one planted non-planar control, all deterministic",
+        "I1–I4 and the feature-based (SEP′) separation hold on every board ({sep_pairs} non-incident feature pairs, class minima L∞ 12/16/20 against the required 12); the no-certificate board itself plays out as a genuine no; the full game search runs on {lemma_endtoend} of them — under the historical AND the published constants — and agrees with X3C"
+      ],
+      "tex": [
+        "\\src{verify\\_embedding.py}",
+        "{lemma_families} corpus families through the Lemma D.4 embedding algorithm itself (DMP planarity $\\to$ orthogonal drawing $\\to$ $\\lambda=20$ scaling, adapters, stubs): {lemma_built} boards built; {lemma_degenerate_no} certified degenerate no-instances, {lemma_degenerate_nonplanar} of them also non-planar; {lemma_nonplanar} certified non-planar --- plus a separate battery of {lemma_malformed} malformed encodings and one planted non-planar control, all deterministic",
+        "I1--I4 and the feature-based (SEP$'$) separation hold on every board ({sep_pairs} non-incident feature pairs, class minima $L_\\infty$ 12/16/20 against the required 12); the no-certificate board itself plays out as a genuine no; the full game search runs on {lemma_endtoend} of them --- under the historical AND the published constants --- and agrees with X3C"
+      ],
+      "literals": [
+        "1",
+        "12",
+        "16",
+        "20",
+        "3",
+        "4"
+      ]
+    },
+    {
+      "id": "verify_hp_objective",
+      "placeholders": [
+        "hp_objective_instances",
+        "hp_objective_yes",
+        "hp_objective_no"
+      ],
+      "md": [
+        "`verify_hp_objective.py`",
+        "{hp_objective_instances} instances ({hp_objective_yes} yes, {hp_objective_no} no), plus a negative control",
+        "relaxation = `mT` iff 3-PARTITION; witness absorbs exactly `mT`"
+      ],
+      "tex": [
+        "\\src{verify\\_hp\\_objective.py}",
+        "{hp_objective_instances} instances ({hp_objective_yes} yes, {hp_objective_no} no), plus a negative control",
+        "relaxation $=mT$ iff \\THREEPART; witness absorbs exactly $mT$"
+      ],
+      "literals": [
+        "3"
+      ]
+    },
+    {
+      "id": "verify_full_model_optima",
+      "placeholders": [
+        "empirical_instances"
+      ],
+      "md": [
+        "`verify_full_model_optima.py`",
+        "all {empirical_instances} empirical instances",
+        "every optimum certified over the full action model; the ghost bound also dominates every `(‡)` play (§5.1)"
+      ],
+      "tex": [
+        "\\src{verify\\_full\\_model\\_optima.py}",
+        "all {empirical_instances} empirical instances",
+        "every optimum certified over the full action model; the ghost bound also dominates every $(\\ddagger)$ play (Section~\\ref{sec:design})"
+      ],
+      "literals": [
+        "5.1"
+      ]
+    },
+    {
+      "id": "certify_scores",
+      "placeholders": [
+        "scored_responses"
+      ],
+      "md": [
+        "`certify_scores.py`",
+        "all {scored_responses} scored responses",
+        "every score certified likewise, and reproduced exactly by the `(‡)` phase-aware replay"
+      ],
+      "tex": [
+        "\\src{certify\\_scores.py}",
+        "all {scored_responses} scored responses",
+        "every score certified likewise, and reproduced exactly by the $(\\ddagger)$ phase-aware replay"
+      ],
+      "literals": []
+    },
+    {
+      "id": "check_defend_policy",
+      "placeholders": [
+        "empirical_instances",
+        "legacy_round5_violations"
+      ],
+      "md": [
+        "`check_defend_policy.py`",
+        "all {empirical_instances} replayed under `(‡)`, phase-aware",
+        "all equal the recorded optima; `--legacy-defend` reproduces the {legacy_round5_violations} round-5 violations (negative control)"
+      ],
+      "tex": [
+        "\\src{check\\_defend\\_policy.py}",
+        "all {empirical_instances} replayed under $(\\ddagger)$, phase-aware",
+        "all equal the recorded optima; \\src{--legacy-defend} reproduces the {legacy_round5_violations} round-5 violations (negative control)"
+      ],
+      "literals": [
+        "5"
+      ]
+    },
+    {
+      "id": "test_regressions",
+      "placeholders": [
+        "regressions",
+        "banned_claims"
+      ],
+      "md": [
+        "`test_regressions.py`",
+        "{regressions} regressions: one per error ever caught here, a phase-ordered trace of the capped defended branch, and a doc-consistency battery that re-renders this very table from its manifest, re-runs the generating suites to pin the manifest's counters (only the two `--full` Theorem 3 tiers excepted — those are swept against the proof document), sweeps the counter prose in the siblings and the paper body, and bans {banned_claims} retired claims verbatim",
+        "all pass"
+      ],
+      "tex": [
+        "\\src{test\\_regressions.py}",
+        "{regressions} regressions: one per error ever caught here, a phase-ordered trace of the capped defended branch, and a doc-consistency battery that re-renders this very table from its manifest, re-runs the generating suites to pin the manifest's counters (only the two \\src{--full} Theorem 3 tiers excepted --- those are swept against the proof document), sweeps the counter prose in the siblings and the paper body, and bans {banned_claims} retired claims verbatim",
+        "all pass"
+      ],
+      "literals": [
+        "3"
+      ]
+    },
+    {
+      "id": "engine_harness",
+      "placeholders": [
+        "engine_cases",
+        "engine_exact",
+        "engine_explained",
+        "engine_turn_order_cases"
+      ],
+      "md": [
+        "engine harness",
+        "{engine_cases} cases",
+        "{engine_exact} exact, {engine_explained} explained (Section 4.2); includes {engine_turn_order_cases} turn-order cases run through the engine's own `battleGetTurnOrder`"
+      ],
+      "tex": [
+        "engine harness",
+        "{engine_cases} cases",
+        "{engine_exact} exact, {engine_explained} explained (Section~\\ref{sec:floats}); includes {engine_turn_order_cases} turn-order cases run through the engine's own \\src{battleGetTurnOrder}"
+      ],
+      "literals": [
+        "4.2"
+      ]
+    }
+  ]
+}

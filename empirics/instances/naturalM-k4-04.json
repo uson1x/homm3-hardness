@@ -1,0 +1,107 @@
+{
+ "id": "naturalM-k4-04",
+ "family": "natural-multi",
+ "size": 4,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Magic Elemental": {
+   "attack": 15,
+   "defense": 13,
+   "dmg_min": 15,
+   "dmg_max": 15,
+   "hp": 80,
+   "speed": 9,
+   "value": 2012,
+   "shooter": false
+  },
+  "Battle Dwarf": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 5,
+   "value": 209,
+   "shooter": false
+  },
+  "Zombie": {
+   "attack": 5,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 4,
+   "value": 128,
+   "shooter": false
+  },
+  "Vampire": {
+   "attack": 10,
+   "defense": 9,
+   "dmg_min": 5,
+   "dmg_max": 5,
+   "hp": 30,
+   "speed": 6,
+   "value": 555,
+   "shooter": false
+  },
+  "Minotaur King": {
+   "attack": 15,
+   "defense": 15,
+   "dmg_min": 12,
+   "dmg_max": 12,
+   "hp": 50,
+   "speed": 8,
+   "value": 1068,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Magic Elemental",
+   "stock": 2
+  },
+  {
+   "type": "Battle Dwarf",
+   "stock": 2
+  },
+  {
+   "type": "Zombie",
+   "stock": 2
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93
+ ],
+ "enemies": [
+  {
+   "type": "Vampire",
+   "count": 5,
+   "hex": 8
+  },
+  {
+   "type": "Minotaur King",
+   "count": 2,
+   "hex": 100
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Magic Elemental",
+   "Battle Dwarf",
+   "Zombie"
+  ]
+ }
+}

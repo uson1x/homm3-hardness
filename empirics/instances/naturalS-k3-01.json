@@ -1,0 +1,106 @@
+{
+ "id": "naturalS-k3-01",
+ "family": "natural-single",
+ "size": 3,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Master Genie": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 40,
+   "speed": 11,
+   "value": 942,
+   "shooter": false
+  },
+  "Iron Golem": {
+   "attack": 9,
+   "defense": 10,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 35,
+   "speed": 5,
+   "value": 412,
+   "shooter": false
+  },
+  "Zombie": {
+   "attack": 5,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 4,
+   "value": 128,
+   "shooter": false
+  },
+  "Obsidian Gargoyle": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 16,
+   "speed": 9,
+   "value": 201,
+   "shooter": false
+  },
+  "Halberdier": {
+   "attack": 6,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 10,
+   "speed": 5,
+   "value": 115,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Master Genie",
+   "stock": 8
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90
+ ],
+ "enemies": [
+  {
+   "type": "Iron Golem",
+   "count": 1,
+   "hex": 8
+  },
+  {
+   "type": "Zombie",
+   "count": 5,
+   "hex": 2
+  },
+  {
+   "type": "Obsidian Gargoyle",
+   "count": 3,
+   "hex": 100
+  },
+  {
+   "type": "Halberdier",
+   "count": 4,
+   "hex": 185
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Master Genie"
+  ]
+ }
+}

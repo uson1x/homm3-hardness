@@ -1,0 +1,123 @@
+{
+ "id": "naturalM-k5-02",
+ "family": "natural-multi",
+ "size": 5,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Troglodyte": {
+   "attack": 4,
+   "defense": 3,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 5,
+   "speed": 4,
+   "value": 59,
+   "shooter": false
+  },
+  "Serpent Fly": {
+   "attack": 7,
+   "defense": 9,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 9,
+   "value": 268,
+   "shooter": false
+  },
+  "Magic Elemental": {
+   "attack": 15,
+   "defense": 13,
+   "dmg_min": 15,
+   "dmg_max": 15,
+   "hp": 80,
+   "speed": 9,
+   "value": 2012,
+   "shooter": false
+  },
+  "Halberdier": {
+   "attack": 6,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 10,
+   "speed": 5,
+   "value": 115,
+   "shooter": false
+  },
+  "Harpy Hag": {
+   "attack": 6,
+   "defense": 6,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 14,
+   "speed": 9,
+   "value": 238,
+   "shooter": false
+  },
+  "Genie": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 40,
+   "speed": 7,
+   "value": 884,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Troglodyte",
+   "stock": 7
+  },
+  {
+   "type": "Serpent Fly",
+   "stock": 7
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96
+ ],
+ "enemies": [
+  {
+   "type": "Magic Elemental",
+   "count": 5,
+   "hex": 15
+  },
+  {
+   "type": "Halberdier",
+   "count": 4,
+   "hex": 2
+  },
+  {
+   "type": "Harpy Hag",
+   "count": 3,
+   "hex": 87
+  },
+  {
+   "type": "Genie",
+   "count": 4,
+   "hex": 185
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Troglodyte",
+   "Serpent Fly"
+  ]
+ }
+}

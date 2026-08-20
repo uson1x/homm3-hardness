@@ -1,0 +1,90 @@
+{
+ "id": "naturalM-k2-02",
+ "family": "natural-multi",
+ "size": 2,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Gnoll": {
+   "attack": 3,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 6,
+   "speed": 4,
+   "value": 56,
+   "shooter": false
+  },
+  "Minotaur King": {
+   "attack": 15,
+   "defense": 15,
+   "dmg_min": 12,
+   "dmg_max": 12,
+   "hp": 50,
+   "speed": 8,
+   "value": 1068,
+   "shooter": false
+  },
+  "Zombie": {
+   "attack": 5,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 4,
+   "value": 128,
+   "shooter": false
+  },
+  "Battle Dwarf": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 5,
+   "value": 209,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Gnoll",
+   "stock": 2
+  },
+  {
+   "type": "Minotaur King",
+   "stock": 2
+  }
+ ],
+ "slots": [
+  57,
+  61
+ ],
+ "enemies": [
+  {
+   "type": "Zombie",
+   "count": 5,
+   "hex": 15
+  },
+  {
+   "type": "Battle Dwarf",
+   "count": 5,
+   "hex": 100
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Gnoll",
+   "Minotaur King"
+  ]
+ }
+}

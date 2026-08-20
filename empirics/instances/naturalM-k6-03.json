@@ -1,0 +1,94 @@
+{
+ "id": "naturalM-k6-03",
+ "family": "natural-multi",
+ "size": 6,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Troll": {
+   "attack": 14,
+   "defense": 7,
+   "dmg_min": 10,
+   "dmg_max": 10,
+   "hp": 40,
+   "speed": 7,
+   "value": 1024,
+   "shooter": false
+  },
+  "Horned Demon": {
+   "attack": 10,
+   "defense": 10,
+   "dmg_min": 7,
+   "dmg_max": 7,
+   "hp": 40,
+   "speed": 6,
+   "value": 480,
+   "shooter": false
+  },
+  "Dendroid Soldier": {
+   "attack": 9,
+   "defense": 12,
+   "dmg_min": 10,
+   "dmg_max": 10,
+   "hp": 65,
+   "speed": 4,
+   "value": 803,
+   "shooter": false
+  },
+  "Peasant": {
+   "attack": 1,
+   "defense": 1,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 1,
+   "speed": 3,
+   "value": 15,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Troll",
+   "stock": 3
+  },
+  {
+   "type": "Horned Demon",
+   "stock": 3
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96,
+  125
+ ],
+ "enemies": [
+  {
+   "type": "Dendroid Soldier",
+   "count": 2,
+   "hex": 185
+  },
+  {
+   "type": "Peasant",
+   "count": 4,
+   "hex": 8
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Troll",
+   "Horned Demon"
+  ]
+ }
+}

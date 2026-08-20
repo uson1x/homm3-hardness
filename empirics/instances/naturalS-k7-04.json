@@ -1,0 +1,80 @@
+{
+ "id": "naturalS-k7-04",
+ "family": "natural-single",
+ "size": 7,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Magic Elemental": {
+   "attack": 15,
+   "defense": 13,
+   "dmg_min": 15,
+   "dmg_max": 15,
+   "hp": 80,
+   "speed": 9,
+   "value": 2012,
+   "shooter": false
+  },
+  "Giant": {
+   "attack": 19,
+   "defense": 16,
+   "dmg_min": 40,
+   "dmg_max": 40,
+   "hp": 150,
+   "speed": 7,
+   "value": 3718,
+   "shooter": false
+  },
+  "Infernal Troglodyte": {
+   "attack": 5,
+   "defense": 4,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 6,
+   "speed": 5,
+   "value": 84,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Magic Elemental",
+   "stock": 6
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96,
+  125,
+  129
+ ],
+ "enemies": [
+  {
+   "type": "Giant",
+   "count": 1,
+   "hex": 8
+  },
+  {
+   "type": "Infernal Troglodyte",
+   "count": 1,
+   "hex": 172
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Magic Elemental"
+  ]
+ }
+}

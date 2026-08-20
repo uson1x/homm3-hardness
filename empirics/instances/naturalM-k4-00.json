@@ -1,0 +1,122 @@
+{
+ "id": "naturalM-k4-00",
+ "family": "natural-multi",
+ "size": 4,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Gnoll Marauder": {
+   "attack": 4,
+   "defense": 6,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 6,
+   "speed": 5,
+   "value": 90,
+   "shooter": false
+  },
+  "Wraith": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 3,
+   "dmg_max": 3,
+   "hp": 18,
+   "speed": 7,
+   "value": 315,
+   "shooter": false
+  },
+  "Wight": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 3,
+   "dmg_max": 3,
+   "hp": 18,
+   "speed": 5,
+   "value": 252,
+   "shooter": false
+  },
+  "Harpy": {
+   "attack": 6,
+   "defense": 5,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 14,
+   "speed": 6,
+   "value": 154,
+   "shooter": false
+  },
+  "Efreeti": {
+   "attack": 16,
+   "defense": 12,
+   "dmg_min": 16,
+   "dmg_max": 16,
+   "hp": 90,
+   "speed": 9,
+   "value": 1670,
+   "shooter": false
+  },
+  "Vampire": {
+   "attack": 10,
+   "defense": 9,
+   "dmg_min": 5,
+   "dmg_max": 5,
+   "hp": 30,
+   "speed": 6,
+   "value": 555,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Gnoll Marauder",
+   "stock": 3
+  },
+  {
+   "type": "Wraith",
+   "stock": 3
+  },
+  {
+   "type": "Wight",
+   "stock": 3
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93
+ ],
+ "enemies": [
+  {
+   "type": "Harpy",
+   "count": 1,
+   "hex": 2
+  },
+  {
+   "type": "Efreeti",
+   "count": 4,
+   "hex": 172
+  },
+  {
+   "type": "Vampire",
+   "count": 1,
+   "hex": 87
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Gnoll Marauder",
+   "Wraith",
+   "Wight"
+  ]
+ }
+}

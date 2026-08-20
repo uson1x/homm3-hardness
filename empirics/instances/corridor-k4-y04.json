@@ -1,0 +1,111 @@
+{
+ "id": "corridor-k4-y04",
+ "family": "corridor-partition",
+ "size": 4,
+ "seed": 20260801,
+ "field": {
+  "width": 20,
+  "height": 1,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "C": {
+   "attack": 10,
+   "defense": 10,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 5,
+   "speed": 2,
+   "value": 0,
+   "shooter": false
+  },
+  "E0": {
+   "attack": 10,
+   "defense": 10,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 1,
+   "speed": 1,
+   "value": 1,
+   "shooter": false
+  },
+  "E1": {
+   "attack": 10,
+   "defense": 10,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 1,
+   "speed": 1,
+   "value": 1,
+   "shooter": false
+  },
+  "E2": {
+   "attack": 10,
+   "defense": 10,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 6,
+   "speed": 1,
+   "value": 6,
+   "shooter": false
+  },
+  "E3": {
+   "attack": 10,
+   "defense": 10,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 8,
+   "speed": 1,
+   "value": 8,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "C",
+   "stock": 8
+  }
+ ],
+ "slots": [
+  0,
+  5,
+  10,
+  15
+ ],
+ "enemies": [
+  {
+   "type": "E0",
+   "count": 1,
+   "hex": 1
+  },
+  {
+   "type": "E1",
+   "count": 1,
+   "hex": 6
+  },
+  {
+   "type": "E2",
+   "count": 1,
+   "hex": 11
+  },
+  {
+   "type": "E3",
+   "count": 1,
+   "hex": 16
+  }
+ ],
+ "provenance": {
+  "construction": "proofs/candidate-A.md sec. 3.1 (Theorem 1, PARTITION)",
+  "partition_items": [
+   1,
+   1,
+   6,
+   8
+  ],
+  "partition_target": 8,
+  "partition_is_yes": true,
+  "decision_target_W": 8
+ }
+}

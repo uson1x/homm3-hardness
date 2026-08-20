@@ -1,0 +1,120 @@
+{
+ "id": "naturalM-k2-00",
+ "family": "natural-multi",
+ "size": 2,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Devil": {
+   "attack": 19,
+   "defense": 21,
+   "dmg_min": 30,
+   "dmg_max": 30,
+   "hp": 160,
+   "speed": 11,
+   "value": 5101,
+   "shooter": false
+  },
+  "Wight": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 3,
+   "dmg_max": 3,
+   "hp": 18,
+   "speed": 5,
+   "value": 252,
+   "shooter": false
+  },
+  "Rogue": {
+   "attack": 8,
+   "defense": 3,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 10,
+   "speed": 6,
+   "value": 135,
+   "shooter": false
+  },
+  "Fire Elemental": {
+   "attack": 10,
+   "defense": 8,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 35,
+   "speed": 6,
+   "value": 345,
+   "shooter": false
+  },
+  "Master Genie": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 40,
+   "speed": 11,
+   "value": 942,
+   "shooter": false
+  },
+  "Familiar": {
+   "attack": 4,
+   "defense": 4,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 4,
+   "speed": 7,
+   "value": 60,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Devil",
+   "stock": 2
+  },
+  {
+   "type": "Wight",
+   "stock": 2
+  }
+ ],
+ "slots": [
+  57,
+  61
+ ],
+ "enemies": [
+  {
+   "type": "Rogue",
+   "count": 1,
+   "hex": 2
+  },
+  {
+   "type": "Fire Elemental",
+   "count": 1,
+   "hex": 8
+  },
+  {
+   "type": "Master Genie",
+   "count": 5,
+   "hex": 100
+  },
+  {
+   "type": "Familiar",
+   "count": 3,
+   "hex": 87
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Devil",
+   "Wight"
+  ]
+ }
+}

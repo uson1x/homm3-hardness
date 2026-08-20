@@ -1,0 +1,109 @@
+{
+ "id": "naturalM-k6-01",
+ "family": "natural-multi",
+ "size": 6,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Dwarf": {
+   "attack": 6,
+   "defense": 7,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 3,
+   "value": 138,
+   "shooter": false
+  },
+  "Master Genie": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 40,
+   "speed": 11,
+   "value": 942,
+   "shooter": false
+  },
+  "Energy Elemental": {
+   "attack": 12,
+   "defense": 8,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 35,
+   "speed": 8,
+   "value": 470,
+   "shooter": false
+  },
+  "Diamond Golem": {
+   "attack": 13,
+   "defense": 12,
+   "dmg_min": 10,
+   "dmg_max": 10,
+   "hp": 60,
+   "speed": 5,
+   "value": 775,
+   "shooter": false
+  },
+  "Dragon Fly": {
+   "attack": 8,
+   "defense": 10,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 13,
+   "value": 312,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Dwarf",
+   "stock": 6
+  },
+  {
+   "type": "Master Genie",
+   "stock": 6
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96,
+  125
+ ],
+ "enemies": [
+  {
+   "type": "Energy Elemental",
+   "count": 2,
+   "hex": 15
+  },
+  {
+   "type": "Diamond Golem",
+   "count": 2,
+   "hex": 87
+  },
+  {
+   "type": "Dragon Fly",
+   "count": 5,
+   "hex": 8
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Dwarf",
+   "Master Genie"
+  ]
+ }
+}

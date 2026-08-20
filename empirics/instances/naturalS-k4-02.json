@@ -1,0 +1,92 @@
+{
+ "id": "naturalS-k4-02",
+ "family": "natural-single",
+ "size": 4,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Crusader": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 7,
+   "dmg_max": 7,
+   "hp": 35,
+   "speed": 6,
+   "value": 588,
+   "shooter": false
+  },
+  "Pixie": {
+   "attack": 2,
+   "defense": 2,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 3,
+   "speed": 7,
+   "value": 55,
+   "shooter": false
+  },
+  "Psychic Elemental": {
+   "attack": 15,
+   "defense": 13,
+   "dmg_min": 10,
+   "dmg_max": 10,
+   "hp": 75,
+   "speed": 7,
+   "value": 1669,
+   "shooter": false
+  },
+  "Skeleton": {
+   "attack": 5,
+   "defense": 4,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 6,
+   "speed": 4,
+   "value": 60,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Crusader",
+   "stock": 2
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93
+ ],
+ "enemies": [
+  {
+   "type": "Pixie",
+   "count": 3,
+   "hex": 8
+  },
+  {
+   "type": "Psychic Elemental",
+   "count": 4,
+   "hex": 2
+  },
+  {
+   "type": "Skeleton",
+   "count": 5,
+   "hex": 172
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Crusader"
+  ]
+ }
+}

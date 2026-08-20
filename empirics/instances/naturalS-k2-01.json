@@ -1,0 +1,90 @@
+{
+ "id": "naturalS-k2-01",
+ "family": "natural-single",
+ "size": 2,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Pit Fiend": {
+   "attack": 13,
+   "defense": 13,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 45,
+   "speed": 6,
+   "value": 765,
+   "shooter": false
+  },
+  "Minotaur King": {
+   "attack": 15,
+   "defense": 15,
+   "dmg_min": 12,
+   "dmg_max": 12,
+   "hp": 50,
+   "speed": 8,
+   "value": 1068,
+   "shooter": false
+  },
+  "Dendroid Soldier": {
+   "attack": 9,
+   "defense": 12,
+   "dmg_min": 10,
+   "dmg_max": 10,
+   "hp": 65,
+   "speed": 4,
+   "value": 803,
+   "shooter": false
+  },
+  "Magma Elemental": {
+   "attack": 11,
+   "defense": 11,
+   "dmg_min": 6,
+   "dmg_max": 6,
+   "hp": 40,
+   "speed": 6,
+   "value": 490,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Pit Fiend",
+   "stock": 15
+  }
+ ],
+ "slots": [
+  57,
+  61
+ ],
+ "enemies": [
+  {
+   "type": "Minotaur King",
+   "count": 3,
+   "hex": 15
+  },
+  {
+   "type": "Dendroid Soldier",
+   "count": 1,
+   "hex": 100
+  },
+  {
+   "type": "Magma Elemental",
+   "count": 5,
+   "hex": 8
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Pit Fiend"
+  ]
+ }
+}

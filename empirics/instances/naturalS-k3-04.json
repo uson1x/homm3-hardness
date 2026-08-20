@@ -1,0 +1,106 @@
+{
+ "id": "naturalS-k3-04",
+ "family": "natural-single",
+ "size": 3,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Ogre": {
+   "attack": 13,
+   "defense": 7,
+   "dmg_min": 6,
+   "dmg_max": 6,
+   "hp": 40,
+   "speed": 4,
+   "value": 416,
+   "shooter": false
+  },
+  "Wight": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 3,
+   "dmg_max": 3,
+   "hp": 18,
+   "speed": 5,
+   "value": 252,
+   "shooter": false
+  },
+  "Iron Golem": {
+   "attack": 9,
+   "defense": 10,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 35,
+   "speed": 5,
+   "value": 412,
+   "shooter": false
+  },
+  "Peasant": {
+   "attack": 1,
+   "defense": 1,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 1,
+   "speed": 3,
+   "value": 15,
+   "shooter": false
+  },
+  "Crusader": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 7,
+   "dmg_max": 7,
+   "hp": 35,
+   "speed": 6,
+   "value": 588,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Ogre",
+   "stock": 20
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90
+ ],
+ "enemies": [
+  {
+   "type": "Wight",
+   "count": 3,
+   "hex": 87
+  },
+  {
+   "type": "Iron Golem",
+   "count": 4,
+   "hex": 100
+  },
+  {
+   "type": "Peasant",
+   "count": 3,
+   "hex": 8
+  },
+  {
+   "type": "Crusader",
+   "count": 1,
+   "hex": 2
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Ogre"
+  ]
+ }
+}

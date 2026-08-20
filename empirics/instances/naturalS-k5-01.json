@@ -1,0 +1,93 @@
+{
+ "id": "naturalS-k5-01",
+ "family": "natural-single",
+ "size": 5,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Troll": {
+   "attack": 14,
+   "defense": 7,
+   "dmg_min": 10,
+   "dmg_max": 10,
+   "hp": 40,
+   "speed": 7,
+   "value": 1024,
+   "shooter": false
+  },
+  "Genie": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 40,
+   "speed": 7,
+   "value": 884,
+   "shooter": false
+  },
+  "Skeleton": {
+   "attack": 5,
+   "defense": 4,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 6,
+   "speed": 4,
+   "value": 60,
+   "shooter": false
+  },
+  "Walking Dead": {
+   "attack": 5,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 15,
+   "speed": 3,
+   "value": 98,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Troll",
+   "stock": 8
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96
+ ],
+ "enemies": [
+  {
+   "type": "Genie",
+   "count": 4,
+   "hex": 15
+  },
+  {
+   "type": "Skeleton",
+   "count": 1,
+   "hex": 172
+  },
+  {
+   "type": "Walking Dead",
+   "count": 2,
+   "hex": 87
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Troll"
+  ]
+ }
+}

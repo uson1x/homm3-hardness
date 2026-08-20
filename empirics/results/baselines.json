@@ -1,0 +1,9239 @@
+{
+ "seed": 20260801,
+ "random_samples": 100,
+ "note": "ratio = value achieved / certified optimum; play is resolved optimally once the allocation is fixed",
+ "aggregate": {
+  "overall": {
+   "even-split": {
+    "n": 145,
+    "mean_ratio": 0.5507,
+    "median_ratio": 0.5714,
+    "min_ratio": 0.0,
+    "exact_rate": 0.2897,
+    "below_90_rate": 0.6552
+   },
+   "one-big-stack": {
+    "n": 145,
+    "mean_ratio": 0.5775,
+    "median_ratio": 0.66,
+    "min_ratio": 0.0,
+    "exact_rate": 0.3241,
+    "below_90_rate": 0.6207
+   },
+   "greedy-density": {
+    "n": 145,
+    "mean_ratio": 0.8992,
+    "median_ratio": 1.0,
+    "min_ratio": 0.1562,
+    "exact_rate": 0.5724,
+    "below_90_rate": 0.3172
+   },
+   "greedy-cheapest": {
+    "n": 145,
+    "mean_ratio": 0.893,
+    "median_ratio": 1.0,
+    "min_ratio": 0.1562,
+    "exact_rate": 0.5517,
+    "below_90_rate": 0.3379
+   },
+   "greedy-value": {
+    "n": 145,
+    "mean_ratio": 0.9542,
+    "median_ratio": 1.0,
+    "min_ratio": 0.1562,
+    "exact_rate": 0.7931,
+    "below_90_rate": 0.131
+   },
+   "focus-fire": {
+    "n": 145,
+    "mean_ratio": 0.8882,
+    "median_ratio": 1.0,
+    "min_ratio": 0.1562,
+    "exact_rate": 0.5586,
+    "below_90_rate": 0.331
+   },
+   "random": {
+    "n": 145,
+    "mean_ratio": 0.5947,
+    "median_ratio": 0.5543,
+    "min_ratio": 0.12,
+    "exact_rate": 0.3021,
+    "below_90_rate": 0.8138,
+    "best_of_n_mean": 0.9709
+   }
+  },
+  "by_family": {
+   "corridor-partition": {
+    "even-split": {
+     "n": 60,
+     "mean_ratio": 0.248,
+     "median_ratio": 0.2183,
+     "min_ratio": 0.0,
+     "exact_rate": 0.05,
+     "below_90_rate": 0.95
+    },
+    "one-big-stack": {
+     "n": 60,
+     "mean_ratio": 0.3365,
+     "median_ratio": 0.2321,
+     "min_ratio": 0.0455,
+     "exact_rate": 0.1667,
+     "below_90_rate": 0.8333
+    },
+    "greedy-density": {
+     "n": 60,
+     "mean_ratio": 0.8537,
+     "median_ratio": 0.8997,
+     "min_ratio": 0.4286,
+     "exact_rate": 0.3667,
+     "below_90_rate": 0.5
+    },
+    "greedy-cheapest": {
+     "n": 60,
+     "mean_ratio": 0.8537,
+     "median_ratio": 0.8997,
+     "min_ratio": 0.4286,
+     "exact_rate": 0.3667,
+     "below_90_rate": 0.5
+    },
+    "greedy-value": {
+     "n": 60,
+     "mean_ratio": 0.9911,
+     "median_ratio": 1.0,
+     "min_ratio": 0.8421,
+     "exact_rate": 0.9,
+     "below_90_rate": 0.0333
+    },
+    "focus-fire": {
+     "n": 60,
+     "mean_ratio": 0.8537,
+     "median_ratio": 0.8997,
+     "min_ratio": 0.4286,
+     "exact_rate": 0.3667,
+     "below_90_rate": 0.5
+    },
+    "random": {
+     "n": 60,
+     "mean_ratio": 0.4416,
+     "median_ratio": 0.4197,
+     "min_ratio": 0.2825,
+     "exact_rate": 0.1382,
+     "below_90_rate": 1.0,
+     "best_of_n_mean": 0.934
+    }
+   },
+   "flower-3partition": {
+    "even-split": {
+     "n": 13,
+     "mean_ratio": 0.8846,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5,
+     "exact_rate": 0.7692,
+     "below_90_rate": 0.2308
+    },
+    "one-big-stack": {
+     "n": 13,
+     "mean_ratio": 0.8846,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5,
+     "exact_rate": 0.7692,
+     "below_90_rate": 0.2308
+    },
+    "greedy-density": {
+     "n": 13,
+     "mean_ratio": 0.8846,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5,
+     "exact_rate": 0.7692,
+     "below_90_rate": 0.2308
+    },
+    "greedy-cheapest": {
+     "n": 13,
+     "mean_ratio": 0.8846,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5,
+     "exact_rate": 0.7692,
+     "below_90_rate": 0.2308
+    },
+    "greedy-value": {
+     "n": 13,
+     "mean_ratio": 0.8846,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5,
+     "exact_rate": 0.7692,
+     "below_90_rate": 0.2308
+    },
+    "focus-fire": {
+     "n": 13,
+     "mean_ratio": 0.8077,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5,
+     "exact_rate": 0.6154,
+     "below_90_rate": 0.3846
+    },
+    "random": {
+     "n": 13,
+     "mean_ratio": 0.8727,
+     "median_ratio": 1.0,
+     "min_ratio": 0.56,
+     "exact_rate": 0.7454,
+     "below_90_rate": 0.3846,
+     "best_of_n_mean": 1.0
+    }
+   },
+   "natural-multi": {
+    "even-split": {
+     "n": 36,
+     "mean_ratio": 0.7403,
+     "median_ratio": 0.9541,
+     "min_ratio": 0.0,
+     "exact_rate": 0.4444,
+     "below_90_rate": 0.3889
+    },
+    "one-big-stack": {
+     "n": 36,
+     "mean_ratio": 0.7521,
+     "median_ratio": 1.0,
+     "min_ratio": 0.0,
+     "exact_rate": 0.5278,
+     "below_90_rate": 0.3611
+    },
+    "greedy-density": {
+     "n": 36,
+     "mean_ratio": 0.9344,
+     "median_ratio": 1.0,
+     "min_ratio": 0.1562,
+     "exact_rate": 0.6944,
+     "below_90_rate": 0.2222
+    },
+    "greedy-cheapest": {
+     "n": 36,
+     "mean_ratio": 0.9344,
+     "median_ratio": 1.0,
+     "min_ratio": 0.1562,
+     "exact_rate": 0.6944,
+     "below_90_rate": 0.2222
+    },
+    "greedy-value": {
+     "n": 36,
+     "mean_ratio": 0.9368,
+     "median_ratio": 1.0,
+     "min_ratio": 0.1562,
+     "exact_rate": 0.7222,
+     "below_90_rate": 0.2222
+    },
+    "focus-fire": {
+     "n": 36,
+     "mean_ratio": 0.9177,
+     "median_ratio": 1.0,
+     "min_ratio": 0.1562,
+     "exact_rate": 0.6944,
+     "below_90_rate": 0.2222
+    },
+    "random": {
+     "n": 36,
+     "mean_ratio": 0.6531,
+     "median_ratio": 0.6664,
+     "min_ratio": 0.1933,
+     "exact_rate": 0.4206,
+     "below_90_rate": 0.7222,
+     "best_of_n_mean": 0.9946
+    }
+   },
+   "natural-single": {
+    "even-split": {
+     "n": 36,
+     "mean_ratio": 0.7452,
+     "median_ratio": 0.844,
+     "min_ratio": 0.0,
+     "exact_rate": 0.3611,
+     "below_90_rate": 0.5833
+    },
+    "one-big-stack": {
+     "n": 36,
+     "mean_ratio": 0.6935,
+     "median_ratio": 0.7765,
+     "min_ratio": 0.0,
+     "exact_rate": 0.2222,
+     "below_90_rate": 0.6667
+    },
+    "greedy-density": {
+     "n": 36,
+     "mean_ratio": 0.9452,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5958,
+     "exact_rate": 0.7222,
+     "below_90_rate": 0.1389
+    },
+    "greedy-cheapest": {
+     "n": 36,
+     "mean_ratio": 0.9201,
+     "median_ratio": 1.0,
+     "min_ratio": 0.4557,
+     "exact_rate": 0.6389,
+     "below_90_rate": 0.2222
+    },
+    "greedy-value": {
+     "n": 36,
+     "mean_ratio": 0.9353,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5958,
+     "exact_rate": 0.6944,
+     "below_90_rate": 0.1667
+    },
+    "focus-fire": {
+     "n": 36,
+     "mean_ratio": 0.9452,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5958,
+     "exact_rate": 0.7222,
+     "below_90_rate": 0.1389
+    },
+    "random": {
+     "n": 36,
+     "mean_ratio": 0.6911,
+     "median_ratio": 0.7499,
+     "min_ratio": 0.12,
+     "exact_rate": 0.2967,
+     "below_90_rate": 0.75,
+     "best_of_n_mean": 0.9982
+    }
+   }
+  },
+  "by_size": {
+   "2": {
+    "even-split": {
+     "n": 22,
+     "mean_ratio": 0.5499,
+     "median_ratio": 0.7422,
+     "min_ratio": 0.0,
+     "exact_rate": 0.3636,
+     "below_90_rate": 0.5455
+    },
+    "one-big-stack": {
+     "n": 22,
+     "mean_ratio": 0.8663,
+     "median_ratio": 1.0,
+     "min_ratio": 0.0,
+     "exact_rate": 0.6818,
+     "below_90_rate": 0.2727
+    },
+    "greedy-density": {
+     "n": 22,
+     "mean_ratio": 0.9802,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5958,
+     "exact_rate": 0.9091,
+     "below_90_rate": 0.0455
+    },
+    "greedy-cheapest": {
+     "n": 22,
+     "mean_ratio": 0.9708,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5958,
+     "exact_rate": 0.8636,
+     "below_90_rate": 0.0909
+    },
+    "greedy-value": {
+     "n": 22,
+     "mean_ratio": 0.9802,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5958,
+     "exact_rate": 0.9091,
+     "below_90_rate": 0.0455
+    },
+    "focus-fire": {
+     "n": 22,
+     "mean_ratio": 0.9802,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5958,
+     "exact_rate": 0.9091,
+     "below_90_rate": 0.0455
+    },
+    "random": {
+     "n": 22,
+     "mean_ratio": 0.637,
+     "median_ratio": 0.61,
+     "min_ratio": 0.23,
+     "exact_rate": 0.4909,
+     "below_90_rate": 0.8182,
+     "best_of_n_mean": 1.0
+    }
+   },
+   "3": {
+    "even-split": {
+     "n": 25,
+     "mean_ratio": 0.6165,
+     "median_ratio": 0.6667,
+     "min_ratio": 0.0,
+     "exact_rate": 0.36,
+     "below_90_rate": 0.56
+    },
+    "one-big-stack": {
+     "n": 25,
+     "mean_ratio": 0.5975,
+     "median_ratio": 0.5443,
+     "min_ratio": 0.0,
+     "exact_rate": 0.28,
+     "below_90_rate": 0.68
+    },
+    "greedy-density": {
+     "n": 25,
+     "mean_ratio": 0.9162,
+     "median_ratio": 1.0,
+     "min_ratio": 0.4286,
+     "exact_rate": 0.76,
+     "below_90_rate": 0.2
+    },
+    "greedy-cheapest": {
+     "n": 25,
+     "mean_ratio": 0.8944,
+     "median_ratio": 1.0,
+     "min_ratio": 0.4286,
+     "exact_rate": 0.72,
+     "below_90_rate": 0.24
+    },
+    "greedy-value": {
+     "n": 25,
+     "mean_ratio": 0.9833,
+     "median_ratio": 1.0,
+     "min_ratio": 0.7662,
+     "exact_rate": 0.92,
+     "below_90_rate": 0.08
+    },
+    "focus-fire": {
+     "n": 25,
+     "mean_ratio": 0.9126,
+     "median_ratio": 1.0,
+     "min_ratio": 0.4286,
+     "exact_rate": 0.76,
+     "below_90_rate": 0.2
+    },
+    "random": {
+     "n": 25,
+     "mean_ratio": 0.6371,
+     "median_ratio": 0.5867,
+     "min_ratio": 0.21,
+     "exact_rate": 0.3648,
+     "below_90_rate": 0.76,
+     "best_of_n_mean": 0.9938
+    }
+   },
+   "4": {
+    "even-split": {
+     "n": 22,
+     "mean_ratio": 0.5727,
+     "median_ratio": 0.5887,
+     "min_ratio": 0.0,
+     "exact_rate": 0.2727,
+     "below_90_rate": 0.6818
+    },
+    "one-big-stack": {
+     "n": 22,
+     "mean_ratio": 0.5553,
+     "median_ratio": 0.3958,
+     "min_ratio": 0.125,
+     "exact_rate": 0.2273,
+     "below_90_rate": 0.7727
+    },
+    "greedy-density": {
+     "n": 22,
+     "mean_ratio": 0.8868,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5455,
+     "exact_rate": 0.5455,
+     "below_90_rate": 0.3182
+    },
+    "greedy-cheapest": {
+     "n": 22,
+     "mean_ratio": 0.8799,
+     "median_ratio": 0.9583,
+     "min_ratio": 0.5455,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.3636
+    },
+    "greedy-value": {
+     "n": 22,
+     "mean_ratio": 0.9845,
+     "median_ratio": 1.0,
+     "min_ratio": 0.66,
+     "exact_rate": 0.9545,
+     "below_90_rate": 0.0455
+    },
+    "focus-fire": {
+     "n": 22,
+     "mean_ratio": 0.8868,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5455,
+     "exact_rate": 0.5455,
+     "below_90_rate": 0.3182
+    },
+    "random": {
+     "n": 22,
+     "mean_ratio": 0.5475,
+     "median_ratio": 0.5036,
+     "min_ratio": 0.1933,
+     "exact_rate": 0.1909,
+     "below_90_rate": 0.8636,
+     "best_of_n_mean": 0.987
+    }
+   },
+   "5": {
+    "even-split": {
+     "n": 22,
+     "mean_ratio": 0.4621,
+     "median_ratio": 0.374,
+     "min_ratio": 0.0,
+     "exact_rate": 0.1364,
+     "below_90_rate": 0.8636
+    },
+    "one-big-stack": {
+     "n": 22,
+     "mean_ratio": 0.4312,
+     "median_ratio": 0.2405,
+     "min_ratio": 0.0,
+     "exact_rate": 0.1364,
+     "below_90_rate": 0.7727
+    },
+    "greedy-density": {
+     "n": 22,
+     "mean_ratio": 0.8722,
+     "median_ratio": 0.9167,
+     "min_ratio": 0.5455,
+     "exact_rate": 0.3636,
+     "below_90_rate": 0.4545
+    },
+    "greedy-cheapest": {
+     "n": 22,
+     "mean_ratio": 0.8722,
+     "median_ratio": 0.9167,
+     "min_ratio": 0.5455,
+     "exact_rate": 0.3636,
+     "below_90_rate": 0.4545
+    },
+    "greedy-value": {
+     "n": 22,
+     "mean_ratio": 0.9444,
+     "median_ratio": 1.0,
+     "min_ratio": 0.566,
+     "exact_rate": 0.7273,
+     "below_90_rate": 0.1818
+    },
+    "focus-fire": {
+     "n": 22,
+     "mean_ratio": 0.8722,
+     "median_ratio": 0.9167,
+     "min_ratio": 0.5455,
+     "exact_rate": 0.3636,
+     "below_90_rate": 0.4545
+    },
+    "random": {
+     "n": 22,
+     "mean_ratio": 0.5442,
+     "median_ratio": 0.4475,
+     "min_ratio": 0.2909,
+     "exact_rate": 0.2109,
+     "below_90_rate": 0.9091,
+     "best_of_n_mean": 0.9734
+    }
+   },
+   "6": {
+    "even-split": {
+     "n": 32,
+     "mean_ratio": 0.6183,
+     "median_ratio": 0.7262,
+     "min_ratio": 0.0,
+     "exact_rate": 0.375,
+     "below_90_rate": 0.5625
+    },
+    "one-big-stack": {
+     "n": 32,
+     "mean_ratio": 0.6232,
+     "median_ratio": 0.6843,
+     "min_ratio": 0.0526,
+     "exact_rate": 0.4062,
+     "below_90_rate": 0.5312
+    },
+    "greedy-density": {
+     "n": 32,
+     "mean_ratio": 0.8661,
+     "median_ratio": 1.0,
+     "min_ratio": 0.1562,
+     "exact_rate": 0.5312,
+     "below_90_rate": 0.4062
+    },
+    "greedy-cheapest": {
+     "n": 32,
+     "mean_ratio": 0.8661,
+     "median_ratio": 1.0,
+     "min_ratio": 0.1562,
+     "exact_rate": 0.5312,
+     "below_90_rate": 0.4062
+    },
+    "greedy-value": {
+     "n": 32,
+     "mean_ratio": 0.8929,
+     "median_ratio": 1.0,
+     "min_ratio": 0.1562,
+     "exact_rate": 0.625,
+     "below_90_rate": 0.25
+    },
+    "focus-fire": {
+     "n": 32,
+     "mean_ratio": 0.8349,
+     "median_ratio": 0.9643,
+     "min_ratio": 0.1562,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.4688
+    },
+    "random": {
+     "n": 32,
+     "mean_ratio": 0.6446,
+     "median_ratio": 0.6614,
+     "min_ratio": 0.1938,
+     "exact_rate": 0.3481,
+     "below_90_rate": 0.75,
+     "best_of_n_mean": 0.9582
+    }
+   },
+   "7": {
+    "even-split": {
+     "n": 22,
+     "mean_ratio": 0.4451,
+     "median_ratio": 0.3163,
+     "min_ratio": 0.0,
+     "exact_rate": 0.1818,
+     "below_90_rate": 0.7727
+    },
+    "one-big-stack": {
+     "n": 22,
+     "mean_ratio": 0.3676,
+     "median_ratio": 0.077,
+     "min_ratio": 0.0,
+     "exact_rate": 0.1818,
+     "below_90_rate": 0.7273
+    },
+    "greedy-density": {
+     "n": 22,
+     "mean_ratio": 0.8866,
+     "median_ratio": 0.9024,
+     "min_ratio": 0.6842,
+     "exact_rate": 0.3182,
+     "below_90_rate": 0.4545
+    },
+    "greedy-cheapest": {
+     "n": 22,
+     "mean_ratio": 0.8866,
+     "median_ratio": 0.9024,
+     "min_ratio": 0.6842,
+     "exact_rate": 0.3182,
+     "below_90_rate": 0.4545
+    },
+    "greedy-value": {
+     "n": 22,
+     "mean_ratio": 0.964,
+     "median_ratio": 1.0,
+     "min_ratio": 0.7278,
+     "exact_rate": 0.6818,
+     "below_90_rate": 0.1364
+    },
+    "focus-fire": {
+     "n": 22,
+     "mean_ratio": 0.8633,
+     "median_ratio": 0.9024,
+     "min_ratio": 0.4444,
+     "exact_rate": 0.2727,
+     "below_90_rate": 0.4545
+    },
+    "random": {
+     "n": 22,
+     "mean_ratio": 0.5294,
+     "median_ratio": 0.3872,
+     "min_ratio": 0.12,
+     "exact_rate": 0.1773,
+     "below_90_rate": 0.8182,
+     "best_of_n_mean": 0.9157
+    }
+   }
+  },
+  "by_family_size": {
+   "corridor-partition/k=2": {
+    "even-split": {
+     "n": 10,
+     "mean_ratio": 0.3,
+     "median_ratio": 0.0,
+     "min_ratio": 0.0,
+     "exact_rate": 0.3,
+     "below_90_rate": 0.7
+    },
+    "one-big-stack": {
+     "n": 10,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "greedy-density": {
+     "n": 10,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "greedy-cheapest": {
+     "n": 10,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "greedy-value": {
+     "n": 10,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "focus-fire": {
+     "n": 10,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "random": {
+     "n": 10,
+     "mean_ratio": 0.576,
+     "median_ratio": 0.565,
+     "min_ratio": 0.48,
+     "exact_rate": 0.576,
+     "below_90_rate": 1.0,
+     "best_of_n_mean": 1.0
+    }
+   },
+   "corridor-partition/k=3": {
+    "even-split": {
+     "n": 10,
+     "mean_ratio": 0.2849,
+     "median_ratio": 0.25,
+     "min_ratio": 0.0,
+     "exact_rate": 0.0,
+     "below_90_rate": 1.0
+    },
+    "one-big-stack": {
+     "n": 10,
+     "mean_ratio": 0.3627,
+     "median_ratio": 0.2917,
+     "min_ratio": 0.1429,
+     "exact_rate": 0.0,
+     "below_90_rate": 1.0
+    },
+    "greedy-density": {
+     "n": 10,
+     "mean_ratio": 0.8151,
+     "median_ratio": 1.0,
+     "min_ratio": 0.4286,
+     "exact_rate": 0.6,
+     "below_90_rate": 0.4
+    },
+    "greedy-cheapest": {
+     "n": 10,
+     "mean_ratio": 0.8151,
+     "median_ratio": 1.0,
+     "min_ratio": 0.4286,
+     "exact_rate": 0.6,
+     "below_90_rate": 0.4
+    },
+    "greedy-value": {
+     "n": 10,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "focus-fire": {
+     "n": 10,
+     "mean_ratio": 0.8151,
+     "median_ratio": 1.0,
+     "min_ratio": 0.4286,
+     "exact_rate": 0.6,
+     "below_90_rate": 0.4
+    },
+    "random": {
+     "n": 10,
+     "mean_ratio": 0.5144,
+     "median_ratio": 0.5121,
+     "min_ratio": 0.365,
+     "exact_rate": 0.176,
+     "below_90_rate": 1.0,
+     "best_of_n_mean": 1.0
+    }
+   },
+   "corridor-partition/k=4": {
+    "even-split": {
+     "n": 10,
+     "mean_ratio": 0.2841,
+     "median_ratio": 0.2788,
+     "min_ratio": 0.0,
+     "exact_rate": 0.0,
+     "below_90_rate": 1.0
+    },
+    "one-big-stack": {
+     "n": 10,
+     "mean_ratio": 0.2758,
+     "median_ratio": 0.2857,
+     "min_ratio": 0.125,
+     "exact_rate": 0.0,
+     "below_90_rate": 1.0
+    },
+    "greedy-density": {
+     "n": 10,
+     "mean_ratio": 0.8135,
+     "median_ratio": 0.8295,
+     "min_ratio": 0.5455,
+     "exact_rate": 0.3,
+     "below_90_rate": 0.5
+    },
+    "greedy-cheapest": {
+     "n": 10,
+     "mean_ratio": 0.8135,
+     "median_ratio": 0.8295,
+     "min_ratio": 0.5455,
+     "exact_rate": 0.3,
+     "below_90_rate": 0.5
+    },
+    "greedy-value": {
+     "n": 10,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "focus-fire": {
+     "n": 10,
+     "mean_ratio": 0.8135,
+     "median_ratio": 0.8295,
+     "min_ratio": 0.5455,
+     "exact_rate": 0.3,
+     "below_90_rate": 0.5
+    },
+    "random": {
+     "n": 10,
+     "mean_ratio": 0.4351,
+     "median_ratio": 0.4364,
+     "min_ratio": 0.3362,
+     "exact_rate": 0.067,
+     "below_90_rate": 1.0,
+     "best_of_n_mean": 0.9714
+    }
+   },
+   "corridor-partition/k=5": {
+    "even-split": {
+     "n": 10,
+     "mean_ratio": 0.1943,
+     "median_ratio": 0.1534,
+     "min_ratio": 0.0,
+     "exact_rate": 0.0,
+     "below_90_rate": 1.0
+    },
+    "one-big-stack": {
+     "n": 10,
+     "mean_ratio": 0.1579,
+     "median_ratio": 0.1339,
+     "min_ratio": 0.0833,
+     "exact_rate": 0.0,
+     "below_90_rate": 1.0
+    },
+    "greedy-density": {
+     "n": 10,
+     "mean_ratio": 0.8411,
+     "median_ratio": 0.8661,
+     "min_ratio": 0.5455,
+     "exact_rate": 0.2,
+     "below_90_rate": 0.6
+    },
+    "greedy-cheapest": {
+     "n": 10,
+     "mean_ratio": 0.8411,
+     "median_ratio": 0.8661,
+     "min_ratio": 0.5455,
+     "exact_rate": 0.2,
+     "below_90_rate": 0.6
+    },
+    "greedy-value": {
+     "n": 10,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "focus-fire": {
+     "n": 10,
+     "mean_ratio": 0.8411,
+     "median_ratio": 0.8661,
+     "min_ratio": 0.5455,
+     "exact_rate": 0.2,
+     "below_90_rate": 0.6
+    },
+    "random": {
+     "n": 10,
+     "mean_ratio": 0.3936,
+     "median_ratio": 0.3972,
+     "min_ratio": 0.2909,
+     "exact_rate": 0.01,
+     "below_90_rate": 1.0,
+     "best_of_n_mean": 0.9414
+    }
+   },
+   "corridor-partition/k=6": {
+    "even-split": {
+     "n": 10,
+     "mean_ratio": 0.2138,
+     "median_ratio": 0.2132,
+     "min_ratio": 0.0,
+     "exact_rate": 0.0,
+     "below_90_rate": 1.0
+    },
+    "one-big-stack": {
+     "n": 10,
+     "mean_ratio": 0.1486,
+     "median_ratio": 0.1381,
+     "min_ratio": 0.0526,
+     "exact_rate": 0.0,
+     "below_90_rate": 1.0
+    },
+    "greedy-density": {
+     "n": 10,
+     "mean_ratio": 0.8395,
+     "median_ratio": 0.8516,
+     "min_ratio": 0.6667,
+     "exact_rate": 0.1,
+     "below_90_rate": 0.8
+    },
+    "greedy-cheapest": {
+     "n": 10,
+     "mean_ratio": 0.8395,
+     "median_ratio": 0.8516,
+     "min_ratio": 0.6667,
+     "exact_rate": 0.1,
+     "below_90_rate": 0.8
+    },
+    "greedy-value": {
+     "n": 10,
+     "mean_ratio": 0.9571,
+     "median_ratio": 1.0,
+     "min_ratio": 0.8421,
+     "exact_rate": 0.6,
+     "below_90_rate": 0.2
+    },
+    "focus-fire": {
+     "n": 10,
+     "mean_ratio": 0.8395,
+     "median_ratio": 0.8516,
+     "min_ratio": 0.6667,
+     "exact_rate": 0.1,
+     "below_90_rate": 0.8
+    },
+    "random": {
+     "n": 10,
+     "mean_ratio": 0.3747,
+     "median_ratio": 0.3812,
+     "min_ratio": 0.2825,
+     "exact_rate": 0.0,
+     "below_90_rate": 1.0,
+     "best_of_n_mean": 0.8662
+    }
+   },
+   "corridor-partition/k=7": {
+    "even-split": {
+     "n": 10,
+     "mean_ratio": 0.2108,
+     "median_ratio": 0.1962,
+     "min_ratio": 0.0556,
+     "exact_rate": 0.0,
+     "below_90_rate": 1.0
+    },
+    "one-big-stack": {
+     "n": 10,
+     "mean_ratio": 0.0741,
+     "median_ratio": 0.0556,
+     "min_ratio": 0.0455,
+     "exact_rate": 0.0,
+     "below_90_rate": 1.0
+    },
+    "greedy-density": {
+     "n": 10,
+     "mean_ratio": 0.8129,
+     "median_ratio": 0.8056,
+     "min_ratio": 0.6842,
+     "exact_rate": 0.0,
+     "below_90_rate": 0.7
+    },
+    "greedy-cheapest": {
+     "n": 10,
+     "mean_ratio": 0.8129,
+     "median_ratio": 0.8056,
+     "min_ratio": 0.6842,
+     "exact_rate": 0.0,
+     "below_90_rate": 0.7
+    },
+    "greedy-value": {
+     "n": 10,
+     "mean_ratio": 0.9897,
+     "median_ratio": 1.0,
+     "min_ratio": 0.9444,
+     "exact_rate": 0.8,
+     "below_90_rate": 0.0
+    },
+    "focus-fire": {
+     "n": 10,
+     "mean_ratio": 0.8129,
+     "median_ratio": 0.8056,
+     "min_ratio": 0.6842,
+     "exact_rate": 0.0,
+     "below_90_rate": 0.7
+    },
+    "random": {
+     "n": 10,
+     "mean_ratio": 0.356,
+     "median_ratio": 0.3433,
+     "min_ratio": 0.3253,
+     "exact_rate": 0.0,
+     "below_90_rate": 1.0,
+     "best_of_n_mean": 0.8247
+    }
+   },
+   "flower-3partition/k=3": {
+    "even-split": {
+     "n": 3,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "one-big-stack": {
+     "n": 3,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "greedy-density": {
+     "n": 3,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "greedy-cheapest": {
+     "n": 3,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "greedy-value": {
+     "n": 3,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "focus-fire": {
+     "n": 3,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "random": {
+     "n": 3,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0,
+     "best_of_n_mean": 1.0
+    }
+   },
+   "flower-3partition/k=6": {
+    "even-split": {
+     "n": 10,
+     "mean_ratio": 0.85,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5,
+     "exact_rate": 0.7,
+     "below_90_rate": 0.3
+    },
+    "one-big-stack": {
+     "n": 10,
+     "mean_ratio": 0.85,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5,
+     "exact_rate": 0.7,
+     "below_90_rate": 0.3
+    },
+    "greedy-density": {
+     "n": 10,
+     "mean_ratio": 0.85,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5,
+     "exact_rate": 0.7,
+     "below_90_rate": 0.3
+    },
+    "greedy-cheapest": {
+     "n": 10,
+     "mean_ratio": 0.85,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5,
+     "exact_rate": 0.7,
+     "below_90_rate": 0.3
+    },
+    "greedy-value": {
+     "n": 10,
+     "mean_ratio": 0.85,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5,
+     "exact_rate": 0.7,
+     "below_90_rate": 0.3
+    },
+    "focus-fire": {
+     "n": 10,
+     "mean_ratio": 0.75,
+     "median_ratio": 0.75,
+     "min_ratio": 0.5,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.5
+    },
+    "random": {
+     "n": 10,
+     "mean_ratio": 0.8345,
+     "median_ratio": 0.905,
+     "min_ratio": 0.56,
+     "exact_rate": 0.669,
+     "below_90_rate": 0.5,
+     "best_of_n_mean": 1.0
+    }
+   },
+   "natural-multi/k=2": {
+    "even-split": {
+     "n": 6,
+     "mean_ratio": 0.6615,
+     "median_ratio": 0.9846,
+     "min_ratio": 0.0,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.3333
+    },
+    "one-big-stack": {
+     "n": 6,
+     "mean_ratio": 0.6615,
+     "median_ratio": 0.9846,
+     "min_ratio": 0.0,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.3333
+    },
+    "greedy-density": {
+     "n": 6,
+     "mean_ratio": 0.9949,
+     "median_ratio": 1.0,
+     "min_ratio": 0.9691,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.0
+    },
+    "greedy-cheapest": {
+     "n": 6,
+     "mean_ratio": 0.9949,
+     "median_ratio": 1.0,
+     "min_ratio": 0.9691,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.0
+    },
+    "greedy-value": {
+     "n": 6,
+     "mean_ratio": 0.9949,
+     "median_ratio": 1.0,
+     "min_ratio": 0.9691,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.0
+    },
+    "focus-fire": {
+     "n": 6,
+     "mean_ratio": 0.9949,
+     "median_ratio": 1.0,
+     "min_ratio": 0.9691,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.0
+    },
+    "random": {
+     "n": 6,
+     "mean_ratio": 0.5601,
+     "median_ratio": 0.455,
+     "min_ratio": 0.23,
+     "exact_rate": 0.4583,
+     "below_90_rate": 0.6667,
+     "best_of_n_mean": 1.0
+    }
+   },
+   "natural-multi/k=3": {
+    "even-split": {
+     "n": 6,
+     "mean_ratio": 0.7929,
+     "median_ratio": 0.9541,
+     "min_ratio": 0.1825,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.3333
+    },
+    "one-big-stack": {
+     "n": 6,
+     "mean_ratio": 0.7929,
+     "median_ratio": 0.9541,
+     "min_ratio": 0.1825,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.3333
+    },
+    "greedy-density": {
+     "n": 6,
+     "mean_ratio": 0.9694,
+     "median_ratio": 1.0,
+     "min_ratio": 0.8165,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.1667
+    },
+    "greedy-cheapest": {
+     "n": 6,
+     "mean_ratio": 0.9694,
+     "median_ratio": 1.0,
+     "min_ratio": 0.8165,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.1667
+    },
+    "greedy-value": {
+     "n": 6,
+     "mean_ratio": 0.9694,
+     "median_ratio": 1.0,
+     "min_ratio": 0.8165,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.1667
+    },
+    "focus-fire": {
+     "n": 6,
+     "mean_ratio": 0.9545,
+     "median_ratio": 1.0,
+     "min_ratio": 0.7271,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.1667
+    },
+    "random": {
+     "n": 6,
+     "mean_ratio": 0.619,
+     "median_ratio": 0.5603,
+     "min_ratio": 0.2649,
+     "exact_rate": 0.4067,
+     "below_90_rate": 0.6667,
+     "best_of_n_mean": 0.9848
+    }
+   },
+   "natural-multi/k=4": {
+    "even-split": {
+     "n": 6,
+     "mean_ratio": 0.7817,
+     "median_ratio": 0.9524,
+     "min_ratio": 0.0,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.3333
+    },
+    "one-big-stack": {
+     "n": 6,
+     "mean_ratio": 0.8957,
+     "median_ratio": 1.0,
+     "min_ratio": 0.374,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.1667
+    },
+    "greedy-density": {
+     "n": 6,
+     "mean_ratio": 0.9854,
+     "median_ratio": 1.0,
+     "min_ratio": 0.9124,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.0
+    },
+    "greedy-cheapest": {
+     "n": 6,
+     "mean_ratio": 0.9854,
+     "median_ratio": 1.0,
+     "min_ratio": 0.9124,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.0
+    },
+    "greedy-value": {
+     "n": 6,
+     "mean_ratio": 1.0,
+     "median_ratio": 1.0,
+     "min_ratio": 1.0,
+     "exact_rate": 1.0,
+     "below_90_rate": 0.0
+    },
+    "focus-fire": {
+     "n": 6,
+     "mean_ratio": 0.9854,
+     "median_ratio": 1.0,
+     "min_ratio": 0.9124,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.0
+    },
+    "random": {
+     "n": 6,
+     "mean_ratio": 0.5859,
+     "median_ratio": 0.5849,
+     "min_ratio": 0.1933,
+     "exact_rate": 0.4333,
+     "below_90_rate": 0.6667,
+     "best_of_n_mean": 1.0
+    }
+   },
+   "natural-multi/k=5": {
+    "even-split": {
+     "n": 6,
+     "mean_ratio": 0.6961,
+     "median_ratio": 0.8054,
+     "min_ratio": 0.0,
+     "exact_rate": 0.3333,
+     "below_90_rate": 0.6667
+    },
+    "one-big-stack": {
+     "n": 6,
+     "mean_ratio": 0.6928,
+     "median_ratio": 0.7954,
+     "min_ratio": 0.0,
+     "exact_rate": 0.3333,
+     "below_90_rate": 0.6667
+    },
+    "greedy-density": {
+     "n": 6,
+     "mean_ratio": 0.8798,
+     "median_ratio": 0.9376,
+     "min_ratio": 0.566,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.5
+    },
+    "greedy-cheapest": {
+     "n": 6,
+     "mean_ratio": 0.8798,
+     "median_ratio": 0.9376,
+     "min_ratio": 0.566,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.5
+    },
+    "greedy-value": {
+     "n": 6,
+     "mean_ratio": 0.8798,
+     "median_ratio": 0.9376,
+     "min_ratio": 0.566,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.5
+    },
+    "focus-fire": {
+     "n": 6,
+     "mean_ratio": 0.8798,
+     "median_ratio": 0.9376,
+     "min_ratio": 0.566,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.5
+    },
+    "random": {
+     "n": 6,
+     "mean_ratio": 0.7261,
+     "median_ratio": 0.7733,
+     "min_ratio": 0.3364,
+     "exact_rate": 0.4717,
+     "below_90_rate": 0.8333,
+     "best_of_n_mean": 1.0
+    }
+   },
+   "natural-multi/k=6": {
+    "even-split": {
+     "n": 6,
+     "mean_ratio": 0.8483,
+     "median_ratio": 0.9984,
+     "min_ratio": 0.1562,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.1667
+    },
+    "one-big-stack": {
+     "n": 6,
+     "mean_ratio": 0.8483,
+     "median_ratio": 0.9984,
+     "min_ratio": 0.1562,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.1667
+    },
+    "greedy-density": {
+     "n": 6,
+     "mean_ratio": 0.8588,
+     "median_ratio": 1.0,
+     "min_ratio": 0.1562,
+     "exact_rate": 0.6667,
+     "below_90_rate": 0.1667
+    },
+    "greedy-cheapest": {
+     "n": 6,
+     "mean_ratio": 0.8588,
+     "median_ratio": 1.0,
+     "min_ratio": 0.1562,
+     "exact_rate": 0.6667,
+     "below_90_rate": 0.1667
+    },
+    "greedy-value": {
+     "n": 6,
+     "mean_ratio": 0.8588,
+     "median_ratio": 1.0,
+     "min_ratio": 0.1562,
+     "exact_rate": 0.6667,
+     "below_90_rate": 0.1667
+    },
+    "focus-fire": {
+     "n": 6,
+     "mean_ratio": 0.8594,
+     "median_ratio": 1.0,
+     "min_ratio": 0.1562,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.1667
+    },
+    "random": {
+     "n": 6,
+     "mean_ratio": 0.7501,
+     "median_ratio": 0.8436,
+     "min_ratio": 0.1938,
+     "exact_rate": 0.4083,
+     "below_90_rate": 0.6667,
+     "best_of_n_mean": 1.0
+    }
+   },
+   "natural-multi/k=7": {
+    "even-split": {
+     "n": 6,
+     "mean_ratio": 0.661,
+     "median_ratio": 0.8334,
+     "min_ratio": 0.0,
+     "exact_rate": 0.3333,
+     "below_90_rate": 0.5
+    },
+    "one-big-stack": {
+     "n": 6,
+     "mean_ratio": 0.6213,
+     "median_ratio": 0.8639,
+     "min_ratio": 0.0,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.5
+    },
+    "greedy-density": {
+     "n": 6,
+     "mean_ratio": 0.9181,
+     "median_ratio": 0.949,
+     "min_ratio": 0.7278,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.5
+    },
+    "greedy-cheapest": {
+     "n": 6,
+     "mean_ratio": 0.9181,
+     "median_ratio": 0.949,
+     "min_ratio": 0.7278,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.5
+    },
+    "greedy-value": {
+     "n": 6,
+     "mean_ratio": 0.9181,
+     "median_ratio": 0.949,
+     "min_ratio": 0.7278,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.5
+    },
+    "focus-fire": {
+     "n": 6,
+     "mean_ratio": 0.8324,
+     "median_ratio": 0.9112,
+     "min_ratio": 0.4444,
+     "exact_rate": 0.3333,
+     "below_90_rate": 0.5
+    },
+    "random": {
+     "n": 6,
+     "mean_ratio": 0.6773,
+     "median_ratio": 0.7259,
+     "min_ratio": 0.2944,
+     "exact_rate": 0.345,
+     "below_90_rate": 0.8333,
+     "best_of_n_mean": 0.983
+    }
+   },
+   "natural-single/k=2": {
+    "even-split": {
+     "n": 6,
+     "mean_ratio": 0.8549,
+     "median_ratio": 0.8456,
+     "min_ratio": 0.7182,
+     "exact_rate": 0.3333,
+     "below_90_rate": 0.5
+    },
+    "one-big-stack": {
+     "n": 6,
+     "mean_ratio": 0.8483,
+     "median_ratio": 0.8259,
+     "min_ratio": 0.7182,
+     "exact_rate": 0.3333,
+     "below_90_rate": 0.6667
+    },
+    "greedy-density": {
+     "n": 6,
+     "mean_ratio": 0.9326,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5958,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.1667
+    },
+    "greedy-cheapest": {
+     "n": 6,
+     "mean_ratio": 0.898,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5958,
+     "exact_rate": 0.6667,
+     "below_90_rate": 0.3333
+    },
+    "greedy-value": {
+     "n": 6,
+     "mean_ratio": 0.9326,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5958,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.1667
+    },
+    "focus-fire": {
+     "n": 6,
+     "mean_ratio": 0.9326,
+     "median_ratio": 1.0,
+     "min_ratio": 0.5958,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.1667
+    },
+    "random": {
+     "n": 6,
+     "mean_ratio": 0.8155,
+     "median_ratio": 0.8025,
+     "min_ratio": 0.64,
+     "exact_rate": 0.3817,
+     "below_90_rate": 0.6667,
+     "best_of_n_mean": 1.0
+    }
+   },
+   "natural-single/k=3": {
+    "even-split": {
+     "n": 6,
+     "mean_ratio": 0.801,
+     "median_ratio": 0.9684,
+     "min_ratio": 0.0,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.3333
+    },
+    "one-big-stack": {
+     "n": 6,
+     "mean_ratio": 0.5922,
+     "median_ratio": 0.6415,
+     "min_ratio": 0.0,
+     "exact_rate": 0.1667,
+     "below_90_rate": 0.8333
+    },
+    "greedy-density": {
+     "n": 6,
+     "mean_ratio": 0.9895,
+     "median_ratio": 1.0,
+     "min_ratio": 0.9368,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.0
+    },
+    "greedy-cheapest": {
+     "n": 6,
+     "mean_ratio": 0.8987,
+     "median_ratio": 1.0,
+     "min_ratio": 0.4557,
+     "exact_rate": 0.6667,
+     "below_90_rate": 0.1667
+    },
+    "greedy-value": {
+     "n": 6,
+     "mean_ratio": 0.961,
+     "median_ratio": 1.0,
+     "min_ratio": 0.7662,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.1667
+    },
+    "focus-fire": {
+     "n": 6,
+     "mean_ratio": 0.9895,
+     "median_ratio": 1.0,
+     "min_ratio": 0.9368,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.0
+    },
+    "random": {
+     "n": 6,
+     "mean_ratio": 0.6784,
+     "median_ratio": 0.7167,
+     "min_ratio": 0.21,
+     "exact_rate": 0.32,
+     "below_90_rate": 0.8333,
+     "best_of_n_mean": 0.9895
+    }
+   },
+   "natural-single/k=4": {
+    "even-split": {
+     "n": 6,
+     "mean_ratio": 0.8446,
+     "median_ratio": 0.9008,
+     "min_ratio": 0.6061,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.5
+    },
+    "one-big-stack": {
+     "n": 6,
+     "mean_ratio": 0.6809,
+     "median_ratio": 0.73,
+     "min_ratio": 0.2784,
+     "exact_rate": 0.0,
+     "below_90_rate": 1.0
+    },
+    "greedy-density": {
+     "n": 6,
+     "mean_ratio": 0.9103,
+     "median_ratio": 1.0,
+     "min_ratio": 0.66,
+     "exact_rate": 0.6667,
+     "below_90_rate": 0.3333
+    },
+    "greedy-cheapest": {
+     "n": 6,
+     "mean_ratio": 0.885,
+     "median_ratio": 0.9242,
+     "min_ratio": 0.66,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.5
+    },
+    "greedy-value": {
+     "n": 6,
+     "mean_ratio": 0.9433,
+     "median_ratio": 1.0,
+     "min_ratio": 0.66,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.1667
+    },
+    "focus-fire": {
+     "n": 6,
+     "mean_ratio": 0.9103,
+     "median_ratio": 1.0,
+     "min_ratio": 0.66,
+     "exact_rate": 0.6667,
+     "below_90_rate": 0.3333
+    },
+    "random": {
+     "n": 6,
+     "mean_ratio": 0.6967,
+     "median_ratio": 0.6639,
+     "min_ratio": 0.5263,
+     "exact_rate": 0.155,
+     "below_90_rate": 0.8333,
+     "best_of_n_mean": 1.0
+    }
+   },
+   "natural-single/k=5": {
+    "even-split": {
+     "n": 6,
+     "mean_ratio": 0.6746,
+     "median_ratio": 0.8262,
+     "min_ratio": 0.1448,
+     "exact_rate": 0.1667,
+     "below_90_rate": 0.8333
+    },
+    "one-big-stack": {
+     "n": 6,
+     "mean_ratio": 0.6252,
+     "median_ratio": 0.8324,
+     "min_ratio": 0.0,
+     "exact_rate": 0.1667,
+     "below_90_rate": 0.5
+    },
+    "greedy-density": {
+     "n": 6,
+     "mean_ratio": 0.9163,
+     "median_ratio": 0.9634,
+     "min_ratio": 0.6448,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.1667
+    },
+    "greedy-cheapest": {
+     "n": 6,
+     "mean_ratio": 0.9163,
+     "median_ratio": 0.9634,
+     "min_ratio": 0.6448,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.1667
+    },
+    "greedy-value": {
+     "n": 6,
+     "mean_ratio": 0.9163,
+     "median_ratio": 0.9634,
+     "min_ratio": 0.6448,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.1667
+    },
+    "focus-fire": {
+     "n": 6,
+     "mean_ratio": 0.9163,
+     "median_ratio": 0.9634,
+     "min_ratio": 0.6448,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.1667
+    },
+    "random": {
+     "n": 6,
+     "mean_ratio": 0.6131,
+     "median_ratio": 0.5484,
+     "min_ratio": 0.3452,
+     "exact_rate": 0.285,
+     "below_90_rate": 0.8333,
+     "best_of_n_mean": 1.0
+    }
+   },
+   "natural-single/k=6": {
+    "even-split": {
+     "n": 6,
+     "mean_ratio": 0.6764,
+     "median_ratio": 0.8624,
+     "min_ratio": 0.0,
+     "exact_rate": 0.3333,
+     "below_90_rate": 0.6667
+    },
+    "one-big-stack": {
+     "n": 6,
+     "mean_ratio": 0.8111,
+     "median_ratio": 0.8891,
+     "min_ratio": 0.498,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.5
+    },
+    "greedy-density": {
+     "n": 6,
+     "mean_ratio": 0.9444,
+     "median_ratio": 1.0,
+     "min_ratio": 0.6667,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.1667
+    },
+    "greedy-cheapest": {
+     "n": 6,
+     "mean_ratio": 0.9444,
+     "median_ratio": 1.0,
+     "min_ratio": 0.6667,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.1667
+    },
+    "greedy-value": {
+     "n": 6,
+     "mean_ratio": 0.8914,
+     "median_ratio": 0.9848,
+     "min_ratio": 0.6667,
+     "exact_rate": 0.5,
+     "below_90_rate": 0.3333
+    },
+    "focus-fire": {
+     "n": 6,
+     "mean_ratio": 0.9444,
+     "median_ratio": 1.0,
+     "min_ratio": 0.6667,
+     "exact_rate": 0.8333,
+     "below_90_rate": 0.1667
+    },
+    "random": {
+     "n": 6,
+     "mean_ratio": 0.6723,
+     "median_ratio": 0.7507,
+     "min_ratio": 0.28,
+     "exact_rate": 0.3333,
+     "below_90_rate": 0.8333,
+     "best_of_n_mean": 1.0
+    }
+   },
+   "natural-single/k=7": {
+    "even-split": {
+     "n": 6,
+     "mean_ratio": 0.6198,
+     "median_ratio": 0.6926,
+     "min_ratio": 0.0,
+     "exact_rate": 0.3333,
+     "below_90_rate": 0.6667
+    },
+    "one-big-stack": {
+     "n": 6,
+     "mean_ratio": 0.6032,
+     "median_ratio": 0.8374,
+     "min_ratio": 0.0,
+     "exact_rate": 0.1667,
+     "below_90_rate": 0.5
+    },
+    "greedy-density": {
+     "n": 6,
+     "mean_ratio": 0.978,
+     "median_ratio": 1.0,
+     "min_ratio": 0.9,
+     "exact_rate": 0.6667,
+     "below_90_rate": 0.0
+    },
+    "greedy-cheapest": {
+     "n": 6,
+     "mean_ratio": 0.978,
+     "median_ratio": 1.0,
+     "min_ratio": 0.9,
+     "exact_rate": 0.6667,
+     "below_90_rate": 0.0
+    },
+    "greedy-value": {
+     "n": 6,
+     "mean_ratio": 0.9673,
+     "median_ratio": 1.0,
+     "min_ratio": 0.9,
+     "exact_rate": 0.6667,
+     "below_90_rate": 0.0
+    },
+    "focus-fire": {
+     "n": 6,
+     "mean_ratio": 0.978,
+     "median_ratio": 1.0,
+     "min_ratio": 0.9,
+     "exact_rate": 0.6667,
+     "below_90_rate": 0.0
+    },
+    "random": {
+     "n": 6,
+     "mean_ratio": 0.6703,
+     "median_ratio": 0.8719,
+     "min_ratio": 0.12,
+     "exact_rate": 0.305,
+     "below_90_rate": 0.5,
+     "best_of_n_mean": 1.0
+    }
+   }
+  }
+ },
+ "per_instance": {
+  "corridor-k2-n00": {
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 5,
+   "max_enemy_value": 14,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 2.6,
+     "ratio": 0.52,
+     "exact": 0.52,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k2-n01": {
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 3,
+   "max_enemy_value": 12,
+   "policies": {
+    "even-split": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1.65,
+     "ratio": 0.5499999999999999,
+     "exact": 0.55,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k2-n02": {
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 2,
+   "max_enemy_value": 6,
+   "policies": {
+    "even-split": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1.04,
+     "ratio": 0.52,
+     "exact": 0.52,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k2-n03": {
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 3,
+   "max_enemy_value": 12,
+   "policies": {
+    "even-split": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1.71,
+     "ratio": 0.57,
+     "exact": 0.57,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k2-n04": {
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 5,
+   "max_enemy_value": 14,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 2.4,
+     "ratio": 0.48,
+     "exact": 0.48,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k2-y00": {
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 9,
+   "max_enemy_value": 18,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 9,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 9,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 9,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 9,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 9,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 5.49,
+     "ratio": 0.61,
+     "exact": 0.61,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k2-y01": {
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 8,
+   "max_enemy_value": 16,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 4.48,
+     "ratio": 0.56,
+     "exact": 0.56,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k2-y02": {
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 7,
+   "max_enemy_value": 14,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 4.41,
+     "ratio": 0.63,
+     "exact": 0.63,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k2-y03": {
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 8,
+   "max_enemy_value": 16,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 4.88,
+     "ratio": 0.61,
+     "exact": 0.61,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k2-y04": {
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 5,
+   "max_enemy_value": 10,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 5,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 3.55,
+     "ratio": 0.71,
+     "exact": 0.71,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k3-n00": {
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 9,
+   "max_enemy_value": 24,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 7,
+     "ratio": 0.7777777777777778,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 7,
+     "ratio": 0.7777777777777778,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 7,
+     "ratio": 0.7777777777777778,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 9,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 7,
+     "ratio": 0.7777777777777778,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 6.52,
+     "ratio": 0.7244444444444444,
+     "exact": 0.24,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k3-n01": {
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 9,
+   "max_enemy_value": 20,
+   "policies": {
+    "even-split": {
+     "value": 4,
+     "ratio": 0.4444444444444444,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 4,
+     "ratio": 0.4444444444444444,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 4,
+     "ratio": 0.4444444444444444,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 4,
+     "ratio": 0.4444444444444444,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 9,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 4,
+     "ratio": 0.4444444444444444,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 5.28,
+     "ratio": 0.5866666666666667,
+     "exact": 0.19,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k3-n02": {
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 4,
+   "max_enemy_value": 10,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 0.25,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.25,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 4,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 4,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 4,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 4,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1.46,
+     "ratio": 0.365,
+     "exact": 0.08,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k3-n03": {
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 6,
+   "max_enemy_value": 14,
+   "policies": {
+    "even-split": {
+     "value": 3,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 3,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 3,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 3,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 6,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 3,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 3.8,
+     "ratio": 0.6333333333333333,
+     "exact": 0.18,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k3-n04": {
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 7,
+   "max_enemy_value": 16,
+   "policies": {
+    "even-split": {
+     "value": 3,
+     "ratio": 0.42857142857142855,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 3,
+     "ratio": 0.42857142857142855,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 3,
+     "ratio": 0.42857142857142855,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 3,
+     "ratio": 0.42857142857142855,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 3,
+     "ratio": 0.42857142857142855,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 3.88,
+     "ratio": 0.5542857142857143,
+     "exact": 0.16,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k3-y00": {
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 8,
+   "max_enemy_value": 16,
+   "policies": {
+    "even-split": {
+     "value": 2,
+     "ratio": 0.25,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2,
+     "ratio": 0.25,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 3.76,
+     "ratio": 0.47,
+     "exact": 0.17,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k3-y01": {
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 3,
+   "max_enemy_value": 6,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 0.3333333333333333,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.3333333333333333,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 3,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1.67,
+     "ratio": 0.5566666666666666,
+     "exact": 0.25,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k3-y02": {
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 8,
+   "max_enemy_value": 16,
+   "policies": {
+    "even-split": {
+     "value": 2,
+     "ratio": 0.25,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2,
+     "ratio": 0.25,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 3.58,
+     "ratio": 0.4475,
+     "exact": 0.15,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k3-y03": {
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 8,
+   "max_enemy_value": 16,
+   "policies": {
+    "even-split": {
+     "value": 2,
+     "ratio": 0.25,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2,
+     "ratio": 0.25,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 3.26,
+     "ratio": 0.4075,
+     "exact": 0.15,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k3-y04": {
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 7,
+   "max_enemy_value": 14,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 0.14285714285714285,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.14285714285714285,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 2.79,
+     "ratio": 0.3985714285714286,
+     "exact": 0.19,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k4-n00": {
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 8,
+   "max_enemy_value": 18,
+   "policies": {
+    "even-split": {
+     "value": 3,
+     "ratio": 0.375,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 3,
+     "ratio": 0.375,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 6,
+     "ratio": 0.75,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 6,
+     "ratio": 0.75,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 6,
+     "ratio": 0.75,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 4.26,
+     "ratio": 0.5325,
+     "exact": 0.15,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k4-n01": {
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 11,
+   "max_enemy_value": 24,
+   "policies": {
+    "even-split": {
+     "value": 2,
+     "ratio": 0.18181818181818182,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2,
+     "ratio": 0.18181818181818182,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 6,
+     "ratio": 0.5454545454545454,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 6,
+     "ratio": 0.5454545454545454,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 11,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 6,
+     "ratio": 0.5454545454545454,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 4.84,
+     "ratio": 0.44,
+     "exact": 0.03,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k4-n02": {
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 11,
+   "max_enemy_value": 24,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 4,
+     "ratio": 0.36363636363636365,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 10,
+     "ratio": 0.9090909090909091,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 10,
+     "ratio": 0.9090909090909091,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 11,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 10,
+     "ratio": 0.9090909090909091,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 5.47,
+     "ratio": 0.49727272727272726,
+     "exact": 0.03,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k4-n03": {
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 7,
+   "max_enemy_value": 16,
+   "policies": {
+    "even-split": {
+     "value": 4,
+     "ratio": 0.5714285714285714,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2,
+     "ratio": 0.2857142857142857,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 4,
+     "ratio": 0.5714285714285714,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 4,
+     "ratio": 0.5714285714285714,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 4,
+     "ratio": 0.5714285714285714,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 3.03,
+     "ratio": 0.43285714285714283,
+     "exact": 0.13,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k4-n04": {
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 7,
+   "max_enemy_value": 16,
+   "policies": {
+    "even-split": {
+     "value": 4,
+     "ratio": 0.5714285714285714,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2,
+     "ratio": 0.2857142857142857,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 2.45,
+     "ratio": 0.35000000000000003,
+     "exact": 0.0,
+     "best_of_n": 0.7142857142857143,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k4-y00": {
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 12,
+   "max_enemy_value": 24,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 5,
+     "ratio": 0.4166666666666667,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 11,
+     "ratio": 0.9166666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 11,
+     "ratio": 0.9166666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 12,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 11,
+     "ratio": 0.9166666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 5.67,
+     "ratio": 0.4725,
+     "exact": 0.02,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k4-y01": {
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 8,
+   "max_enemy_value": 16,
+   "policies": {
+    "even-split": {
+     "value": 2,
+     "ratio": 0.25,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2,
+     "ratio": 0.25,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 6,
+     "ratio": 0.75,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 6,
+     "ratio": 0.75,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 6,
+     "ratio": 0.75,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 3.78,
+     "ratio": 0.4725,
+     "exact": 0.03,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k4-y02": {
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 13,
+   "max_enemy_value": 26,
+   "policies": {
+    "even-split": {
+     "value": 4,
+     "ratio": 0.3076923076923077,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 4,
+     "ratio": 0.3076923076923077,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 9,
+     "ratio": 0.6923076923076923,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 9,
+     "ratio": 0.6923076923076923,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 13,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 9,
+     "ratio": 0.6923076923076923,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 5.2,
+     "ratio": 0.4,
+     "exact": 0.01,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k4-y03": {
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 6,
+   "max_enemy_value": 12,
+   "policies": {
+    "even-split": {
+     "value": 2,
+     "ratio": 0.3333333333333333,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.16666666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 6,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 6,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 6,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 6,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 2.5,
+     "ratio": 0.4166666666666667,
+     "exact": 0.15,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k4-y04": {
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 8,
+   "max_enemy_value": 16,
+   "policies": {
+    "even-split": {
+     "value": 2,
+     "ratio": 0.25,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.125,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 2.69,
+     "ratio": 0.33625,
+     "exact": 0.12,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k5-n00": {
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 12,
+   "max_enemy_value": 26,
+   "policies": {
+    "even-split": {
+     "value": 4,
+     "ratio": 0.3333333333333333,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2,
+     "ratio": 0.16666666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 11,
+     "ratio": 0.9166666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 11,
+     "ratio": 0.9166666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 12,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 11,
+     "ratio": 0.9166666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 4.74,
+     "ratio": 0.395,
+     "exact": 0.0,
+     "best_of_n": 0.9166666666666666,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k5-n01": {
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 10,
+   "max_enemy_value": 22,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 0.1,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.1,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 8,
+     "ratio": 0.8,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 8,
+     "ratio": 0.8,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 10,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 8,
+     "ratio": 0.8,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 4.35,
+     "ratio": 0.43499999999999994,
+     "exact": 0.03,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k5-n02": {
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 8,
+   "max_enemy_value": 18,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 0.125,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.125,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 7,
+     "ratio": 0.875,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 7,
+     "ratio": 0.875,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 8,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 7,
+     "ratio": 0.875,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 3.64,
+     "ratio": 0.455,
+     "exact": 0.04,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k5-n03": {
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 7,
+   "max_enemy_value": 16,
+   "policies": {
+    "even-split": {
+     "value": 4,
+     "ratio": 0.5714285714285714,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.14285714285714285,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 7,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 2.39,
+     "ratio": 0.34142857142857147,
+     "exact": 0.01,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k5-n04": {
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 18,
+   "max_enemy_value": 40,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 5,
+     "ratio": 0.2777777777777778,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 13,
+     "ratio": 0.7222222222222222,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 13,
+     "ratio": 0.7222222222222222,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 18,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 13,
+     "ratio": 0.7222222222222222,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 7.92,
+     "ratio": 0.44,
+     "exact": 0.01,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k5-y00": {
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 9,
+   "max_enemy_value": 18,
+   "policies": {
+    "even-split": {
+     "value": 3,
+     "ratio": 0.3333333333333333,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.1111111111111111,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 7,
+     "ratio": 0.7777777777777778,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 7,
+     "ratio": 0.7777777777777778,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 9,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 7,
+     "ratio": 0.7777777777777778,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 3.5,
+     "ratio": 0.3888888888888889,
+     "exact": 0.0,
+     "best_of_n": 0.8888888888888888,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k5-y01": {
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 15,
+   "max_enemy_value": 30,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 4,
+     "ratio": 0.26666666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 15,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 15,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 15,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 15,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 5.99,
+     "ratio": 0.3993333333333334,
+     "exact": 0.0,
+     "best_of_n": 0.9333333333333333,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k5-y02": {
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 14,
+   "max_enemy_value": 28,
+   "policies": {
+    "even-split": {
+     "value": 3,
+     "ratio": 0.21428571428571427,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 3,
+     "ratio": 0.21428571428571427,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 12,
+     "ratio": 0.8571428571428571,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 12,
+     "ratio": 0.8571428571428571,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 14,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 12,
+     "ratio": 0.8571428571428571,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 6.09,
+     "ratio": 0.435,
+     "exact": 0.0,
+     "best_of_n": 0.8571428571428571,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k5-y03": {
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 12,
+   "max_enemy_value": 24,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 0.08333333333333333,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.08333333333333333,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 11,
+     "ratio": 0.9166666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 11,
+     "ratio": 0.9166666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 12,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 11,
+     "ratio": 0.9166666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 4.27,
+     "ratio": 0.3558333333333333,
+     "exact": 0.01,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k5-y04": {
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 11,
+   "max_enemy_value": 22,
+   "policies": {
+    "even-split": {
+     "value": 2,
+     "ratio": 0.18181818181818182,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.09090909090909091,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 6,
+     "ratio": 0.5454545454545454,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 6,
+     "ratio": 0.5454545454545454,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 11,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 6,
+     "ratio": 0.5454545454545454,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 3.2,
+     "ratio": 0.29090909090909095,
+     "exact": 0.0,
+     "best_of_n": 0.8181818181818182,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k6-n00": {
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 14,
+   "max_enemy_value": 30,
+   "policies": {
+    "even-split": {
+     "value": 4,
+     "ratio": 0.2857142857142857,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2,
+     "ratio": 0.14285714285714285,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 14,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 14,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 14,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 14,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 5.77,
+     "ratio": 0.4121428571428571,
+     "exact": 0.0,
+     "best_of_n": 0.8571428571428571,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k6-n01": {
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 19,
+   "max_enemy_value": 40,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 5,
+     "ratio": 0.2631578947368421,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 17,
+     "ratio": 0.8947368421052632,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 17,
+     "ratio": 0.8947368421052632,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 16,
+     "ratio": 0.8421052631578947,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 17,
+     "ratio": 0.8947368421052632,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 8.07,
+     "ratio": 0.4247368421052632,
+     "exact": 0.0,
+     "best_of_n": 0.8947368421052632,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k6-n02": {
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 19,
+   "max_enemy_value": 40,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 0.05263157894736842,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.05263157894736842,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 14,
+     "ratio": 0.7368421052631579,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 14,
+     "ratio": 0.7368421052631579,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 19,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 14,
+     "ratio": 0.7368421052631579,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 6.16,
+     "ratio": 0.3242105263157895,
+     "exact": 0.0,
+     "best_of_n": 0.9473684210526315,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k6-n03": {
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 12,
+   "max_enemy_value": 28,
+   "policies": {
+    "even-split": {
+     "value": 3,
+     "ratio": 0.25,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.08333333333333333,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 10,
+     "ratio": 0.8333333333333334,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 10,
+     "ratio": 0.8333333333333334,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 12,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 10,
+     "ratio": 0.8333333333333334,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 3.39,
+     "ratio": 0.28250000000000003,
+     "exact": 0.0,
+     "best_of_n": 0.9166666666666666,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k6-n04": {
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 14,
+   "max_enemy_value": 30,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 4,
+     "ratio": 0.2857142857142857,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 12,
+     "ratio": 0.8571428571428571,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 12,
+     "ratio": 0.8571428571428571,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 13,
+     "ratio": 0.9285714285714286,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 12,
+     "ratio": 0.8571428571428571,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 6.07,
+     "ratio": 0.4335714285714286,
+     "exact": 0.0,
+     "best_of_n": 0.9285714285714286,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k6-y00": {
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 15,
+   "max_enemy_value": 30,
+   "policies": {
+    "even-split": {
+     "value": 9,
+     "ratio": 0.6,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 3,
+     "ratio": 0.2,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 13,
+     "ratio": 0.8666666666666667,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 13,
+     "ratio": 0.8666666666666667,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 13,
+     "ratio": 0.8666666666666667,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 13,
+     "ratio": 0.8666666666666667,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 5.22,
+     "ratio": 0.348,
+     "exact": 0.0,
+     "best_of_n": 0.8,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k6-y01": {
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 13,
+   "max_enemy_value": 26,
+   "policies": {
+    "even-split": {
+     "value": 2,
+     "ratio": 0.15384615384615385,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.07692307692307693,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 11,
+     "ratio": 0.8461538461538461,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 11,
+     "ratio": 0.8461538461538461,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 13,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 11,
+     "ratio": 0.8461538461538461,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 4.48,
+     "ratio": 0.34461538461538466,
+     "exact": 0.0,
+     "best_of_n": 0.8461538461538461,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k6-y02": {
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 17,
+   "max_enemy_value": 34,
+   "policies": {
+    "even-split": {
+     "value": 3,
+     "ratio": 0.17647058823529413,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 3,
+     "ratio": 0.17647058823529413,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 13,
+     "ratio": 0.7647058823529411,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 13,
+     "ratio": 0.7647058823529411,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 17,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 13,
+     "ratio": 0.7647058823529411,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 6.84,
+     "ratio": 0.4023529411764706,
+     "exact": 0.0,
+     "best_of_n": 0.8235294117647058,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k6-y03": {
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 15,
+   "max_enemy_value": 30,
+   "policies": {
+    "even-split": {
+     "value": 5,
+     "ratio": 0.3333333333333333,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2,
+     "ratio": 0.13333333333333333,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 10,
+     "ratio": 0.6666666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 10,
+     "ratio": 0.6666666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 14,
+     "ratio": 0.9333333333333333,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 10,
+     "ratio": 0.6666666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 6.22,
+     "ratio": 0.41466666666666663,
+     "exact": 0.0,
+     "best_of_n": 0.9333333333333333,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k6-y04": {
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 14,
+   "max_enemy_value": 28,
+   "policies": {
+    "even-split": {
+     "value": 4,
+     "ratio": 0.2857142857142857,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.07142857142857142,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 13,
+     "ratio": 0.9285714285714286,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 13,
+     "ratio": 0.9285714285714286,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 14,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 13,
+     "ratio": 0.9285714285714286,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 5.04,
+     "ratio": 0.36,
+     "exact": 0.0,
+     "best_of_n": 0.7142857142857143,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k7-n00": {
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 18,
+   "max_enemy_value": 38,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 0.05555555555555555,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.05555555555555555,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 14,
+     "ratio": 0.7777777777777778,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 14,
+     "ratio": 0.7777777777777778,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 17,
+     "ratio": 0.9444444444444444,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 14,
+     "ratio": 0.7777777777777778,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 6.17,
+     "ratio": 0.3427777777777778,
+     "exact": 0.0,
+     "best_of_n": 0.7777777777777778,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k7-n01": {
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 18,
+   "max_enemy_value": 38,
+   "policies": {
+    "even-split": {
+     "value": 6,
+     "ratio": 0.3333333333333333,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 3,
+     "ratio": 0.16666666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 17,
+     "ratio": 0.9444444444444444,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 17,
+     "ratio": 0.9444444444444444,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 18,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 17,
+     "ratio": 0.9444444444444444,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 7.61,
+     "ratio": 0.4227777777777778,
+     "exact": 0.0,
+     "best_of_n": 0.8333333333333334,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k7-n02": {
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 22,
+   "max_enemy_value": 46,
+   "policies": {
+    "even-split": {
+     "value": 4,
+     "ratio": 0.18181818181818182,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.045454545454545456,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 20,
+     "ratio": 0.9090909090909091,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 20,
+     "ratio": 0.9090909090909091,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 22,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 20,
+     "ratio": 0.9090909090909091,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 7.46,
+     "ratio": 0.3390909090909091,
+     "exact": 0.0,
+     "best_of_n": 0.8181818181818182,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k7-n03": {
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 18,
+   "max_enemy_value": 38,
+   "policies": {
+    "even-split": {
+     "value": 2,
+     "ratio": 0.1111111111111111,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.05555555555555555,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 15,
+     "ratio": 0.8333333333333334,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 15,
+     "ratio": 0.8333333333333334,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 18,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 15,
+     "ratio": 0.8333333333333334,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 6.19,
+     "ratio": 0.3438888888888889,
+     "exact": 0.0,
+     "best_of_n": 0.8888888888888888,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k7-n04": {
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 21,
+   "max_enemy_value": 44,
+   "policies": {
+    "even-split": {
+     "value": 2,
+     "ratio": 0.09523809523809523,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2,
+     "ratio": 0.09523809523809523,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 19,
+     "ratio": 0.9047619047619048,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 19,
+     "ratio": 0.9047619047619048,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 20,
+     "ratio": 0.9523809523809523,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 19,
+     "ratio": 0.9047619047619048,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 8.47,
+     "ratio": 0.4033333333333334,
+     "exact": 0.0,
+     "best_of_n": 0.8571428571428571,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k7-y00": {
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 17,
+   "max_enemy_value": 34,
+   "policies": {
+    "even-split": {
+     "value": 3,
+     "ratio": 0.17647058823529413,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.058823529411764705,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 13,
+     "ratio": 0.7647058823529411,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 13,
+     "ratio": 0.7647058823529411,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 17,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 13,
+     "ratio": 0.7647058823529411,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 5.74,
+     "ratio": 0.3376470588235294,
+     "exact": 0.0,
+     "best_of_n": 0.8235294117647058,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k7-y01": {
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 18,
+   "max_enemy_value": 36,
+   "policies": {
+    "even-split": {
+     "value": 4,
+     "ratio": 0.2222222222222222,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.05555555555555555,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 16,
+     "ratio": 0.8888888888888888,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 16,
+     "ratio": 0.8888888888888888,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 18,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 16,
+     "ratio": 0.8888888888888888,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 5.93,
+     "ratio": 0.32944444444444443,
+     "exact": 0.0,
+     "best_of_n": 0.7777777777777778,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k7-y02": {
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 19,
+   "max_enemy_value": 38,
+   "policies": {
+    "even-split": {
+     "value": 4,
+     "ratio": 0.21052631578947367,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.05263157894736842,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 13,
+     "ratio": 0.6842105263157895,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 13,
+     "ratio": 0.6842105263157895,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 19,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 13,
+     "ratio": 0.6842105263157895,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 6.18,
+     "ratio": 0.3252631578947368,
+     "exact": 0.0,
+     "best_of_n": 0.7368421052631579,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k7-y03": {
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 10,
+   "max_enemy_value": 20,
+   "policies": {
+    "even-split": {
+     "value": 5,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.1,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 7,
+     "ratio": 0.7,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 7,
+     "ratio": 0.7,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 10,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 7,
+     "ratio": 0.7,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 3.71,
+     "ratio": 0.371,
+     "exact": 0.0,
+     "best_of_n": 0.9,
+     "legal": true
+    }
+   }
+  },
+  "corridor-k7-y04": {
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 18,
+   "max_enemy_value": 36,
+   "policies": {
+    "even-split": {
+     "value": 4,
+     "ratio": 0.2222222222222222,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.05555555555555555,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 13,
+     "ratio": 0.7222222222222222,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 13,
+     "ratio": 0.7222222222222222,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 18,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 13,
+     "ratio": 0.7222222222222222,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 6.21,
+     "ratio": 0.345,
+     "exact": 0.0,
+     "best_of_n": 0.8333333333333334,
+     "legal": true
+    }
+   }
+  },
+  "flower-k3-y00": {
+   "family": "flower-3partition",
+   "size": 3,
+   "optimum": 1,
+   "max_enemy_value": 1,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "flower-k3-y01": {
+   "family": "flower-3partition",
+   "size": 3,
+   "optimum": 1,
+   "max_enemy_value": 1,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "flower-k3-y02": {
+   "family": "flower-3partition",
+   "size": 3,
+   "optimum": 1,
+   "max_enemy_value": 1,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "flower-k6-n00": {
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 1,
+   "max_enemy_value": 2,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "flower-k6-n01": {
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 1,
+   "max_enemy_value": 2,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "flower-k6-n02": {
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 1,
+   "max_enemy_value": 2,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "flower-k6-n03": {
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 1,
+   "max_enemy_value": 2,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "flower-k6-n04": {
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 1,
+   "max_enemy_value": 2,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "flower-k6-y00": {
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 2,
+   "max_enemy_value": 2,
+   "policies": {
+    "even-split": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 1.32,
+     "ratio": 0.66,
+     "exact": 0.32,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "flower-k6-y01": {
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 2,
+   "max_enemy_value": 2,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 1.62,
+     "ratio": 0.81,
+     "exact": 0.62,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "flower-k6-y02": {
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 2,
+   "max_enemy_value": 2,
+   "policies": {
+    "even-split": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 2,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 1.41,
+     "ratio": 0.705,
+     "exact": 0.41,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "flower-k6-y03": {
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 2,
+   "max_enemy_value": 2,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 1.12,
+     "ratio": 0.56,
+     "exact": 0.12,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "flower-k6-y04": {
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 2,
+   "max_enemy_value": 2,
+   "policies": {
+    "even-split": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1,
+     "ratio": 0.5,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 1.22,
+     "ratio": 0.61,
+     "exact": 0.22,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k2-00": {
+   "family": "natural-multi",
+   "size": 2,
+   "optimum": 1944,
+   "max_enemy_value": 5370,
+   "policies": {
+    "even-split": {
+     "value": 1884,
+     "ratio": 0.9691358024691358,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1884,
+     "ratio": 0.9691358024691358,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1884,
+     "ratio": 0.9691358024691358,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1884,
+     "ratio": 0.9691358024691358,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1884,
+     "ratio": 0.9691358024691358,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1884,
+     "ratio": 0.9691358024691358,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 1906.2,
+     "ratio": 0.9805555555555556,
+     "exact": 0.37,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k2-01": {
+   "family": "natural-multi",
+   "size": 2,
+   "optimum": 90,
+   "max_enemy_value": 3040,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 90,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 90,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 90,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 90,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 27.9,
+     "ratio": 0.31,
+     "exact": 0.31,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k2-02": {
+   "family": "natural-multi",
+   "size": 2,
+   "optimum": 209,
+   "max_enemy_value": 1685,
+   "policies": {
+    "even-split": {
+     "value": 209,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 209,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 209,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 209,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 209,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 209,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 50.16,
+     "ratio": 0.24,
+     "exact": 0.24,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k2-03": {
+   "family": "natural-multi",
+   "size": 2,
+   "optimum": 765,
+   "max_enemy_value": 4470,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 765,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 765,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 765,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 765,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 175.95,
+     "ratio": 0.22999999999999998,
+     "exact": 0.23,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k2-04": {
+   "family": "natural-multi",
+   "size": 2,
+   "optimum": 490,
+   "max_enemy_value": 1863,
+   "policies": {
+    "even-split": {
+     "value": 490,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 490,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 490,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 490,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 490,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 490,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 490,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k2-05": {
+   "family": "natural-multi",
+   "size": 2,
+   "optimum": 256,
+   "max_enemy_value": 1244,
+   "policies": {
+    "even-split": {
+     "value": 256,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 256,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 256,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 256,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 256,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 256,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 153.6,
+     "ratio": 0.6,
+     "exact": 0.6,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k3-00": {
+   "family": "natural-multi",
+   "size": 3,
+   "optimum": 820,
+   "max_enemy_value": 3115,
+   "policies": {
+    "even-split": {
+     "value": 820,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 820,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 820,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 820,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 820,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 820,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 432.3,
+     "ratio": 0.5271951219512195,
+     "exact": 0.08,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k3-01": {
+   "family": "natural-multi",
+   "size": 3,
+   "optimum": 390,
+   "max_enemy_value": 1770,
+   "policies": {
+    "even-split": {
+     "value": 390,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 390,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 390,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 390,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 390,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 390,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 390,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k3-02": {
+   "family": "natural-multi",
+   "size": 3,
+   "optimum": 252,
+   "max_enemy_value": 10978,
+   "policies": {
+    "even-split": {
+     "value": 168,
+     "ratio": 0.6666666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 168,
+     "ratio": 0.6666666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 252,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 252,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 252,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 252,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 149.52,
+     "ratio": 0.5933333333333334,
+     "exact": 0.34,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k3-03": {
+   "family": "natural-multi",
+   "size": 3,
+   "optimum": 2352,
+   "max_enemy_value": 4873,
+   "policies": {
+    "even-split": {
+     "value": 2352,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2352,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 2352,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 2352,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 2352,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 2352,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 2352,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k3-04": {
+   "family": "natural-multi",
+   "size": 3,
+   "optimum": 1722,
+   "max_enemy_value": 32588,
+   "policies": {
+    "even-split": {
+     "value": 1564,
+     "ratio": 0.908246225319396,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1564,
+     "ratio": 0.908246225319396,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1406,
+     "ratio": 0.8164924506387921,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1406,
+     "ratio": 0.8164924506387921,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1406,
+     "ratio": 0.8164924506387921,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1252,
+     "ratio": 0.727061556329849,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 456.12,
+     "ratio": 0.2648780487804878,
+     "exact": 0.02,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k3-05": {
+   "family": "natural-multi",
+   "size": 3,
+   "optimum": 1096,
+   "max_enemy_value": 2440,
+   "policies": {
+    "even-split": {
+     "value": 200,
+     "ratio": 0.18248175182481752,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 200,
+     "ratio": 0.18248175182481752,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1096,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1096,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1096,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1096,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 359.84,
+     "ratio": 0.32832116788321164,
+     "exact": 0.0,
+     "best_of_n": 0.9087591240875912,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k4-00": {
+   "family": "natural-multi",
+   "size": 4,
+   "optimum": 154,
+   "max_enemy_value": 7389,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 38.5,
+     "ratio": 0.25,
+     "exact": 0.25,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k4-01": {
+   "family": "natural-multi",
+   "size": 4,
+   "optimum": 756,
+   "max_enemy_value": 3105,
+   "policies": {
+    "even-split": {
+     "value": 684,
+     "ratio": 0.9047619047619048,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 756,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 756,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 756,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 756,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 756,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 681.96,
+     "ratio": 0.9020634920634921,
+     "exact": 0.68,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k4-02": {
+   "family": "natural-multi",
+   "size": 4,
+   "optimum": 294,
+   "max_enemy_value": 7686,
+   "policies": {
+    "even-split": {
+     "value": 294,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 294,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 294,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 294,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 294,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 294,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 56.84,
+     "ratio": 0.19333333333333336,
+     "exact": 0.14,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k4-03": {
+   "family": "natural-multi",
+   "size": 4,
+   "optimum": 45,
+   "max_enemy_value": 12632,
+   "policies": {
+    "even-split": {
+     "value": 45,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 45,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 45,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 45,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 45,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 45,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 22.95,
+     "ratio": 0.51,
+     "exact": 0.45,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k4-04": {
+   "family": "natural-multi",
+   "size": 4,
+   "optimum": 555,
+   "max_enemy_value": 4911,
+   "policies": {
+    "even-split": {
+     "value": 555,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 555,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 555,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 555,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 555,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 555,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 555,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k4-05": {
+   "family": "natural-multi",
+   "size": 4,
+   "optimum": 1016,
+   "max_enemy_value": 2085,
+   "policies": {
+    "even-split": {
+     "value": 798,
+     "ratio": 0.7854330708661418,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 380,
+     "ratio": 0.37401574803149606,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 927,
+     "ratio": 0.9124015748031497,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 927,
+     "ratio": 0.9124015748031497,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1016,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 927,
+     "ratio": 0.9124015748031497,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 670.38,
+     "ratio": 0.6598228346456693,
+     "exact": 0.08,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k5-00": {
+   "family": "natural-multi",
+   "size": 5,
+   "optimum": 1354,
+   "max_enemy_value": 4615,
+   "policies": {
+    "even-split": {
+     "value": 1047,
+     "ratio": 0.7732644017725259,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1020,
+     "ratio": 0.7533234859675036,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1185,
+     "ratio": 0.8751846381093058,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1185,
+     "ratio": 0.8751846381093058,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1185,
+     "ratio": 0.8751846381093058,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1185,
+     "ratio": 0.8751846381093058,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 797.29,
+     "ratio": 0.5888404726735598,
+     "exact": 0.01,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k5-01": {
+   "family": "natural-multi",
+   "size": 5,
+   "optimum": 470,
+   "max_enemy_value": 8718,
+   "policies": {
+    "even-split": {
+     "value": 470,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 470,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 470,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 470,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 470,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 470,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 470,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k5-02": {
+   "family": "natural-multi",
+   "size": 5,
+   "optimum": 238,
+   "max_enemy_value": 14770,
+   "policies": {
+    "even-split": {
+     "value": 238,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 238,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 238,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 238,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 238,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 238,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 210.59,
+     "ratio": 0.8848319327731092,
+     "exact": 0.88,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k5-03": {
+   "family": "natural-multi",
+   "size": 5,
+   "optimum": 312,
+   "max_enemy_value": 2636,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 312,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 312,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 312,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 312,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 209.04,
+     "ratio": 0.6699999999999999,
+     "exact": 0.67,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k5-04": {
+   "family": "natural-multi",
+   "size": 5,
+   "optimum": 318,
+   "max_enemy_value": 1535,
+   "policies": {
+    "even-split": {
+     "value": 180,
+     "ratio": 0.5660377358490566,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 180,
+     "ratio": 0.5660377358490566,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 180,
+     "ratio": 0.5660377358490566,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 180,
+     "ratio": 0.5660377358490566,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 180,
+     "ratio": 0.5660377358490566,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 180,
+     "ratio": 0.5660377358490566,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 106.98,
+     "ratio": 0.33641509433962263,
+     "exact": 0.03,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k5-05": {
+   "family": "natural-multi",
+   "size": 5,
+   "optimum": 4222,
+   "max_enemy_value": 11189,
+   "policies": {
+    "even-split": {
+     "value": 3536,
+     "ratio": 0.837517764092847,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 3536,
+     "ratio": 0.837517764092847,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 3536,
+     "ratio": 0.837517764092847,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 3536,
+     "ratio": 0.837517764092847,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 3536,
+     "ratio": 0.837517764092847,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 3536,
+     "ratio": 0.837517764092847,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 3700.64,
+     "ratio": 0.8765135007105637,
+     "exact": 0.24,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k6-00": {
+   "family": "natural-multi",
+   "size": 6,
+   "optimum": 320,
+   "max_enemy_value": 1130,
+   "policies": {
+    "even-split": {
+     "value": 50,
+     "ratio": 0.15625,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 50,
+     "ratio": 0.15625,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 50,
+     "ratio": 0.15625,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 50,
+     "ratio": 0.15625,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 50,
+     "ratio": 0.15625,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 50,
+     "ratio": 0.15625,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 62,
+     "ratio": 0.19375,
+     "exact": 0.02,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k6-01": {
+   "family": "natural-multi",
+   "size": 6,
+   "optimum": 1252,
+   "max_enemy_value": 4050,
+   "policies": {
+    "even-split": {
+     "value": 1248,
+     "ratio": 0.9968051118210862,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1248,
+     "ratio": 0.9968051118210862,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1248,
+     "ratio": 0.9968051118210862,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1248,
+     "ratio": 0.9968051118210862,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1248,
+     "ratio": 0.9968051118210862,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1252,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1085.8,
+     "ratio": 0.8672523961661341,
+     "exact": 0.01,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k6-02": {
+   "family": "natural-multi",
+   "size": 6,
+   "optimum": 1768,
+   "max_enemy_value": 5850,
+   "policies": {
+    "even-split": {
+     "value": 1768,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1768,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1768,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1768,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1768,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1768,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1171.84,
+     "ratio": 0.6628054298642534,
+     "exact": 0.28,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k6-03": {
+   "family": "natural-multi",
+   "size": 6,
+   "optimum": 60,
+   "max_enemy_value": 1666,
+   "policies": {
+    "even-split": {
+     "value": 60,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 60,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 60,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 60,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 60,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 60,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 60,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k6-04": {
+   "family": "natural-multi",
+   "size": 6,
+   "optimum": 950,
+   "max_enemy_value": 2809,
+   "policies": {
+    "even-split": {
+     "value": 890,
+     "ratio": 0.9368421052631579,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 890,
+     "ratio": 0.9368421052631579,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 950,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 950,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 950,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 950,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 909.2,
+     "ratio": 0.9570526315789474,
+     "exact": 0.32,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k6-05": {
+   "family": "natural-multi",
+   "size": 6,
+   "optimum": 154,
+   "max_enemy_value": 817,
+   "policies": {
+    "even-split": {
+     "value": 154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 126.28,
+     "ratio": 0.8200000000000001,
+     "exact": 0.82,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k7-00": {
+   "family": "natural-multi",
+   "size": 7,
+   "optimum": 150,
+   "max_enemy_value": 2775,
+   "policies": {
+    "even-split": {
+     "value": 150,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 150,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 150,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 150,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 150,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 150,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 110.5,
+     "ratio": 0.7366666666666667,
+     "exact": 0.71,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k7-01": {
+   "family": "natural-multi",
+   "size": 7,
+   "optimum": 4166,
+   "max_enemy_value": 14036,
+   "policies": {
+    "even-split": {
+     "value": 3912,
+     "ratio": 0.9390302448391743,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 4166,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 3677,
+     "ratio": 0.8826212193951032,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 3677,
+     "ratio": 0.8826212193951032,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 3677,
+     "ratio": 0.8826212193951032,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 3851,
+     "ratio": 0.9243879020643303,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 3711.16,
+     "ratio": 0.8908209313490159,
+     "exact": 0.2,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k7-02": {
+   "family": "natural-multi",
+   "size": 7,
+   "optimum": 147,
+   "max_enemy_value": 2651,
+   "policies": {
+    "even-split": {
+     "value": 44,
+     "ratio": 0.29931972789115646,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 132,
+     "ratio": 0.8979591836734694,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 132,
+     "ratio": 0.8979591836734694,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 132,
+     "ratio": 0.8979591836734694,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 132,
+     "ratio": 0.8979591836734694,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 62.77,
+     "ratio": 0.42700680272108843,
+     "exact": 0.0,
+     "best_of_n": 0.8979591836734694,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k7-03": {
+   "family": "natural-multi",
+   "size": 7,
+   "optimum": 952,
+   "max_enemy_value": 4182,
+   "policies": {
+    "even-split": {
+     "value": 952,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 952,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 952,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 952,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 952,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 952,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 952,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k7-04": {
+   "family": "natural-multi",
+   "size": 7,
+   "optimum": 753,
+   "max_enemy_value": 2825,
+   "policies": {
+    "even-split": {
+     "value": 548,
+     "ratio": 0.7277556440903055,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 548,
+     "ratio": 0.7277556440903055,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 548,
+     "ratio": 0.7277556440903055,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 548,
+     "ratio": 0.7277556440903055,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 548,
+     "ratio": 0.7277556440903055,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 548,
+     "ratio": 0.7277556440903055,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 538.5,
+     "ratio": 0.7151394422310757,
+     "exact": 0.07,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalM-k7-05": {
+   "family": "natural-multi",
+   "size": 7,
+   "optimum": 180,
+   "max_enemy_value": 1603,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 180,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 180,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 180,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 80,
+     "ratio": 0.4444444444444444,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 53,
+     "ratio": 0.29444444444444445,
+     "exact": 0.09,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k2-00": {
+   "family": "natural-single",
+   "size": 2,
+   "optimum": 1118,
+   "max_enemy_value": 1921,
+   "policies": {
+    "even-split": {
+     "value": 803,
+     "ratio": 0.7182468694096601,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 803,
+     "ratio": 0.7182468694096601,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1118,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1118,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1118,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1118,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 853.4,
+     "ratio": 0.7633273703041145,
+     "exact": 0.16,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k2-01": {
+   "family": "natural-single",
+   "size": 2,
+   "optimum": 3204,
+   "max_enemy_value": 6457,
+   "policies": {
+    "even-split": {
+     "value": 2450,
+     "ratio": 0.764669163545568,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2450,
+     "ratio": 0.764669163545568,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 3204,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 2538,
+     "ratio": 0.7921348314606742,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 3204,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 3204,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 2696.82,
+     "ratio": 0.8417041198501873,
+     "exact": 0.27,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k2-02": {
+   "family": "natural-single",
+   "size": 2,
+   "optimum": 4166,
+   "max_enemy_value": 8026,
+   "policies": {
+    "even-split": {
+     "value": 3860,
+     "ratio": 0.9265482477196352,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 3696,
+     "ratio": 0.8871819491118579,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 2482,
+     "ratio": 0.5957753240518483,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 2482,
+     "ratio": 0.5957753240518483,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 2482,
+     "ratio": 0.5957753240518483,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 2482,
+     "ratio": 0.5957753240518483,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 3795.8,
+     "ratio": 0.9111377820451273,
+     "exact": 0.16,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k2-03": {
+   "family": "natural-single",
+   "size": 2,
+   "optimum": 60,
+   "max_enemy_value": 5611,
+   "policies": {
+    "even-split": {
+     "value": 60,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 60,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 60,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 60,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 60,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 60,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 38.4,
+     "ratio": 0.64,
+     "exact": 0.64,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k2-04": {
+   "family": "natural-single",
+   "size": 2,
+   "optimum": 50,
+   "max_enemy_value": 14128,
+   "policies": {
+    "even-split": {
+     "value": 50,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 50,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 50,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 50,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 50,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 50,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 50,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k2-05": {
+   "family": "natural-single",
+   "size": 2,
+   "optimum": 867,
+   "max_enemy_value": 1491,
+   "policies": {
+    "even-split": {
+     "value": 624,
+     "ratio": 0.7197231833910035,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 624,
+     "ratio": 0.7197231833910035,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 867,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 867,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 867,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 867,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 638.58,
+     "ratio": 0.7365397923875433,
+     "exact": 0.06,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k3-00": {
+   "family": "natural-single",
+   "size": 3,
+   "optimum": 2088,
+   "max_enemy_value": 2660,
+   "policies": {
+    "even-split": {
+     "value": 2088,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1670,
+     "ratio": 0.7998084291187739,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 2088,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 2088,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 2088,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 2088,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1866.46,
+     "ratio": 0.8938984674329502,
+     "exact": 0.47,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k3-01": {
+   "family": "natural-single",
+   "size": 3,
+   "optimum": 1360,
+   "max_enemy_value": 2115,
+   "policies": {
+    "even-split": {
+     "value": 1274,
+     "ratio": 0.9367647058823529,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 640,
+     "ratio": 0.47058823529411764,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1274,
+     "ratio": 0.9367647058823529,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1274,
+     "ratio": 0.9367647058823529,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1042,
+     "ratio": 0.7661764705882353,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1274,
+     "ratio": 0.9367647058823529,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 882.5,
+     "ratio": 0.6488970588235294,
+     "exact": 0.0,
+     "best_of_n": 0.9367647058823529,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k3-02": {
+   "family": "natural-single",
+   "size": 3,
+   "optimum": 884,
+   "max_enemy_value": 1880,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 884,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 884,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 884,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 884,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 185.64,
+     "ratio": 0.21,
+     "exact": 0.21,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k3-03": {
+   "family": "natural-single",
+   "size": 3,
+   "optimum": 643,
+   "max_enemy_value": 7911,
+   "policies": {
+    "even-split": {
+     "value": 559,
+     "ratio": 0.8693623639191291,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 475,
+     "ratio": 0.7387247278382582,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 643,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 643,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 643,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 643,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 504.43,
+     "ratio": 0.7844945567651633,
+     "exact": 0.13,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k3-04": {
+   "family": "natural-single",
+   "size": 3,
+   "optimum": 1389,
+   "max_enemy_value": 3037,
+   "policies": {
+    "even-split": {
+     "value": 1389,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 756,
+     "ratio": 0.5442764578833693,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1389,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 633,
+     "ratio": 0.4557235421166307,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1389,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1389,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 740.55,
+     "ratio": 0.5331533477321814,
+     "exact": 0.11,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k3-05": {
+   "family": "natural-single",
+   "size": 3,
+   "optimum": 4015,
+   "max_enemy_value": 6415,
+   "policies": {
+    "even-split": {
+     "value": 4015,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 4015,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 4015,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 4015,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 4015,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 4015,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 4015,
+     "ratio": 1.0,
+     "exact": 1.0,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k4-00": {
+   "family": "natural-single",
+   "size": 4,
+   "optimum": 278,
+   "max_enemy_value": 2503,
+   "policies": {
+    "even-split": {
+     "value": 278,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 180,
+     "ratio": 0.6474820143884892,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 278,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 278,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 278,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 278,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 146.32,
+     "ratio": 0.5263309352517985,
+     "exact": 0.15,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k4-01": {
+   "family": "natural-single",
+   "size": 4,
+   "optimum": 561,
+   "max_enemy_value": 9161,
+   "policies": {
+    "even-split": {
+     "value": 340,
+     "ratio": 0.6060606060606061,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 476,
+     "ratio": 0.8484848484848485,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 561,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 476,
+     "ratio": 0.8484848484848485,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 561,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 561,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 344.59,
+     "ratio": 0.6142424242424241,
+     "exact": 0.07,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k4-02": {
+   "family": "natural-single",
+   "size": 4,
+   "optimum": 225,
+   "max_enemy_value": 7141,
+   "policies": {
+    "even-split": {
+     "value": 225,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 180,
+     "ratio": 0.8,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 225,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 225,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 225,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 225,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 181.8,
+     "ratio": 0.808,
+     "exact": 0.17,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k4-03": {
+   "family": "natural-single",
+   "size": 4,
+   "optimum": 1940,
+   "max_enemy_value": 3650,
+   "policies": {
+    "even-split": {
+     "value": 1555,
+     "ratio": 0.8015463917525774,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 540,
+     "ratio": 0.27835051546391754,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1555,
+     "ratio": 0.8015463917525774,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1555,
+     "ratio": 0.8015463917525774,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1940,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1555,
+     "ratio": 0.8015463917525774,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 1203.25,
+     "ratio": 0.6202319587628866,
+     "exact": 0.08,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k4-04": {
+   "family": "natural-single",
+   "size": 4,
+   "optimum": 362,
+   "max_enemy_value": 6368,
+   "policies": {
+    "even-split": {
+     "value": 362,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 308,
+     "ratio": 0.850828729281768,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 362,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 362,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 362,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 362,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 327.22,
+     "ratio": 0.9039226519337017,
+     "exact": 0.32,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k4-05": {
+   "family": "natural-single",
+   "size": 4,
+   "optimum": 250,
+   "max_enemy_value": 665,
+   "policies": {
+    "even-split": {
+     "value": 165,
+     "ratio": 0.66,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 165,
+     "ratio": 0.66,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 165,
+     "ratio": 0.66,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 165,
+     "ratio": 0.66,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 165,
+     "ratio": 0.66,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 165,
+     "ratio": 0.66,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 176.9,
+     "ratio": 0.7076,
+     "exact": 0.14,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k5-00": {
+   "family": "natural-single",
+   "size": 5,
+   "optimum": 328,
+   "max_enemy_value": 10539,
+   "policies": {
+    "even-split": {
+     "value": 136,
+     "ratio": 0.4146341463414634,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 320,
+     "ratio": 0.975609756097561,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 304,
+     "ratio": 0.926829268292683,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 304,
+     "ratio": 0.926829268292683,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 304,
+     "ratio": 0.926829268292683,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 304,
+     "ratio": 0.926829268292683,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 177.84,
+     "ratio": 0.5421951219512195,
+     "exact": 0.02,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k5-01": {
+   "family": "natural-single",
+   "size": 5,
+   "optimum": 1768,
+   "max_enemy_value": 3792,
+   "policies": {
+    "even-split": {
+     "value": 256,
+     "ratio": 0.14479638009049775,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 196,
+     "ratio": 0.11085972850678733,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1140,
+     "ratio": 0.6447963800904978,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1140,
+     "ratio": 0.6447963800904978,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1140,
+     "ratio": 0.6447963800904978,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1140,
+     "ratio": 0.6447963800904978,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 610.24,
+     "ratio": 0.345158371040724,
+     "exact": 0.09,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k5-02": {
+   "family": "natural-single",
+   "size": 5,
+   "optimum": 11154,
+   "max_enemy_value": 15354,
+   "policies": {
+    "even-split": {
+     "value": 9320,
+     "ratio": 0.8355746817285279,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 11154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 11154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 11154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 11154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 11154,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 11145.08,
+     "ratio": 0.9992002868925945,
+     "exact": 0.99,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k5-03": {
+   "family": "natural-single",
+   "size": 5,
+   "optimum": 390,
+   "max_enemy_value": 555,
+   "policies": {
+    "even-split": {
+     "value": 319,
+     "ratio": 0.8179487179487179,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 295,
+     "ratio": 0.7564102564102564,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 390,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 390,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 390,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 390,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 216.3,
+     "ratio": 0.5546153846153846,
+     "exact": 0.09,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k5-04": {
+   "family": "natural-single",
+   "size": 5,
+   "optimum": 30,
+   "max_enemy_value": 3893,
+   "policies": {
+    "even-split": {
+     "value": 30,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 30,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 30,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 30,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 30,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 13.8,
+     "ratio": 0.46,
+     "exact": 0.46,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k5-05": {
+   "family": "natural-single",
+   "size": 5,
+   "optimum": 3111,
+   "max_enemy_value": 14947,
+   "policies": {
+    "even-split": {
+     "value": 2596,
+     "ratio": 0.8344583735133397,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2826,
+     "ratio": 0.9083895853423336,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 2881,
+     "ratio": 0.9260687881710061,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 2881,
+     "ratio": 0.9260687881710061,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 2881,
+     "ratio": 0.9260687881710061,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 2881,
+     "ratio": 0.9260687881710061,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 2419.21,
+     "ratio": 0.7776309868209579,
+     "exact": 0.06,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k6-00": {
+   "family": "natural-single",
+   "size": 6,
+   "optimum": 2506,
+   "max_enemy_value": 3726,
+   "policies": {
+    "even-split": {
+     "value": 2506,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 1248,
+     "ratio": 0.4980047885075818,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 2506,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 2506,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1784,
+     "ratio": 0.7118914604948124,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 2506,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1826.92,
+     "ratio": 0.7290183559457303,
+     "exact": 0.13,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k6-01": {
+   "family": "natural-single",
+   "size": 6,
+   "optimum": 285,
+   "max_enemy_value": 3404,
+   "policies": {
+    "even-split": {
+     "value": 95,
+     "ratio": 0.3333333333333333,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 285,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 190,
+     "ratio": 0.6666666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 190,
+     "ratio": 0.6666666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 190,
+     "ratio": 0.6666666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 190,
+     "ratio": 0.6666666666666666,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 109.25,
+     "ratio": 0.38333333333333336,
+     "exact": 0.18,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k6-02": {
+   "family": "natural-single",
+   "size": 6,
+   "optimum": 1136,
+   "max_enemy_value": 4717,
+   "policies": {
+    "even-split": {
+     "value": 1136,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 884,
+     "ratio": 0.778169014084507,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1136,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1136,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1136,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1136,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 989.84,
+     "ratio": 0.8713380281690141,
+     "exact": 0.42,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k6-03": {
+   "family": "natural-single",
+   "size": 6,
+   "optimum": 1416,
+   "max_enemy_value": 2009,
+   "policies": {
+    "even-split": {
+     "value": 1207,
+     "ratio": 0.8524011299435028,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 836,
+     "ratio": 0.5903954802259888,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 1416,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 1416,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 1373,
+     "ratio": 0.969632768361582,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 1416,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 1093.79,
+     "ratio": 0.7724505649717514,
+     "exact": 0.01,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k6-04": {
+   "family": "natural-single",
+   "size": 6,
+   "optimum": 2775,
+   "max_enemy_value": 4595,
+   "policies": {
+    "even-split": {
+     "value": 2421,
+     "ratio": 0.8724324324324324,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2775,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 2775,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 2775,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 2775,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 2775,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 2768.94,
+     "ratio": 0.9978162162162162,
+     "exact": 0.98,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k6-05": {
+   "family": "natural-single",
+   "size": 6,
+   "optimum": 201,
+   "max_enemy_value": 582,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 201,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 201,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 201,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 201,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 201,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 56.28,
+     "ratio": 0.28,
+     "exact": 0.28,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k7-00": {
+   "family": "natural-single",
+   "size": 7,
+   "optimum": 132,
+   "max_enemy_value": 2146,
+   "policies": {
+    "even-split": {
+     "value": 44,
+     "ratio": 0.3333333333333333,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 132,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 132,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 132,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 132,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 15.84,
+     "ratio": 0.12,
+     "exact": 0.07,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k7-01": {
+   "family": "natural-single",
+   "size": 7,
+   "optimum": 4311,
+   "max_enemy_value": 7431,
+   "policies": {
+    "even-split": {
+     "value": 4311,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 3340,
+     "ratio": 0.7747622361401068,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 4172,
+     "ratio": 0.9677569009510555,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 4172,
+     "ratio": 0.9677569009510555,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 3895,
+     "ratio": 0.9035026675945256,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 4172,
+     "ratio": 0.9677569009510555,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 3594.09,
+     "ratio": 0.8337021572720946,
+     "exact": 0.02,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k7-02": {
+   "family": "natural-single",
+   "size": 7,
+   "optimum": 300,
+   "max_enemy_value": 2829,
+   "policies": {
+    "even-split": {
+     "value": 210,
+     "ratio": 0.7,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 270,
+     "ratio": 0.9,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 270,
+     "ratio": 0.9,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 270,
+     "ratio": 0.9,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 270,
+     "ratio": 0.9,
+     "exact": false,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 270,
+     "ratio": 0.9,
+     "exact": false,
+     "legal": true
+    },
+    "random": {
+     "value": 276.6,
+     "ratio": 0.922,
+     "exact": 0.4,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k7-03": {
+   "family": "natural-single",
+   "size": 7,
+   "optimum": 2136,
+   "max_enemy_value": 22621,
+   "policies": {
+    "even-split": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 0,
+     "ratio": 0.0,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 2136,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 2136,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 2136,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 2136,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 608.76,
+     "ratio": 0.285,
+     "exact": 0.12,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k7-04": {
+   "family": "natural-single",
+   "size": 7,
+   "optimum": 84,
+   "max_enemy_value": 3802,
+   "policies": {
+    "even-split": {
+     "value": 84,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 84,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 84,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 84,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 84,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 84,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 76.44,
+     "ratio": 0.9099999999999999,
+     "exact": 0.91,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  },
+  "naturalS-k7-05": {
+   "family": "natural-single",
+   "size": 7,
+   "optimum": 2808,
+   "max_enemy_value": 6526,
+   "policies": {
+    "even-split": {
+     "value": 1924,
+     "ratio": 0.6851851851851852,
+     "exact": false,
+     "legal": true
+    },
+    "one-big-stack": {
+     "value": 2652,
+     "ratio": 0.9444444444444444,
+     "exact": false,
+     "legal": true
+    },
+    "greedy-density": {
+     "value": 2808,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-cheapest": {
+     "value": 2808,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "greedy-value": {
+     "value": 2808,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "focus-fire": {
+     "value": 2808,
+     "ratio": 1.0,
+     "exact": true,
+     "legal": true
+    },
+    "random": {
+     "value": 2671.24,
+     "ratio": 0.9512962962962962,
+     "exact": 0.31,
+     "best_of_n": 1.0,
+     "legal": true
+    }
+   }
+  }
+ }
+}

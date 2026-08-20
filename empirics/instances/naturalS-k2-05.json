@@ -1,0 +1,75 @@
+{
+ "id": "naturalS-k2-05",
+ "family": "natural-single",
+ "size": 2,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Fire Elemental": {
+   "attack": 10,
+   "defense": 8,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 35,
+   "speed": 6,
+   "value": 345,
+   "shooter": false
+  },
+  "Dragon Fly": {
+   "attack": 8,
+   "defense": 10,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 13,
+   "value": 312,
+   "shooter": false
+  },
+  "Vampire": {
+   "attack": 10,
+   "defense": 9,
+   "dmg_min": 5,
+   "dmg_max": 5,
+   "hp": 30,
+   "speed": 6,
+   "value": 555,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Fire Elemental",
+   "stock": 13
+  }
+ ],
+ "slots": [
+  57,
+  61
+ ],
+ "enemies": [
+  {
+   "type": "Dragon Fly",
+   "count": 3,
+   "hex": 8
+  },
+  {
+   "type": "Vampire",
+   "count": 1,
+   "hex": 100
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Fire Elemental"
+  ]
+ }
+}

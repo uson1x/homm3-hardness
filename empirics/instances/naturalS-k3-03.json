@@ -1,0 +1,106 @@
+{
+ "id": "naturalS-k3-03",
+ "family": "natural-single",
+ "size": 3,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Stone Gargoyle": {
+   "attack": 6,
+   "defense": 6,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 16,
+   "speed": 6,
+   "value": 165,
+   "shooter": false
+  },
+  "Infernal Troglodyte": {
+   "attack": 5,
+   "defense": 4,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 6,
+   "speed": 5,
+   "value": 84,
+   "shooter": false
+  },
+  "Sprite": {
+   "attack": 2,
+   "defense": 2,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 3,
+   "speed": 9,
+   "value": 95,
+   "shooter": false
+  },
+  "Pit Lord": {
+   "attack": 13,
+   "defense": 13,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 45,
+   "speed": 7,
+   "value": 1224,
+   "shooter": false
+  },
+  "Magma Elemental": {
+   "attack": 11,
+   "defense": 11,
+   "dmg_min": 6,
+   "dmg_max": 6,
+   "hp": 40,
+   "speed": 6,
+   "value": 490,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Stone Gargoyle",
+   "stock": 13
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90
+ ],
+ "enemies": [
+  {
+   "type": "Infernal Troglodyte",
+   "count": 4,
+   "hex": 8
+  },
+  {
+   "type": "Sprite",
+   "count": 5,
+   "hex": 2
+  },
+  {
+   "type": "Pit Lord",
+   "count": 5,
+   "hex": 100
+  },
+  {
+   "type": "Magma Elemental",
+   "count": 2,
+   "hex": 185
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Stone Gargoyle"
+  ]
+ }
+}

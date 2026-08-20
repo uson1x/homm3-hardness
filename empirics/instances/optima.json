@@ -1,0 +1,3180 @@
+{
+ "corridor-k2-n00": {
+  "optimum": 5,
+  "relaxation_bound": 5,
+  "simulated_value": 5,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    5
+   ],
+   null
+  ],
+  "max_enemy_value": 14,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k2-n01": {
+  "optimum": 3,
+  "relaxation_bound": 3,
+  "simulated_value": 3,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    3
+   ],
+   null
+  ],
+  "max_enemy_value": 12,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k2-n02": {
+  "optimum": 2,
+  "relaxation_bound": 2,
+  "simulated_value": 2,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    2
+   ],
+   null
+  ],
+  "max_enemy_value": 6,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k2-n03": {
+  "optimum": 3,
+  "relaxation_bound": 3,
+  "simulated_value": 3,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    3
+   ],
+   null
+  ],
+  "max_enemy_value": 12,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k2-n04": {
+  "optimum": 5,
+  "relaxation_bound": 5,
+  "simulated_value": 5,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    5
+   ],
+   null
+  ],
+  "max_enemy_value": 14,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k2-y00": {
+  "optimum": 9,
+  "relaxation_bound": 9,
+  "simulated_value": 9,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    9
+   ],
+   null
+  ],
+  "max_enemy_value": 18,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k2-y01": {
+  "optimum": 8,
+  "relaxation_bound": 8,
+  "simulated_value": 8,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    8
+   ],
+   null
+  ],
+  "max_enemy_value": 16,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k2-y02": {
+  "optimum": 7,
+  "relaxation_bound": 7,
+  "simulated_value": 7,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    7
+   ],
+   null
+  ],
+  "max_enemy_value": 14,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k2-y03": {
+  "optimum": 8,
+  "relaxation_bound": 8,
+  "simulated_value": 8,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    8
+   ],
+   null
+  ],
+  "max_enemy_value": 16,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k2-y04": {
+  "optimum": 5,
+  "relaxation_bound": 5,
+  "simulated_value": 5,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    5
+   ],
+   null
+  ],
+  "max_enemy_value": 10,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k3-n00": {
+  "optimum": 9,
+  "relaxation_bound": 9,
+  "simulated_value": 9,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "C",
+    9
+   ]
+  ],
+  "max_enemy_value": 24,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k3-n01": {
+  "optimum": 9,
+  "relaxation_bound": 9,
+  "simulated_value": 9,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "C",
+    9
+   ]
+  ],
+  "max_enemy_value": 20,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k3-n02": {
+  "optimum": 4,
+  "relaxation_bound": 4,
+  "simulated_value": 4,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    3
+   ],
+   null
+  ],
+  "max_enemy_value": 10,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k3-n03": {
+  "optimum": 6,
+  "relaxation_bound": 6,
+  "simulated_value": 6,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "C",
+    6
+   ]
+  ],
+  "max_enemy_value": 14,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k3-n04": {
+  "optimum": 7,
+  "relaxation_bound": 7,
+  "simulated_value": 7,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "C",
+    7
+   ]
+  ],
+  "max_enemy_value": 16,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k3-y00": {
+  "optimum": 8,
+  "relaxation_bound": 8,
+  "simulated_value": 8,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    2
+   ],
+   [
+    "C",
+    6
+   ],
+   null
+  ],
+  "max_enemy_value": 16,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k3-y01": {
+  "optimum": 3,
+  "relaxation_bound": 3,
+  "simulated_value": 3,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    2
+   ],
+   null
+  ],
+  "max_enemy_value": 6,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k3-y02": {
+  "optimum": 8,
+  "relaxation_bound": 8,
+  "simulated_value": 8,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    2
+   ],
+   [
+    "C",
+    6
+   ],
+   null
+  ],
+  "max_enemy_value": 16,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k3-y03": {
+  "optimum": 8,
+  "relaxation_bound": 8,
+  "simulated_value": 8,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    2
+   ],
+   [
+    "C",
+    6
+   ],
+   null
+  ],
+  "max_enemy_value": 16,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k3-y04": {
+  "optimum": 7,
+  "relaxation_bound": 7,
+  "simulated_value": 7,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    6
+   ],
+   null
+  ],
+  "max_enemy_value": 14,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k4-y00": {
+  "optimum": 12,
+  "relaxation_bound": 12,
+  "simulated_value": 12,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "C",
+    6
+   ],
+   [
+    "C",
+    6
+   ],
+   null
+  ],
+  "max_enemy_value": 24,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k4-y01": {
+  "optimum": 8,
+  "relaxation_bound": 8,
+  "simulated_value": 8,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "C",
+    4
+   ],
+   [
+    "C",
+    4
+   ],
+   null
+  ],
+  "max_enemy_value": 16,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k4-n00": {
+  "optimum": 8,
+  "relaxation_bound": 8,
+  "simulated_value": 8,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   [
+    "C",
+    8
+   ]
+  ],
+  "max_enemy_value": 18,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k4-y02": {
+  "optimum": 13,
+  "relaxation_bound": 13,
+  "simulated_value": 13,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "C",
+    5
+   ],
+   [
+    "C",
+    8
+   ],
+   null
+  ],
+  "max_enemy_value": 26,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k4-y03": {
+  "optimum": 6,
+  "relaxation_bound": 6,
+  "simulated_value": 6,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    4
+   ],
+   null
+  ],
+  "max_enemy_value": 12,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k4-n01": {
+  "optimum": 11,
+  "relaxation_bound": 11,
+  "simulated_value": 11,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    2
+   ],
+   null,
+   [
+    "C",
+    9
+   ],
+   null
+  ],
+  "max_enemy_value": 24,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k4-n02": {
+  "optimum": 11,
+  "relaxation_bound": 11,
+  "simulated_value": 11,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    4
+   ],
+   null,
+   [
+    "C",
+    7
+   ],
+   null
+  ],
+  "max_enemy_value": 24,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k4-n03": {
+  "optimum": 7,
+  "relaxation_bound": 7,
+  "simulated_value": 7,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    2
+   ],
+   null,
+   [
+    "C",
+    5
+   ],
+   null
+  ],
+  "max_enemy_value": 16,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k4-n04": {
+  "optimum": 7,
+  "relaxation_bound": 7,
+  "simulated_value": 7,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    2
+   ],
+   [
+    "C",
+    2
+   ],
+   [
+    "C",
+    3
+   ],
+   null
+  ],
+  "max_enemy_value": 16,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k4-y04": {
+  "optimum": 8,
+  "relaxation_bound": 8,
+  "simulated_value": 8,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    6
+   ],
+   null
+  ],
+  "max_enemy_value": 16,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k5-y00": {
+  "optimum": 9,
+  "relaxation_bound": 9,
+  "simulated_value": 9,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "C",
+    4
+   ],
+   [
+    "C",
+    5
+   ],
+   null
+  ],
+  "max_enemy_value": 18,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k5-y01": {
+  "optimum": 15,
+  "relaxation_bound": 15,
+  "simulated_value": 15,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    4
+   ],
+   [
+    "C",
+    5
+   ],
+   [
+    "C",
+    6
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 30,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k5-y02": {
+  "optimum": 14,
+  "relaxation_bound": 14,
+  "simulated_value": 14,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    3
+   ],
+   [
+    "C",
+    4
+   ],
+   null,
+   [
+    "C",
+    7
+   ],
+   null
+  ],
+  "max_enemy_value": 28,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k5-y03": {
+  "optimum": 12,
+  "relaxation_bound": 12,
+  "simulated_value": 12,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    5
+   ],
+   null,
+   [
+    "C",
+    6
+   ],
+   null
+  ],
+  "max_enemy_value": 24,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k5-y04": {
+  "optimum": 11,
+  "relaxation_bound": 11,
+  "simulated_value": 11,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "C",
+    4
+   ],
+   [
+    "C",
+    7
+   ],
+   null
+  ],
+  "max_enemy_value": 22,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k5-n00": {
+  "optimum": 12,
+  "relaxation_bound": 12,
+  "simulated_value": 12,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    2
+   ],
+   [
+    "C",
+    2
+   ],
+   null,
+   null,
+   [
+    "C",
+    8
+   ]
+  ],
+  "max_enemy_value": 26,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k5-n01": {
+  "optimum": 10,
+  "relaxation_bound": 10,
+  "simulated_value": 10,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   null,
+   [
+    "C",
+    4
+   ],
+   [
+    "C",
+    5
+   ],
+   null
+  ],
+  "max_enemy_value": 22,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k5-n02": {
+  "optimum": 8,
+  "relaxation_bound": 8,
+  "simulated_value": 8,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    3
+   ],
+   null,
+   [
+    "C",
+    4
+   ],
+   null
+  ],
+  "max_enemy_value": 18,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k5-n03": {
+  "optimum": 7,
+  "relaxation_bound": 7,
+  "simulated_value": 7,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    2
+   ],
+   [
+    "C",
+    3
+   ],
+   null
+  ],
+  "max_enemy_value": 16,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k5-n04": {
+  "optimum": 18,
+  "relaxation_bound": 18,
+  "simulated_value": 18,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "C",
+    9
+   ],
+   [
+    "C",
+    9
+   ],
+   null
+  ],
+  "max_enemy_value": 40,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k6-y00": {
+  "optimum": 15,
+  "relaxation_bound": 15,
+  "simulated_value": 15,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    3
+   ],
+   null,
+   null,
+   [
+    "C",
+    4
+   ],
+   [
+    "C",
+    8
+   ],
+   null
+  ],
+  "max_enemy_value": 30,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k6-y01": {
+  "optimum": 13,
+  "relaxation_bound": 13,
+  "simulated_value": 13,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    1
+   ],
+   null,
+   [
+    "C",
+    5
+   ],
+   [
+    "C",
+    6
+   ],
+   null
+  ],
+  "max_enemy_value": 26,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k6-n00": {
+  "optimum": 14,
+  "relaxation_bound": 14,
+  "simulated_value": 14,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    2
+   ],
+   [
+    "C",
+    2
+   ],
+   [
+    "C",
+    5
+   ],
+   [
+    "C",
+    5
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 30,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k6-y02": {
+  "optimum": 17,
+  "relaxation_bound": 17,
+  "simulated_value": 17,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "C",
+    4
+   ],
+   [
+    "C",
+    6
+   ],
+   [
+    "C",
+    7
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 34,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k6-y03": {
+  "optimum": 15,
+  "relaxation_bound": 15,
+  "simulated_value": 15,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "C",
+    3
+   ],
+   [
+    "C",
+    5
+   ],
+   null,
+   [
+    "C",
+    7
+   ],
+   null
+  ],
+  "max_enemy_value": 30,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k6-y04": {
+  "optimum": 14,
+  "relaxation_bound": 14,
+  "simulated_value": 14,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    3
+   ],
+   [
+    "C",
+    4
+   ],
+   null,
+   [
+    "C",
+    6
+   ],
+   null
+  ],
+  "max_enemy_value": 28,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k6-n01": {
+  "optimum": 19,
+  "relaxation_bound": 19,
+  "simulated_value": 19,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    5
+   ],
+   null,
+   [
+    "C",
+    7
+   ],
+   [
+    "C",
+    7
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 40,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k6-n02": {
+  "optimum": 19,
+  "relaxation_bound": 19,
+  "simulated_value": 19,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   null,
+   null,
+   null,
+   [
+    "C",
+    9
+   ],
+   [
+    "C",
+    9
+   ]
+  ],
+  "max_enemy_value": 40,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k6-n03": {
+  "optimum": 12,
+  "relaxation_bound": 12,
+  "simulated_value": 12,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    1
+   ],
+   null,
+   [
+    "C",
+    9
+   ],
+   null
+  ],
+  "max_enemy_value": 28,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k6-n04": {
+  "optimum": 14,
+  "relaxation_bound": 14,
+  "simulated_value": 14,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    4
+   ],
+   null,
+   null,
+   [
+    "C",
+    5
+   ],
+   [
+    "C",
+    5
+   ],
+   null
+  ],
+  "max_enemy_value": 30,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k7-y00": {
+  "optimum": 17,
+  "relaxation_bound": 17,
+  "simulated_value": 17,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   null,
+   [
+    "C",
+    4
+   ],
+   [
+    "C",
+    6
+   ],
+   [
+    "C",
+    6
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 34,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k7-y01": {
+  "optimum": 18,
+  "relaxation_bound": 18,
+  "simulated_value": 18,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "C",
+    6
+   ],
+   [
+    "C",
+    6
+   ],
+   [
+    "C",
+    6
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 36,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k7-y02": {
+  "optimum": 19,
+  "relaxation_bound": 19,
+  "simulated_value": 19,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "C",
+    3
+   ],
+   [
+    "C",
+    4
+   ],
+   [
+    "C",
+    5
+   ],
+   [
+    "C",
+    7
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 38,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k7-y03": {
+  "optimum": 10,
+  "relaxation_bound": 10,
+  "simulated_value": 10,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "C",
+    2
+   ],
+   [
+    "C",
+    2
+   ],
+   [
+    "C",
+    2
+   ],
+   [
+    "C",
+    4
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 20,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k7-y04": {
+  "optimum": 18,
+  "relaxation_bound": 18,
+  "simulated_value": 18,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "C",
+    3
+   ],
+   [
+    "C",
+    4
+   ],
+   [
+    "C",
+    5
+   ],
+   [
+    "C",
+    6
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 36,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k7-n00": {
+  "optimum": 18,
+  "relaxation_bound": 18,
+  "simulated_value": 18,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    4
+   ],
+   null,
+   [
+    "C",
+    5
+   ],
+   [
+    "C",
+    8
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 38,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k7-n01": {
+  "optimum": 18,
+  "relaxation_bound": 18,
+  "simulated_value": 18,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    3
+   ],
+   [
+    "C",
+    3
+   ],
+   null,
+   [
+    "C",
+    6
+   ],
+   [
+    "C",
+    6
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 38,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k7-n02": {
+  "optimum": 22,
+  "relaxation_bound": 22,
+  "simulated_value": 22,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    3
+   ],
+   null,
+   null,
+   null,
+   [
+    "C",
+    9
+   ],
+   [
+    "C",
+    9
+   ]
+  ],
+  "max_enemy_value": 46,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k7-n03": {
+  "optimum": 18,
+  "relaxation_bound": 18,
+  "simulated_value": 18,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    1
+   ],
+   [
+    "C",
+    1
+   ],
+   null,
+   null,
+   null,
+   [
+    "C",
+    8
+   ],
+   [
+    "C",
+    8
+   ]
+  ],
+  "max_enemy_value": 38,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "corridor-k7-n04": {
+  "optimum": 21,
+  "relaxation_bound": 21,
+  "simulated_value": 21,
+  "certified": true,
+  "allocation": [
+   [
+    "C",
+    2
+   ],
+   [
+    "C",
+    5
+   ],
+   null,
+   [
+    "C",
+    7
+   ],
+   [
+    "C",
+    7
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 44,
+  "blocking_free": true,
+  "method": "knapsack (candidate-A.md sec. 5.5)"
+ },
+ "flower-k3-y00": {
+  "optimum": 1,
+  "relaxation_bound": 1,
+  "simulated_value": 1,
+  "certified": true,
+  "allocation": [
+   [
+    "C0",
+    1
+   ],
+   [
+    "C1",
+    1
+   ],
+   [
+    "C2",
+    1
+   ]
+  ],
+  "max_enemy_value": 1,
+  "blocking_free": true
+ },
+ "flower-k3-y01": {
+  "optimum": 1,
+  "relaxation_bound": 1,
+  "simulated_value": 1,
+  "certified": true,
+  "allocation": [
+   [
+    "C0",
+    1
+   ],
+   [
+    "C1",
+    1
+   ],
+   [
+    "C2",
+    1
+   ]
+  ],
+  "max_enemy_value": 1,
+  "blocking_free": true
+ },
+ "flower-k3-y02": {
+  "optimum": 1,
+  "relaxation_bound": 1,
+  "simulated_value": 1,
+  "certified": true,
+  "allocation": [
+   [
+    "C0",
+    1
+   ],
+   [
+    "C1",
+    1
+   ],
+   [
+    "C2",
+    1
+   ]
+  ],
+  "max_enemy_value": 1,
+  "blocking_free": true
+ },
+ "flower-k6-y00": {
+  "optimum": 2,
+  "relaxation_bound": 2,
+  "simulated_value": 2,
+  "certified": true,
+  "allocation": [
+   [
+    "C0",
+    1
+   ],
+   [
+    "C1",
+    1
+   ],
+   [
+    "C2",
+    1
+   ],
+   [
+    "C3",
+    1
+   ],
+   [
+    "C4",
+    1
+   ],
+   [
+    "C5",
+    1
+   ]
+  ],
+  "max_enemy_value": 2,
+  "blocking_free": true
+ },
+ "flower-k6-y01": {
+  "optimum": 2,
+  "relaxation_bound": 2,
+  "simulated_value": 2,
+  "certified": true,
+  "allocation": [
+   [
+    "C0",
+    1
+   ],
+   [
+    "C1",
+    1
+   ],
+   [
+    "C3",
+    1
+   ],
+   [
+    "C2",
+    1
+   ],
+   [
+    "C4",
+    1
+   ],
+   [
+    "C5",
+    1
+   ]
+  ],
+  "max_enemy_value": 2,
+  "blocking_free": true
+ },
+ "flower-k6-n00": {
+  "optimum": 1,
+  "relaxation_bound": 1,
+  "simulated_value": 1,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   [
+    "C0",
+    1
+   ],
+   [
+    "C1",
+    1
+   ],
+   [
+    "C4",
+    1
+   ]
+  ],
+  "max_enemy_value": 2,
+  "blocking_free": true
+ },
+ "flower-k6-y02": {
+  "optimum": 2,
+  "relaxation_bound": 2,
+  "simulated_value": 2,
+  "certified": true,
+  "allocation": [
+   [
+    "C0",
+    1
+   ],
+   [
+    "C1",
+    1
+   ],
+   [
+    "C2",
+    1
+   ],
+   [
+    "C3",
+    1
+   ],
+   [
+    "C4",
+    1
+   ],
+   [
+    "C5",
+    1
+   ]
+  ],
+  "max_enemy_value": 2,
+  "blocking_free": true
+ },
+ "flower-k6-n01": {
+  "optimum": 1,
+  "relaxation_bound": 1,
+  "simulated_value": 1,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   [
+    "C0",
+    1
+   ],
+   [
+    "C1",
+    1
+   ],
+   [
+    "C4",
+    1
+   ]
+  ],
+  "max_enemy_value": 2,
+  "blocking_free": true
+ },
+ "flower-k6-n02": {
+  "optimum": 1,
+  "relaxation_bound": 1,
+  "simulated_value": 1,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   [
+    "C0",
+    1
+   ],
+   [
+    "C1",
+    1
+   ],
+   [
+    "C2",
+    1
+   ]
+  ],
+  "max_enemy_value": 2,
+  "blocking_free": true
+ },
+ "flower-k6-y03": {
+  "optimum": 2,
+  "relaxation_bound": 2,
+  "simulated_value": 2,
+  "certified": true,
+  "allocation": [
+   [
+    "C0",
+    1
+   ],
+   [
+    "C1",
+    1
+   ],
+   [
+    "C3",
+    1
+   ],
+   [
+    "C2",
+    1
+   ],
+   [
+    "C4",
+    1
+   ],
+   [
+    "C5",
+    1
+   ]
+  ],
+  "max_enemy_value": 2,
+  "blocking_free": true
+ },
+ "flower-k6-n03": {
+  "optimum": 1,
+  "relaxation_bound": 1,
+  "simulated_value": 1,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   [
+    "C0",
+    1
+   ],
+   [
+    "C1",
+    1
+   ],
+   [
+    "C2",
+    1
+   ]
+  ],
+  "max_enemy_value": 2,
+  "blocking_free": true
+ },
+ "flower-k6-n04": {
+  "optimum": 1,
+  "relaxation_bound": 1,
+  "simulated_value": 1,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   [
+    "C0",
+    1
+   ],
+   [
+    "C1",
+    1
+   ],
+   [
+    "C2",
+    1
+   ]
+  ],
+  "max_enemy_value": 2,
+  "blocking_free": true
+ },
+ "flower-k6-y04": {
+  "optimum": 2,
+  "relaxation_bound": 2,
+  "simulated_value": 2,
+  "certified": true,
+  "allocation": [
+   [
+    "C0",
+    1
+   ],
+   [
+    "C1",
+    1
+   ],
+   [
+    "C4",
+    1
+   ],
+   [
+    "C2",
+    1
+   ],
+   [
+    "C3",
+    1
+   ],
+   [
+    "C5",
+    1
+   ]
+  ],
+  "max_enemy_value": 2,
+  "blocking_free": true
+ },
+ "naturalS-k2-00": {
+  "optimum": 1118,
+  "relaxation_bound": 1118,
+  "simulated_value": 1118,
+  "certified": true,
+  "allocation": [
+   [
+    "Magma Elemental",
+    3
+   ],
+   [
+    "Magma Elemental",
+    12
+   ]
+  ],
+  "max_enemy_value": 1921,
+  "blocking_free": true
+ },
+ "naturalS-k2-01": {
+  "optimum": 3204,
+  "relaxation_bound": 3204,
+  "simulated_value": 3204,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "Pit Fiend",
+    13
+   ]
+  ],
+  "max_enemy_value": 6457,
+  "blocking_free": true
+ },
+ "naturalS-k2-02": {
+  "optimum": 4166,
+  "relaxation_bound": 4166,
+  "simulated_value": 4166,
+  "certified": true,
+  "allocation": [
+   [
+    "Master Genie",
+    3
+   ],
+   [
+    "Master Genie",
+    15
+   ]
+  ],
+  "max_enemy_value": 8026,
+  "blocking_free": true
+ },
+ "naturalS-k2-03": {
+  "optimum": 60,
+  "relaxation_bound": 60,
+  "simulated_value": 60,
+  "certified": true,
+  "allocation": [
+   [
+    "Obsidian Gargoyle",
+    2
+   ],
+   null
+  ],
+  "max_enemy_value": 5611,
+  "blocking_free": true
+ },
+ "naturalS-k2-04": {
+  "optimum": 50,
+  "relaxation_bound": 50,
+  "simulated_value": 50,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "Zombie",
+    2
+   ]
+  ],
+  "max_enemy_value": 14128,
+  "blocking_free": true
+ },
+ "naturalS-k2-05": {
+  "optimum": 867,
+  "relaxation_bound": 867,
+  "simulated_value": 867,
+  "certified": true,
+  "allocation": [
+   [
+    "Fire Elemental",
+    5
+   ],
+   [
+    "Fire Elemental",
+    8
+   ]
+  ],
+  "max_enemy_value": 1491,
+  "blocking_free": true
+ },
+ "naturalS-k3-00": {
+  "optimum": 2088,
+  "relaxation_bound": 2088,
+  "simulated_value": 2088,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "Arch Devil",
+    1
+   ],
+   [
+    "Arch Devil",
+    2
+   ]
+  ],
+  "max_enemy_value": 2660,
+  "blocking_free": true
+ },
+ "naturalS-k3-01": {
+  "optimum": 1360,
+  "relaxation_bound": 1360,
+  "simulated_value": 1360,
+  "certified": true,
+  "allocation": [
+   [
+    "Master Genie",
+    3
+   ],
+   [
+    "Master Genie",
+    2
+   ],
+   [
+    "Master Genie",
+    3
+   ]
+  ],
+  "max_enemy_value": 2115,
+  "blocking_free": true
+ },
+ "naturalS-k3-02": {
+  "optimum": 884,
+  "relaxation_bound": 884,
+  "simulated_value": 884,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "Iron Golem",
+    11
+   ],
+   null
+  ],
+  "max_enemy_value": 1880,
+  "blocking_free": true
+ },
+ "naturalS-k3-03": {
+  "optimum": 643,
+  "relaxation_bound": 643,
+  "simulated_value": 643,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "Stone Gargoyle",
+    6
+   ],
+   [
+    "Stone Gargoyle",
+    7
+   ]
+  ],
+  "max_enemy_value": 7911,
+  "blocking_free": true
+ },
+ "naturalS-k3-04": {
+  "optimum": 1389,
+  "relaxation_bound": 1389,
+  "simulated_value": 1389,
+  "certified": true,
+  "allocation": [
+   [
+    "Ogre",
+    6
+   ],
+   [
+    "Ogre",
+    1
+   ],
+   [
+    "Ogre",
+    7
+   ]
+  ],
+  "max_enemy_value": 3037,
+  "blocking_free": true
+ },
+ "naturalS-k3-05": {
+  "optimum": 4015,
+  "relaxation_bound": 4015,
+  "simulated_value": 4015,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Efreeti",
+    17
+   ]
+  ],
+  "max_enemy_value": 6415,
+  "blocking_free": true
+ },
+ "naturalS-k4-00": {
+  "optimum": 278,
+  "relaxation_bound": 278,
+  "simulated_value": 278,
+  "certified": true,
+  "allocation": [
+   [
+    "Dendroid Soldier",
+    2
+   ],
+   null,
+   [
+    "Dendroid Soldier",
+    2
+   ],
+   null
+  ],
+  "max_enemy_value": 2503,
+  "blocking_free": false
+ },
+ "naturalS-k4-01": {
+  "optimum": 561,
+  "relaxation_bound": 561,
+  "simulated_value": 561,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Rogue",
+    13
+   ],
+   [
+    "Rogue",
+    3
+   ]
+  ],
+  "max_enemy_value": 9161,
+  "blocking_free": true
+ },
+ "naturalS-k4-02": {
+  "optimum": 225,
+  "relaxation_bound": 225,
+  "simulated_value": 225,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Crusader",
+    1
+   ],
+   [
+    "Crusader",
+    1
+   ]
+  ],
+  "max_enemy_value": 7141,
+  "blocking_free": true
+ },
+ "naturalS-k4-03": {
+  "optimum": 1940,
+  "relaxation_bound": 1940,
+  "simulated_value": 1940,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Crusader",
+    2
+   ],
+   [
+    "Crusader",
+    15
+   ]
+  ],
+  "max_enemy_value": 3650,
+  "blocking_free": true
+ },
+ "naturalS-k4-04": {
+  "optimum": 362,
+  "relaxation_bound": 362,
+  "simulated_value": 362,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Obsidian Gargoyle",
+    3
+   ],
+   [
+    "Obsidian Gargoyle",
+    8
+   ]
+  ],
+  "max_enemy_value": 6368,
+  "blocking_free": true
+ },
+ "naturalS-k4-05": {
+  "optimum": 250,
+  "relaxation_bound": 250,
+  "simulated_value": 250,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "Minotaur King",
+    2
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 665,
+  "blocking_free": true
+ },
+ "naturalS-k5-00": {
+  "optimum": 328,
+  "relaxation_bound": 328,
+  "simulated_value": 328,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Gnoll",
+    11
+   ],
+   null,
+   [
+    "Gnoll",
+    10
+   ]
+  ],
+  "max_enemy_value": 10539,
+  "blocking_free": true
+ },
+ "naturalS-k5-01": {
+  "optimum": 1768,
+  "relaxation_bound": 1768,
+  "simulated_value": 1768,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   [
+    "Troll",
+    8
+   ]
+  ],
+  "max_enemy_value": 3792,
+  "blocking_free": true
+ },
+ "naturalS-k5-02": {
+  "optimum": 11154,
+  "relaxation_bound": 11154,
+  "simulated_value": 11154,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   [
+    "Arch Devil",
+    10
+   ]
+  ],
+  "max_enemy_value": 15354,
+  "blocking_free": true
+ },
+ "naturalS-k5-03": {
+  "optimum": 390,
+  "relaxation_bound": 390,
+  "simulated_value": 390,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Horned Demon",
+    3
+   ],
+   null,
+   [
+    "Horned Demon",
+    1
+   ]
+  ],
+  "max_enemy_value": 555,
+  "blocking_free": true
+ },
+ "naturalS-k5-04": {
+  "optimum": 30,
+  "relaxation_bound": 30,
+  "simulated_value": 30,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Dwarf",
+    1
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 3893,
+  "blocking_free": true
+ },
+ "naturalS-k5-05": {
+  "optimum": 3111,
+  "relaxation_bound": 3111,
+  "simulated_value": 3111,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   [
+    "Psychic Elemental",
+    11
+   ],
+   [
+    "Psychic Elemental",
+    1
+   ]
+  ],
+  "max_enemy_value": 14947,
+  "blocking_free": true
+ },
+ "naturalS-k6-00": {
+  "optimum": 2506,
+  "relaxation_bound": 2506,
+  "simulated_value": 2506,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   [
+    "Master Genie",
+    2
+   ],
+   [
+    "Master Genie",
+    4
+   ],
+   [
+    "Master Genie",
+    5
+   ]
+  ],
+  "max_enemy_value": 3726,
+  "blocking_free": true
+ },
+ "naturalS-k6-01": {
+  "optimum": 285,
+  "relaxation_bound": 285,
+  "simulated_value": 285,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   [
+    "Zombie",
+    4
+   ]
+  ],
+  "max_enemy_value": 3404,
+  "blocking_free": true
+ },
+ "naturalS-k6-02": {
+  "optimum": 1136,
+  "relaxation_bound": 1136,
+  "simulated_value": 1136,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   [
+    "Efreet Sultan",
+    1
+   ],
+   [
+    "Efreet Sultan",
+    3
+   ]
+  ],
+  "max_enemy_value": 4717,
+  "blocking_free": true
+ },
+ "naturalS-k6-03": {
+  "optimum": 1416,
+  "relaxation_bound": 1416,
+  "simulated_value": 1416,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   [
+    "Fire Elemental",
+    14
+   ],
+   [
+    "Fire Elemental",
+    8
+   ],
+   [
+    "Fire Elemental",
+    2
+   ]
+  ],
+  "max_enemy_value": 2009,
+  "blocking_free": false
+ },
+ "naturalS-k6-04": {
+  "optimum": 2775,
+  "relaxation_bound": 2775,
+  "simulated_value": 2775,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   [
+    "Magic Elemental",
+    8
+   ]
+  ],
+  "max_enemy_value": 4595,
+  "blocking_free": true
+ },
+ "naturalS-k6-05": {
+  "optimum": 201,
+  "relaxation_bound": 201,
+  "simulated_value": 201,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Swordsman",
+    3
+   ],
+   null,
+   null,
+   null
+  ],
+  "max_enemy_value": 582,
+  "blocking_free": true
+ },
+ "naturalS-k7-00": {
+  "optimum": 132,
+  "relaxation_bound": 132,
+  "simulated_value": 132,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Stone Golem",
+    3
+   ],
+   null,
+   null,
+   null,
+   null
+  ],
+  "max_enemy_value": 2146,
+  "blocking_free": true
+ },
+ "naturalS-k7-01": {
+  "optimum": 4311,
+  "relaxation_bound": 4311,
+  "simulated_value": 4311,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   [
+    "Minotaur King",
+    2
+   ],
+   [
+    "Minotaur King",
+    14
+   ],
+   [
+    "Minotaur King",
+    3
+   ]
+  ],
+  "max_enemy_value": 7431,
+  "blocking_free": true
+ },
+ "naturalS-k7-02": {
+  "optimum": 300,
+  "relaxation_bound": 300,
+  "simulated_value": 300,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   [
+    "Obsidian Gargoyle",
+    1
+   ],
+   [
+    "Obsidian Gargoyle",
+    9
+   ]
+  ],
+  "max_enemy_value": 2829,
+  "blocking_free": true
+ },
+ "naturalS-k7-03": {
+  "optimum": 2136,
+  "relaxation_bound": 2136,
+  "simulated_value": 2136,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   [
+    "Ogre Mage",
+    18
+   ]
+  ],
+  "max_enemy_value": 22621,
+  "blocking_free": true
+ },
+ "naturalS-k7-04": {
+  "optimum": 84,
+  "relaxation_bound": 84,
+  "simulated_value": 84,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   [
+    "Magic Elemental",
+    1
+   ]
+  ],
+  "max_enemy_value": 3802,
+  "blocking_free": true
+ },
+ "naturalS-k7-05": {
+  "optimum": 2808,
+  "relaxation_bound": 2808,
+  "simulated_value": 2808,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   [
+    "Minotaur King",
+    9
+   ],
+   [
+    "Minotaur King",
+    1
+   ]
+  ],
+  "max_enemy_value": 6526,
+  "blocking_free": false
+ },
+ "naturalM-k2-00": {
+  "optimum": 1944,
+  "relaxation_bound": 1944,
+  "simulated_value": 1944,
+  "certified": true,
+  "allocation": [
+   [
+    "Wight",
+    2
+   ],
+   [
+    "Devil",
+    2
+   ]
+  ],
+  "max_enemy_value": 5370,
+  "blocking_free": true
+ },
+ "naturalM-k2-01": {
+  "optimum": 90,
+  "relaxation_bound": 90,
+  "simulated_value": 90,
+  "certified": true,
+  "allocation": [
+   [
+    "Vampire",
+    1
+   ],
+   null
+  ],
+  "max_enemy_value": 3040,
+  "blocking_free": true
+ },
+ "naturalM-k2-02": {
+  "optimum": 209,
+  "relaxation_bound": 209,
+  "simulated_value": 209,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "Minotaur King",
+    2
+   ]
+  ],
+  "max_enemy_value": 1685,
+  "blocking_free": true
+ },
+ "naturalM-k2-03": {
+  "optimum": 765,
+  "relaxation_bound": 765,
+  "simulated_value": 765,
+  "certified": true,
+  "allocation": [
+   [
+    "Minotaur",
+    4
+   ],
+   null
+  ],
+  "max_enemy_value": 4470,
+  "blocking_free": true
+ },
+ "naturalM-k2-04": {
+  "optimum": 490,
+  "relaxation_bound": 490,
+  "simulated_value": 490,
+  "certified": true,
+  "allocation": [
+   [
+    "Minotaur",
+    1
+   ],
+   [
+    "Efreet Sultan",
+    1
+   ]
+  ],
+  "max_enemy_value": 1863,
+  "blocking_free": true
+ },
+ "naturalM-k2-05": {
+  "optimum": 256,
+  "relaxation_bound": 256,
+  "simulated_value": 256,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "Ogre",
+    5
+   ]
+  ],
+  "max_enemy_value": 1244,
+  "blocking_free": true
+ },
+ "naturalM-k3-00": {
+  "optimum": 820,
+  "relaxation_bound": 820,
+  "simulated_value": 820,
+  "certified": true,
+  "allocation": [
+   [
+    "Dendroid Guard",
+    3
+   ],
+   [
+    "Wraith",
+    1
+   ],
+   [
+    "Energy Elemental",
+    5
+   ]
+  ],
+  "max_enemy_value": 3115,
+  "blocking_free": true
+ },
+ "naturalM-k3-01": {
+  "optimum": 390,
+  "relaxation_bound": 390,
+  "simulated_value": 390,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Efreeti",
+    1
+   ]
+  ],
+  "max_enemy_value": 1770,
+  "blocking_free": true
+ },
+ "naturalM-k3-02": {
+  "optimum": 252,
+  "relaxation_bound": 252,
+  "simulated_value": 252,
+  "certified": true,
+  "allocation": [
+   [
+    "Ogre Mage",
+    2
+   ],
+   null,
+   [
+    "Skeleton",
+    1
+   ]
+  ],
+  "max_enemy_value": 10978,
+  "blocking_free": true
+ },
+ "naturalM-k3-03": {
+  "optimum": 2352,
+  "relaxation_bound": 2352,
+  "simulated_value": 2352,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Angel",
+    2
+   ]
+  ],
+  "max_enemy_value": 4873,
+  "blocking_free": true
+ },
+ "naturalM-k3-04": {
+  "optimum": 1722,
+  "relaxation_bound": 1722,
+  "simulated_value": 1722,
+  "certified": true,
+  "allocation": [
+   [
+    "Magic Elemental",
+    4
+   ],
+   [
+    "Vampire Lord",
+    4
+   ],
+   [
+    "Swordsman",
+    4
+   ]
+  ],
+  "max_enemy_value": 32588,
+  "blocking_free": true
+ },
+ "naturalM-k3-05": {
+  "optimum": 1096,
+  "relaxation_bound": 1096,
+  "simulated_value": 1096,
+  "certified": true,
+  "allocation": [
+   [
+    "Demon",
+    2
+   ],
+   [
+    "Air Elemental",
+    10
+   ],
+   [
+    "Demon",
+    8
+   ]
+  ],
+  "max_enemy_value": 2440,
+  "blocking_free": true
+ },
+ "naturalM-k4-00": {
+  "optimum": 154,
+  "relaxation_bound": 154,
+  "simulated_value": 154,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Gnoll Marauder",
+    3
+   ],
+   [
+    "Wraith",
+    3
+   ]
+  ],
+  "max_enemy_value": 7389,
+  "blocking_free": true
+ },
+ "naturalM-k4-01": {
+  "optimum": 756,
+  "relaxation_bound": 756,
+  "simulated_value": 756,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Gold Golem",
+    4
+   ],
+   [
+    "Fire Elemental",
+    4
+   ]
+  ],
+  "max_enemy_value": 3105,
+  "blocking_free": false
+ },
+ "naturalM-k4-02": {
+  "optimum": 294,
+  "relaxation_bound": 294,
+  "simulated_value": 294,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "Psychic Elemental",
+    3
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 7686,
+  "blocking_free": true
+ },
+ "naturalM-k4-03": {
+  "optimum": 45,
+  "relaxation_bound": 45,
+  "simulated_value": 45,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   [
+    "Obsidian Gargoyle",
+    2
+   ]
+  ],
+  "max_enemy_value": 12632,
+  "blocking_free": false
+ },
+ "naturalM-k4-04": {
+  "optimum": 555,
+  "relaxation_bound": 555,
+  "simulated_value": 555,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   [
+    "Magic Elemental",
+    2
+   ]
+  ],
+  "max_enemy_value": 4911,
+  "blocking_free": false
+ },
+ "naturalM-k4-05": {
+  "optimum": 1016,
+  "relaxation_bound": 1016,
+  "simulated_value": 1016,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "Battle Dwarf",
+    6
+   ],
+   null,
+   [
+    "Troll",
+    6
+   ]
+  ],
+  "max_enemy_value": 2085,
+  "blocking_free": true
+ },
+ "naturalM-k5-00": {
+  "optimum": 1354,
+  "relaxation_bound": 1354,
+  "simulated_value": 1354,
+  "certified": true,
+  "allocation": [
+   [
+    "Pit Lord",
+    1
+   ],
+   [
+    "Pit Lord",
+    3
+   ],
+   [
+    "Demon",
+    4
+   ],
+   [
+    "Psychic Elemental",
+    1
+   ],
+   [
+    "Psychic Elemental",
+    3
+   ]
+  ],
+  "max_enemy_value": 4615,
+  "blocking_free": true
+ },
+ "naturalM-k5-01": {
+  "optimum": 470,
+  "relaxation_bound": 470,
+  "simulated_value": 470,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   [
+    "Devil",
+    1
+   ]
+  ],
+  "max_enemy_value": 8718,
+  "blocking_free": true
+ },
+ "naturalM-k5-02": {
+  "optimum": 238,
+  "relaxation_bound": 238,
+  "simulated_value": 238,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   [
+    "Serpent Fly",
+    7
+   ]
+  ],
+  "max_enemy_value": 14770,
+  "blocking_free": true
+ },
+ "naturalM-k5-03": {
+  "optimum": 312,
+  "relaxation_bound": 312,
+  "simulated_value": 312,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   [
+    "Efreeti",
+    1
+   ],
+   null
+  ],
+  "max_enemy_value": 2636,
+  "blocking_free": true
+ },
+ "naturalM-k5-04": {
+  "optimum": 318,
+  "relaxation_bound": 318,
+  "simulated_value": 318,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Stone Golem",
+    2
+   ],
+   [
+    "Stone Gargoyle",
+    3
+   ],
+   [
+    "Vampire",
+    4
+   ]
+  ],
+  "max_enemy_value": 1535,
+  "blocking_free": true
+ },
+ "naturalM-k5-05": {
+  "optimum": 4222,
+  "relaxation_bound": 4222,
+  "simulated_value": 4222,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Arch Devil",
+    1
+   ],
+   [
+    "Familiar",
+    3
+   ],
+   [
+    "Arch Devil",
+    3
+   ]
+  ],
+  "max_enemy_value": 11189,
+  "blocking_free": true
+ },
+ "naturalM-k6-00": {
+  "optimum": 320,
+  "relaxation_bound": 320,
+  "simulated_value": 320,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Diamond Golem",
+    2
+   ],
+   null,
+   [
+    "Swordsman",
+    1
+   ],
+   [
+    "Swordsman",
+    1
+   ]
+  ],
+  "max_enemy_value": 1130,
+  "blocking_free": true
+ },
+ "naturalM-k6-01": {
+  "optimum": 1252,
+  "relaxation_bound": 1252,
+  "simulated_value": 1252,
+  "certified": true,
+  "allocation": [
+   null,
+   [
+    "Dwarf",
+    4
+   ],
+   null,
+   null,
+   [
+    "Master Genie",
+    5
+   ],
+   [
+    "Master Genie",
+    1
+   ]
+  ],
+  "max_enemy_value": 4050,
+  "blocking_free": true
+ },
+ "naturalM-k6-02": {
+  "optimum": 1768,
+  "relaxation_bound": 1768,
+  "simulated_value": 1768,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   [
+    "Psychic Elemental",
+    1
+   ],
+   [
+    "Angel",
+    1
+   ]
+  ],
+  "max_enemy_value": 5850,
+  "blocking_free": true
+ },
+ "naturalM-k6-03": {
+  "optimum": 60,
+  "relaxation_bound": 60,
+  "simulated_value": 60,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   [
+    "Troll",
+    1
+   ]
+  ],
+  "max_enemy_value": 1666,
+  "blocking_free": true
+ },
+ "naturalM-k6-04": {
+  "optimum": 950,
+  "relaxation_bound": 950,
+  "simulated_value": 950,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   [
+    "Angel",
+    1
+   ],
+   [
+    "Ogre Mage",
+    1
+   ]
+  ],
+  "max_enemy_value": 2809,
+  "blocking_free": true
+ },
+ "naturalM-k6-05": {
+  "optimum": 154,
+  "relaxation_bound": 154,
+  "simulated_value": 154,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   [
+    "Iron Golem",
+    2
+   ],
+   [
+    "Wraith",
+    2
+   ]
+  ],
+  "max_enemy_value": 817,
+  "blocking_free": true
+ },
+ "naturalM-k7-00": {
+  "optimum": 150,
+  "relaxation_bound": 150,
+  "simulated_value": 150,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   [
+    "Magic Elemental",
+    1
+   ]
+  ],
+  "max_enemy_value": 2775,
+  "blocking_free": false
+ },
+ "naturalM-k7-01": {
+  "optimum": 4166,
+  "relaxation_bound": 4166,
+  "simulated_value": 4166,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   [
+    "Wight",
+    3
+   ],
+   [
+    "Pit Fiend",
+    3
+   ],
+   [
+    "Arch Devil",
+    3
+   ]
+  ],
+  "max_enemy_value": 14036,
+  "blocking_free": true
+ },
+ "naturalM-k7-02": {
+  "optimum": 147,
+  "relaxation_bound": 147,
+  "simulated_value": 147,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   [
+    "Mummy",
+    1
+   ],
+   [
+    "Harpy Hag",
+    2
+   ],
+   null,
+   [
+    "Mummy",
+    2
+   ],
+   [
+    "Harpy Hag",
+    1
+   ]
+  ],
+  "max_enemy_value": 2651,
+  "blocking_free": true
+ },
+ "naturalM-k7-03": {
+  "optimum": 952,
+  "relaxation_bound": 952,
+  "simulated_value": 952,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   [
+    "Arch Devil",
+    1
+   ]
+  ],
+  "max_enemy_value": 4182,
+  "blocking_free": true
+ },
+ "naturalM-k7-04": {
+  "optimum": 753,
+  "relaxation_bound": 753,
+  "simulated_value": 753,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   [
+    "Dendroid Soldier",
+    3
+   ],
+   [
+    "Psychic Elemental",
+    3
+   ],
+   null,
+   null
+  ],
+  "max_enemy_value": 2825,
+  "blocking_free": true
+ },
+ "naturalM-k7-05": {
+  "optimum": 180,
+  "relaxation_bound": 180,
+  "simulated_value": 180,
+  "certified": true,
+  "allocation": [
+   null,
+   null,
+   null,
+   [
+    "Hobgoblin",
+    1
+   ],
+   null,
+   [
+    "Ogre",
+    2
+   ],
+   null
+  ],
+  "max_enemy_value": 1603,
+  "blocking_free": false
+ }
+}

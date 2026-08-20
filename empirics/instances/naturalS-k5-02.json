@@ -1,0 +1,108 @@
+{
+ "id": "naturalS-k5-02",
+ "family": "natural-single",
+ "size": 5,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Arch Devil": {
+   "attack": 26,
+   "defense": 28,
+   "dmg_min": 30,
+   "dmg_max": 30,
+   "hp": 200,
+   "speed": 17,
+   "value": 7115,
+   "shooter": false
+  },
+  "Giant": {
+   "attack": 19,
+   "defense": 16,
+   "dmg_min": 40,
+   "dmg_max": 40,
+   "hp": 150,
+   "speed": 7,
+   "value": 3718,
+   "shooter": false
+  },
+  "Skeleton Warrior": {
+   "attack": 6,
+   "defense": 6,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 6,
+   "speed": 5,
+   "value": 85,
+   "shooter": false
+  },
+  "Master Genie": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 40,
+   "speed": 11,
+   "value": 942,
+   "shooter": false
+  },
+  "Dendroid Guard": {
+   "attack": 9,
+   "defense": 12,
+   "dmg_min": 10,
+   "dmg_max": 10,
+   "hp": 55,
+   "speed": 3,
+   "value": 517,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Arch Devil",
+   "stock": 10
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96
+ ],
+ "enemies": [
+  {
+   "type": "Giant",
+   "count": 3,
+   "hex": 2
+  },
+  {
+   "type": "Skeleton Warrior",
+   "count": 4,
+   "hex": 100
+  },
+  {
+   "type": "Master Genie",
+   "count": 3,
+   "hex": 172
+  },
+  {
+   "type": "Dendroid Guard",
+   "count": 2,
+   "hex": 15
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Arch Devil"
+  ]
+ }
+}

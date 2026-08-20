@@ -1,0 +1,94 @@
+{
+ "id": "naturalS-k6-01",
+ "family": "natural-single",
+ "size": 6,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Zombie": {
+   "attack": 5,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 4,
+   "value": 128,
+   "shooter": false
+  },
+  "Infernal Troglodyte": {
+   "attack": 5,
+   "defense": 4,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 6,
+   "speed": 5,
+   "value": 84,
+   "shooter": false
+  },
+  "Crusader": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 7,
+   "dmg_max": 7,
+   "hp": 35,
+   "speed": 6,
+   "value": 588,
+   "shooter": false
+  },
+  "Sprite": {
+   "attack": 2,
+   "defense": 2,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 3,
+   "speed": 9,
+   "value": 95,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Zombie",
+   "stock": 4
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96,
+  125
+ ],
+ "enemies": [
+  {
+   "type": "Infernal Troglodyte",
+   "count": 1,
+   "hex": 2
+  },
+  {
+   "type": "Crusader",
+   "count": 5,
+   "hex": 185
+  },
+  {
+   "type": "Sprite",
+   "count": 4,
+   "hex": 87
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Zombie"
+  ]
+ }
+}

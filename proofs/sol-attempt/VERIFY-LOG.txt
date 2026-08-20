@@ -1,0 +1,28 @@
+$ python3 verify.py
+DAMAGE AUDIT
+  defence reduction = 0.65
+  resulting multiplier = 0.35
+  compute_damage(c), c=1..12: [1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4]
+  minimum creatures using 1,2,3 attacking stacks: [9, 7, 3]
+  cost <= 3 reaches 3 damage only as: [(1, 1, 1)]
+OBSTACLE AUDIT
+  one-row wall at hex 2: reachable from 0 = [0, 1]; target at 4 unreachable
+GEOMETRY yes-with-distractor
+  field=52x32, speed=17
+  exact loose and fully-occupied reach: 0->(0, 1), 1->(0,), 2->(0,), 3->(1, 2), 4->(1, 2), 5->(2,)
+  every reachable target has exactly one legal approach hex per element corridor
+EXHAUSTIVE yes-with-distractor
+  planar-X3C verdict=True
+  game optimum=2, threshold=2, verdict=True
+  first optimum allocation=(1, 1, 1, 1, 1, 1)
+  searched allocations=924, nodes=90718, target branches=18488, approach branches=18488
+GEOMETRY no-pairwise-intersection
+  field=50x38, speed=26
+  exact loose and fully-occupied reach: 0->(0, 1), 1->(0, 2), 2->(0,), 3->(1, 2), 4->(1,), 5->(2,)
+  every reachable target has exactly one legal approach hex per element corridor
+EXHAUSTIVE no-pairwise-intersection
+  planar-X3C verdict=False
+  game optimum=1, threshold=2, verdict=False
+  first optimum allocation=(0, 1, 0, 1, 0, 1)
+  searched allocations=924, nodes=92496, target branches=18488, approach branches=18488
+ALL CHECKS PASSED

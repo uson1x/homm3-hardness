@@ -1,0 +1,105 @@
+{
+ "id": "naturalS-k2-04",
+ "family": "natural-single",
+ "size": 2,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Zombie": {
+   "attack": 5,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 4,
+   "value": 128,
+   "shooter": false
+  },
+  "Imp": {
+   "attack": 2,
+   "defense": 3,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 4,
+   "speed": 5,
+   "value": 50,
+   "shooter": false
+  },
+  "Giant": {
+   "attack": 19,
+   "defense": 16,
+   "dmg_min": 40,
+   "dmg_max": 40,
+   "hp": 150,
+   "speed": 7,
+   "value": 3718,
+   "shooter": false
+  },
+  "Master Genie": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 40,
+   "speed": 11,
+   "value": 942,
+   "shooter": false
+  },
+  "Walking Dead": {
+   "attack": 5,
+   "defense": 5,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 15,
+   "speed": 3,
+   "value": 98,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Zombie",
+   "stock": 5
+  }
+ ],
+ "slots": [
+  57,
+  61
+ ],
+ "enemies": [
+  {
+   "type": "Imp",
+   "count": 1,
+   "hex": 8
+  },
+  {
+   "type": "Giant",
+   "count": 3,
+   "hex": 87
+  },
+  {
+   "type": "Master Genie",
+   "count": 3,
+   "hex": 2
+  },
+  {
+   "type": "Walking Dead",
+   "count": 1,
+   "hex": 100
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Zombie"
+  ]
+ }
+}

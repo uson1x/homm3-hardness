@@ -1,0 +1,136 @@
+{
+ "id": "naturalM-k3-04",
+ "family": "natural-multi",
+ "size": 3,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Vampire Lord": {
+   "attack": 10,
+   "defense": 10,
+   "dmg_min": 5,
+   "dmg_max": 5,
+   "hp": 40,
+   "speed": 9,
+   "value": 783,
+   "shooter": false
+  },
+  "Swordsman": {
+   "attack": 10,
+   "defense": 12,
+   "dmg_min": 6,
+   "dmg_max": 6,
+   "hp": 35,
+   "speed": 5,
+   "value": 445,
+   "shooter": false
+  },
+  "Magic Elemental": {
+   "attack": 15,
+   "defense": 13,
+   "dmg_min": 15,
+   "dmg_max": 15,
+   "hp": 80,
+   "speed": 9,
+   "value": 2012,
+   "shooter": false
+  },
+  "Magma Elemental": {
+   "attack": 11,
+   "defense": 11,
+   "dmg_min": 6,
+   "dmg_max": 6,
+   "hp": 40,
+   "speed": 6,
+   "value": 490,
+   "shooter": false
+  },
+  "Energy Elemental": {
+   "attack": 12,
+   "defense": 8,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 35,
+   "speed": 8,
+   "value": 470,
+   "shooter": false
+  },
+  "Dragon Fly": {
+   "attack": 8,
+   "defense": 10,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 13,
+   "value": 312,
+   "shooter": false
+  },
+  "Arch Devil": {
+   "attack": 26,
+   "defense": 28,
+   "dmg_min": 30,
+   "dmg_max": 30,
+   "hp": 200,
+   "speed": 17,
+   "value": 7115,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Vampire Lord",
+   "stock": 4
+  },
+  {
+   "type": "Swordsman",
+   "stock": 4
+  },
+  {
+   "type": "Magic Elemental",
+   "stock": 4
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90
+ ],
+ "enemies": [
+  {
+   "type": "Magma Elemental",
+   "count": 3,
+   "hex": 15
+  },
+  {
+   "type": "Energy Elemental",
+   "count": 3,
+   "hex": 172
+  },
+  {
+   "type": "Dragon Fly",
+   "count": 4,
+   "hex": 100
+  },
+  {
+   "type": "Arch Devil",
+   "count": 4,
+   "hex": 2
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Vampire Lord",
+   "Swordsman",
+   "Magic Elemental"
+  ]
+ }
+}

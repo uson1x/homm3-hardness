@@ -1,0 +1,95 @@
+{
+ "id": "naturalS-k7-02",
+ "family": "natural-single",
+ "size": 7,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Obsidian Gargoyle": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 16,
+   "speed": 9,
+   "value": 201,
+   "shooter": false
+  },
+  "Rogue": {
+   "attack": 8,
+   "defense": 3,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 10,
+   "speed": 6,
+   "value": 135,
+   "shooter": false
+  },
+  "Peasant": {
+   "attack": 1,
+   "defense": 1,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 1,
+   "speed": 3,
+   "value": 15,
+   "shooter": false
+  },
+  "Vampire Lord": {
+   "attack": 10,
+   "defense": 10,
+   "dmg_min": 5,
+   "dmg_max": 5,
+   "hp": 40,
+   "speed": 9,
+   "value": 783,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Obsidian Gargoyle",
+   "stock": 10
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96,
+  125,
+  129
+ ],
+ "enemies": [
+  {
+   "type": "Rogue",
+   "count": 3,
+   "hex": 8
+  },
+  {
+   "type": "Peasant",
+   "count": 5,
+   "hex": 172
+  },
+  {
+   "type": "Vampire Lord",
+   "count": 3,
+   "hex": 87
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Obsidian Gargoyle"
+  ]
+ }
+}

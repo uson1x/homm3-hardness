@@ -1,0 +1,120 @@
+{
+ "id": "naturalM-k2-01",
+ "family": "natural-multi",
+ "size": 2,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Sprite": {
+   "attack": 2,
+   "defense": 2,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 3,
+   "speed": 9,
+   "value": 95,
+   "shooter": false
+  },
+  "Vampire": {
+   "attack": 10,
+   "defense": 9,
+   "dmg_min": 5,
+   "dmg_max": 5,
+   "hp": 30,
+   "speed": 6,
+   "value": 555,
+   "shooter": false
+  },
+  "Troll": {
+   "attack": 14,
+   "defense": 7,
+   "dmg_min": 10,
+   "dmg_max": 10,
+   "hp": 40,
+   "speed": 7,
+   "value": 1024,
+   "shooter": false
+  },
+  "Gnoll Marauder": {
+   "attack": 4,
+   "defense": 6,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 6,
+   "speed": 5,
+   "value": 90,
+   "shooter": false
+  },
+  "Magma Elemental": {
+   "attack": 11,
+   "defense": 11,
+   "dmg_min": 6,
+   "dmg_max": 6,
+   "hp": 40,
+   "speed": 6,
+   "value": 490,
+   "shooter": false
+  },
+  "Iron Golem": {
+   "attack": 9,
+   "defense": 10,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 35,
+   "speed": 5,
+   "value": 412,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Sprite",
+   "stock": 5
+  },
+  {
+   "type": "Vampire",
+   "stock": 5
+  }
+ ],
+ "slots": [
+  57,
+  61
+ ],
+ "enemies": [
+  {
+   "type": "Troll",
+   "count": 2,
+   "hex": 100
+  },
+  {
+   "type": "Gnoll Marauder",
+   "count": 1,
+   "hex": 2
+  },
+  {
+   "type": "Magma Elemental",
+   "count": 1,
+   "hex": 15
+  },
+  {
+   "type": "Iron Golem",
+   "count": 1,
+   "hex": 185
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Sprite",
+   "Vampire"
+  ]
+ }
+}

@@ -1,0 +1,1027 @@
+{
+ "seed": 20260801,
+ "count": 145,
+ "by_family": {
+  "corridor-partition": 60,
+  "flower-3partition": 13,
+  "natural-single": 36,
+  "natural-multi": 36
+ },
+ "instances": [
+  {
+   "id": "corridor-k2-n00",
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 5,
+   "max_enemy_value": 14
+  },
+  {
+   "id": "corridor-k2-n01",
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 3,
+   "max_enemy_value": 12
+  },
+  {
+   "id": "corridor-k2-n02",
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 2,
+   "max_enemy_value": 6
+  },
+  {
+   "id": "corridor-k2-n03",
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 3,
+   "max_enemy_value": 12
+  },
+  {
+   "id": "corridor-k2-n04",
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 5,
+   "max_enemy_value": 14
+  },
+  {
+   "id": "corridor-k2-y00",
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 9,
+   "max_enemy_value": 18
+  },
+  {
+   "id": "corridor-k2-y01",
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 8,
+   "max_enemy_value": 16
+  },
+  {
+   "id": "corridor-k2-y02",
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 7,
+   "max_enemy_value": 14
+  },
+  {
+   "id": "corridor-k2-y03",
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 8,
+   "max_enemy_value": 16
+  },
+  {
+   "id": "corridor-k2-y04",
+   "family": "corridor-partition",
+   "size": 2,
+   "optimum": 5,
+   "max_enemy_value": 10
+  },
+  {
+   "id": "corridor-k3-n00",
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 9,
+   "max_enemy_value": 24
+  },
+  {
+   "id": "corridor-k3-n01",
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 9,
+   "max_enemy_value": 20
+  },
+  {
+   "id": "corridor-k3-n02",
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 4,
+   "max_enemy_value": 10
+  },
+  {
+   "id": "corridor-k3-n03",
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 6,
+   "max_enemy_value": 14
+  },
+  {
+   "id": "corridor-k3-n04",
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 7,
+   "max_enemy_value": 16
+  },
+  {
+   "id": "corridor-k3-y00",
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 8,
+   "max_enemy_value": 16
+  },
+  {
+   "id": "corridor-k3-y01",
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 3,
+   "max_enemy_value": 6
+  },
+  {
+   "id": "corridor-k3-y02",
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 8,
+   "max_enemy_value": 16
+  },
+  {
+   "id": "corridor-k3-y03",
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 8,
+   "max_enemy_value": 16
+  },
+  {
+   "id": "corridor-k3-y04",
+   "family": "corridor-partition",
+   "size": 3,
+   "optimum": 7,
+   "max_enemy_value": 14
+  },
+  {
+   "id": "corridor-k4-y00",
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 12,
+   "max_enemy_value": 24
+  },
+  {
+   "id": "corridor-k4-y01",
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 8,
+   "max_enemy_value": 16
+  },
+  {
+   "id": "corridor-k4-n00",
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 8,
+   "max_enemy_value": 18
+  },
+  {
+   "id": "corridor-k4-y02",
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 13,
+   "max_enemy_value": 26
+  },
+  {
+   "id": "corridor-k4-y03",
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 6,
+   "max_enemy_value": 12
+  },
+  {
+   "id": "corridor-k4-n01",
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 11,
+   "max_enemy_value": 24
+  },
+  {
+   "id": "corridor-k4-n02",
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 11,
+   "max_enemy_value": 24
+  },
+  {
+   "id": "corridor-k4-n03",
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 7,
+   "max_enemy_value": 16
+  },
+  {
+   "id": "corridor-k4-n04",
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 7,
+   "max_enemy_value": 16
+  },
+  {
+   "id": "corridor-k4-y04",
+   "family": "corridor-partition",
+   "size": 4,
+   "optimum": 8,
+   "max_enemy_value": 16
+  },
+  {
+   "id": "corridor-k5-y00",
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 9,
+   "max_enemy_value": 18
+  },
+  {
+   "id": "corridor-k5-y01",
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 15,
+   "max_enemy_value": 30
+  },
+  {
+   "id": "corridor-k5-y02",
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 14,
+   "max_enemy_value": 28
+  },
+  {
+   "id": "corridor-k5-y03",
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 12,
+   "max_enemy_value": 24
+  },
+  {
+   "id": "corridor-k5-y04",
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 11,
+   "max_enemy_value": 22
+  },
+  {
+   "id": "corridor-k5-n00",
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 12,
+   "max_enemy_value": 26
+  },
+  {
+   "id": "corridor-k5-n01",
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 10,
+   "max_enemy_value": 22
+  },
+  {
+   "id": "corridor-k5-n02",
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 8,
+   "max_enemy_value": 18
+  },
+  {
+   "id": "corridor-k5-n03",
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 7,
+   "max_enemy_value": 16
+  },
+  {
+   "id": "corridor-k5-n04",
+   "family": "corridor-partition",
+   "size": 5,
+   "optimum": 18,
+   "max_enemy_value": 40
+  },
+  {
+   "id": "corridor-k6-y00",
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 15,
+   "max_enemy_value": 30
+  },
+  {
+   "id": "corridor-k6-y01",
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 13,
+   "max_enemy_value": 26
+  },
+  {
+   "id": "corridor-k6-n00",
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 14,
+   "max_enemy_value": 30
+  },
+  {
+   "id": "corridor-k6-y02",
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 17,
+   "max_enemy_value": 34
+  },
+  {
+   "id": "corridor-k6-y03",
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 15,
+   "max_enemy_value": 30
+  },
+  {
+   "id": "corridor-k6-y04",
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 14,
+   "max_enemy_value": 28
+  },
+  {
+   "id": "corridor-k6-n01",
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 19,
+   "max_enemy_value": 40
+  },
+  {
+   "id": "corridor-k6-n02",
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 19,
+   "max_enemy_value": 40
+  },
+  {
+   "id": "corridor-k6-n03",
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 12,
+   "max_enemy_value": 28
+  },
+  {
+   "id": "corridor-k6-n04",
+   "family": "corridor-partition",
+   "size": 6,
+   "optimum": 14,
+   "max_enemy_value": 30
+  },
+  {
+   "id": "corridor-k7-y00",
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 17,
+   "max_enemy_value": 34
+  },
+  {
+   "id": "corridor-k7-y01",
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 18,
+   "max_enemy_value": 36
+  },
+  {
+   "id": "corridor-k7-y02",
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 19,
+   "max_enemy_value": 38
+  },
+  {
+   "id": "corridor-k7-y03",
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 10,
+   "max_enemy_value": 20
+  },
+  {
+   "id": "corridor-k7-y04",
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 18,
+   "max_enemy_value": 36
+  },
+  {
+   "id": "corridor-k7-n00",
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 18,
+   "max_enemy_value": 38
+  },
+  {
+   "id": "corridor-k7-n01",
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 18,
+   "max_enemy_value": 38
+  },
+  {
+   "id": "corridor-k7-n02",
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 22,
+   "max_enemy_value": 46
+  },
+  {
+   "id": "corridor-k7-n03",
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 18,
+   "max_enemy_value": 38
+  },
+  {
+   "id": "corridor-k7-n04",
+   "family": "corridor-partition",
+   "size": 7,
+   "optimum": 21,
+   "max_enemy_value": 44
+  },
+  {
+   "id": "flower-k3-y00",
+   "family": "flower-3partition",
+   "size": 3,
+   "optimum": 1,
+   "max_enemy_value": 1
+  },
+  {
+   "id": "flower-k3-y01",
+   "family": "flower-3partition",
+   "size": 3,
+   "optimum": 1,
+   "max_enemy_value": 1
+  },
+  {
+   "id": "flower-k3-y02",
+   "family": "flower-3partition",
+   "size": 3,
+   "optimum": 1,
+   "max_enemy_value": 1
+  },
+  {
+   "id": "flower-k6-y00",
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 2,
+   "max_enemy_value": 2
+  },
+  {
+   "id": "flower-k6-y01",
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 2,
+   "max_enemy_value": 2
+  },
+  {
+   "id": "flower-k6-n00",
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 1,
+   "max_enemy_value": 2
+  },
+  {
+   "id": "flower-k6-y02",
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 2,
+   "max_enemy_value": 2
+  },
+  {
+   "id": "flower-k6-n01",
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 1,
+   "max_enemy_value": 2
+  },
+  {
+   "id": "flower-k6-n02",
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 1,
+   "max_enemy_value": 2
+  },
+  {
+   "id": "flower-k6-y03",
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 2,
+   "max_enemy_value": 2
+  },
+  {
+   "id": "flower-k6-n03",
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 1,
+   "max_enemy_value": 2
+  },
+  {
+   "id": "flower-k6-n04",
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 1,
+   "max_enemy_value": 2
+  },
+  {
+   "id": "flower-k6-y04",
+   "family": "flower-3partition",
+   "size": 6,
+   "optimum": 2,
+   "max_enemy_value": 2
+  },
+  {
+   "id": "naturalS-k2-00",
+   "family": "natural-single",
+   "size": 2,
+   "optimum": 1118,
+   "max_enemy_value": 1921
+  },
+  {
+   "id": "naturalS-k2-01",
+   "family": "natural-single",
+   "size": 2,
+   "optimum": 3204,
+   "max_enemy_value": 6457
+  },
+  {
+   "id": "naturalS-k2-02",
+   "family": "natural-single",
+   "size": 2,
+   "optimum": 4166,
+   "max_enemy_value": 8026
+  },
+  {
+   "id": "naturalS-k2-03",
+   "family": "natural-single",
+   "size": 2,
+   "optimum": 60,
+   "max_enemy_value": 5611
+  },
+  {
+   "id": "naturalS-k2-04",
+   "family": "natural-single",
+   "size": 2,
+   "optimum": 50,
+   "max_enemy_value": 14128
+  },
+  {
+   "id": "naturalS-k2-05",
+   "family": "natural-single",
+   "size": 2,
+   "optimum": 867,
+   "max_enemy_value": 1491
+  },
+  {
+   "id": "naturalS-k3-00",
+   "family": "natural-single",
+   "size": 3,
+   "optimum": 2088,
+   "max_enemy_value": 2660
+  },
+  {
+   "id": "naturalS-k3-01",
+   "family": "natural-single",
+   "size": 3,
+   "optimum": 1360,
+   "max_enemy_value": 2115
+  },
+  {
+   "id": "naturalS-k3-02",
+   "family": "natural-single",
+   "size": 3,
+   "optimum": 884,
+   "max_enemy_value": 1880
+  },
+  {
+   "id": "naturalS-k3-03",
+   "family": "natural-single",
+   "size": 3,
+   "optimum": 643,
+   "max_enemy_value": 7911
+  },
+  {
+   "id": "naturalS-k3-04",
+   "family": "natural-single",
+   "size": 3,
+   "optimum": 1389,
+   "max_enemy_value": 3037
+  },
+  {
+   "id": "naturalS-k3-05",
+   "family": "natural-single",
+   "size": 3,
+   "optimum": 4015,
+   "max_enemy_value": 6415
+  },
+  {
+   "id": "naturalS-k4-00",
+   "family": "natural-single",
+   "size": 4,
+   "optimum": 278,
+   "max_enemy_value": 2503
+  },
+  {
+   "id": "naturalS-k4-01",
+   "family": "natural-single",
+   "size": 4,
+   "optimum": 561,
+   "max_enemy_value": 9161
+  },
+  {
+   "id": "naturalS-k4-02",
+   "family": "natural-single",
+   "size": 4,
+   "optimum": 225,
+   "max_enemy_value": 7141
+  },
+  {
+   "id": "naturalS-k4-03",
+   "family": "natural-single",
+   "size": 4,
+   "optimum": 1940,
+   "max_enemy_value": 3650
+  },
+  {
+   "id": "naturalS-k4-04",
+   "family": "natural-single",
+   "size": 4,
+   "optimum": 362,
+   "max_enemy_value": 6368
+  },
+  {
+   "id": "naturalS-k4-05",
+   "family": "natural-single",
+   "size": 4,
+   "optimum": 250,
+   "max_enemy_value": 665
+  },
+  {
+   "id": "naturalS-k5-00",
+   "family": "natural-single",
+   "size": 5,
+   "optimum": 328,
+   "max_enemy_value": 10539
+  },
+  {
+   "id": "naturalS-k5-01",
+   "family": "natural-single",
+   "size": 5,
+   "optimum": 1768,
+   "max_enemy_value": 3792
+  },
+  {
+   "id": "naturalS-k5-02",
+   "family": "natural-single",
+   "size": 5,
+   "optimum": 11154,
+   "max_enemy_value": 15354
+  },
+  {
+   "id": "naturalS-k5-03",
+   "family": "natural-single",
+   "size": 5,
+   "optimum": 390,
+   "max_enemy_value": 555
+  },
+  {
+   "id": "naturalS-k5-04",
+   "family": "natural-single",
+   "size": 5,
+   "optimum": 30,
+   "max_enemy_value": 3893
+  },
+  {
+   "id": "naturalS-k5-05",
+   "family": "natural-single",
+   "size": 5,
+   "optimum": 3111,
+   "max_enemy_value": 14947
+  },
+  {
+   "id": "naturalS-k6-00",
+   "family": "natural-single",
+   "size": 6,
+   "optimum": 2506,
+   "max_enemy_value": 3726
+  },
+  {
+   "id": "naturalS-k6-01",
+   "family": "natural-single",
+   "size": 6,
+   "optimum": 285,
+   "max_enemy_value": 3404
+  },
+  {
+   "id": "naturalS-k6-02",
+   "family": "natural-single",
+   "size": 6,
+   "optimum": 1136,
+   "max_enemy_value": 4717
+  },
+  {
+   "id": "naturalS-k6-03",
+   "family": "natural-single",
+   "size": 6,
+   "optimum": 1416,
+   "max_enemy_value": 2009
+  },
+  {
+   "id": "naturalS-k6-04",
+   "family": "natural-single",
+   "size": 6,
+   "optimum": 2775,
+   "max_enemy_value": 4595
+  },
+  {
+   "id": "naturalS-k6-05",
+   "family": "natural-single",
+   "size": 6,
+   "optimum": 201,
+   "max_enemy_value": 582
+  },
+  {
+   "id": "naturalS-k7-00",
+   "family": "natural-single",
+   "size": 7,
+   "optimum": 132,
+   "max_enemy_value": 2146
+  },
+  {
+   "id": "naturalS-k7-01",
+   "family": "natural-single",
+   "size": 7,
+   "optimum": 4311,
+   "max_enemy_value": 7431
+  },
+  {
+   "id": "naturalS-k7-02",
+   "family": "natural-single",
+   "size": 7,
+   "optimum": 300,
+   "max_enemy_value": 2829
+  },
+  {
+   "id": "naturalS-k7-03",
+   "family": "natural-single",
+   "size": 7,
+   "optimum": 2136,
+   "max_enemy_value": 22621
+  },
+  {
+   "id": "naturalS-k7-04",
+   "family": "natural-single",
+   "size": 7,
+   "optimum": 84,
+   "max_enemy_value": 3802
+  },
+  {
+   "id": "naturalS-k7-05",
+   "family": "natural-single",
+   "size": 7,
+   "optimum": 2808,
+   "max_enemy_value": 6526
+  },
+  {
+   "id": "naturalM-k2-00",
+   "family": "natural-multi",
+   "size": 2,
+   "optimum": 1944,
+   "max_enemy_value": 5370
+  },
+  {
+   "id": "naturalM-k2-01",
+   "family": "natural-multi",
+   "size": 2,
+   "optimum": 90,
+   "max_enemy_value": 3040
+  },
+  {
+   "id": "naturalM-k2-02",
+   "family": "natural-multi",
+   "size": 2,
+   "optimum": 209,
+   "max_enemy_value": 1685
+  },
+  {
+   "id": "naturalM-k2-03",
+   "family": "natural-multi",
+   "size": 2,
+   "optimum": 765,
+   "max_enemy_value": 4470
+  },
+  {
+   "id": "naturalM-k2-04",
+   "family": "natural-multi",
+   "size": 2,
+   "optimum": 490,
+   "max_enemy_value": 1863
+  },
+  {
+   "id": "naturalM-k2-05",
+   "family": "natural-multi",
+   "size": 2,
+   "optimum": 256,
+   "max_enemy_value": 1244
+  },
+  {
+   "id": "naturalM-k3-00",
+   "family": "natural-multi",
+   "size": 3,
+   "optimum": 820,
+   "max_enemy_value": 3115
+  },
+  {
+   "id": "naturalM-k3-01",
+   "family": "natural-multi",
+   "size": 3,
+   "optimum": 390,
+   "max_enemy_value": 1770
+  },
+  {
+   "id": "naturalM-k3-02",
+   "family": "natural-multi",
+   "size": 3,
+   "optimum": 252,
+   "max_enemy_value": 10978
+  },
+  {
+   "id": "naturalM-k3-03",
+   "family": "natural-multi",
+   "size": 3,
+   "optimum": 2352,
+   "max_enemy_value": 4873
+  },
+  {
+   "id": "naturalM-k3-04",
+   "family": "natural-multi",
+   "size": 3,
+   "optimum": 1722,
+   "max_enemy_value": 32588
+  },
+  {
+   "id": "naturalM-k3-05",
+   "family": "natural-multi",
+   "size": 3,
+   "optimum": 1096,
+   "max_enemy_value": 2440
+  },
+  {
+   "id": "naturalM-k4-00",
+   "family": "natural-multi",
+   "size": 4,
+   "optimum": 154,
+   "max_enemy_value": 7389
+  },
+  {
+   "id": "naturalM-k4-01",
+   "family": "natural-multi",
+   "size": 4,
+   "optimum": 756,
+   "max_enemy_value": 3105
+  },
+  {
+   "id": "naturalM-k4-02",
+   "family": "natural-multi",
+   "size": 4,
+   "optimum": 294,
+   "max_enemy_value": 7686
+  },
+  {
+   "id": "naturalM-k4-03",
+   "family": "natural-multi",
+   "size": 4,
+   "optimum": 45,
+   "max_enemy_value": 12632
+  },
+  {
+   "id": "naturalM-k4-04",
+   "family": "natural-multi",
+   "size": 4,
+   "optimum": 555,
+   "max_enemy_value": 4911
+  },
+  {
+   "id": "naturalM-k4-05",
+   "family": "natural-multi",
+   "size": 4,
+   "optimum": 1016,
+   "max_enemy_value": 2085
+  },
+  {
+   "id": "naturalM-k5-00",
+   "family": "natural-multi",
+   "size": 5,
+   "optimum": 1354,
+   "max_enemy_value": 4615
+  },
+  {
+   "id": "naturalM-k5-01",
+   "family": "natural-multi",
+   "size": 5,
+   "optimum": 470,
+   "max_enemy_value": 8718
+  },
+  {
+   "id": "naturalM-k5-02",
+   "family": "natural-multi",
+   "size": 5,
+   "optimum": 238,
+   "max_enemy_value": 14770
+  },
+  {
+   "id": "naturalM-k5-03",
+   "family": "natural-multi",
+   "size": 5,
+   "optimum": 312,
+   "max_enemy_value": 2636
+  },
+  {
+   "id": "naturalM-k5-04",
+   "family": "natural-multi",
+   "size": 5,
+   "optimum": 318,
+   "max_enemy_value": 1535
+  },
+  {
+   "id": "naturalM-k5-05",
+   "family": "natural-multi",
+   "size": 5,
+   "optimum": 4222,
+   "max_enemy_value": 11189
+  },
+  {
+   "id": "naturalM-k6-00",
+   "family": "natural-multi",
+   "size": 6,
+   "optimum": 320,
+   "max_enemy_value": 1130
+  },
+  {
+   "id": "naturalM-k6-01",
+   "family": "natural-multi",
+   "size": 6,
+   "optimum": 1252,
+   "max_enemy_value": 4050
+  },
+  {
+   "id": "naturalM-k6-02",
+   "family": "natural-multi",
+   "size": 6,
+   "optimum": 1768,
+   "max_enemy_value": 5850
+  },
+  {
+   "id": "naturalM-k6-03",
+   "family": "natural-multi",
+   "size": 6,
+   "optimum": 60,
+   "max_enemy_value": 1666
+  },
+  {
+   "id": "naturalM-k6-04",
+   "family": "natural-multi",
+   "size": 6,
+   "optimum": 950,
+   "max_enemy_value": 2809
+  },
+  {
+   "id": "naturalM-k6-05",
+   "family": "natural-multi",
+   "size": 6,
+   "optimum": 154,
+   "max_enemy_value": 817
+  },
+  {
+   "id": "naturalM-k7-00",
+   "family": "natural-multi",
+   "size": 7,
+   "optimum": 150,
+   "max_enemy_value": 2775
+  },
+  {
+   "id": "naturalM-k7-01",
+   "family": "natural-multi",
+   "size": 7,
+   "optimum": 4166,
+   "max_enemy_value": 14036
+  },
+  {
+   "id": "naturalM-k7-02",
+   "family": "natural-multi",
+   "size": 7,
+   "optimum": 147,
+   "max_enemy_value": 2651
+  },
+  {
+   "id": "naturalM-k7-03",
+   "family": "natural-multi",
+   "size": 7,
+   "optimum": 952,
+   "max_enemy_value": 4182
+  },
+  {
+   "id": "naturalM-k7-04",
+   "family": "natural-multi",
+   "size": 7,
+   "optimum": 753,
+   "max_enemy_value": 2825
+  },
+  {
+   "id": "naturalM-k7-05",
+   "family": "natural-multi",
+   "size": 7,
+   "optimum": 180,
+   "max_enemy_value": 1603
+  }
+ ]
+}

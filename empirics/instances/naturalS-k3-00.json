@@ -1,0 +1,91 @@
+{
+ "id": "naturalS-k3-00",
+ "family": "natural-single",
+ "size": 3,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Arch Devil": {
+   "attack": 26,
+   "defense": 28,
+   "dmg_min": 30,
+   "dmg_max": 30,
+   "hp": 200,
+   "speed": 17,
+   "value": 7115,
+   "shooter": false
+  },
+  "Efreeti": {
+   "attack": 16,
+   "defense": 12,
+   "dmg_min": 16,
+   "dmg_max": 16,
+   "hp": 90,
+   "speed": 9,
+   "value": 1670,
+   "shooter": false
+  },
+  "Harpy": {
+   "attack": 6,
+   "defense": 5,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 14,
+   "speed": 6,
+   "value": 154,
+   "shooter": false
+  },
+  "Battle Dwarf": {
+   "attack": 7,
+   "defense": 7,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 5,
+   "value": 209,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Arch Devil",
+   "stock": 3
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90
+ ],
+ "enemies": [
+  {
+   "type": "Efreeti",
+   "count": 1,
+   "hex": 172
+  },
+  {
+   "type": "Harpy",
+   "count": 1,
+   "hex": 87
+  },
+  {
+   "type": "Battle Dwarf",
+   "count": 4,
+   "hex": 8
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Arch Devil"
+  ]
+ }
+}

@@ -1,0 +1,108 @@
+{
+ "id": "naturalS-k5-04",
+ "family": "natural-single",
+ "size": 5,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Dwarf": {
+   "attack": 6,
+   "defense": 7,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 3,
+   "value": 138,
+   "shooter": false
+  },
+  "Skeleton": {
+   "attack": 5,
+   "defense": 4,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 6,
+   "speed": 4,
+   "value": 60,
+   "shooter": false
+  },
+  "Psychic Elemental": {
+   "attack": 15,
+   "defense": 13,
+   "dmg_min": 10,
+   "dmg_max": 10,
+   "hp": 75,
+   "speed": 7,
+   "value": 1669,
+   "shooter": false
+  },
+  "Peasant": {
+   "attack": 1,
+   "defense": 1,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 1,
+   "speed": 3,
+   "value": 15,
+   "shooter": false
+  },
+  "Rogue": {
+   "attack": 8,
+   "defense": 3,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 10,
+   "speed": 6,
+   "value": 135,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Dwarf",
+   "stock": 10
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96
+ ],
+ "enemies": [
+  {
+   "type": "Skeleton",
+   "count": 2,
+   "hex": 172
+  },
+  {
+   "type": "Psychic Elemental",
+   "count": 2,
+   "hex": 100
+  },
+  {
+   "type": "Peasant",
+   "count": 2,
+   "hex": 87
+  },
+  {
+   "type": "Rogue",
+   "count": 3,
+   "hex": 185
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Dwarf"
+  ]
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "id": "naturalM-k3-03",
+ "family": "natural-multi",
+ "size": 3,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Angel": {
+   "attack": 20,
+   "defense": 20,
+   "dmg_min": 50,
+   "dmg_max": 50,
+   "hp": 200,
+   "speed": 12,
+   "value": 5019,
+   "shooter": false
+  },
+  "Familiar": {
+   "attack": 4,
+   "defense": 4,
+   "dmg_min": 1,
+   "dmg_max": 1,
+   "hp": 4,
+   "speed": 7,
+   "value": 60,
+   "shooter": false
+  },
+  "Stone Golem": {
+   "attack": 7,
+   "defense": 10,
+   "dmg_min": 4,
+   "dmg_max": 4,
+   "hp": 30,
+   "speed": 3,
+   "value": 250,
+   "shooter": false
+  },
+  "Vampire": {
+   "attack": 10,
+   "defense": 9,
+   "dmg_min": 5,
+   "dmg_max": 5,
+   "hp": 30,
+   "speed": 6,
+   "value": 555,
+   "shooter": false
+  },
+  "Crusader": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 7,
+   "dmg_max": 7,
+   "hp": 35,
+   "speed": 6,
+   "value": 588,
+   "shooter": false
+  },
+  "Air Elemental": {
+   "attack": 9,
+   "defense": 9,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 25,
+   "speed": 7,
+   "value": 356,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Angel",
+   "stock": 2
+  },
+  {
+   "type": "Familiar",
+   "stock": 2
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90
+ ],
+ "enemies": [
+  {
+   "type": "Stone Golem",
+   "count": 2,
+   "hex": 15
+  },
+  {
+   "type": "Vampire",
+   "count": 3,
+   "hex": 172
+  },
+  {
+   "type": "Crusader",
+   "count": 4,
+   "hex": 185
+  },
+  {
+   "type": "Air Elemental",
+   "count": 1,
+   "hex": 87
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Angel",
+   "Familiar"
+  ]
+ }
+}

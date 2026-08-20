@@ -1,0 +1,109 @@
+{
+ "id": "naturalS-k6-00",
+ "family": "natural-single",
+ "size": 6,
+ "seed": 20260801,
+ "field": {
+  "width": 17,
+  "height": 11,
+  "obstacles": []
+ },
+ "rounds": 1,
+ "enemy_policy": "hold",
+ "types": {
+  "Master Genie": {
+   "attack": 12,
+   "defense": 12,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 40,
+   "speed": 11,
+   "value": 942,
+   "shooter": false
+  },
+  "Pit Lord": {
+   "attack": 13,
+   "defense": 13,
+   "dmg_min": 13,
+   "dmg_max": 13,
+   "hp": 45,
+   "speed": 7,
+   "value": 1224,
+   "shooter": false
+  },
+  "Ogre": {
+   "attack": 13,
+   "defense": 7,
+   "dmg_min": 6,
+   "dmg_max": 6,
+   "hp": 40,
+   "speed": 4,
+   "value": 416,
+   "shooter": false
+  },
+  "Gnoll Marauder": {
+   "attack": 4,
+   "defense": 6,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 6,
+   "speed": 5,
+   "value": 90,
+   "shooter": false
+  },
+  "Serpent Fly": {
+   "attack": 7,
+   "defense": 9,
+   "dmg_min": 2,
+   "dmg_max": 2,
+   "hp": 20,
+   "speed": 9,
+   "value": 268,
+   "shooter": false
+  }
+ },
+ "army": [
+  {
+   "type": "Master Genie",
+   "stock": 11
+  }
+ ],
+ "slots": [
+  57,
+  61,
+  90,
+  93,
+  96,
+  125
+ ],
+ "enemies": [
+  {
+   "type": "Pit Lord",
+   "count": 1,
+   "hex": 185
+  },
+  {
+   "type": "Ogre",
+   "count": 3,
+   "hex": 2
+  },
+  {
+   "type": "Gnoll Marauder",
+   "count": 5,
+   "hex": 8
+  },
+  {
+   "type": "Serpent Fly",
+   "count": 3,
+   "hex": 172
+  }
+ ],
+ "provenance": {
+  "layout": "config/gameConfig.json:672-679 creatureBankNarrow",
+  "creature_source": "DATA/CRTRAITS.TXT via scripts/extract_creatures.py",
+  "damage_projection": "min",
+  "player_types": [
+   "Master Genie"
+  ]
+ }
+}
