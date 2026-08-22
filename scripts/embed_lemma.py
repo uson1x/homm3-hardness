@@ -34,7 +34,7 @@ of C are deleted, as step 0 instructs. |X| = 0 with C = ∅ is a YES-instance
 of X3C (the empty cover), and maps to G_yes: the image of the fixed family
 X = {0,1,2}, C = {{0,1,2}} under this very map.
 
-Scale note. The lemma's constants are used literally — λ = 20, ρ = 4, μ = 6,
+Scale note. The lemma's constants are used literally — λ = 20, ρ = 4, ω = 6,
 9 × 9 gadget boxes, the four Lemma D.3 adapters verbatim from
 verify_x3c.ADAPTERS — so the boards are large (side ≈ 20·g for a drawing of
 side g). That is what the proof constructs; the compact router remains the
@@ -57,7 +57,8 @@ from verify_x3c import ADAPTERS, creature_types  # noqa: E402
 
 LAMBDA = 20   # scale factor (even), paper D.4 step 4
 RHO = 4       # gadget-box radius: boxes are (2ρ+1) × (2ρ+1) = 9 × 9
-MU = 6        # offset of the drawing into the board; must exceed ρ, even
+OMEGA = 6     # ω of Appendix D step 4: offset of the drawing into the board;
+              # must exceed ρ, even
 
 # axis directions in board coordinates (y grows downward, as row index)
 DIRS = {"T": (0, -1), "R": (1, 0), "B": (0, 1), "L": (-1, 0)}
@@ -214,7 +215,7 @@ def build_board_lemma(n_elements, sets):
     j_min = min(p[1] for p in pts)
 
     def phi(p):
-        return (LAMBDA * (p[0] - i_min) + MU, LAMBDA * (p[1] - j_min) + MU)
+        return (LAMBDA * (p[0] - i_min) + OMEGA, LAMBDA * (p[1] - j_min) + OMEGA)
 
     centre = {v: phi(p) for v, p in drawing["pos"].items()}
 
@@ -295,8 +296,8 @@ def build_board_lemma(n_elements, sets):
                 deploy[e] = stub
 
     # ---- step 6: closing the board --------------------------------------
-    width = LAMBDA * (max(p[0] for p in pts) - i_min) + 2 * MU + 1
-    height = LAMBDA * (max(p[1] for p in pts) - j_min) + 2 * MU + 1
+    width = LAMBDA * (max(p[0] for p in pts) - i_min) + 2 * OMEGA + 1
+    height = LAMBDA * (max(p[1] for p in pts) - j_min) + 2 * OMEGA + 1
     to_index = {}
     for (x, y), who in owner.items():
         if not (0 <= x < width and 0 <= y < height):

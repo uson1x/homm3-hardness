@@ -71,14 +71,20 @@ def substitute(cell: str, counters: dict) -> str:
     return out
 
 
+def placeholder_cells(cells: list[str], counters: dict) -> list[list[str]]:
+    """Counter names per cell, in template order (non-counter brace groups —
+    LaTeX macros — are not placeholders and are skipped). Kept per cell:
+    round 12 (P12-7) showed that a flat, concatenated sequence lets a counter
+    move across a cell boundary, putting the same number in different table
+    columns of the md and tex renders."""
+    return [[n for n in re.findall(r"\{([a-z_][a-z0-9_]*)\}", cell)
+             if n in counters]
+            for cell in cells]
+
+
 def placeholder_sequence(cells: list[str], counters: dict) -> list[str]:
-    """Counter names in the order the templates use them (non-counter brace
-    groups — LaTeX macros — are not placeholders and are skipped)."""
-    seq = []
-    for cell in cells:
-        seq += [n for n in re.findall(r"\{([a-z_][a-z0-9_]*)\}", cell)
-                if n in counters]
-    return seq
+    """The flattened per-cell sequence (what the manifest declares)."""
+    return [n for cell in placeholder_cells(cells, counters) for n in cell]
 
 
 def validate_placeholders(manifest: dict) -> None:
@@ -106,6 +112,16 @@ def validate_placeholders(manifest: dict) -> None:
                 problems.append(
                     f"row {row['id']}: {kind} placeholder sequence {got} != "
                     f"declared {declared}")
+        # round 12 (P12-7): the md and tex CELLS must agree placeholder-for-
+        # placeholder, not just their concatenations — a counter moved
+        # across a cell boundary in one render only is a different table.
+        md_cells = placeholder_cells(row.get("md", []), counters)
+        tex_cells = placeholder_cells(row.get("tex", []), counters)
+        if md_cells != tex_cells:
+            problems.append(
+                f"row {row['id']}: md cells carry placeholders {md_cells} "
+                f"but tex cells carry {tex_cells} — the two renders would "
+                f"put a number in different columns")
     if problems:
         raise SystemExit("placeholder-sequence audit failed:\n  " +
                          "\n  ".join(problems))
@@ -116,19 +132,33 @@ def validate_literals(manifest: dict) -> None:
     used to render fine and drift silently. Every digit-run a template
     carries outside {placeholders} must be declared in that row's
     `literals` allowlist (constants like `def 41`, file names like `x3c`,
-    section numbers); set equality both ways, so stale allowlist entries
-    fail too."""
+    section numbers). Round 12 (P12-7): the audit is now MULTISET equality
+    for the md master — set equality was blind to deleting one occurrence
+    of a digit that appears twice — with one `literals` entry per md
+    occurrence. The tex mirror may carry FEWER of a declared digit (LaTeX
+    macros like \\THREEPART and \\S\\ref legitimately hide digits) but
+    never a digit-run outside the declaration, and never more of one."""
+    from collections import Counter
+
     problems = []
     for row in manifest["rows"]:
-        found: set[str] = set()
-        for cell in row.get("md", []) + row.get("tex", []):
-            stripped = re.sub(r"\{[a-z_][a-z0-9_]*\}", "", cell)
-            found |= set(re.findall(r"\d+(?:\.\d+)?", stripped))
-        declared = set(row.get("literals", []))
-        if found != declared:
+        counts = {}
+        for kind in ("md", "tex"):
+            c: Counter = Counter()
+            for cell in row.get(kind, []):
+                stripped = re.sub(r"\{[a-z_][a-z0-9_]*\}", "", cell)
+                c.update(re.findall(r"\d+(?:\.\d+)?", stripped))
+            counts[kind] = c
+        declared = Counter(row.get("literals", []))
+        if counts["md"] != declared:
             problems.append(
-                f"row {row['id']}: template digit-runs {sorted(found)} != "
-                f"declared literals {sorted(declared)}")
+                f"row {row['id']}: md digit-runs {dict(counts['md'])} "
+                f"!= declared literals {dict(declared)}")
+        excess = counts["tex"] - declared
+        if excess:
+            problems.append(
+                f"row {row['id']}: tex digit-runs {dict(excess)} exceed "
+                f"the declared literals {dict(declared)}")
     if problems:
         raise SystemExit("literal-digit audit failed:\n  " +
                          "\n  ".join(problems))

@@ -199,16 +199,16 @@ appears'' would be false and we do not claim it.
   (Section~\ref{sec:model}), with an executable transcription, and with the combat arithmetic
   and health mechanics cross-checked against the shipped engine classes.
 \item \textbf{Theorem 1} (Section~\ref{sec:thm1}): allocation is NP-complete with a
-  \emph{single} creature type, $R=1$, no obstacles, and a one-row battlefield. Weak hardness,
-  from \PARTITION~\cite[SP12]{GJ79}.
+  \emph{single} creature type, $R=1$, no obstacles, one creature per enemy stack, and a
+  one-row battlefield. Weak hardness, from \PARTITION~\cite[SP12]{GJ79}.
 \item \textbf{Proposition 1.1} (Section~\ref{sec:thm1}): on the family the reduction
-  \emph{constructs}---which additionally has one creature per enemy stack and persistent
-  matching reach, both load-bearing---an $O(kB)$ dynamic program solves the problem, so
+  \emph{constructs}---which additionally has persistent matching reach; it and Theorem 1's
+  one-creature-per-enemy-stack restriction are both load-bearing---an $O(kB)$ dynamic program solves the problem, so
   Theorem 1 is tight and strong hardness there is impossible unless
   $\mathrm{P}=\mathrm{NP}$.
 \item \textbf{Theorem 2} (Section~\ref{sec:thm2}): allocation is \emph{strongly} NP-hard, from
-  \THREEPART---NP-complete in the strong sense~\cite[SP15]{GJ79}---with every creature type of
-  stock one.
+  \THREEPART---NP-complete in the strong sense~\cite[SP15]{GJ79}---with every \emph{player}
+  creature type of stock one and one creature per enemy stack.
 \item \textbf{Theorem 3 and Corollary 3.1} (Section~\ref{sec:thm3}): the problem is strongly
   NP-hard with a \textbf{single creature type}, and remains so with the allocation fixed to
   one creature per slot. The reduction is from planar exact cover by 3-sets and
@@ -554,8 +554,9 @@ that bound:
 \begin{propdp}
 On the family of Theorem 1---single creature type of flat damage $d\ge1$, $R=1$, policy
 $(\ddagger)$, damage under $(\star)$, \textbf{one creature per enemy stack}, and
-\emph{persistent matching reach}: a bijection $j\mapsto E_j$ such that in every position of
-round 1 reachable by legal play, for every slot $j$ whose stack has \emph{not yet taken its
+\emph{persistent matching reach}: a bijection $j\mapsto E_j$ such that, whatever the
+feasible allocation, in every position of
+round 1 reachable by legal play from its starting position, for every slot $j$ whose stack has \emph{not yet taken its
 terminal action}, the set of enemies that stack can strike is exactly
 $\{E_j\}$---\ALLOC{} is solvable in $O(k\,B)$ time and $O(B)$ space, $B$ being the stock.
 \end{propdp}
@@ -865,7 +866,8 @@ top row at $p_j=(j-1,0)$. $R=1$, $W=m$.
 \smallskip
 \noindent\emph{Correctness.} The upper-bound direction uses no geometry at all: a stack takes
 one terminal action per round (R9, R11), so it strikes at most once and the striker sets of
-distinct enemies are disjoint, while stock one makes each blow exactly $a_i$; killing
+distinct enemies are disjoint, while stock one caps each blow at $a_i$ (a waiting blow
+delivers even less, which only helps this direction); killing
 all $m$ enemies forces $\sum_{i\in S_g}a_i\ge T$, which sums to a 3-partition as in Theorem 2.
 The geometric work is all in the yes-direction, where we choose the play. For $E_g$ at
 $e_g=(X_g,3)$, $X_g=4g-2$, the three approach hexes are $q_g^1=(X_g-1,2)$, $q_g^2=(X_g,2)$,
@@ -880,13 +882,13 @@ encodings are routed as in Theorem 1. The full proof is Appendix~\ref{app:thm124
 \smallskip
 Two honest qualifications. First, the confinement argument that keeps row 1 clear holds along
 \emph{attack-only} plays---those in which every stack either passes or performs
-\texttt{WALK\_AND\_ATTACK}. In the full model a stack may also move without attacking, wait, or
+\texttt{WALK\_AND\_\allowbreak ATTACK}. In the full model a stack may also move without attacking, wait, or
 defend, and then confinement can fail. This costs nothing: confinement is used only in the
 yes-direction, where the play is ours to choose, and the no-direction is geometry-free. An
 earlier draft stated the lemma universally, which was a wording error. Second, the board does
 impose one thing---an enemy has six neighbours, so at most six stacks can strike it in one
 round (under the completed $(\star)$ no striker dies to the retaliation it draws, so no seat
-is vacated mid-round and the count is exactly six). That bound never binds here (three per
+is vacated mid-round and the capacity is exactly six). That bound never binds here (three per
 enemy), but ``featureless'' means \emph{complete reachability plus local seat capacity}, not
 ``positions do not exist''.
 
@@ -977,8 +979,8 @@ can be traced to the pass that forced it.
   would overstate it.
 \item \textbf{Cross-checking against the shipped engine.} A C\texttt{++} harness links the
   actual VCMI battle classes---\src{DamageCalculator}, \src{CUnitState}/\src{CHealth},
-  \src{CRetaliations}, and the round-queue machinery
-  \src{battleGetTurnOrder}/\src{battleQueuePhase}---and prints the numbers the engine itself
+  \src{CRetaliations}, and the round-queue machinery \src{battleGetTurnOrder} and
+  \src{battleQueuePhase}---and prints the numbers the engine itself
   produces. 49 cases; 46 exact agreements.
 \end{enumerate}
 
@@ -1087,6 +1089,7 @@ python3 scripts/verify_x3c.py --vacate       # ... admitting pure movement
 python3 scripts/verify_x3c.py --defend       # ... with the defence playing (\(\ddagger\)) literally
 python3 scripts/crosscheck_sol.py            # Theorem 3 as PUBLISHED (def 27, hp 4, \(\mu\) = 0.35)
 python3 scripts/crosscheck_sol.py --defend   # ... published constants AND literal (\(\ddagger\))
+python3 scripts/search_free_order.py         # free activation order, vanish; both constant sets
 python3 scripts/verify_embedding.py          # Lemma D.4's algorithm itself, on the whole corpus
 python3 scripts/classify_skips.py            # classify every router skip (minutes, by hand)
 python3 scripts/verify_hp_objective.py       # Corollary 4.2 (hit-point objective)
@@ -1130,12 +1133,13 @@ suite & scale & outcome \\
 \src{verify\_x3c.py --full --vacate} & 55 instances (30 yes, 25 no), $q\le 4$, 4 skipped by the router & all agree \\
 \src{crosscheck\_sol.py --full} & 37 machine-built planar boards (23 yes, 14 no), 3 skipped by the router, under the \textbf{published} Theorem 3 constants (\src{def 27}, \src{hp 4}, $\mu=0.35$) & all agree \\
 \src{crosscheck\_sol.py --defend} & 25 instances, published constants AND literal $(\ddagger)$---the combination round 8 found had never been run & all agree \\
+\src{search\_free\_\allowbreak order.py} & 16 boards --- one corpus of eight $q=2$ families, each built and searched under BOTH the historical (def 41) and the published (def 27) constants, the swap asserted at build time --- searched with free activation order (any unacted player stack may act next), pass and vanish branches and exhaustive approach hexes, over every allocation (12 yes / 4 no builds) & the free-order answer equals X3C and the fixed order on every (family, constant set, allocation) triple; yes-instances admit only the all-ones winner; 3 discriminating controls --- order, vanish, destination --- on which the full search strictly beats its degraded variants; the negative control (defence = attack) flips 1 planar no-instance to yes \\
 \src{verify\_embedding.py} & 61 corpus families through the Lemma D.4 embedding algorithm itself (DMP planarity $\to$ orthogonal drawing $\to$ $\lambda=20$ scaling, adapters, stubs): 44 boards built; 17 certified degenerate no-instances, 3 of them also non-planar; 0 certified non-planar --- plus a separate battery of 17 malformed encodings and one planted non-planar control, all deterministic & I1--I4 and the feature-based (SEP$'$) separation hold on every board (28151 non-incident feature pairs, class minima $L_\infty$ 12/16/20 against the required 12); the no-certificate board itself plays out as a genuine no; the full game search runs on 3 of them --- under the historical AND the published constants --- and agrees with X3C \\
 \src{verify\_hp\_objective.py} & 16 instances (10 yes, 6 no), plus a negative control & relaxation $=mT$ iff \THREEPART; witness absorbs exactly $mT$ \\
-\src{verify\_full\_model\_optima.py} & all 145 empirical instances & every optimum certified over the full action model; the ghost bound also dominates every $(\ddagger)$ play (Section~\ref{sec:design}) \\
+\src{verify\_full\_model\_\allowbreak optima.py} & all 145 empirical instances & every optimum certified over the full action model; the ghost bound also dominates every $(\ddagger)$ play (Section~\ref{sec:design}) \\
 \src{certify\_scores.py} & all 870 scored responses & every score certified likewise, and reproduced exactly by the $(\ddagger)$ phase-aware replay \\
 \src{check\_defend\_policy.py} & all 145 replayed under $(\ddagger)$, phase-aware & all equal the recorded optima; \src{--legacy-defend} reproduces the 6 round-5 violations (negative control) \\
-\src{test\_regressions.py} & 219 regressions: one per error ever caught here, a phase-ordered trace of the capped defended branch, and a doc-consistency battery that re-renders this very table from its manifest, re-runs the generating suites to pin the manifest's counters (only the two \src{--full} Theorem 3 tiers excepted --- those are swept against the proof document), sweeps the counter prose in the siblings and the paper body, and bans 16 retired claims verbatim & all pass \\
+\src{test\_regressions.py} & 237 regressions: one per error ever caught here, a phase-ordered trace of the capped defended branch, and a doc-consistency battery that re-renders this very table from its manifest, re-runs the generating suites to pin the manifest's counters (only the two \src{--full} Theorem 3 tiers excepted --- those are swept against the proof document), sweeps the counter prose in the siblings and the paper body, and bans 16 retired claims verbatim & all pass \\
 engine harness & 49 cases & 46 exact, 3 explained (Section~\ref{sec:floats}); includes 6 turn-order cases run through the engine's own \src{battleGetTurnOrder} \\
 % verification-table:end
 \end{longtable}
@@ -1147,11 +1151,16 @@ from \src{verification\_manifest.json} by \src{scripts/gen\_verification\_table.
 fails the suite; the generator also validates each row against the manifest's declared
 \emph{ordered sequence} of counter placeholders and refuses digit-runs outside the row's
 declared constants; and---because review round 11 demonstrated that a guard's sentence about
-its own coverage is itself an unverified claim---the battery rebuilds the two historical
-mutations (a counter retyped as a literal digit, two placeholders swapped inside one row) in
-memory on every run and requires each to fail validation. Before round 11 both rendered into
-the papers under a green battery; this sentence is now backed by those drills rather than by
-intention. Since review round 9 the counters themselves are pinned to their artifacts rather
+its own coverage is itself an unverified claim---the battery rebuilds four demonstrated
+mutations (a counter retyped as a literal digit; two placeholders swapped inside one row; a
+counter moved across a cell boundary in one render only; a deleted duplicate digit-run) in
+memory on every run and requires each to fail validation. Each pair rendered into the papers
+under a green battery before the round that drilled it (11 and 12); this sentence is backed
+by those drills rather than by intention. The guard's reach stops at the numbers and their
+placement: the table's \emph{prose}---every non-numeric word of its claims---is rendered
+from the manifest but not generated from the artifacts, so a rewritten claim is a manifest
+edit the drills cannot see; review round 12 demonstrated exactly that, and we record the
+limit here rather than pretend otherwise. Since review round 9 the counters themselves are pinned to their artifacts rather
 than trusted as written: the battery re-runs the generating scripts---the mechanics tests,
 the obstacle, hp-objective and DP suites (the DP suite including its corridor game tier
 and multi-creature negative control), the Lemma D.4 embedding verifier, the featureless
@@ -1195,7 +1204,10 @@ nothing here claims they are pairwise non-isomorphic---the instance counts measu
 the pipeline, not distinct combinatorial structures.
 
 \paragraph{Data and code availability.}
-Everything this section runs is published as an artifact repository~\cite{Par26}: the model
+Everything this section runs is published as an artifact repository~\cite{Par26}, release
+tag \src{v1.1}---cite and check out the tag, not the moving branch; round 12 of review
+caught the paper citing the unversioned repository while the public tree was one commit
+stale, and \src{scripts/check\_artifact\_repo.py} now pins the tag to the paper: the model
 transcription (\src{MODEL.md}), every script listed above together with the verification
 manifest that pins their outputs, the engine cross-check, the proof working documents, and
 the full empirical harness and response corpus of Section~\ref{sec:empirics}. All file paths
@@ -1633,7 +1645,7 @@ Magic III Maps. IEEE CIG 2018, pp.~1--8.
 
 \bibitem[Par26]{Par26} I.~Parfenchuk. Artifact repository for this paper: model
 transcription, proofs, verification scripts, engine cross-check and empirical harness.
-\url{https://github.com/uson1x/homm3-hardness}, 2026.
+\url{https://github.com/uson1x/homm3-hardness}, release tag \src{v1.1}, 2026.
 
 \bibitem[PS20]{PS20} A.~A. Ponomarenko, D.~V. Sirotkin. Dota Underlords game is NP-complete.
 arXiv:2007.05020, 2020. \url{https://arxiv.org/abs/2007.05020}
@@ -2386,7 +2398,7 @@ attack (Section~\ref{sec:policy}), so no player stack ever retaliates. Every typ
 below has $\mathit{flags}=\emptyset$, so no ability grants a second strike. \qedbox
 
 \smallskip
-Lemma E.1 is the step that Section~\ref{sec:thm4}'s sketch compressed into ``each type has
+Lemma E.1 is the step that an earlier draft of Section~\ref{sec:thm4} compressed into ``each type has
 stock one, so each stack strikes at most one enemy''. Stock one gives that each \emph{type}
 occupies at most one slot; what gives one blow per stack is one terminal action per round
 together with the absence of enemy initiative. The distinction is exactly the one whose
@@ -2440,8 +2452,11 @@ The R2 formula is the Minkowski gauge of $H$: on the two quadrants where $\delta
 $\delta y$ agree in sign, the boundary of $H$ is the polyline
 $\max(|\delta A|,|\delta y|)=1$, and on the other two it is $|\delta A|+|\delta y|=1$. A
 gauge is subadditive and takes the value 1 on each of the six steps, so a walk of length
-$L$ realizes a displacement of gauge at most $L$; conversely, $|\delta y|$ diagonal steps
-followed by same-row steps realize the displacement in exactly $\mathrm{dist}$ steps.
+$L$ realizes a displacement of gauge at most $L$. Conversely, when $\delta A$ and $\delta y$
+agree in sign, $\min(|\delta A|,|\delta y|)$ diagonal steps with vertical or same-row steps
+for the remainder realize the displacement in $\max(|\delta A|,|\delta y|)=\mathrm{dist}$
+steps; when they differ in sign no diagonal helps, and $|\delta A|$ same-row with
+$|\delta y|$ vertical steps realize it in $|\delta A|+|\delta y|=\mathrm{dist}$ steps.
 \qedbox
 
 \smallskip
@@ -2510,8 +2525,8 @@ $|j-j'|\ge 1$, at least $|5-1|=4$. By Lemma E.3 a stack of speed 2 on $p_j$ can 
 enemies at distance at most 3, and $E_j$ is the only one. \qedbox
 
 \smallskip
-The two numbers here are the reduction's one tight margin, and the body's phrase
-``consecutive blocks are 4 apart'' names neither of them: consecutive blocks are \textbf{5}
+The two numbers here are the reduction's one tight margin, and the phrase ``consecutive
+blocks are 4 apart'', which an earlier body draft used, named neither of them: consecutive blocks are \textbf{5}
 apart (block $j$ starts at $5(j-1)$ and block $j+1$ at $5j$); what equals 4 is
 $\min_{j'\ne j}\mathrm{dist}(p_j,e_{j'})$, attained at $j'=j-1$, the forward gap being 6.
 Block width 5 is minimal: at width 4 the backward gap would be $|4-1|=3$, exactly the strike
@@ -2548,7 +2563,7 @@ when the damage it absorbs reaches $a_j$, and death forces $\sum_{i\in A_j}c_i\g
 enemy's postponed \texttt{DEFEND}, so it meets the un-raised defence
 (Section~\ref{sec:policy}) and delivers its full nominal $c_j\ge a_j$ (here $c_j\ge a_j\ge 1$
 and $d=1$, so $(\star)$ applies). By Lemma E.4 the approach hex may be $p_j$ itself, at
-distance 0 from $E_j$, so the strike is legal whatever else is on the board; and by Lemma E.2
+the approach reached by an empty walk, $p_j$ being adjacent to $E_j$ by Lemma E.4, so the strike is legal whatever else is on the board; and by Lemma E.2
 no player creature dies, so the stack is alive to take its action (R9). \qedbox
 
 \begin{lemEyesone}[\PARTITION{} yes $\Longrightarrow$ game yes]
@@ -2590,7 +2605,7 @@ Theorem 1---is too strong as stated: translation and speed-widening both preserv
 yes-direction, and the no-direction never looked at the board. What a wider speed breaks is
 Proposition 1.1's hypothesis, which is a different statement about a different family.
 Second, the chain bounds the \emph{total} damage $E_j$ absorbs, not the size of one blow;
-the body's ``its blow delivers at most $c_j$'' bounds the wrong quantity even though the
+an earlier body draft's ``its blow delivers at most $c_j$'' bounded the wrong quantity even though the
 number is the same.
 
 \smallskip
@@ -2613,7 +2628,8 @@ about the whole round.
 \begin{defEmatch}[persistent matching reach]
 An instance with $R=1$, defence $(\ddagger)$ and $k$ slots has \textbf{persistent matching
 reach} if there is a bijection $j\mapsto E_j$ from the slots onto the enemy stacks such that
-in every position of round 1 reachable from the starting position by legal player actions
+for every feasible allocation, in every position of round 1 reachable from the starting
+position that allocation induces by legal player actions
 and the defence's $(\ddagger)$ actions, for every slot $j$ whose stack has \emph{not yet
 taken its terminal action}, the set of enemies that stack can strike is exactly $\{E_j\}$.
 \end{defEmatch}
@@ -2812,7 +2828,7 @@ $e_g$. Since $7>3$, Lemma E.3 leaves $E_g$ as the only enemy a stack on $q_g^r$ 
 strike. \qedbox
 
 \smallskip
-The body's ``at distance at least 6'' is true but slack, and the derivation it came from
+An earlier body draft said ``at distance at least 6''---true but slack, and its derivation
 subtracted a unit twice; the computation above is in the paper's own metric and is tight.
 The bound is machine-checked on every constructed instance in the worst case for the player,
 with all $3m$ slots occupied (\src{brute\_force.py}, \texttt{check\_geometry\_3partition}).
@@ -3072,7 +3088,9 @@ three-per-enemy $\varphi$, not only for those a 3-partition produces. \qedbox
 Fix any allocation and any play of round 1 of $G_F$---not necessarily attack-only. For
 $g\in[m]$ let $S_g\subseteq[3m]$ be the set of types whose stack struck $E_g$. Then the $S_g$
 are pairwise disjoint, the nominal damage delivered to $E_g$ is at most $\sum_{i\in S_g}a_i$,
-the damage $E_g$ absorbs is $\min\bigl(T,\ \text{delivered}\bigr)$, and $E_g$ is dead at the
+the damage $E_g$ absorbs is at most $\min\bigl(T,\ \sum_{i\in S_g}a_i\bigr)$---with equality
+when no striker of $E_g$ waited; a waiting blow meets the postponed \src{DEFEND} bonus and
+delivers less than nominal---and $E_g$ is dead at the
 end of the round only if $\sum_{i\in S_g}a_i\ge T$. If moreover no striker of $E_g$ waited and
 $\sum_{i\in S_g}a_i\ge T$, then $E_g$ is dead.
 \end{lemEaccfour}
@@ -3090,10 +3108,10 @@ amount is $\min(T,\text{delivered})$ and $E_g$ dies exactly when the absorbed am
 $T$. Both implications follow. \qedbox
 
 \smallskip
-Lemma E.20 is where the body's ``each type has stock one, so each stack strikes at most one
+Lemma E.20 is where the ``each type has stock one, so each stack strikes at most one
 enemy'' is discharged properly. Stock one bounds the number of \emph{slots} a type occupies;
 what bounds the blows is one terminal action per round together with the absence of enemy
-initiative. As printed, the body's justification would survive an attacking defence, which the
+initiative. As printed there, that justification would survive an attacking defence, which the
 theorem does not.
 
 \begin{lemEyesfour}[\THREEPART{} yes $\Longrightarrow$ game yes]
@@ -3141,11 +3159,13 @@ equivalence survives with the allocation given as part of the input. \qedbox
 overkill discarded (R8). (Player hit points are removed too, by retaliation; they are not
 counted, exactly as the Problem of Section~\ref{sec:problem} counts enemy values only.)
 
-Fix any allocation and any play, and let $D_g$ be the nominal damage delivered to $E_g$. By
-Lemma E.20 the $S_g$ are pairwise disjoint, $D_g\le\sum_{i\in S_g}a_i$, and $E_g$ absorbs
-$\min(T,D_g)$. Suppose the total absorbed reaches $W_{\mathrm{hp}}=mT$. Each of the $m$ terms
-$\min(T,D_g)$ is at most $T$, so all $m$ are exactly $T$, i.e.\ $D_g\ge T$ for every $g$; hence
-$\sum_{i\in S_g}a_i\ge T$, and summing over the disjoint $S_g$ against
+Fix any allocation and any play; let $A_g$ be the damage $E_g$ absorbs and $D_g$ the nominal
+damage delivered to it---a waiting striker can deliver less than nominal, which is why the
+two are named apart. By Lemma E.20 the $S_g$ are pairwise disjoint and
+$A_g\le\min(T,D_g)$ with $D_g\le\sum_{i\in S_g}a_i$. Suppose the total absorbed reaches
+$W_{\mathrm{hp}}=mT$. Each of the $m$ terms
+$A_g$ is at most $T$, so all $m$ are exactly $T$; hence
+$\sum_{i\in S_g}a_i\ge D_g\ge A_g=T$, and summing over the disjoint $S_g$ against
 $\sum_i a_i=mT$ makes every inequality tight, so $\sum_{i\in S_g}a_i=T$ for every $g$ and the
 $S_g$ cover $[3m]$; $T/4<a_i<T/2$ forces $|S_g|=3$ and $\{S_1,\dots,S_m\}$ is a 3-partition.
 

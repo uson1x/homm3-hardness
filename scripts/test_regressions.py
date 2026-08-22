@@ -474,7 +474,7 @@ def test_docs_match_artifacts() -> None:
     count itself is a manifest counter. Round 9 (fable F2) proved layer
     (b)'s previous wording was an overclaim by falsifying a counter under
     a green battery; this block is the repair, and `--fast` skips only the
-    five slow subprocess pins.
+    six slow subprocess pins.
     """
     import json
     import re
@@ -499,7 +499,8 @@ def test_docs_match_artifacts() -> None:
           ["verify_mechanics", "brute_force", "test_obstacles",
            "dp_single_type", "verify_featureless", "verify_x3c_default",
            "verify_x3c_vacate", "verify_x3c_defend", "verify_x3c_full_vacate",
-           "crosscheck_full", "crosscheck_defend", "verify_embedding",
+           "crosscheck_full", "crosscheck_defend", "search_free_order",
+           "verify_embedding",
            "verify_hp_objective", "verify_full_model_optima",
            "certify_scores", "check_defend_policy", "test_regressions",
            "engine_harness"])
@@ -545,6 +546,43 @@ def test_docs_match_artifacts() -> None:
           drilled(retype), True)
     check("mutation drill: placeholder swap inside a row is caught",
           drilled(swap), True)
+
+    # round 12 (P12-7): two more escaping mutations, demonstrated live by
+    # the panel, drilled the same way. (3) a counter moved across a CELL
+    # boundary in the md render only — the flat sequence was blind to it
+    # and the two renders put the number in different table columns;
+    # (4) deleting one occurrence of a digit that appears twice — set
+    # equality was blind to multiplicity.
+    def cellmove(bad):
+        for row in bad["rows"]:
+            if row["id"] == "verify_embedding":
+                md = row["md"]
+                # sep_pairs opens cell 2; moving it to the END of cell 1
+                # leaves the FLAT sequence unchanged — only the per-cell
+                # audit can see it
+                md[2] = md[2].replace("{sep_pairs} ", "", 1)
+                md[1] = md[1] + " {sep_pairs}"
+
+    def dupdigit(bad):
+        for row in bad["rows"]:
+            if row["id"] == "verify_embedding":
+                row["md"] = [c.replace("against the required 12",
+                                       "against the required threshold")
+                             for c in row["md"]]
+
+    def drilled_literals(mutate) -> bool:
+        bad = copy.deepcopy(man)
+        mutate(bad)
+        try:
+            gvt.validate_literals(bad)
+        except SystemExit:
+            return True
+        return False
+
+    check("mutation drill: counter moved across a cell boundary is caught",
+          drilled(cellmove), True)
+    check("mutation drill: deleted duplicate digit-run is caught",
+          drilled_literals(dupdigit), True)
 
     # (b) manifest counters against their generating artifacts
     engine_doc = json.loads(
@@ -761,6 +799,23 @@ def test_docs_match_artifacts() -> None:
               tuple(int(g) for g in m.groups()) if m else None,
               (cnt["crosscheck_default_instances"], 0,
                cnt["crosscheck_default_yes"], cnt["crosscheck_default_no"]))
+
+        # round 12 (backlog 19a): the free-order enlargement as a permanent
+        # suite -- the default tier's final line is the pin, like the others.
+        sfo = subprocess.run(
+            [_sys.executable, str(root / "scripts" / "search_free_order.py")],
+            capture_output=True, text=True)
+        check("search_free_order.py (default tier) passes", sfo.returncode, 0)
+        m = re.search(r"free-order: (\d+) built, (\d+) yes / (\d+) no, "
+                      r"(\d+) skipped, one corpus x both constant sets, "
+                      r"every allocation, (\d+) discriminating controls, "
+                      r"negative control flips (\d+)",
+                      sfo.stdout)
+        check("manifest free-order counters == the suite's own line",
+              tuple(int(g) for g in m.groups()) if m else None,
+              (cnt["free_order_built"], cnt["free_order_yes"],
+               cnt["free_order_no"], 0, cnt["free_order_controls"],
+               cnt["free_order_flips"]))
 
     # the empirical counters are the lengths of shipped artifacts, and the
     # turn-order count is the T-* subset of the engine case list itself
@@ -990,6 +1045,27 @@ def test_docs_match_artifacts() -> None:
     ]
     check("manifest banned_claims == the length of the ban list itself",
           len(banned), cnt["banned_claims"])
+
+    # round 12 (P12-1/P12-6): every artifact-relative path the paper cites
+    # must exist in the LOCAL tree — the network-free sibling of
+    # check_artifact_repo.py, which pins the same paths against the
+    # published tag. This catches a renamed or deleted file at edit time;
+    # only the network check catches a stale public tree.
+    import re as _re
+    cited = set()
+    for m in _re.finditer(
+            r"`((?:scripts|empirics|engine-check|proofs)/[A-Za-z0-9_./-]+"
+            r"|MODEL\.md|VERIFICATION\.md|RELATED-WORK\.md)"
+            r"(?:::[A-Za-z0-9_.]+)?(?: [-A-Za-z0-9 ._]*)?`",
+            (root / "paper" / "main.md").read_text()):
+        path = m.group(1)
+        if path.endswith((".py", ".md", ".cpp", ".json", ".sh")):
+            cited.add(path)
+    check("the paper cites at least a dozen artifact paths (sweep is live)",
+          len(cited) >= 12, True)
+    for path in sorted(cited):
+        check(f"cited artifact path exists locally: {path}",
+              (root / path).is_file(), True)
     for path, pattern in banned:
         check(f"{path.name}: retired claim absent ({pattern[:40]})",
               re.search(pattern, path.read_text(), re.DOTALL) is None, True)
@@ -1016,7 +1092,7 @@ def main() -> int:
                       / "verification_manifest.json").read_text())
     claimed = man["counters"]["regressions"]
     if "--fast" in sys.argv:
-        # --fast skips the five slow subprocess pins, so PASSED here is not
+        # --fast skips the six slow subprocess pins, so PASSED here is not
         # the number the manifest documents; only the full run may pin it.
         print(f"note: --fast run ({PASSED} checks); the manifest count "
               f"({claimed}) is pinned by the full suite only")

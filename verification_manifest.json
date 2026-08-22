@@ -50,7 +50,7 @@
     "scored_responses": 870,
     "legacy_mismatches": 14,
     "legacy_round5_violations": 6,
-    "regressions": 219,
+    "regressions": 237,
     "banned_claims": 16,
     "engine_cases": 49,
     "engine_exact": 46,
@@ -63,7 +63,12 @@
     "lemma_degenerate_nonplanar": 3,
     "lemma_endtoend": 3,
     "sep_pairs": 28151,
-    "lemma_malformed": 17
+    "lemma_malformed": 17,
+    "free_order_built": 16,
+    "free_order_yes": 12,
+    "free_order_no": 4,
+    "free_order_flips": 1,
+    "free_order_controls": 3
   },
   "rows": [
     {
@@ -103,6 +108,8 @@
       ],
       "literals": [
         "2",
+        "3",
+        "3",
         "3"
       ]
     },
@@ -181,10 +188,10 @@
         "all agree, all winners canonical"
       ],
       "literals": [
-        "0.3",
         "2",
         "3",
-        "41"
+        "41",
+        "0.3"
       ]
     },
     {
@@ -267,10 +274,10 @@
         "all agree"
       ],
       "literals": [
-        "0.35",
-        "27",
         "3",
-        "4"
+        "4",
+        "27",
+        "0.35"
       ]
     },
     {
@@ -290,6 +297,32 @@
       ],
       "literals": [
         "8"
+      ]
+    },
+    {
+      "id": "search_free_order",
+      "placeholders": [
+        "free_order_built",
+        "free_order_yes",
+        "free_order_no",
+        "free_order_controls",
+        "free_order_flips"
+      ],
+      "md": [
+        "`search_free_order.py`",
+        "{free_order_built} boards — one corpus of eight q = 2 families, each built and searched under BOTH the historical (def 41) and the published (def 27) constants, the swap asserted at build time — searched with free activation order (any unacted player stack may act next), pass and vanish branches and exhaustive approach hexes, over every allocation ({free_order_yes} yes / {free_order_no} no builds)",
+        "the free-order answer equals X3C and the fixed order on every (family, constant set, allocation) triple; yes-instances admit only the all-ones winner; {free_order_controls} discriminating controls — order, vanish, destination — on which the full search strictly beats its degraded variants; the negative control (defence = attack) flips {free_order_flips} planar no-instance to yes"
+      ],
+      "tex": [
+        "\\src{search\\_free\\_\\allowbreak order.py}",
+        "{free_order_built} boards --- one corpus of eight $q=2$ families, each built and searched under BOTH the historical (def 41) and the published (def 27) constants, the swap asserted at build time --- searched with free activation order (any unacted player stack may act next), pass and vanish branches and exhaustive approach hexes, over every allocation ({free_order_yes} yes / {free_order_no} no builds)",
+        "the free-order answer equals X3C and the fixed order on every (family, constant set, allocation) triple; yes-instances admit only the all-ones winner; {free_order_controls} discriminating controls --- order, vanish, destination --- on which the full search strictly beats its degraded variants; the negative control (defence = attack) flips {free_order_flips} planar no-instance to yes"
+      ],
+      "literals": [
+        "2",
+        "3",
+        "27",
+        "41"
       ]
     },
     {
@@ -316,11 +349,14 @@
       ],
       "literals": [
         "1",
+        "3",
+        "4",
+        "4",
+        "12",
         "12",
         "16",
         "20",
-        "3",
-        "4"
+        "20"
       ]
     },
     {
@@ -355,7 +391,7 @@
         "every optimum certified over the full action model; the ghost bound also dominates every `(‡)` play (§5.1)"
       ],
       "tex": [
-        "\\src{verify\\_full\\_model\\_optima.py}",
+        "\\src{verify\\_full\\_model\\_\\allowbreak optima.py}",
         "all {empirical_instances} empirical instances",
         "every optimum certified over the full action model; the ghost bound also dominates every $(\\ddagger)$ play (Section~\\ref{sec:design})"
       ],

@@ -294,6 +294,22 @@ def main() -> int:
         seps, sep_stats = check_separation(inst)
         for s in seps:
             fail(f"{sets}: (SEP') violated: {s}")
+        # round 12 (P12-8): round 11's closure line promised a per-board
+        # class check and the code only aggregated. The per-board truth,
+        # measured on the whole corpus: every built board exports >= 2
+        # boxes and >= 1 corridor, and its box-box and box-corridor pair
+        # counts are positive (corpus minima 6 and 6); corridor-corridor
+        # is LEGALLY empty on small graphs whose edges all share
+        # endpoints, so that class is pinned in aggregate only, below.
+        feats = inst["features"]
+        if len(feats["boxes"]) < 2 or not feats["corridors"]:
+            fail(f"{sets}: feature export starved (boxes "
+                 f"{len(feats['boxes'])}, corridors "
+                 f"{len(feats['corridors'])})")
+        if sep_stats["box_box"][0] == 0 or sep_stats["box_corridor"][0] == 0:
+            fail(f"{sets}: a per-board (SEP') class is empty (box_box "
+                 f"{sep_stats['box_box'][0]}, box_corridor "
+                 f"{sep_stats['box_corridor'][0]})")
         for cls, (pairs, mind) in sep_stats.items():
             sep_totals[cls][0] += pairs
             if mind is not None and (sep_totals[cls][1] is None
@@ -317,7 +333,8 @@ def main() -> int:
     sep_mins = tuple(sep_totals[cls][1] for cls in
                      ("box_box", "box_corridor", "corridor_corridor"))
     print(f"   every built board passes I1-I4 and the real (SEP') check "
-          f"(boxes and corridors, all three non-incident classes); every "
+          f"(box-box and box-corridor positive per board, corridor-corridor "
+          f"non-vacuous in aggregate); every "
           f"degeneracy certificate is re-verified; a non-planar skip is "
           f"the DMP test's own verdict (planted control in [2])")
     print(f"   (SEP') exercised on {sep_pairs} non-incident feature pairs: "

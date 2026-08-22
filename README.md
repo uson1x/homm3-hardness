@@ -32,6 +32,7 @@ Python 3, standard library only (the engine cross-check additionally needs a
 VCMI checkout and CMake). The full battery:
 
 ```
+python3 scripts/search_free_order.py       # free activation order vs the Theorem 3 reductions
 python3 scripts/test_regressions.py        # the doc-consistency battery + regressions
 python3 scripts/verify_mechanics.py        # damage-formula tests vs MODEL.md
 python3 scripts/brute_force.py             # Theorems 1-2 reductions, exhaustive play
