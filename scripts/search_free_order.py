@@ -22,11 +22,17 @@ This suite searches an OVER-APPROXIMATION of the full action space:
     spurious yes-answers, because the confinement argument of Theorem 3
     genuinely depends on dead enemies' dockings staying plugged;
   * `hold` defence -- the enemy never activates, so it never gains the DEFEND
-    bonus; this dominates `(++)` (the paper's WAIT-then-DEFEND policy) for
-    the player: searched blows can only get cheaper under it, never more
-    damaging;
+    bonus; this dominates `(‡)` (the paper's WAIT-then-DEFEND policy) for
+    the player: without the bonus every searched blow is at least as
+    damaging as under `(‡)`, never less;
   * exhaustive approach hexes -- every legal destination of every
-    walk-and-attack is branched over, never a canonical one.
+    walk-and-attack is branched over, never a canonical one.  (Round 13,
+    F-13: on the corpus itself no expanded state ever offers a second
+    approach hex -- at W = q every kill is maximally efficient, so a dead
+    enemy's three dockings are all plugged by its strikers, which is
+    Lemma D.7 seen from the searcher's side.  The branch is therefore
+    exercised only by the destination control; the corpus fact is pinned
+    as the counter `multi_spot == 0` below, not described as coverage.)
 
 Memoisation is keyed on (acted bitmask, full per-stack state), so no legal
 line of play is discarded.  `_best_free` is a THRESHOLD DECISION PROCEDURE,
@@ -63,6 +69,17 @@ A negative control (enemy defence set equal to player attack, so D(c) = c)
 must flip a planar no-instance to yes -- proving the game search itself is
 not vacuous.
 
+The controls certify that each branch EXISTS on a 2-4-stack fixture; round
+13 showed (fable F-04, codex Check 04) that three degraded searchers -- free
+choice for the first actor only, two approach hexes, vanish for speed-0
+stacks only, and even the corpus entry point swapped for the fixed-order
+searcher -- pass the whole suite, controls included.  So the corpus tiers now
+COUNT what they exercise (`TRACE`): out-of-order activations (`reorder`),
+expanded vanish branches (`vanish`) and states offering more than one
+approach hex (`multi_spot`).  The suite asserts reorder > 0 and vanish > 0
+on the corpus and prints all three on its final line, where the battery
+pins them to the manifest; each degraded searcher zeroes one of them.
+
 Run:  python3 scripts/search_free_order.py           # battery tier
       python3 scripts/search_free_order.py --full    # adds q=3 families
 """
@@ -85,6 +102,15 @@ from homm3_model import (Battle, Battlefield, CreatureType, Stack,
 
 HIST_ENEMY_DEF = 41            # verify_x3c's historical constants
 HIST_PLAYER_HP = 5
+
+# round 13: what the search actually exercised (see the module docstring).
+# Reset before the corpus tiers and snapshotted before the controls run.
+TRACE = {"reorder": 0, "vanish": 0, "multi_spot": 0}
+
+
+def _trace_reset():
+    for k in TRACE:
+        TRACE[k] = 0
 
 
 # --- the free-order search --------------------------------------------------
@@ -148,9 +174,13 @@ def _best_free(battle, players, acted_mask: int, initial, target, memo, *,
 
     kw = dict(free_order=free_order, vanish=vanish, all_spots=all_spots)
     best = 0
+    first_unacted = next(b for b in range(len(players))
+                         if not acted_mask >> b & 1)
     for bit, idx in enumerate(players):
         if acted_mask >> bit & 1:
             continue
+        if acted_mask and bit != first_unacted:
+            TRACE["reorder"] += 1      # a non-first unacted stack acts next
         nmask = acted_mask | (1 << bit)
         stack = battle.stacks[idx]
         if not stack.alive():
@@ -166,6 +196,7 @@ def _best_free(battle, players, acted_mask: int, initial, target, memo, *,
                                     target, memo, **kw))
         # vanish (pure-movement dominator; never offered to a striking stack)
         if vanish and best < target:
+            TRACE["vanish"] += 1
             ghost = battle.clone()
             g = ghost.stacks[idx]
             g.apply_damage(g.available())
@@ -176,6 +207,8 @@ def _best_free(battle, players, acted_mask: int, initial, target, memo, *,
             for t in battle.attackable(stack):
                 t_idx = battle.stacks.index(t)
                 spots = battle.attack_spots(stack, t)
+                if len(spots) > 1:
+                    TRACE["multi_spot"] += 1
                 if not all_spots:
                     spots = spots[:1]
                 for dest in spots:
@@ -336,10 +369,12 @@ def control_destination() -> list[str]:
 
 
 def run_families(families, seed: int, label: str, want_def: int,
-                 verbose=True):
+                 want_hp: int, verbose=True):
     """Every built family: X3C answer == fixed-order answer == free-order
     answer, over every allocation; yes-instances admit only the all-ones
-    winner.  The constant set in force is asserted, not trusted (P12-12)."""
+    winner.  The constant set in force is asserted on the BUILT instance --
+    enemy defence and player hp both (P12-12; round 13 codex Check 18 showed
+    a builder ignoring the player hp while the module constant was right)."""
     rng = random.Random(seed)
     stats = {"built": 0, "skipped": 0, "yes": 0, "no": 0}
     fails = []
@@ -348,9 +383,10 @@ def run_families(families, seed: int, label: str, want_def: int,
         if inst is None:
             stats["skipped"] += 1
             continue
-        if inst["enemy_type"].defense != want_def:
-            fails.append(f"{label} {sets}: built enemy defence "
-                         f"{inst['enemy_type'].defense}, expected {want_def} "
+        built = (inst["enemy_type"].defense, inst["player_type"].hp)
+        if built != (want_def, want_hp):
+            fails.append(f"{label} {sets}: built (enemy defence, player hp) "
+                         f"= {built}, expected {(want_def, want_hp)} "
                          f"-- the constant swap did not reach the build")
             continue
         stats["built"] += 1
@@ -382,8 +418,13 @@ def negative_control(seed: int) -> tuple[int, list[str]]:
     """def(Q) = att(P) makes D(c) = c; the planar no-instance fixture must flip
     to yes under the free-order search, or the game search proves nothing."""
     rng = random.Random(seed)
-    sets = [(0, 1, 2), (0, 1, 3)]
+    # every element covered, no exact cover (round 13, fable F-10: the old
+    # fixture [(0,1,2), (0,1,3)] was a DEGENERATE no -- elements 4, 5 in no
+    # set -- so its flip said less than it seemed to)
+    sets = [(0, 1, 2), (2, 3, 4), (1, 4, 5)]
     n = 6
+    if not all(any(e in s for s in sets) for e in range(n)):
+        return 0, ["negative control: fixture is degenerate"]
     if V.x3c_is_yes(n, sets):
         return 0, ["negative control: fixture is a yes-instance of X3C"]
     fails = []
@@ -429,21 +470,37 @@ def main() -> int:
         corpora.append((3, V.planted_instances(3, 1, 2, seed=41003)
                         + V.random_instances(3, 5, 3, seed=41004)))
 
+    _trace_reset()
     for q, fams in corpora:
         stats, f = run_families(fams, seed=41, label=f"def 41 q={q}",
-                                want_def=HIST_ENEMY_DEF)
+                                want_def=HIST_ENEMY_DEF,
+                                want_hp=HIST_PLAYER_HP)
         add(stats); fails += f
         saved = with_sol_stats()
         try:
             assert V.ENEMY_DEF == SOL_ENEMY_DEF and V.PLAYER_HP == SOL_PLAYER_HP, \
                 "with_sol_stats() did not swap the module constants"
             stats, f = run_families(fams, seed=41, label=f"published q={q}",
-                                    want_def=SOL_ENEMY_DEF)
+                                    want_def=SOL_ENEMY_DEF,
+                                    want_hp=SOL_PLAYER_HP)
             add(stats); fails += f
         finally:
             restore(saved)
         assert V.ENEMY_DEF == HIST_ENEMY_DEF and V.PLAYER_HP == HIST_PLAYER_HP, \
             "restore() did not bring the historical constants back"
+
+    # what the corpus tiers exercised -- snapshotted BEFORE the controls and
+    # the negative control add their own expansions
+    trace = dict(TRACE)
+    if trace["reorder"] == 0:
+        fails.append("corpus trace: no out-of-order activation was ever "
+                     "expanded -- free order is not live on the corpus")
+    if trace["vanish"] == 0:
+        fails.append("corpus trace: no vanish branch was ever expanded -- "
+                     "the pure-movement dominator is not live on the corpus")
+    print(f"  corpus trace: {trace['reorder']} out-of-order activations, "
+          f"{trace['vanish']} vanish branches, {trace['multi_spot']} states "
+          f"with a second approach hex")
 
     controls = 0
     for ctrl in (control_order, control_vanish, control_destination):
@@ -467,7 +524,9 @@ def main() -> int:
     print(f"ALL PASS  (free-order: {totals['built']} built, {totals['yes']} yes"
           f" / {totals['no']} no, {totals['skipped']} skipped, one corpus x "
           f"both constant sets, every allocation, {controls} discriminating "
-          f"controls, negative control flips {flips} no-instance, {dt:.1f}s)")
+          f"controls, negative control flips {flips} no-instance, corpus "
+          f"trace {trace['reorder']}/{trace['vanish']}/{trace['multi_spot']} "
+          f"reorder/vanish/multi-spot, {dt:.1f}s)")
     return 0
 
 

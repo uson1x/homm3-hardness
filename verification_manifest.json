@@ -50,8 +50,8 @@
     "scored_responses": 870,
     "legacy_mismatches": 14,
     "legacy_round5_violations": 6,
-    "regressions": 237,
-    "banned_claims": 16,
+    "regressions": 280,
+    "banned_claims": 19,
     "engine_cases": 49,
     "engine_exact": 46,
     "engine_explained": 3,
@@ -68,7 +68,15 @@
     "free_order_yes": 12,
     "free_order_no": 4,
     "free_order_flips": 1,
-    "free_order_controls": 3
+    "free_order_controls": 3,
+    "cited_paths": 31,
+    "free_order_reorder": 3860,
+    "free_order_vanish": 6312,
+    "free_order_multispot": 0,
+    "sep_min_bb": 12,
+    "sep_min_bc": 16,
+    "sep_min_cc": 20,
+    "sep_required": 12
   },
   "rows": [
     {
@@ -306,21 +314,25 @@
         "free_order_yes",
         "free_order_no",
         "free_order_controls",
-        "free_order_flips"
+        "free_order_flips",
+        "free_order_reorder",
+        "free_order_vanish",
+        "free_order_multispot"
       ],
       "md": [
         "`search_free_order.py`",
-        "{free_order_built} boards — one corpus of eight q = 2 families, each built and searched under BOTH the historical (def 41) and the published (def 27) constants, the swap asserted at build time — searched with free activation order (any unacted player stack may act next), pass and vanish branches and exhaustive approach hexes, over every allocation ({free_order_yes} yes / {free_order_no} no builds)",
-        "the free-order answer equals X3C and the fixed order on every (family, constant set, allocation) triple; yes-instances admit only the all-ones winner; {free_order_controls} discriminating controls — order, vanish, destination — on which the full search strictly beats its degraded variants; the negative control (defence = attack) flips {free_order_flips} planar no-instance to yes"
+        "{free_order_built} boards — one corpus of eight q = 2 families, each built and searched under BOTH the historical (def 41) and the published (def 27) constants, the swap asserted at build time — searched with free activation order (any unacted player stack may act next), pass and vanish branches and exhaustive approach hexes, over every allocation ({free_order_yes} yes / {free_order_no} no builds), under the `hold` defence, which dominates (‡) for the player",
+        "the free-order answer equals X3C and the fixed order on every (family, constant set, allocation) triple; yes-instances admit only the all-ones winner; {free_order_controls} discriminating controls — order, vanish, destination — on which the full search strictly beats its degraded variants; the negative control (defence = attack) flips {free_order_flips} planar no-instance to yes; the corpus tiers expanded {free_order_reorder} out-of-order activations and {free_order_vanish} vanish branches and met {free_order_multispot} states offering a second approach hex — Lemma D.7 from the searcher's side, so the destination branch is exercised by its control only"
       ],
       "tex": [
         "\\src{search\\_free\\_\\allowbreak order.py}",
-        "{free_order_built} boards --- one corpus of eight $q=2$ families, each built and searched under BOTH the historical (def 41) and the published (def 27) constants, the swap asserted at build time --- searched with free activation order (any unacted player stack may act next), pass and vanish branches and exhaustive approach hexes, over every allocation ({free_order_yes} yes / {free_order_no} no builds)",
-        "the free-order answer equals X3C and the fixed order on every (family, constant set, allocation) triple; yes-instances admit only the all-ones winner; {free_order_controls} discriminating controls --- order, vanish, destination --- on which the full search strictly beats its degraded variants; the negative control (defence = attack) flips {free_order_flips} planar no-instance to yes"
+        "{free_order_built} boards --- one corpus of eight $q=2$ families, each built and searched under BOTH the historical (def 41) and the published (def 27) constants, the swap asserted at build time --- searched with free activation order (any unacted player stack may act next), pass and vanish branches and exhaustive approach hexes, over every allocation ({free_order_yes} yes / {free_order_no} no builds), under the \\src{hold} defence, which dominates $(\\ddagger)$ for the player",
+        "the free-order answer equals X3C and the fixed order on every (family, constant set, allocation) triple; yes-instances admit only the all-ones winner; {free_order_controls} discriminating controls --- order, vanish, destination --- on which the full search strictly beats its degraded variants; the negative control (defence = attack) flips {free_order_flips} planar no-instance to yes; the corpus tiers expanded {free_order_reorder} out-of-order activations and {free_order_vanish} vanish branches and met {free_order_multispot} states offering a second approach hex --- Lemma D.7 from the searcher's side, so the destination branch is exercised by its control only"
       ],
       "literals": [
         "2",
         "3",
+        "7",
         "27",
         "41"
       ]
@@ -335,27 +347,30 @@
         "lemma_nonplanar",
         "lemma_malformed",
         "sep_pairs",
+        "sep_min_bb",
+        "sep_min_bc",
+        "sep_min_cc",
+        "sep_required",
         "lemma_endtoend"
       ],
       "md": [
         "`verify_embedding.py`",
         "{lemma_families} corpus families through the Lemma D.4 embedding algorithm itself (DMP planarity → orthogonal drawing → `λ = 20` scaling, adapters, stubs): {lemma_built} boards built; {lemma_degenerate_no} certified degenerate no-instances, {lemma_degenerate_nonplanar} of them also non-planar; {lemma_nonplanar} certified non-planar — plus a separate battery of {lemma_malformed} malformed encodings and one planted non-planar control, all deterministic",
-        "I1–I4 and the feature-based (SEP′) separation hold on every board ({sep_pairs} non-incident feature pairs, class minima L∞ 12/16/20 against the required 12); the no-certificate board itself plays out as a genuine no; the full game search runs on {lemma_endtoend} of them — under the historical AND the published constants — and agrees with X3C"
+        "I1–I4, the Lemma D.4 feature counts (4|C| boxes, 6|C| − |X| corridors) and the feature-based (SEP′) separation hold on every board ({sep_pairs} non-incident feature pairs, class minima L∞ {sep_min_bb}/{sep_min_bc}/{sep_min_cc} against the required {sep_required}); the no-certificate board, assembled from its own encoding, plays out as a genuine no; the full game search runs on {lemma_endtoend} of them — under the historical AND the published constants — and agrees with X3C"
       ],
       "tex": [
         "\\src{verify\\_embedding.py}",
         "{lemma_families} corpus families through the Lemma D.4 embedding algorithm itself (DMP planarity $\\to$ orthogonal drawing $\\to$ $\\lambda=20$ scaling, adapters, stubs): {lemma_built} boards built; {lemma_degenerate_no} certified degenerate no-instances, {lemma_degenerate_nonplanar} of them also non-planar; {lemma_nonplanar} certified non-planar --- plus a separate battery of {lemma_malformed} malformed encodings and one planted non-planar control, all deterministic",
-        "I1--I4 and the feature-based (SEP$'$) separation hold on every board ({sep_pairs} non-incident feature pairs, class minima $L_\\infty$ 12/16/20 against the required 12); the no-certificate board itself plays out as a genuine no; the full game search runs on {lemma_endtoend} of them --- under the historical AND the published constants --- and agrees with X3C"
+        "I1--I4, the Lemma D.4 feature counts ($4|C|$ boxes, $6|C|-|X|$ corridors) and the feature-based (SEP$'$) separation hold on every board ({sep_pairs} non-incident feature pairs, class minima $L_\\infty$ {sep_min_bb}/{sep_min_bc}/{sep_min_cc} against the required {sep_required}); the no-certificate board, assembled from its own encoding, plays out as a genuine no; the full game search runs on {lemma_endtoend} of them --- under the historical AND the published constants --- and agrees with X3C"
       ],
       "literals": [
         "1",
         "3",
         "4",
         "4",
-        "12",
-        "12",
-        "16",
-        "20",
+        "4",
+        "4",
+        "6",
         "20"
       ]
     },

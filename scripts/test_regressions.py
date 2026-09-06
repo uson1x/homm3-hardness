@@ -566,8 +566,9 @@ def test_docs_match_artifacts() -> None:
     def dupdigit(bad):
         for row in bad["rows"]:
             if row["id"] == "verify_embedding":
-                row["md"] = [c.replace("against the required 12",
-                                       "against the required threshold")
+                # round 13: the minima became counters, so the duplicate
+                # digit deleted here is one of the four `4`s of that row
+                row["md"] = [c.replace("(4|C| boxes", "(|C| boxes")
                              for c in row["md"]]
 
     def drilled_literals(mutate) -> bool:
@@ -583,6 +584,52 @@ def test_docs_match_artifacts() -> None:
           drilled(cellmove), True)
     check("mutation drill: deleted duplicate digit-run is caught",
           drilled_literals(dupdigit), True)
+
+    # round 13 (fable F-05, codex Check 05): four more escaping mutations,
+    # demonstrated live by the panel. (5) the (SEP') class minima swapped
+    # 12/16/20 -> 20/16/12 in BOTH renders — a multiset of literals does
+    # not see order, so the minima are now counters and the swap is a
+    # placeholder-sequence change; (6) a sign: `def 41` -> `def -41` —
+    # unsigned digit-runs did not see it; (7) a tex-only deletion of a
+    # digit-run, which "tex may carry fewer" allowed by design; (8) a
+    # tex-only 27 <-> 41 swap, invisible to any multiset — the tex mirror
+    # is now held to the md master cell by cell, in order.
+    def minswap(bad):
+        for row in bad["rows"]:
+            if row["id"] == "verify_embedding":
+                for kind in ("md", "tex"):
+                    row[kind] = [c.replace("{sep_min_bb}", "\0")
+                                 .replace("{sep_min_cc}", "{sep_min_bb}")
+                                 .replace("\0", "{sep_min_cc}")
+                                 for c in row[kind]]
+
+    def sign(bad):
+        for row in bad["rows"]:
+            if row["id"] == "verify_x3c_default":
+                for kind in ("md", "tex"):
+                    row[kind] = [c.replace("def 41", "def -41")
+                                 for c in row[kind]]
+
+    def texdel(bad):
+        for row in bad["rows"]:
+            if row["id"] == "verify_x3c_default":
+                row["tex"] = [c.replace("def 41", "def") for c in row["tex"]]
+
+    def texswap(bad):
+        for row in bad["rows"]:
+            if row["id"] == "search_free_order":
+                row["tex"] = [c.replace("def 41", "\0")
+                              .replace("def 27", "def 41")
+                              .replace("\0", "def 27") for c in row["tex"]]
+
+    check("mutation drill: (SEP') class minima reordered is caught",
+          drilled(minswap), True)
+    check("mutation drill: a sign in front of a literal is caught",
+          drilled_literals(sign), True)
+    check("mutation drill: tex-only deleted digit-run is caught",
+          drilled_literals(texdel), True)
+    check("mutation drill: tex-only 27 <-> 41 swap is caught",
+          drilled_literals(texswap), True)
 
     # (b) manifest counters against their generating artifacts
     engine_doc = json.loads(
@@ -682,7 +729,27 @@ def test_docs_match_artifacts() -> None:
                   r"minima L∞ = (\d+)/(\d+)/(\d+)", emb.stdout)
     check("(SEP') pair count and class minima == the pinned values",
           tuple(int(g) for g in m.groups()) if m else None,
-          (cnt["sep_pairs"], 12, 16, 20))
+          (cnt["sep_pairs"], cnt["sep_min_bb"], cnt["sep_min_bc"],
+           cnt["sep_min_cc"]))
+    check("(SEP') required separation == the paper's λ - 2ρ",
+          cnt["sep_required"], 20 - 2 * 4)
+
+    # round 13 (codex Check 10): the G_no payload is played AS ENCODED —
+    # a corrupted encoding (slot off the board, its hex impassable, the
+    # slot missing, ownership gone) must be rejected, not replaced by a
+    # substitute battle inside the checker
+    import copy as _copy
+
+    import embed_lemma as _B
+    import verify_embedding as _VE
+    _, gno = _B.build_board_lemma(3, [(0, 1)])
+    check("G_no payload plays out as a no", _VE.g_no_is_a_no(gno), [])
+    for field, value in (("deploy", {0: 999}), ("obstacles", frozenset({0})),
+                         ("deploy", {}), ("owner", {})):
+        bad_gno = _copy.deepcopy(gno)
+        bad_gno["instance"][field] = value
+        check(f"mutation drill: corrupted G_no ({field}) is rejected",
+              bool(_VE.g_no_is_a_no(bad_gno)), True)
     m = re.search(r"\((\d+) distinct families\)", emb.stdout)
     check("manifest lemma_families == the corpus size the suite reports",
           int(m.group(1)) if m else None, cnt["lemma_families"])
@@ -809,13 +876,23 @@ def test_docs_match_artifacts() -> None:
         m = re.search(r"free-order: (\d+) built, (\d+) yes / (\d+) no, "
                       r"(\d+) skipped, one corpus x both constant sets, "
                       r"every allocation, (\d+) discriminating controls, "
-                      r"negative control flips (\d+)",
+                      r"negative control flips (\d+) no-instance, corpus "
+                      r"trace (\d+)/(\d+)/(\d+) reorder/vanish/multi-spot",
                       sfo.stdout)
+        # round 13 (fable F-04/F-13, codex Check 04): the controls certify
+        # that each branch exists on a fixture; the corpus TRACE certifies
+        # that it acted on the corpus — reorder and vanish must be live,
+        # and the measured "no state ever offered a second approach hex"
+        # is pinned as the number it is
         check("manifest free-order counters == the suite's own line",
               tuple(int(g) for g in m.groups()) if m else None,
               (cnt["free_order_built"], cnt["free_order_yes"],
                cnt["free_order_no"], 0, cnt["free_order_controls"],
-               cnt["free_order_flips"]))
+               cnt["free_order_flips"], cnt["free_order_reorder"],
+               cnt["free_order_vanish"], cnt["free_order_multispot"]))
+        check("free-order corpus trace: reorder and vanish are live",
+              (cnt["free_order_reorder"] > 0, cnt["free_order_vanish"] > 0),
+              (True, True))
 
     # the empirical counters are the lengths of shipped artifacts, and the
     # turn-order count is the T-* subset of the engine case list itself
@@ -1042,6 +1119,13 @@ def test_docs_match_artifacts() -> None:
         (root / "paper" / "main.tex", r"no non-planar famil"),
         (root / "proofs" / "candidate-D-singletype.md",
          r"usually no[nt][- ]?planar"),
+        # round 13 (P13-1/P13-2): the round-12 repair's strict "less than
+        # nominal" (false at a_i = 1) and the pre-round-12 equality that
+        # survived in candidate-C
+        (root / "paper" / "main.md", r"delivers (?:less than nominal|even\s+less)"),
+        (root / "paper" / "main.tex", r"delivers (?:less than nominal|even\s+less)"),
+        (root / "proofs" / "candidate-C-featureless.md",
+         r"=\s+min\( T , nominal"),
     ]
     check("manifest banned_claims == the length of the ban list itself",
           len(banned), cnt["banned_claims"])
@@ -1051,27 +1135,94 @@ def test_docs_match_artifacts() -> None:
     # check_artifact_repo.py, which pins the same paths against the
     # published tag. This catches a renamed or deleted file at edit time;
     # only the network check catches a stale public tree.
-    import re as _re
-    cited = set()
-    for m in _re.finditer(
-            r"`((?:scripts|empirics|engine-check|proofs)/[A-Za-z0-9_./-]+"
-            r"|MODEL\.md|VERIFICATION\.md|RELATED-WORK\.md)"
-            r"(?:::[A-Za-z0-9_.]+)?(?: [-A-Za-z0-9 ._]*)?`",
-            (root / "paper" / "main.md").read_text()):
-        path = m.group(1)
-        if path.endswith((".py", ".md", ".cpp", ".json", ".sh")):
-            cited.add(path)
-    check("the paper cites at least a dozen artifact paths (sweep is live)",
-          len(cited) >= 12, True)
+    # Round 13 (fable F-02, codex Check 06): the round-12 regex saw only
+    # backticked paths with a directory prefix — 13 files — and missed the
+    # fenced `python3 scripts/...` commands, among them search_free_order.py,
+    # the very file whose absence was the round-12 blocker. One extractor
+    # now serves both sweeps (check_artifact_repo.cited_paths), its count is
+    # pinned, and it is drilled on a synthetic text below.
+    from check_artifact_repo import cited_paths
+    cited = cited_paths(root=str(root))
+    check("the paper's cited-path count == the manifest's pin",
+          len(cited), cnt["cited_paths"])
+    check("the round-12 drifted file is in the sweep",
+          "scripts/search_free_order.py" in cited, True)
     for path in sorted(cited):
         check(f"cited artifact path exists locally: {path}",
               (root / path).is_file(), True)
+    drill_text = ("see `scripts/verify_x3c.py` and `dp_single_type.py`;\n"
+                  "```\npython3 empirics/scripts/certify_scores.py\n"
+                  "cd engine-check && ./build.sh && python3 compare.py\n```")
+    check("mutation drill: the path extractor sees fenced commands, bare "
+          "basenames and the engine-check line",
+          cited_paths(text=drill_text, root=str(root)) >= {
+              "scripts/verify_x3c.py", "scripts/dp_single_type.py",
+              "empirics/scripts/certify_scores.py", "engine-check/build.sh",
+              "engine-check/compare.py", "verification_manifest.json"},
+          True)
     for path, pattern in banned:
         check(f"{path.name}: retired claim absent ({pattern[:40]})",
               re.search(pattern, path.read_text(), re.DOTALL) is None, True)
 
 
+def test_round13_apparatus():
+    """Round 13: two apparatus pins drilled in-process.
+
+    (a) `certify_scores.bind_row` — codex Check 16 changed one stored ratio
+    from 1.0 to 0.0 and certify_scores still printed 870/870; every field
+    stats_recheck consumes is now bound to the certified (value, optimum).
+    (b) `search_free_order.TRACE` — fable F-04 passed three degraded
+    searchers through the whole suite; the corpus trace must go to zero
+    under the degradations it claims to detect, and be positive under the
+    full search, on a real corpus board.
+    """
+    import json
+    import sys as _sys
+    from pathlib import Path
+
+    root = Path(__file__).resolve().parent.parent
+    _sys.path.insert(0, str(root / "empirics" / "scripts"))
+    import certify_scores as CS
+    rows = json.loads((root / "empirics" / "results" / "llm.json")
+                      .read_text())["per_response"]
+    optima = json.loads((root / "empirics" / "instances" / "optima.json")
+                        .read_text())
+    row = rows[0]
+    opt = optima[row["instance_id"]]["optimum"]
+    check("bind_row accepts a genuine scored row",
+          CS.bind_row(row, row["value"], opt), [])
+    for field, value in (("ratio", 0.0), ("optimum", opt + 1),
+                         ("variant", "no-such-variant"),
+                         ("exact", not row["exact"])):
+        bad = dict(row)
+        bad[field] = value
+        check(f"mutation drill: scored row with corrupted {field} is caught",
+              bool(CS.bind_row(bad, row["value"], opt)), True)
+
+    import random
+
+    import search_free_order as S
+    import verify_x3c as V
+    n, sets = V.planted_instances(2, 1, 1, seed=41001)[0]
+    inst = V.build_instance(n, sets, random.Random(41))
+    check("free-order trace drill: the corpus board builds",
+          inst is not None, True)
+    alloc = {e: 1 for e in inst["deploy"]}
+    S._trace_reset()
+    S.free_play_value(inst, alloc, inst["target"])
+    check("free-order trace: full search reorders and vanishes on a corpus "
+          "board", (S.TRACE["reorder"] > 0, S.TRACE["vanish"] > 0),
+          (True, True))
+    for flag, key in (("free_order", "reorder"), ("vanish", "vanish")):
+        S._trace_reset()
+        battle, _ = V.build_battle(inst, alloc)
+        S._search_battle(battle, inst["target"], **{flag: False})
+        check(f"mutation drill: degraded searcher ({flag}=False) zeroes "
+              f"the {key} trace", S.TRACE[key], 0)
+
+
 def main() -> int:
+    test_round13_apparatus()
     test_exhaustive_destinations()
     test_moved_stack_frees_hex()
     test_iteration_one_retaliation()

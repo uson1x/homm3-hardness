@@ -53,6 +53,7 @@ Exit status is non-zero if any response fails to certify.
 from __future__ import annotations
 
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -93,8 +94,38 @@ def fixed_allocation_ghost_bound(inst: dict, alloc: list, ghost: dict) -> int:
     return max(solve.value_of_damage(inst, dmg) for dmg in states)
 
 
+def bind_row(row: dict, value: int, optimum: int) -> list[str]:
+    """Round 13 (codex Check 16): the certification used to bind only the
+    VALUE of a scored row; the row's `optimum`, `ratio` and task metadata
+    were read by stats_recheck.py as written. A ratio edited from 1.0 to
+    0.0 with the raw response and value untouched still certified 870/870.
+    Every field the statistics consume is now derived from the certified
+    pair (value, optimum) and compared -- the ratio to the float
+    value/optimum the scorer itself computed, within 1e-12 relative."""
+    problems = []
+    if row["optimum"] != optimum:
+        problems.append(f"row optimum {row['optimum']} != certified "
+                        f"instance optimum {optimum}")
+    if optimum <= 0:
+        problems.append(f"certified optimum {optimum} is not positive")
+    elif not math.isclose(row["ratio"], value / optimum, rel_tol=1e-12,
+                          abs_tol=1e-12):
+        problems.append(f"row ratio {row['ratio']} != value/optimum = "
+                        f"{value}/{optimum}")
+    iid, _, variant = row["task_id"].partition("::")
+    if row["instance_id"] != iid or row["variant"] != variant:
+        problems.append(f"row names instance {row['instance_id']!r} / "
+                        f"variant {row['variant']!r}, task_id says "
+                        f"{iid!r} / {variant!r}")
+    if row["exact"] != (value == optimum):
+        problems.append(f"row exact={row['exact']} but value {value} vs "
+                        f"optimum {optimum}")
+    return problems
+
+
 def main() -> int:
     instances = load_instances()
+    optima = json.load(open(ROOT / "instances" / "optima.json"))
     # A task_id names an instance and a prompt variant, not a response: the same
     # task_id appears once per model. Key by both or the three tiers collapse.
     scored = {
@@ -146,6 +177,10 @@ def main() -> int:
             failures.append(
                 f"{label}: (‡) replay {under_policy} != recorded {value}")
             continue
+        bound_row = bind_row(scored[key], value, optima[iid]["optimum"])
+        if bound_row:
+            failures.append(f"{label}: " + "; ".join(bound_row))
+            continue
         certified += 1
 
     # Coverage is part of the claim: silently checking 869 rows and printing ALL PASS
@@ -171,7 +206,8 @@ def main() -> int:
     print("\nALL PASS: every scored response is an exact optimum for its own "
           "allocation over the full action model, under the corpus defence `hold`\n"
           "AND under the paper's policy (‡) = WAIT-then-DEFEND (phase-aware replay,\n"
-          "exact equality on every response).")
+          "exact equality on every response); every row's optimum, ratio, exact\n"
+          "flag and task metadata are bound to the certified (value, optimum) pair.")
     return 0
 
 

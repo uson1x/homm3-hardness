@@ -271,10 +271,16 @@ pairwise disjoint, and
 
 ```
 nominal damage delivered to E_g  ≤  Σ_{i ∈ S_g} a_i ,
-absorbed damage on E_g           =  min( T , nominal damage delivered ),
+actual damage delivered to E_g   ≤  nominal damage delivered to E_g ,
+absorbed damage on E_g           =  min( T , actual damage delivered ),
 ```
 
-with the first inequality an equality whenever no striker of `E_g` waited.
+with both inequalities equalities whenever no striker of `E_g` waited (a striker that
+waited meets the postponed `DEFEND` bonus and delivers at most its nominal `a_i` — strictly
+less unless the clamp at 1 binds). Review round 12 (P12-2) retired the earlier form of the
+second line, `absorbed = min(T, nominal delivered)`, which the repository's own simulator
+refutes on an all-`WAIT` play (`m = 1`, `a = (2,2,2)`, `T = 6`: absorbed 3, not 6); the
+paper's Lemma E.20 and Corollary 4.2 carry the repaired chain.
 
 *Proof.* Each type has stock one and a slot is homogeneous (`MODEL.md` §9), so a slot
 holds at most one creature and each type appears in at most one slot; each stack acts at
@@ -369,9 +375,9 @@ the allocation given as part of the input. ∎
 NP-hard, with the allocation free or given.*
 
 *Proof.* The total nominal player damage is `Σ_i a_i = mT`, and by Lemma 5.2 enemy `g`
-absorbs `min(T, nominal delivered to g)`, with delivered at most nominal (a striker that
-waited into a `DEFEND` bonus delivers at most its nominal `a_i`, and strictly less unless the
-clamp at 1 holds it up, which needs only the inequality here). Total absorbed is therefore at most
+absorbs at most `min(T, nominal delivered to g)`, with equality when no striker of `g` waited
+(a striker that waited into a `DEFEND` bonus delivers at most its nominal `a_i`, and strictly
+less unless the clamp at 1 holds it up; the argument needs only the inequality here). Total absorbed is therefore at most
 `min(mT, Σ_g T) = mT`, with equality only if every stack strikes, every blow delivers its
 full nominal `a_i`, and every enemy absorbs exactly `T` — i.e. `Σ_{i∈S_g} a_i = T` for
 every `g` with the `S_g` disjoint and covering `[3m]`, and `T/4 < a_i < T/2` forces

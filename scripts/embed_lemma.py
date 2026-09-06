@@ -74,9 +74,13 @@ def _g_no_instance():
     allocation and every play, so the answer is no — for any creature
     constants (verify_embedding.py plays it to confirm)."""
     player, enemy = creature_types(1)
+    # the one slot IS the board's one hex (round 13, codex Check 10: an
+    # empty `deploy` made verify_embedding's checker assemble a substitute
+    # battle of its own instead of playing this payload)
     return {"width": 1, "height": 1, "obstacles": frozenset(),
-            "owner": {}, "enemy_hex": {}, "deploy": {}, "dockings": {},
-            "sets": [], "n_elements": 0, "vertex_images": (),
+            "owner": {0: ("e", 0)}, "enemy_hex": {}, "deploy": {0: 0},
+            "dockings": {},
+            "sets": [], "n_elements": 1, "vertex_images": (),
             "features": {"lam": LAMBDA, "rho": RHO,
                          "boxes": {}, "corridors": {}},
             "player_type": player, "enemy_type": enemy,
@@ -255,9 +259,9 @@ def build_board_lemma(n_elements, sets):
     dockings = {}
     for v, key in enumerate(meta_of):
         cx, cy = centre[v]
-        if cy % 2 != 0:               # λ, μ even ⟹ images sit on even rows
+        if cy % 2 != 0:               # λ, ω even ⟹ images sit on even rows
             raise RuntimeError(f"vertex image {centre[v]} off the even "
-                               f"rows — λ or μ is no longer even")
+                               f"rows — λ or ω is no longer even")
 
         def board(local):
             return (cx - RHO + local[0], cy - RHO + local[1])
@@ -302,7 +306,7 @@ def build_board_lemma(n_elements, sets):
     for (x, y), who in owner.items():
         if not (0 <= x < width and 0 <= y < height):
             raise RuntimeError(f"hex {(x, y)} outside the {width}x{height} "
-                               f"board — the μ margin is broken")
+                               f"board — the ω margin is broken")
         to_index[x + y * width] = who
     obstacles = frozenset(h for h in range(width * height)
                           if h not in to_index)

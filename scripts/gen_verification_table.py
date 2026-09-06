@@ -127,38 +127,79 @@ def validate_placeholders(manifest: dict) -> None:
                          "\n  ".join(problems))
 
 
+# LaTeX macros the tex templates use that HIDE or carry digits. Expanded
+# before the literal audit so the tex mirror can be held to the SAME
+# multiset as the md master (round 13, fable F-05 D3/D4: "tex may carry
+# fewer" let a tex-only deletion of `41` and a tex-only 27<->41 swap render
+# a false PDF table under a green battery).
+TEX_DIGIT_MACROS = {
+    r"\\THREEPART(?:\{\})?": "3-PARTITION",
+    r"\\PARTITION(?:\{\})?": "PARTITION",
+}
+# Section labels the tex cells reference where the md master carries the
+# section NUMBER. The audit resolves them here, explicitly, so that md and
+# tex are held to one multiset; an unlisted label fails the audit rather
+# than silently vanishing (that is what "tex may carry fewer" amounted to).
+TEX_REF_NUMBERS = {"sec:design": "5.1", "sec:floats": "4.2"}
+
+# A digit-run, with its sign when the sign is a free-standing minus (start
+# of cell, whitespace or an opening bracket before it) -- round 13, codex
+# Check 05: `12` -> `-12` passed an unsigned audit. A hyphen inside a word
+# (`round-8`, `I1-I4`, `12/16/20`) is not a sign.
+LITERAL_RE = re.compile(r"(?:(?<=^)|(?<=[\s(\[]))-\d+(?:\.\d+)?|\d+(?:\.\d+)?")
+
+
+def literal_runs(cell: str, kind: str) -> list[str]:
+    """The signed digit-runs of one template cell outside its placeholders."""
+    stripped = re.sub(r"\{[a-z_][a-z0-9_]*\}", "", cell)
+    if kind == "tex":
+        for macro, expansion in TEX_DIGIT_MACROS.items():
+            stripped = re.sub(macro, expansion, stripped)
+
+        def ref(m):
+            label = m.group(1)
+            if label not in TEX_REF_NUMBERS:
+                raise SystemExit(f"tex cell references label {label!r}, not "
+                                 f"in TEX_REF_NUMBERS -- add it with the "
+                                 f"section number the md master prints")
+            return TEX_REF_NUMBERS[label]
+        stripped = re.sub(r"\\ref\{([^}]*)\}", ref, stripped)
+    return LITERAL_RE.findall(stripped)
+
+
 def validate_literals(manifest: dict) -> None:
     """Round-10 B6: a counter retyped as a literal digit in a row template
     used to render fine and drift silently. Every digit-run a template
     carries outside {placeholders} must be declared in that row's
     `literals` allowlist (constants like `def 41`, file names like `x3c`,
-    section numbers). Round 12 (P12-7): the audit is now MULTISET equality
-    for the md master — set equality was blind to deleting one occurrence
-    of a digit that appears twice — with one `literals` entry per md
-    occurrence. The tex mirror may carry FEWER of a declared digit (LaTeX
-    macros like \\THREEPART and \\S\\ref legitimately hide digits) but
-    never a digit-run outside the declaration, and never more of one."""
+    section numbers). Round 12 (P12-7): the audit is MULTISET equality
+    for the md master -- set equality was blind to deleting one occurrence
+    of a digit that appears twice -- with one `literals` entry per md
+    occurrence. Round 13 (F-05, Check 05): the tex mirror is held to the
+    SAME per-cell literal SEQUENCE after expanding the digit-carrying
+    macros it uses (TEX_DIGIT_MACROS, TEX_REF_NUMBERS) -- "fewer is fine"
+    let tex-only deletions and swaps through -- and digit-runs are read
+    with a free-standing sign."""
     from collections import Counter
 
     problems = []
     for row in manifest["rows"]:
-        counts = {}
-        for kind in ("md", "tex"):
-            c: Counter = Counter()
-            for cell in row.get(kind, []):
-                stripped = re.sub(r"\{[a-z_][a-z0-9_]*\}", "", cell)
-                c.update(re.findall(r"\d+(?:\.\d+)?", stripped))
-            counts[kind] = c
+        counts = {kind: Counter(run for cell in row.get(kind, [])
+                                for run in literal_runs(cell, kind))
+                  for kind in ("md", "tex")}
         declared = Counter(row.get("literals", []))
         if counts["md"] != declared:
             problems.append(
                 f"row {row['id']}: md digit-runs {dict(counts['md'])} "
                 f"!= declared literals {dict(declared)}")
-        excess = counts["tex"] - declared
-        if excess:
+        # the tex mirror is held cell by cell, IN ORDER, to the md master
+        # (a multiset would still pass a tex-only 27<->41 swap, F-05 D4)
+        md_seq = [literal_runs(c, "md") for c in row.get("md", [])]
+        tex_seq = [literal_runs(c, "tex") for c in row.get("tex", [])]
+        if md_seq != tex_seq:
             problems.append(
-                f"row {row['id']}: tex digit-runs {dict(excess)} exceed "
-                f"the declared literals {dict(declared)}")
+                f"row {row['id']}: per-cell literal sequences differ -- md "
+                f"{md_seq} vs tex {tex_seq} (after macro expansion)")
     if problems:
         raise SystemExit("literal-digit audit failed:\n  " +
                          "\n  ".join(problems))

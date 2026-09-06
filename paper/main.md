@@ -700,8 +700,8 @@ objective is the natural one, but it is not the sole source of hardness.
 
 *Correctness.* The upper-bound direction uses no geometry at all: a stack takes one terminal
 action per round (R9, R11), so it strikes at most once and the striker sets of distinct
-enemies are disjoint, while stock one caps each blow at `a_i` (a waiting blow delivers even
-less, which only helps this direction); killing all `m`
+enemies are disjoint, while stock one caps each blow at `a_i` (a waiting blow delivers at
+most `a_i`, which only helps this direction); killing all `m`
 enemies forces `Σ_{i∈S_g} a_i ≥ T`, which sums to a 3-partition as in Theorem 2. The
 geometric work is all in the yes-direction, where we choose the play. For `E_g` at
 `e_g = (X_g, 3)`, `X_g = 4g − 2`, the three approach hexes are `q_g^1 = (X_g − 1, 2)`,
@@ -932,13 +932,13 @@ cross-check, which needs a VCMI checkout. Current outcomes:
 | `verify_x3c.py --full --vacate` | 55 instances (30 yes, 25 no), `q ≤ 4`, 4 skipped by the router | all agree |
 | `crosscheck_sol.py --full` | 37 machine-built planar boards (23 yes, 14 no), 3 skipped by the router, under the **published** Theorem 3 constants (`def 27`, `hp 4`, `μ = 0.35`) | all agree |
 | `crosscheck_sol.py --defend` | 25 instances, published constants AND literal `(‡)` — the combination round 8 found had never been run | all agree |
-| `search_free_order.py` | 16 boards — one corpus of eight q = 2 families, each built and searched under BOTH the historical (def 41) and the published (def 27) constants, the swap asserted at build time — searched with free activation order (any unacted player stack may act next), pass and vanish branches and exhaustive approach hexes, over every allocation (12 yes / 4 no builds) | the free-order answer equals X3C and the fixed order on every (family, constant set, allocation) triple; yes-instances admit only the all-ones winner; 3 discriminating controls — order, vanish, destination — on which the full search strictly beats its degraded variants; the negative control (defence = attack) flips 1 planar no-instance to yes |
-| `verify_embedding.py` | 61 corpus families through the Lemma D.4 embedding algorithm itself (DMP planarity → orthogonal drawing → `λ = 20` scaling, adapters, stubs): 44 boards built; 17 certified degenerate no-instances, 3 of them also non-planar; 0 certified non-planar — plus a separate battery of 17 malformed encodings and one planted non-planar control, all deterministic | I1–I4 and the feature-based (SEP′) separation hold on every board (28151 non-incident feature pairs, class minima L∞ 12/16/20 against the required 12); the no-certificate board itself plays out as a genuine no; the full game search runs on 3 of them — under the historical AND the published constants — and agrees with X3C |
+| `search_free_order.py` | 16 boards — one corpus of eight q = 2 families, each built and searched under BOTH the historical (def 41) and the published (def 27) constants, the swap asserted at build time — searched with free activation order (any unacted player stack may act next), pass and vanish branches and exhaustive approach hexes, over every allocation (12 yes / 4 no builds), under the `hold` defence, which dominates (‡) for the player | the free-order answer equals X3C and the fixed order on every (family, constant set, allocation) triple; yes-instances admit only the all-ones winner; 3 discriminating controls — order, vanish, destination — on which the full search strictly beats its degraded variants; the negative control (defence = attack) flips 1 planar no-instance to yes; the corpus tiers expanded 3860 out-of-order activations and 6312 vanish branches and met 0 states offering a second approach hex — Lemma D.7 from the searcher's side, so the destination branch is exercised by its control only |
+| `verify_embedding.py` | 61 corpus families through the Lemma D.4 embedding algorithm itself (DMP planarity → orthogonal drawing → `λ = 20` scaling, adapters, stubs): 44 boards built; 17 certified degenerate no-instances, 3 of them also non-planar; 0 certified non-planar — plus a separate battery of 17 malformed encodings and one planted non-planar control, all deterministic | I1–I4, the Lemma D.4 feature counts (4|C| boxes, 6|C| − |X| corridors) and the feature-based (SEP′) separation hold on every board (28151 non-incident feature pairs, class minima L∞ 12/16/20 against the required 12); the no-certificate board, assembled from its own encoding, plays out as a genuine no; the full game search runs on 3 of them — under the historical AND the published constants — and agrees with X3C |
 | `verify_hp_objective.py` | 16 instances (10 yes, 6 no), plus a negative control | relaxation = `mT` iff 3-PARTITION; witness absorbs exactly `mT` |
 | `verify_full_model_optima.py` | all 145 empirical instances | every optimum certified over the full action model; the ghost bound also dominates every `(‡)` play (§5.1) |
 | `certify_scores.py` | all 870 scored responses | every score certified likewise, and reproduced exactly by the `(‡)` phase-aware replay |
 | `check_defend_policy.py` | all 145 replayed under `(‡)`, phase-aware | all equal the recorded optima; `--legacy-defend` reproduces the 6 round-5 violations (negative control) |
-| `test_regressions.py` | 237 regressions: one per error ever caught here, a phase-ordered trace of the capped defended branch, and a doc-consistency battery that re-renders this very table from its manifest, re-runs the generating suites to pin the manifest's counters (only the two `--full` Theorem 3 tiers excepted — those are swept against the proof document), sweeps the counter prose in the siblings and the paper body, and bans 16 retired claims verbatim | all pass |
+| `test_regressions.py` | 280 regressions: one per error ever caught here, a phase-ordered trace of the capped defended branch, and a doc-consistency battery that re-renders this very table from its manifest, re-runs the generating suites to pin the manifest's counters (only the two `--full` Theorem 3 tiers excepted — those are swept against the proof document), sweeps the counter prose in the siblings and the paper body, and bans 19 retired claims verbatim | all pass |
 | engine harness | 49 cases | 46 exact, 3 explained (Section 4.2); includes 6 turn-order cases run through the engine's own `battleGetTurnOrder` |
 <!-- verification-table:end -->
 
@@ -948,15 +948,20 @@ from `verification_manifest.json` by `scripts/gen_verification_table.py`, and
 fails the suite; the generator also validates each row against the manifest's declared
 *ordered sequence* of counter placeholders and refuses digit-runs outside the row's declared
 constants; and — because review round 11 demonstrated that a guard's sentence about its own
-coverage is itself an unverified claim — the battery rebuilds four demonstrated mutations
+coverage is itself an unverified claim — the battery rebuilds eight demonstrated mutations
 (a counter retyped as a literal digit; two placeholders swapped inside one row; a counter
-moved across a cell boundary in one render only; a deleted duplicate digit-run) in memory on
-every run and requires each to fail validation. Each pair rendered into the papers under a
-green battery before the round that drilled it (11 and 12); this sentence is backed by those
-drills rather than by intention. The guard's reach stops at the numbers and their placement:
-the table's *prose* — every non-numeric word of its claims — is rendered from the manifest
-but not generated from the artifacts, so a rewritten claim is a manifest edit the drills
-cannot see; review round 12 demonstrated exactly that, and we record the limit here rather
+moved across a cell boundary in one render only; a deleted duplicate digit-run; the (SEP′)
+class minima reordered; a sign placed in front of a literal; a digit-run deleted from the
+LaTeX render only; two constants swapped in the LaTeX render only) in memory on every run
+and requires each to fail validation. Each rendered into the papers under a green battery
+before the round that drilled it (11, 12 and 13); this sentence is backed by those drills
+rather than by intention. The guard's reach stops at the numbers and their placement —
+ordered placeholder sequences and signed digit-runs, held cell by cell and in order across
+both renders after expanding the LaTeX macros that carry digits — and establishes no numeric
+*meaning*: the table's *prose* — every non-numeric word of its claims — is rendered from the
+manifest but not generated from the artifacts, so a rewritten claim is a manifest edit the
+drills cannot see; review round 12 demonstrated exactly that, round 13 demonstrated it again
+(a transposed scale sentence, a swapped yes/no label), and we record the limit here rather
 than pretend otherwise. Since review round 9 the counters themselves are pinned to their artifacts rather
 than trusted as written: the battery re-runs the generating scripts — the mechanics tests,
 the obstacle, hp-objective and DP suites (the DP suite including its corridor game tier
@@ -971,7 +976,13 @@ over-credited: the two `--full` corpus tiers — `verify_x3c.py --full --vacate`
 `crosscheck_sol.py --full`, eight counters in all — are not re-run inside the battery
 (each takes minutes); those eight are swept against the sentences of the papers and the
 proof documents known to quote them, so a stale citation at a swept site fails the suite,
-but only rerunning the two tiers themselves re-derives the counts.
+but only rerunning the two tiers themselves re-derives the counts. Two further checks live
+outside the battery by policy, like the ability audit of Section 5: `scripts/check_artifact_repo.py`,
+which needs the network, and `scripts/fuzz_pipeline.py`, a seeded fuzz of the Lemma D.4
+pipeline (300 random families through the router, every board checked for (I1)–(I4) and
+(SEP′), every no-certificate checked for truth) together with an exhaustive comparison of
+the DMP planarity test against an independent forbidden-subgraph oracle on all 32 768
+labelled graphs on six vertices; both are clean at the cited tag.
 
 One remark about the built/skipped split, so that rerunning the code holds no surprises.
 The board router for Theorem 3 is a randomized heuristic, and a skip is an honest failure
@@ -1002,9 +1013,13 @@ the pipeline, not distinct combinatorial structures.
 ---
 
 **Data and code availability.** Everything this section runs is published as an artifact
-repository [Par26], release tag `v1.1` — cite and check out the tag, not the moving branch;
+repository [Par26], release tag `v1.2` — cite and check out the tag, not the moving branch;
 round 12 of review caught the paper citing the unversioned repository while the public tree
-was one commit stale, and `scripts/check_artifact_repo.py` now pins the tag to the paper: the model transcription (`MODEL.md`), every script listed above together
+was one commit stale, and `scripts/check_artifact_repo.py` pins the tag to the paper — every
+path the paper names, whether in prose or in the commands above (round 13 widened that sweep
+from the 13 backticked paths to every file the paper names; their count is pinned in the
+manifest), the manifest counters, and a
+byte-identical `main.md`: the model transcription (`MODEL.md`), every script listed above together
 with the verification manifest that pins their outputs, the engine cross-check, the proof
 working documents, and the full empirical harness and response corpus of Section 5. All file
 paths in this paper are relative to the artifact root. The engine cross-check was run against
@@ -1422,7 +1437,7 @@ on Simulation*, 1986.
 
 [Par26] Parfenchuk. Artifact repository for this paper: model transcription, proofs,
 verification scripts, engine cross-check and empirical harness.
-<https://github.com/uson1x/homm3-hardness>, release tag `v1.1`, 2026.
+<https://github.com/uson1x/homm3-hardness>, release tag `v1.2`, 2026.
 
 [PS20] Ponomarenko, Sirotkin. Dota Underlords game is NP-complete. arXiv:2007.05020, 2020.
 <https://arxiv.org/abs/2007.05020>
@@ -2212,7 +2227,9 @@ with `Σ_i a_i = 2B`, is there `S ⊆ [n]` with `Σ_{i∈S} a_i = B`?
 Since every `a_i ≥ 1` and `n ≥ 1` we have `B ≥ 1`, so the stock and `W = B ∈ ℤ_{>0}` are
 legal. The board is listed hex by hex in `5n` cells and the numbers `a_j` occur only as hit
 points and values, in binary, so `G(a)` is computable in time polynomial in the binary
-encoding of `a` — and only in the binary one, which is why Theorem 1 is *weak* hardness.
+encoding of `a`. (A map polynomial in the binary length is a fortiori polynomial in the
+unary one; Theorem 1 is *weak* hardness not because the map fails in unary but because
+Proposition 1.1's pseudo-polynomial algorithm decides the unary problem.)
 
 **Totality.** The three-way branch of E.1, instantiated: route to `G_no` every encoding that
 is malformed, or has some `a_i ≤ 0`, or has `Σ_i a_i` odd — in the last case no `S` can sum
@@ -2298,11 +2315,11 @@ so every inequality is an equality; in particular `Σ_{j∈S} a_j = B` and `S` s
 **Two remarks on `(‡₁)`.** First, the chain uses *no reach hypothesis*: only that the striker
 sets are disjoint (Lemma E.1) and that each dead `E_j` absorbed at least `a_j` from them.
 Lemma E.4 is therefore needed for the yes-direction (where slot `j` must be adjacent to
-`E_j`) but not for the no-direction. Consequently the warning of Section 2.1 — that widening
-the player's speed would break Theorem 1 — is too strong as stated: translation and
+`E_j`) but not for the no-direction. Consequently an earlier version of Section 2.1, which warned
+that widening the player's speed would break Theorem 1, was too strong: translation and
 speed-widening both preserve the yes-direction, and the no-direction never looked at the
 board. What a wider speed breaks is Proposition 1.1's hypothesis, which is a different
-statement about a different family. Second, the chain bounds the *total* damage `E_j`
+statement about a different family — and that is what Section 2.1 now says. Second, the chain bounds the *total* damage `E_j`
 absorbs, not the size of one blow; an earlier body draft's "its blow delivers at most
 `c_j`" bounded the wrong quantity even though the number is the same.
 
@@ -2678,7 +2695,7 @@ no other hex is ever entered. Rows 1 and 5 contain no `e_g` and, by `(N)`, no ne
 any `e_g`. ∎
 
 **Lemma E.17 (Routing).** *Fix `g` and `r ∈ {1,2,3}`. In any position of an attack-only play
-of round 1 in which `q_g^r` is free, a player stack still standing on its deployment hex `p_j`
+of round 1 in which `E_g` is alive and `q_g^r` is free, a player stack still standing on its deployment hex `p_j`
 can move to `q_g^r` and strike `E_g`. The walk has length at most `w + 2 = 4m + 4 < s`, and
 this holds independently of the order in which the stacks are activated.*
 
@@ -2734,7 +2751,8 @@ not necessarily attack-only. For `g ∈ [m]` let `S_g ⊆ [3m]` be the set of ty
 struck `E_g`. Then the `S_g` are pairwise disjoint, the nominal damage delivered to `E_g` is
 at most `Σ_{i∈S_g} a_i`, the damage `E_g` absorbs is at most `min(T, Σ_{i∈S_g} a_i)` — with
 equality when no striker of `E_g` waited; a waiting blow meets the postponed `DEFEND` bonus
-and delivers less than nominal — and `E_g` is dead
+and delivers at most nominal — strictly less unless the clamp at 1 binds, as it does for
+`a_i = 1` — and `E_g` is dead
 at the end of the round only if `Σ_{i∈S_g} a_i ≥ T`. If moreover no striker of `E_g` waited
 and `Σ_{i∈S_g} a_i ≥ T`, then `E_g` is dead.*
 

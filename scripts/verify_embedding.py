@@ -207,17 +207,44 @@ def boards_equal(a, b) -> bool:
 
 
 def g_no_is_a_no(payload) -> list[str]:
-    """Play the G_no payload's fixed instance: one slot, stock 1, no
-    enemies, W = 1 — destroyed value must be 0 < 1 for every allocation
-    (there is exactly one) under the CURRENT constants."""
+    """Play the G_no payload's fixed instance AS ENCODED: one slot, stock 1,
+    no enemies, W = 1 -- destroyed value must be 0 < 1 for every allocation
+    (there is exactly one) under the CURRENT constants.
+
+    Round 13 (codex Check 10): the round-12 checker built a one-creature
+    battle of its own on an obstacle-free board and ignored the payload's
+    `deploy`/`obstacles`, so a corrupted G_no (slot on hex 999, its only
+    hex impassable) still "played out as a genuine no". Now the encoded
+    board is validated field by field and assembled by the same
+    `verify_x3c.build_battle` every game instance goes through."""
     bad = []
     inst = payload["instance"]
     if inst["target"] < 1 or inst["stock"] != 1 or inst["enemy_hex"]:
         bad.append(f"G_no instance malformed: {inst['stock']=} "
                    f"{inst['target']=} {len(inst['enemy_hex'])=}")
         return bad
-    battle = Battle(Battlefield(inst["width"], inst["height"]),
-                    [Stack(inst["player_type"], 1, side=0, slot=0, hex_=0)])
+    cells = inst["width"] * inst["height"]
+    if len(inst["deploy"]) != 1:
+        bad.append(f"G_no instance has {len(inst['deploy'])} slots, "
+                   f"expected exactly one")
+    for e, h in inst["deploy"].items():
+        if not 0 <= h < cells:
+            bad.append(f"G_no slot {e} deployed on hex {h}, off the "
+                       f"{inst['width']}x{inst['height']} board")
+        elif h in inst["obstacles"]:
+            bad.append(f"G_no slot {e} deployed on impassable hex {h}")
+        elif inst["owner"].get(h) != ("e", e):
+            bad.append(f"G_no slot {e}'s hex {h} is not owned by it: "
+                       f"{inst['owner'].get(h)}")
+    if any(not 0 <= h < cells for h in inst["obstacles"]):
+        bad.append("G_no obstacle set is not a subset of the board")
+    if bad:
+        return bad
+    battle, _initial = V.build_battle(inst, {e: 1 for e in inst["deploy"]})
+    if len(battle.stacks) != 1:
+        bad.append(f"G_no payload assembled into {len(battle.stacks)} "
+                   f"stacks, expected 1")
+        return bad
     got = max_destroyed_value(battle, inst["rounds"])
     if got >= inst["target"]:
         bad.append(f"G_no instance is not a no: destroyed {got} >= "
@@ -301,11 +328,20 @@ def main() -> int:
         # counts are positive (corpus minima 6 and 6); corridor-corridor
         # is LEGALLY empty on small graphs whose edges all share
         # endpoints, so that class is pinned in aggregate only, below.
+        # Round 13 (fable F-07): the loose ">= 2 / >= 1" starvation guard
+        # is replaced by the sizes Lemma D.4 step 1 states for G' --
+        # |V(G')| = 4|C| box centres and |E(G')| = 6|C| - |X| corridor
+        # chains, |C| after deduplication -- true on all 44 corpus boards
+        # (minima 4 and 3). A starved export still fails; so does any
+        # router that quietly drops or merges a feature.
         feats = inst["features"]
-        if len(feats["boxes"]) < 2 or not feats["corridors"]:
-            fail(f"{sets}: feature export starved (boxes "
-                 f"{len(feats['boxes'])}, corridors "
-                 f"{len(feats['corridors'])})")
+        n_sets = len({tuple(sorted(s)) for s in sets})
+        want = (4 * n_sets, 6 * n_sets - n)
+        got = (len(feats["boxes"]), len(feats["corridors"]))
+        if got != want:
+            fail(f"{sets}: feature export (boxes, corridors) = {got}, "
+                 f"Lemma D.4 step 1 says {want} for |C| = {n_sets}, "
+                 f"|X| = {n}")
         if sep_stats["box_box"][0] == 0 or sep_stats["box_corridor"][0] == 0:
             fail(f"{sets}: a per-board (SEP') class is empty (box_box "
                  f"{sep_stats['box_box'][0]}, box_corridor "
