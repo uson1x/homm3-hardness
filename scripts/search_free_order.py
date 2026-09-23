@@ -78,7 +78,19 @@ COUNT what they exercise (`TRACE`): out-of-order activations (`reorder`),
 expanded vanish branches (`vanish`) and states offering more than one
 approach hex (`multi_spot`).  The suite asserts reorder > 0 and vanish > 0
 on the corpus and prints all three on its final line, where the battery
-pins them to the manifest; each degraded searcher zeroes one of them.
+pins them to the manifest.  What the counters expose (round 14, gpt-6-astra
+F3 corrected the previous sentence here, which claimed one per degradation):
+a fixed activation order (`free_order=False`, drilled in the battery on a
+corpus board) and the corpus entry point swapped for the fixed-order
+searcher (TRACE stays zero) zero `reorder`; removing the vanish branch
+(`vanish=False`, drilled) zeroes `vanish`.  They do NOT expose truncation to
+two approach hexes: the corpus has no multi-approach state (`multi_spot` = 0
+is a measurement) and the destination control has exactly two choices, so
+`spots = spots[:2]` passes the whole suite with an identical final line
+(verified on a shadow copy in round 14).  Partial degradations (free choice
+for the first actor only, vanish for speed-0 stacks only) are not covered
+by the zero-assertions; whether the manifest pin of the exact counter values
+catches them has not been measured and is not claimed.
 
 Run:  python3 scripts/search_free_order.py           # battery tier
       python3 scripts/search_free_order.py --full    # adds q=3 families

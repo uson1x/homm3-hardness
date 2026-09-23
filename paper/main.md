@@ -19,8 +19,9 @@ Proposition 1.1); the proof repository `proofs/` retains the working documents.
 ## Abstract
 
 We study the complexity of planning a single round of combat in a generalized version of
-*Heroes of Might and Magic III* (HoMM3), using the open-source VCMI reimplementation [VCMI26] as the
-specification of the rules. We show that one-round combat planning has **two independent
+*Heroes of Might and Magic III* (HoMM3) — the player's stacks start on prescribed deployment
+hexes and the defending garrison follows a fixed scripted policy (wait, then defend) — using
+the open-source VCMI reimplementation [VCMI26] as the specification of the rules. We show that one-round combat planning has **two independent
 sources of strong NP-completeness**: pre-battle allocation of an army to slots is strongly
 hard once the roster carries heterogeneous damage values, and in-battle target selection
 remains strongly hard even with a fixed, single-type army. Between them we place a positive
@@ -33,13 +34,10 @@ and in three of the four no obstacles at all.
 Every rule of the model is cited to a line of the VCMI source; the combat arithmetic and the
 health mechanics are additionally cross-checked against the shipped engine classes
 themselves. Each reduction was exhaustively regression-tested on bounded instances against
-an executable transcription of the rules. That process caught five substantive errors,
-including two in earlier versions of the proofs presented here, and we report them rather
-than silently correcting them. Finally, on a separate corpus of 145 instances small enough to solve exactly, we measure the
-gap between the certified optimum and the value of allocations proposed by three tiers of one
-contemporary language-model family (each allocation played out optimally thereafter), and
-find a consistent shortfall at the weakest tier that has already vanished at the middle
-tier.
+an executable transcription of the rules. That process caught three substantive errors in
+the reductions and their verifiers, two of them in earlier versions of the proofs presented
+here; external review caught others that bounded checks cannot see. We report them rather
+than silently correcting them.
 
 ---
 
@@ -70,7 +68,8 @@ have unified them — that hardness scales with the diversity of the roster — 
 state it, and refute it, in Section 3.3.
 
 Between the two we prove a positive result. In the family produced by our first reduction,
-the problem is solvable by an `O(kB)` dynamic program, so on that family the weak hardness
+the problem is solvable by a dynamic program in `O(kB)` arithmetic operations after a
+polynomial preprocessing pass — pseudo-polynomial time — so on that family the weak hardness
 we prove is exactly the hardness there is. Comparing that family to the hard ones isolates
 the responsible parameter: the **reach hypergraph**, whose vertices are enemies and whose
 hyperedges record which slots can engage which enemy. When it is a perfect matching — and
@@ -117,11 +116,13 @@ appears" would be false and we do not claim it.
    caught. One scope note belongs up front: the checks exercise the constructions on
    bounded instances; the embedding algorithm of Lemma D.4 is implemented step by step —
    with three named subroutine substitutions, disclosed in Appendix D.6 — and validated on
-   the whole instance corpus (Section 4.4), but its correctness on *all* inputs — like
+   the whole instance corpus (Appendix D.6; the suite table is the artifact's `README.md`),
+   but its correctness on *all* inputs — like
    every proof in this paper — rests on the hand proof, not on a proof assistant.
-8. **An empirical study** (Section 5) comparing exactly computed optima against allocations
-   proposed by three tiers of language models on 145 instances, each allocation completed
-   by oracle-optimal play.
+8. **An empirical companion note** in the artifact (`paper/companion-empirics.md`) measures
+   the certified optimum against one-shot allocations proposed by three tiers of language
+   models on 145 instances, each allocation completed by oracle-optimal play; it is not part
+   of this paper's claims.
 
 ### 1.3 What is not new
 
@@ -131,7 +132,7 @@ targeting; the homogeneous-resource split of Theorem 1 is the mechanism of [FB10
 published in 2010. We claim no new reduction technique. We claim three things: a *separation* —
 contrasting restricted families that locate where HoMM3's hardness resides; the fact that
 the decisions in question are literal player-facing actions of a shipped game rather than
-modelling devices; and a standard of verification uncommon in this genre. Section 6 sets out the neighbours in detail.
+modelling devices; and a standard of verification uncommon in this genre. Section 5 sets out the neighbours in detail.
 
 ---
 
@@ -154,7 +155,7 @@ prescribes them, as it
 prescribes obstacles and enemy placement. The object we study is therefore *generalized
 battle-scenario planning with prescribed deployment cells*, and a claim that "only the bounds
 are generalized" would be false. All four theorems use this freedom; Theorem 3 uses it
-heavily. Recovering any of them under native formations is open (Section 7).
+heavily. Recovering any of them under native formations is open (Section 6).
 
 A second, smaller generalization was found by external review, and we record it rather than
 let it be found again. The engine does **not** make every cell of its rectangle usable: the first
@@ -221,7 +222,10 @@ dmg   = max( 1 , ⌊ count · d · f_att · f_def ⌋ )
 In the mathematical model the constants are the exact rationals `1/20`, `1/40`, `4`, `7/10`
 and the floor is exact integer arithmetic; the engine evaluates the same formula in IEEE-754
 doubles, and Section 4.2 documents the one divergence the cross-check has found — a claim
-scoped to the cases run, not a proof that no other exists. Two features of this
+scoped to the cases run, not a proof that no other exists. The reference simulator also
+computes in floats, and floats and exact rationals do not agree on every call either
+(Section 4.2); the theorems consume only what holds under both, and the certificates of
+the empirical companion note are re-derived under exact arithmetic (Section 4.2). Two features of this
 formula do real work below. The multiplicative dependence on `count` makes damage linear in
 stack size; the **lower clamp at 1** breaks that linearity from below, so that splitting a
 stack into singletons can deliver strictly more total damage than keeping it whole.
@@ -273,8 +277,8 @@ melee, single-hex creatures with the default single retaliation charge — the f
 *whole* formula: no ranged or distance penalties, no breath or multi-target attacks, no
 double-wide movement cases. Our hardness results are therefore statements about
 `H3-det-melee`, and they transfer upward to `H3-det` and to the generalized model because
-a restriction of the instance family only strengthens a hardness claim; the empirical
-instances of Section 5 live in the same fragment.
+a restriction of the instance family only strengthens a hardness claim; the instances of
+the empirical companion note (Section 1.2) live in the same fragment.
 
 ### 2.3 The problem
 
@@ -359,19 +363,19 @@ extension must redo this analysis.
 
 An earlier version of `(‡)` issued `DEFEND` at the stack's own turn. For the theorems the
 two are interchangeable — every constructed player stack is strictly faster than every
-enemy — but they part company on the empirical corpus of Section 5, whose natural
+enemy — but they part company on the corpus of the empirical companion note, whose natural
 instances contain enemies *faster* than the player, and there the old policy made six
-recorded optima unattainable (Section 5.1 gives the history and the machine checks that
-close it). The present `(‡)` was adopted after being verified reduction by reduction by
+recorded optima unattainable (the companion note gives the history and the machine checks
+that close it). The present `(‡)` was adopted after being verified reduction by reduction by
 external review; the mechanics it stands on — the `WAIT`-phase order, the bonus
 arithmetic and duration, and the retaliation-charge neutrality of both actions — are
 unit-checked against the cited engine lines, and the searches of Section 4 include a
-variant in which the defence executes `(‡)` literally, phase by phase (Section 4.4).
+variant in which the defence executes `(‡)` literally, phase by phase (Section 4.1).
 
 That the policy is load-bearing is not obvious. The first version of Theorem 1 used an
 attacking garrison and was wrong: an enemy that attacks provokes a *retaliation*, which
 delivers a second blow to that same enemy inside the same round, and the reduction then
-decides SUBSET-SUM with the wrong budget. Section 4.3 tells the story.
+decides SUBSET-SUM with the wrong budget. Section 4.3 records it.
 
 ---
 
@@ -416,10 +420,14 @@ sets of distinct enemies are disjoint, and the total damage `E_j` absorbs is at 
 If PARTITION has a solution `S`, allocate `c_j = a_j` for `j ∈ S`: total `B`, destroyed value
 `B`. Conversely, if the game is a yes-instance with dead set `S`, then
 `B ≤ Σ_{j∈S} a_j ≤ Σ_{j∈S} c_j ≤ Σ_j c_j ≤ B`, so every inequality is tight and `S` solves
-PARTITION. On a malformed encoding, a non-positive `a_i` or an odd `Σ a_i` the reduction
+PARTITION. On a malformed encoding, a non-positive `a_i`, or an odd `Σ a_i`, the reduction
 outputs the fixed no-instance of Lemma D.4; on the empty instance `n = 0` — a PARTITION
-*yes*-instance — it outputs `G((1,1))`, which keeps the map total. With Lemma 2.1 this gives
-NP-completeness. The full proof is Appendix E. ∎
+*yes*-instance — it outputs `G((1,1))`, which keeps the map total. Theorems 2 and 4 route `|a| ≠ 3m`, some `a_i ≤ 0`, `Σ a_i ≠ mT` or an `a_i`
+outside `(T/4, T/2)` to `G_no` the same way (Appendix E, the Theorem 2 and Theorem 4 sections);
+`G_no` is a `1 × 1` board and not of the shape Theorem 4 names — its family clause describes the
+image of every well-formed encoding, and the degenerate encodings, no-instances certified in
+polynomial time, go to the one fixed no-instance shared by all three constructions. With
+Lemma 2.1 this gives NP-completeness. The full proof is Appendix E. ∎
 
 The numbers `a_j` are carried as hit points in binary, so this is only *weak* hardness — and
 that is exactly right, because the family admits an algorithm that matches that bound:
@@ -430,19 +438,21 @@ that is exactly right, because the family admits an algorithm that matches that 
 > allocation, in every position of round 1
 > reachable by legal play from its starting position, for every slot `j` whose stack has *not yet taken its terminal
 > action*, the set of enemies that stack can strike is exactly `{E_j}` —
-> `ARMY-ALLOCATION` is solvable in `O(k·B)` time and `O(B)` space, `B` being the stock.
+> `ARMY-ALLOCATION` is decidable in `O(k·B)` arithmetic operations and `O(B)` working space
+> after a polynomial-time preprocessing pass (one breadth-first search per slot), hence in
+> pseudo-polynomial time; `B` is the stock.
 
 *Proof.* After deployment the play is forced: slot `j` either finishes `E_j` or achieves
 nothing. This is where **one creature per enemy stack** is load-bearing: against a stack of
 several creatures a non-finishing blow still kills whole creatures and still scores, the
 per-slot value is a staircase in `c_j` rather than a threshold, and the 0-1 framing below is
-false (open problem 4, Section 7 — a later review pass exhibited a matching-reach instance
+false (open problem 4, Section 6 — a later review pass exhibited a matching-reach instance
 with six-creature stacks where the threshold rule returns `0` and the true optimum is `3`).
 Against a single creature of `t_j` hit points, slot `j` scores `v_j` iff its nominal damage
 `c_j·d` — delivered exactly by a non-waiting blow under `(★)`, since `Δ = 0` makes both
 factors `1`; a waiting blow meets the postponed `DEFEND` bonus and delivers at most nominal,
 which only helps the upper-bound direction — reaches `t_j`, i.e. iff
-`c_j ≥ b_j := ⌈t_j/d⌉` (well-defined since `d ≥ 1`), and surplus is wasted. The optimum is
+`c_j ≥ b_j := ⌈t_j/d⌉` (well defined since `d ≥ 1`), and surplus is wasted. The optimum is
 `max{ Σ_{j∈S} v_j : Σ_{j∈S} b_j ≤ B }`, a 0-1 knapsack over `k` items, solved by the
 textbook dynamic program. The full proof, with the hypothesis consumed exactly where it is
 needed, is Appendix E. ∎
@@ -491,7 +501,8 @@ Appendix E. ∎
 > single row, as Theorem 1 does. That is impossible: in one row a hex has two neighbours, so
 > a third stack cannot reach `E_g` without walking through a hex occupied by an ally, and
 > occupied hexes are not enterable. The bug was found by a geometry self-check that verifies
-> the reachability lemma on the *built* instance with all slots occupied. See Section 4.
+> the reachability lemma on the *built* instance with all slots occupied (the geometry
+> self-check of the Theorem 1–2 suite, Section 4.1).
 
 ### 3.3 Theorem 3: a single type is enough
 
@@ -553,7 +564,7 @@ construction's two branches sit on opposite sides of the defence cap. An undefen
 sits at `0.025 · 26 = 0.65`, clear of the cap. A defending enemy (Section 2.4) has defence
 32, hence `0.025 · 31 = 0.775` — *past* the cap, so that branch is clamped to `0.7` and
 `μ = 0.3`; and VCMI's hand-written JSON parser loads the cap constant `0.7` as
-`0.7000000000000001` (Section 4), so the clamped branch lives in two slightly different
+`0.7000000000000001` (Section 4.2), so the clamped branch lives in two slightly different
 arithmetics, engine and model disagreeing by one unit in the last place (ULP) exactly at
 integer boundaries of
 `base × 0.3`. The lemma is indifferent to all of it: every `μ` in play — `0.35`, `0.3`, or
@@ -748,13 +759,15 @@ the two-source statement of Section 1.1.
 
 ## 4. Machine-checking methodology
 
-Papers in this genre describe their rules in prose and their reductions on paper, and stop
-there. We did not stop there, and the process is a contribution in its own right — a modest
-one, but the one that changed the content of this paper most.
-
-Throughout, *review round `n`* refers to the `n`-th pass of the external review process this
-manuscript went through; the numbering is internal and is retained only so that each fix can
-be traced to the pass that forced it.
+Every rule of Section 2 was transcribed into code, every reduction was regression-tested
+exhaustively on bounded instances against that transcription, and the arithmetic was
+cross-checked against the shipped engine. We are deliberate about the vocabulary: nothing
+here is **machine-verified** in the sense of a proof assistant — there is no formal proof
+object, and the universal theorems rest on the hand proofs; what we claim is
+**exhaustively regression-tested on bounded instances** and **engine-cross-checked**, to
+the scope stated below; the artifact's `VERIFICATION.md` carries the iteration-by-iteration
+record. Throughout, *review round `n`* refers to the `n`-th pass of the external review
+process this manuscript went through; the numbering is internal.
 
 ### 4.1 The three layers
 
@@ -763,480 +776,154 @@ be traced to the pass that forced it.
    the transcription. Unit tests against hand-computed engine numbers: 90 checks,
    including the `WAIT`/`DEFEND` phase mechanics the policy `(‡)` stands on.
 2. **Exhaustive regression testing of each reduction on bounded instances.** For small
-   instances we enumerate the allocation space and, for each allocation, search the plays
-   of the **attack-only fragment**, branching over targets **and** over every legal
-   approach hex. What "the allocation space" means differs by suite, and the difference
-   should be stated rather than blurred: Theorem 1's PARTITION suite enumerates *every*
-   count vector summing to at most the stock, nothing pruned; Theorem 2's 3-PARTITION
-   suite enumerates every deployment fielding each type exactly once — the shape its
-   witnesses take — with an unrestricted tier (arbitrary partial assignments) run under
-   `--full` on four instances and the `hold` variant only. The searched fragment is thus a
-   **proper subset** of the model's play space — searched ⊊ model, never the whole thing —
-   and the gap is closed by argument, not by search. Two actions of the full model are outside that fragment, and each is
-   discharged explicitly rather than silently. *Pure movement and player `DEFEND`* are
-   over-approximated: a stack that would move without attacking is instead allowed to
-   *vanish from the board*, which frees strictly more hexes than any move could and
-   therefore yields a sound upper bound. *`WAIT`* — which reorders terminal actions and
-   leaves a blow at most nominal (Section 2.4) — is not searched on the player's side; it
-   is discharged on paper, per theorem: the no-directions of Theorems 1, 2 and 4 count
-   blows and never refer to the acting order, and Theorem 3's confinement lemma inducts
-   over the realized order of terminal actions, which covers waiting stacks at their
-   postponed position. The witness plays never wait. The *defence's* waiting is not
-   discharged but executed: the Theorem 1–2 suite and both Theorem 3 verifiers run a
-   variant in which the enemy plays `(‡)` literally, phase by phase, with the `DEFEND`
-   bonus live in the damage formula — including the published `def 27` constants. One
-   scope note, so this is not overread: since every non-waiting blow lands before any
-   postponed `DEFEND` (Section 2.4) and the searched player never waits, no blow in
-   these runs strikes a target that is already defending — instrumenting the damage
-   calls confirms zero such calls. What the `(‡)` runs certify is the phase machinery
-   and that every answer is invariant under it. The defended branch itself — `def 32`,
-   `0.025 · 31 = 0.775`, crossing the cap — is exercised arithmetically by
-   `verify_mechanics.py` and by a phase-ordered trace in `test_regressions.py` in which
-   a waiting player strikes a defended target at the capped multiplier; its engine
-   reading is pinned by the harness's ULP cases (Section 4.2).
-   For the empirical instances of Section 5 the player-side gap is closed mechanically as
-   well — see Section 5.1. This scope — which tiers are exhaustive over
-   what, and on how many instances — is itemized suite by suite in Section 4.4 and in the
-   proof documents; "every play" without qualification would overstate it.
+   instances we enumerate the allocation space — what that space is differs by suite:
+   Theorem 1's takes every count vector summing to at most the stock, Theorem 2's every
+   deployment fielding each type exactly once, the shape its witnesses take; the artifact's
+   `README.md` itemizes it suite by suite — and, for each allocation, search the plays of
+   the **attack-only fragment**, branching over targets **and** over every legal approach
+   hex. That describes the Theorem 1, 2 and 3 suites; the Theorem 4 suite (and through it
+   Corollary 4.2's) decides its no-direction by an arithmetic relaxation — the inequality of
+   Lemma E.20, recomputed from the instance — together with a simulation of every balanced
+   assignment of stacks to enemies, and its exhaustive play search over targets and approach
+   hexes runs on 2 instances × 3 allocations in the battery and on 4 instances under
+   `--full`, the smallest legal ones. The searched fragment is a **proper subset** of the
+   model's play space, and the gap
+   is closed by argument, not by search: *pure movement and player `DEFEND`* are
+   over-approximated — a stack that would move without attacking may instead *vanish from
+   the board*, which frees strictly more hexes than any move could and so yields a sound
+   upper bound; *`WAIT`*, which reorders terminal actions and leaves a blow at most nominal
+   (Section 2.4), is not searched on the player's side but discharged on paper, per
+   theorem — the no-directions of Theorems 1, 2 and 4 count blows and never refer to the
+   acting order, and Theorem 3's confinement lemma inducts over the realized order of
+   terminal actions, which covers waiting stacks at their postponed position; the witness
+   plays never wait. The *defence's* waiting is executed rather than discharged: the
+   Theorem 1–2 suite and both Theorem 3 verifiers run a variant in which the enemy plays
+   `(‡)` literally, phase by phase, with the `DEFEND` bonus live in the damage formula,
+   including the published `def 27` constants. One scope note, so this is not overread:
+   since every non-waiting blow lands before any postponed `DEFEND` (Section 2.4) and the
+   searched player never waits, no blow in these runs strikes a target that is already
+   defending (instrumenting the damage calls in review round 13 recorded zero such calls —
+   a measurement of record, not an invariant the battery asserts); what the `(‡)` runs
+   certify is the phase machinery and that every answer is invariant under it, while the
+   capped defended branch itself is exercised by the mechanics tests and by a phase-ordered
+   trace in the regression battery. "Every play" without qualification would overstate all
+   of this; which tiers are exhaustive over what, and on how many instances, is itemized in
+   the artifact's `README.md`.
 3. **Cross-checking against the shipped engine.** A C++ harness links the actual VCMI battle
    classes — `DamageCalculator`, `CUnitState`/`CHealth`, `CRetaliations`, and the round-queue
    machinery `battleGetTurnOrder`/`battleQueuePhase` — and prints the numbers the engine
-   itself produces. 49 cases; 46 exact agreements.
+   itself produces: 49 cases, 46 exact agreements, the other 3 explained in Section 4.2.
+   Precisely what was cross-checked: combat arithmetic including both damage factors and
+   the clamp at 1 (among them 12 damage and kill-threshold cases drawn from the reduction
+   constructions, one of them a retaliation blow), the health-pool and effective-count
+   mechanics, the retaliation-charge mechanics, and the
+   single-round turn queue under `WAIT`/`DEFEND` states — the engine's own
+   `battleGetTurnOrder`, run over real `CUnitState` units, confirms the descending `NORMAL`
+   phase, the *ascending* `WAIT` phase whatever the speeds (the engine half of the
+   one-round lemma of Section 2.4), that a defending unit leaves the queue for the round,
+   and the side alternation on speed ties where our reference model documents its
+   simplified tie rule. Precisely what was *not*: complete battles, obstacle boards,
+   reachability and approach selection, and the `DEFEND` bonus's server-side arithmetic and
+   expiry (`BattleActionProcessor::doDefendAction`, `BattleInfo::nextTurn`), which cannot be
+   driven without the full game server and are instead quoted from source with file-line
+   citations and regression-tested in the reference model. No constructed instance has been
+   played inside VCMI.
 
-We are deliberate about the vocabulary. Nothing here is **machine-verified** in the sense of
-a proof assistant: there is no formal proof object. What we claim is that the constructions
-were **exhaustively regression-tested on bounded instances** and that the arithmetic was
-**engine-cross-checked**. Precisely what was cross-checked is: combat arithmetic including
-both damage factors and the clamp at 1, the health-pool and effective-count mechanics,
-the retaliation-charge mechanics — including 12 cases drawn from the reduction
-constructions — and the single-round turn queue under `WAIT`/`DEFEND` states. For that last
-item, the engine's own `battleGetTurnOrder`, run over real `CUnitState` units, confirms four
-things: that the `NORMAL` phase descends in speed; that the `WAIT` phase follows it in
-*ascending* speed whatever the speeds (the engine half of the one-round lemma of Section 2.4,
-exercised on the exact speed-13-waits-against-speed-6 configuration that produced the
-Section 5.1 violations); that a defending unit leaves the queue for the round; and that the
-engine alternates sides on speed ties exactly where our reference model documents its
-simplified tie rule.
-Precisely what was *not* cross-checked: complete battles, obstacle boards, reachability and
-approach selection, and the `DEFEND` bonus's server-side arithmetic and expiry
-(`BattleActionProcessor::doDefendAction`, `BattleInfo::nextTurn`), which cannot be driven
-without the full game server and are instead quoted from source with file-line citations
-and regression-tested in the reference model. No constructed instance has been played
-inside VCMI.
+### 4.2 One caveat about arithmetic
 
-### 4.2 The three discrepancies, and a lesson about floating point
+The damage formula carries a defence-factor cap at `0.7` under a floor, and our reductions
+are positioned so that nothing they consume depends on how that arithmetic is evaluated.
+Theorems 1, 2 and 4 set `Δ = 0`, so their witness plays form no fractional product at all;
+their no-directions consume only the bound "delivered at most nominal" (Lemmas E.5, E.12
+and E.20, for Theorems 1, 2 and 4 respectively), true
+under every arithmetic (for Theorem 1 this is a statement about the model's exact integer
+arithmetic: its instances carry hit points in binary, beyond what the engine's `int32` stack
+counts could represent, so no engine-agreement claim is made in that regime); Theorem 3's
+undefended blows sit at `0.025 · 26 = 0.65`, clear of the cap, and its resource lemma is
+stated for every `μ ∈ (0,1)`, so it holds on either side of the cap that the defended branch
+(Section 2.4) does cross. Two independent one-ULP divergences from the exact rationals are
+known and documented, and no theorem of this paper depends on either: VCMI's hand-written
+JSON parser loads the cap literal `0.7` as `0.7000000000000001`, one ULP above the correctly
+rounded double, so the engine's `std::floor` discards a point of damage whenever
+`base × 0.3` is an exact integer — 3 of the 49 engine cases, all with defence far above
+attack; and the reference simulator evaluates the formula in Python floats, which part from
+the exact rationals in the opposite direction on a different constant (`1 − 0.025 · 12` is
+the double nearest `7/10`, below it). On the constants of the constructions the two
+arithmetics agree on every stack size the proofs reason about: the battery checks equality up
+to `c = 2000` creatures on the `(★)` waiting blow, on both Theorem 3 branches at the
+historical constants and on the defended branch at the published ones, and pins the first
+split of the published undefended branch at `c = 180` — beyond every stack the Theorem 3
+search forms, `3q ≤ 12` (Appendix D). On the empirical certification suites the two split on
+202 of 909638 damage calls, each a float result one point below the exact one, none on a
+branch that decides a certified number. The details, the engine's own reading of its
+constant, and the cross-check that re-derives every certificate of the empirical companion
+note under exact arithmetic are in the artifact (`engine-check/REPORT.md`,
+`empirics/scripts/exact_arithmetic_crosscheck.py`).
 
-Three of the 49 engine cases disagreed with the model, all with defence far above attack. The
-cause is that VCMI's hand-written JSON parser accumulates fractional digits as `0.1·d`
-(R15, `lib/json/JsonParser.cpp:536-551`), so the literal `0.7` — the defence-factor cap — is
-loaded as `0.7000000000000001`, one ULP above the correctly rounded double. The engine then
-computes `1 − 0.7000000000000001`, and `std::floor` then discards a point of damage whenever
-`base × 0.3` is an exact integer. The engine reports the constant itself as
-`defense_point_damage_factor_cap = 0.7000000000000001`.
+### 4.3 What the checks caught
 
-The lesson is not that the engine is wrong. It is that a model which is "more correct" than
-the engine by one ULP still has to document the engine's behaviour, and that a reduction
-whose arithmetic sits on such a boundary is fragile. Ours is positioned deliberately:
-Theorems 1, 2 and 4 set `Δ = 0` and never invoke the defence factor (for Theorem 1 this is
-a statement about the model's exact integer arithmetic: its instances carry hit points in
-binary, and beyond `2^53` — or the engine's `int32` stack counts — the shipped engine could
-not represent them at all, so no engine-agreement claim is made in that regime); Theorem 3's undefended
-blows sit at `0.025 · 26 = 0.65`, clear of the cap, while its defended branch
-(Section 2.4) does cross the cap and is exactly where the boundary bites — which is why the
-resource lemma is stated for every `μ ∈ (0,1)`: it holds on either side of the ULP.
-
-### 4.3 The errors the checks caught
-
-A verification method earns trust by what it catches, so we report what ours caught. The
-instructive one in full: the first version of Theorem 1 used an *attacking* garrison and
-claimed a slot of `c_j` creatures delivers `c_j` damage. It delivers `2c_j` — when the
-enemy attacks, the player stack **retaliates**, striking that same enemy a second time in
-the same round — so the reduction decided SUBSET-SUM with budget `2B`, and the brute force
-reported yes-instances of the game for no-instances of PARTITION. The repair is the policy
-`(‡)` of Section 2.4, and the same failure mode later resurfaced inside the checking code
-itself (error 3 below), which is why `R = 1` together with the slowest possible defence does
-*not* make the defence's policy irrelevant.
-
-The other four, briefly (full accounts in the artifact's `VERIFICATION.md`):
-
-1. Theorem 2's first version used a one-row battlefield, where a third stack cannot reach
-   its enemy past an ally; caught by a geometry self-check on the *built* instance.
-2. (The retaliation error above.)
-3. The featureless verifier ran the attacking defence under both policy labels: 23
-   mismatches, three kills reported where the arithmetic admits one.
-4. The empirical exact solver took one canonical approach hex per target instead of
-   branching; the fix moved 5 of 858 responses, all upward.
-5. In the first empirical run both prompt variants of an instance shared a batch and models
-   copied their assisted answer into the raw variant; the raw condition was rerun in
-   separate batches.
-
-Errors 1–2 sat in proofs believed correct and written out in full; errors 3–5 sat in the
-checking apparatus itself. Verification code is code, so the suites carry a negative
-control: the single-type suite deliberately disables the resource lemma (enemy defence set
-equal to player attack) and confirms that a no-instance then *does* turn into a
-yes-instance — a pass carries evidence rather than silence.
-
-**Two further errors were caught not by the checks but by external review, and they mark the
-method's boundary.** The first is an earlier draft's claim that a hit-point objective
-trivializes the problem, false by Corollary 4.2: a claim about instances nobody constructed,
-which bounded checks cannot see. The second is worse, because it was a claim about data we
-had. An earlier draft of Section 5.2 described the weak tier's scores as declining with the
-slot count; the released per-response records plainly contradict it, and Section 5.2 now
-carries the numbers and the retraction. Every layer of this section checks *code against
-code* — a reduction against its source problem, a model against an engine, a bound against a
-witness — and that was a sentence in prose about what a table shows. The lesson we draw is
-not that the checking is worthless but that its scope is narrower than the volume of green
-output suggests: it certifies the theorems and the numbers, and says nothing about whether
-the sentences around them are true. A reader should weight the two differently, and so
-should we.
+The checks caught three substantive errors in earlier versions of this work — two in proofs
+believed correct and written out in full (the first version of Theorem 1 used an *attacking*
+garrison, whose retaliation strikes the same enemy a second time in the same round, so the
+reduction decided SUBSET-SUM with budget `2B`; the first version of Theorem 2 used a one-row
+battlefield, where a third stack cannot reach its enemy past an ally) and one in the
+checking apparatus itself (the featureless verifier ran the attacking defence under both
+policy labels, so the player stacks retaliated and three kills were reported where the
+arithmetic admits one). External review caught errors that bounded checks cannot see, among
+them a false proposition (an earlier statement of Proposition 1.1 lacked its
+one-creature-per-enemy-stack hypothesis; the DP suite now plays the refuting instance as a
+negative control), a claim about instances nobody had constructed (false by Corollary 4.2),
+the side-column simplification of Section 2.1, and a sentence in prose about what a table
+showed (the empirical companion note carries the retraction). Two further errors — in the
+empirical study's exact solver and in its prompting protocol — belong to the companion note
+and are recorded with its artifact (`empirics/RESULTS.md`); an earlier version of this
+section counted them among the errors the checks caught, and one of them was itself found by
+external review. The full accounts, error by error and with who found each, are the
+artifact's `VERIFICATION.md`.
 
 ### 4.4 Reproducing
 
 ```
-python3 scripts/verify_mechanics.py          # 90 checks: damage formula, WAIT/DEFEND phases
-python3 scripts/test_obstacles.py            # 158 checks on geometry and blocking
-python3 scripts/brute_force.py               # Theorems 1-2; defence variants incl. literal (‡)
-python3 scripts/dp_single_type.py            # Prop. 1.1: knapsack, corridors vs the game, control
-python3 scripts/verify_featureless.py        # Theorem 4, tiers C1-C5
-python3 scripts/verify_featureless.py --full # adds the exhaustive play tier C6
-python3 scripts/verify_x3c.py                # Theorem 3, historical constants (def 41)
-python3 scripts/verify_x3c.py --vacate       # ... admitting pure movement
-python3 scripts/verify_x3c.py --defend       # ... with the defence playing (‡) literally
-python3 scripts/crosscheck_sol.py            # Theorem 3 as PUBLISHED (def 27, hp 4, μ = 0.35)
-python3 scripts/crosscheck_sol.py --defend   # ... published constants AND literal (‡)
-python3 scripts/search_free_order.py         # free activation order, vanish; both constant sets
-python3 scripts/verify_embedding.py          # Lemma D.4's algorithm itself, on the whole corpus
-python3 scripts/classify_skips.py            # classify every router skip (minutes, by hand)
-python3 scripts/verify_hp_objective.py       # Corollary 4.2 (hit-point objective)
-python3 empirics/scripts/verify_full_model_optima.py  # Section 5 optima, full action model
-python3 empirics/scripts/certify_scores.py   # Section 5 per-response scores, full action model
-python3 empirics/scripts/check_defend_policy.py  # (‡) replay; --legacy-defend = control
-python3 scripts/test_regressions.py          # regressions, incl. adapter figures vs code
-cd engine-check && ./build.sh && ./run.sh && python3 compare.py
+python3 scripts/test_regressions.py          # battery: every counter pinned, cheap suites re-run
+python3 scripts/verify_x3c.py --full --vacate  # Theorem 3, q ≤ 4 corpus (minutes; not re-run above)
+python3 scripts/crosscheck_sol.py --full     # Theorem 3 at the PUBLISHED def 27, hp 4, μ = 0.35
+cd engine-check && ./build.sh && ./run.sh && python3 compare.py   # needs a VCMI checkout
 ```
 
 There are no dependencies beyond the Python standard library, except for the engine
-cross-check, which needs a VCMI checkout. Current outcomes:
-
-<!-- verification-table:begin -->
-| suite | scale | outcome |
-|---|---|---|
-| `verify_mechanics.py` | 90 checks | all pass |
-| `brute_force.py` | 28 + 14 instances × 3 defence variants (`hold`, literal `(‡)`, attacking + `NO_RETALIATION`); the 3-PARTITION tier is m = 2 only, 11 yes / 3 no | all agree with PARTITION / 3-PARTITION |
-| `test_obstacles.py` | 158 checks | all pass |
-| `dp_single_type.py` | 2000 random instances against exhaustive knapsack search, 40 single-creature corridors played out exhaustively in the game model, plus a multi-creature negative control | agrees everywhere; the control disagrees, exactly as Proposition 1.1's hypotheses require |
-| `verify_featureless.py` | 46 instance runs, `m ∈ {2,3}`, two defence variants | no mismatches |
-| `verify_x3c.py` | 31 instances (17 yes, 14 no), `q ≤ 2`, historical constants (`def 41`, `μ = 0.3`) | all agree, all winners canonical |
-| `verify_x3c.py --vacate` | the same 31, pure movement admitted | identical answers |
-| `verify_x3c.py --defend` | the same 31, defence executing `(‡)` literally | identical answers |
-| `verify_x3c.py --full --vacate` | 55 instances (30 yes, 25 no), `q ≤ 4`, 4 skipped by the router | all agree |
-| `crosscheck_sol.py --full` | 37 machine-built planar boards (23 yes, 14 no), 3 skipped by the router, under the **published** Theorem 3 constants (`def 27`, `hp 4`, `μ = 0.35`) | all agree |
-| `crosscheck_sol.py --defend` | 25 instances, published constants AND literal `(‡)` — the combination round 8 found had never been run | all agree |
-| `search_free_order.py` | 16 boards — one corpus of eight q = 2 families, each built and searched under BOTH the historical (def 41) and the published (def 27) constants, the swap asserted at build time — searched with free activation order (any unacted player stack may act next), pass and vanish branches and exhaustive approach hexes, over every allocation (12 yes / 4 no builds), under the `hold` defence, which dominates (‡) for the player | the free-order answer equals X3C and the fixed order on every (family, constant set, allocation) triple; yes-instances admit only the all-ones winner; 3 discriminating controls — order, vanish, destination — on which the full search strictly beats its degraded variants; the negative control (defence = attack) flips 1 planar no-instance to yes; the corpus tiers expanded 3860 out-of-order activations and 6312 vanish branches and met 0 states offering a second approach hex — Lemma D.7 from the searcher's side, so the destination branch is exercised by its control only |
-| `verify_embedding.py` | 61 corpus families through the Lemma D.4 embedding algorithm itself (DMP planarity → orthogonal drawing → `λ = 20` scaling, adapters, stubs): 44 boards built; 17 certified degenerate no-instances, 3 of them also non-planar; 0 certified non-planar — plus a separate battery of 17 malformed encodings and one planted non-planar control, all deterministic | I1–I4, the Lemma D.4 feature counts (4|C| boxes, 6|C| − |X| corridors) and the feature-based (SEP′) separation hold on every board (28151 non-incident feature pairs, class minima L∞ 12/16/20 against the required 12); the no-certificate board, assembled from its own encoding, plays out as a genuine no; the full game search runs on 3 of them — under the historical AND the published constants — and agrees with X3C |
-| `verify_hp_objective.py` | 16 instances (10 yes, 6 no), plus a negative control | relaxation = `mT` iff 3-PARTITION; witness absorbs exactly `mT` |
-| `verify_full_model_optima.py` | all 145 empirical instances | every optimum certified over the full action model; the ghost bound also dominates every `(‡)` play (§5.1) |
-| `certify_scores.py` | all 870 scored responses | every score certified likewise, and reproduced exactly by the `(‡)` phase-aware replay |
-| `check_defend_policy.py` | all 145 replayed under `(‡)`, phase-aware | all equal the recorded optima; `--legacy-defend` reproduces the 6 round-5 violations (negative control) |
-| `test_regressions.py` | 280 regressions: one per error ever caught here, a phase-ordered trace of the capped defended branch, and a doc-consistency battery that re-renders this very table from its manifest, re-runs the generating suites to pin the manifest's counters (only the two `--full` Theorem 3 tiers excepted — those are swept against the proof document), sweeps the counter prose in the siblings and the paper body, and bans 19 retired claims verbatim | all pass |
-| engine harness | 49 cases | 46 exact, 3 explained (Section 4.2); includes 6 turn-order cases run through the engine's own `battleGetTurnOrder` |
-<!-- verification-table:end -->
-
-The table above is not maintained by hand: it is rendered into both versions of this paper
-from `verification_manifest.json` by `scripts/gen_verification_table.py`, and
-`test_regressions.py` re-renders it in check mode, so an edit that bypasses the manifest
-fails the suite; the generator also validates each row against the manifest's declared
-*ordered sequence* of counter placeholders and refuses digit-runs outside the row's declared
-constants; and — because review round 11 demonstrated that a guard's sentence about its own
-coverage is itself an unverified claim — the battery rebuilds eight demonstrated mutations
-(a counter retyped as a literal digit; two placeholders swapped inside one row; a counter
-moved across a cell boundary in one render only; a deleted duplicate digit-run; the (SEP′)
-class minima reordered; a sign placed in front of a literal; a digit-run deleted from the
-LaTeX render only; two constants swapped in the LaTeX render only) in memory on every run
-and requires each to fail validation. Each rendered into the papers under a green battery
-before the round that drilled it (11, 12 and 13); this sentence is backed by those drills
-rather than by intention. The guard's reach stops at the numbers and their placement —
-ordered placeholder sequences and signed digit-runs, held cell by cell and in order across
-both renders after expanding the LaTeX macros that carry digits — and establishes no numeric
-*meaning*: the table's *prose* — every non-numeric word of its claims — is rendered from the
-manifest but not generated from the artifacts, so a rewritten claim is a manifest edit the
-drills cannot see; review round 12 demonstrated exactly that, round 13 demonstrated it again
-(a transposed scale sentence, a swapped yes/no label), and we record the limit here rather
-than pretend otherwise. Since review round 9 the counters themselves are pinned to their artifacts rather
-than trusted as written: the battery re-runs the generating scripts — the mechanics tests,
-the obstacle, hp-objective and DP suites (the DP suite including its corridor game tier
-and multi-creature negative control), the Lemma D.4 embedding verifier, the featureless
-and brute-force sweeps, the legacy negative control, the Section 5.2 statistics generator
-and, since round 10, the default tiers of both Theorem 3 suites (roughly twenty seconds
-for `verify_x3c.py`, two and a half minutes for `crosscheck_sol.py`). It then compares each
-script's own final output line with the manifest. The engine-harness verdicts are
-re-derived offline from the shipped engine outputs, and the empirical counters are the
-lengths of the shipped artifacts. One disclosed exception, so that a green run is not
-over-credited: the two `--full` corpus tiers — `verify_x3c.py --full --vacate` and
-`crosscheck_sol.py --full`, eight counters in all — are not re-run inside the battery
-(each takes minutes); those eight are swept against the sentences of the papers and the
-proof documents known to quote them, so a stale citation at a swept site fails the suite,
-but only rerunning the two tiers themselves re-derives the counts. Two further checks live
-outside the battery by policy, like the ability audit of Section 5: `scripts/check_artifact_repo.py`,
-which needs the network, and `scripts/fuzz_pipeline.py`, a seeded fuzz of the Lemma D.4
-pipeline (300 random families through the router, every board checked for (I1)–(I4) and
-(SEP′), every no-certificate checked for truth) together with an exhaustive comparison of
-the DMP planarity test against an independent forbidden-subgraph oracle on all 32 768
-labelled graphs on six vertices; both are clean at the cited tag.
-
-One remark about the built/skipped split, so that rerunning the code holds no surprises.
-The board router for Theorem 3 is a randomized heuristic, and a skip is an honest failure
-of the layout search, never a board emitted in violation of the invariants. An earlier
-revision explained the skips by the typical non-planarity of random 3-uniform incidence
-structures; the per-family classification refutes that. There are 7 router skip events
-across the two full corpora —
-4 in the `--full --vacate` tier, 3 in the crosscheck corpus — concerning 5 distinct
-families (two are skipped in both corpora), and every one of them is a degenerate
-no-instance with an uncovered element, whose layout the hill-climb gives up on.
-Non-planarity does occur but is not what drives the skips: the corpora contain
-exactly 3 non-planar families, all of them also degenerate, and because the embedding
-algorithm certifies degeneracy *before* it tests planarity, they surface in the table's
-degenerate count ("of which 3 are also non-planar") while the "certified non-planar"
-count stays at zero — that zero records the order of the checks, not the absence of
-non-planar inputs (an earlier revision misread it exactly that way; the non-planar exit
-itself is exercised by a planted control). An earlier revision also cut the router's retries with a per-instance
-wall-clock deadline, which made the built/skipped split depend on machine load; review
-round 8 caught the counts drifting between runs; the deadline is now gone (retries are
-capped by attempt count only), and the split is a deterministic function of the fixed seeds,
-so the numbers above reproduce exactly. What the suite asserts was never affected either way:
-every board it builds satisfies the invariants, every instance it builds agrees with the
-source problem, and on every yes-instance the unique winning allocation is the canonical one.
-A final transparency note: the corpus families are drawn by seeded random generators, and
-nothing here claims they are pairwise non-isomorphic — the instance counts measure runs of
-the pipeline, not distinct combinatorial structures.
+cross-check. Every suite the battery runs or pins — the command that runs it, what it runs at
+what scale, and its current outcome — is a row of the table in the artifact's `README.md`,
+rendered from `verification_manifest.json` rather than maintained by hand; the tiers the
+battery neither runs nor pins (the unrestricted `--full` tier of the Theorem 1–2 suite, the
+pipeline fuzz, the skip classifier) are listed with their commands above that table.
+`test_regressions.py` re-renders the table in check mode and pins every counter it quotes to
+the artifact that generates it, in five ways, itemized suite by suite in the `README.md`: by
+re-running the generating suite and parsing its own final line (the mechanics, geometry,
+reduction and embedding suites, seconds to minutes each); by re-deriving the engine verdicts
+offline from the shipped engine outputs; by the lengths of the shipped empirical files for
+the instance and response counts; by a recorded log plus an in-process replay of its witness
+half for the arithmetic cross-check — the split count of Section 4.2 is a pin to that log, not
+a re-run, since the cross-check re-runs three scoring suites twice and stays outside the
+battery by the same policy as every other multi-minute tier; and by sweeping the documents
+that quote the two `--full` Theorem 3 tiers, which it does not re-run. It also sweeps the
+counters this paper and the companion note quote, and bans retired claims verbatim; what
+that guard does and does not establish is recorded in the artifact's `VERIFICATION.md`.
 
 ---
 
 **Data and code availability.** Everything this section runs is published as an artifact
-repository [Par26], release tag `v1.2` — cite and check out the tag, not the moving branch;
-round 12 of review caught the paper citing the unversioned repository while the public tree
-was one commit stale, and `scripts/check_artifact_repo.py` pins the tag to the paper — every
-path the paper names, whether in prose or in the commands above (round 13 widened that sweep
-from the 13 backticked paths to every file the paper names; their count is pinned in the
-manifest), the manifest counters, and a
-byte-identical `main.md`: the model transcription (`MODEL.md`), every script listed above together
-with the verification manifest that pins their outputs, the engine cross-check, the proof
-working documents, and the full empirical harness and response corpus of Section 5. All file
-paths in this paper are relative to the artifact root. The engine cross-check was run against
-a VCMI [VCMI26] checkout at commit `b5cee70`; every VCMI file this paper cites is
+repository [Par26], release tag `v1.3` — cite and check out the tag, not the moving branch;
+`scripts/check_artifact_repo.py` pins the tag to the paper: every path the paper or the
+companion note names (their count is pinned in the manifest), the manifest counters, and
+byte-identical copies of `main.md` and of the companion note (`paper/companion-empirics.md`).
+All file paths in this paper are relative to the artifact root. The engine cross-check was
+run against a VCMI [VCMI26] checkout at commit `b5cee70`; every VCMI file this paper cites is
 byte-for-byte identical to the public tree at commit `deeab240` (`develop`, 2026-06-19),
 which is the anchor a reader should check out.
 
-## 5. Empirical study: the optimum against one-shot model allocations
-
-The theorems are asymptotic. This section asks a different and more concrete question: on
-instances small enough that the optimum can be computed exactly, how close to it do
-one-shot, model-proposed allocations come? To our knowledge no paper in this genre measures the gap
-between an exactly computed optimum and the decisions of contemporary models, which is why
-we include it. One framing rule first, because the word "agent" overpromises: **the
-measured object is the value of a model-proposed allocation under oracle-optimal tactical
-completion**. The models are one-shot allocation solvers here, not HoMM3-playing agents.
-
-### 5.1 Design
-
-The corpus is 145 instances of `ARMY-ALLOCATION` in four families, with slot counts
-`k ∈ {2,…,7}`: a corridor family (60), a "flower" family with three deployment hexes per
-enemy (13), and two natural open-board families (36 + 36). The 72 natural instances take their creature
-statistics from the original game (extracted from `CRTRAITS.TXT`); the 73 corridor and flower
-instances are synthetic, built to mirror the reductions. Even in the natural families the
-statistics are **projected** rather than shipped verbatim, since `H3-det` needs flat damage:
-each creature's damage range is collapsed to `dmg_min`. Every instance has `R = 1`, no
-shooters and no double-wide creatures. The projection also drops every combat **ability** —
-`CRTRAITS.TXT` carries only the numeric block — so a stack labelled `Devil` carries a Devil's
-numbers without `BLOCKS_RETALIATION`, a `Crusader` strikes once rather than twice, and a
-`Psychic Elemental` hits one target rather than every adjacent one. We count the affected
-creatures against VCMI's `config/creatures/*.json` in three scopes, so that the disclosure
-cannot understate the projection by picking a flattering subset. Under the narrowest scope —
-the five abilities that would change the modelled melee arithmetic itself —
-47 of the 72 natural instances name at least one affected creature
-(`BLOCKS_RETALIATION` on 53 type-slots,
-`ATTACKS_ALL_ADJACENT` on 20, `RETURN_AFTER_STRIKE` on 13, `FIRE_SHIELD` on 8,
-`ADDITIONAL_ATTACK` on 5). Adding five more combat-adjacent abilities the projection also
-drops (`SPELL_AFTER_ATTACK` on 28, `HP_REGENERATION` on 19, `MAGIC_RESISTANCE` on 12,
-`MANA_DRAIN` on 5, `LIFE_DRAIN` on 2)
-raises that to 65. Under the widest scope — every shipped ability whatsoever
-(`FLYING` alone marks 128 type-slots, `HATE` 73) — all 72 are affected: no natural instance
-fields a creature exactly as the game ships it.
-The per-instance lists are
-`empirics/results/ability_projection.json`, generated by
-`audit_ability_projection.py`. The measurements are internally valid — both sides of every
-ratio are computed in the same fragment — but "statistics from the original game" means
-the numbers alone, not the creatures, and a certified optimum is the optimum of the
-*projected* instance: under the shipped abilities the optimal allocation could differ.
-How much it can differ is measured rather than conjectured: restoring a single dropped
-ability — the Efreet Sultan's `hateGenies`, `+50%` against genies — moves the certified
-optimum of `naturalS-k6-02` from 1136 to 2020, so on that instance the projected optimum
-is 56% of the optimum of the instance its creature names describe
-(`empirics/scripts/check_ability_shift.py`, re-certified on both sides and pinned by the
-battery).
-
-Every instance ships with a **certified** optimum, and the certificate is a pair rather than
-a single number: an upper bound from a reachability relaxation that dominates every legal
-play — including waiting, pure movement, and paths opened by enemy deaths — together with an
-allocation and a play attaining that bound in the simulator. An allocation achieving a value
-is on its own no evidence of optimality; it is the meeting of the two that is
-(`empirics/scripts/verify_full_model_optima.py`, all 145 pass, and
-`empirics/scripts/certify_scores.py`, which does the same with the allocation held fixed and
-certifies all 870 per-response values).
-
-> **A discrepancy found by external review, and how it was closed.** The corpus was
-> generated with a scripted defence that **takes no action at all** (`enemy_policy:
-> "hold"`), while an earlier version of the paper's policy `(‡)` had every enemy issue
-> `DEFEND` at its own turn. The two differ exactly when an enemy acts before the player
-> stack that strikes it — false for all 73 corridor and flower instances, true on 53 of
-> the 72 natural ones — and the difference was not cosmetic: under `DEFEND`-at-turn,
-> **six of the 145 recorded optima were not attainable at all** — `naturalM-k3-04`
-> (recorded 1722 against a generous upper bound of 1564), `naturalS-k2-05` (867 vs 624),
-> `naturalS-k5-05` (3111 vs 2826), `naturalS-k6-01` (285 vs 190), `naturalS-k7-01`
-> (4311 vs 3895), `naturalS-k7-03` (2136 vs 1068). In `naturalS-k2-05`, for instance, the
-> Dragon Flies have speed 13 against the player's speed 6, so they defend before the
-> player's blow, their defence rises from 10 to 12, and the blow the corpus records as
-> killing (`⌊5·4⌋ = 20` against 20 hit points) delivers `⌊5·4·0.95⌋ = 19` instead.
->
-> The resolution is the policy Section 2.4 now defines: `(‡)` waits, then defends, so
-> every enemy's `DEFEND` lands in the `WAIT` phase — after every non-waiting player blow,
-> regardless of speeds. Under this `(‡)` the recorded numbers are exact, and the claim is
-> machine-checked from both sides rather than argued. The witness side:
-> `empirics/scripts/check_defend_policy.py` replays every recorded optimal allocation
-> through the attack-only play search in a phase-aware simulation whose defence executes
-> `(‡)` literally — `WAIT` at the `NORMAL` activation, `DEFEND`, with the bonus live in
-> the damage formula, at the postponed one — and requires exact equality with the
-> recorded optimum: 145 of 145 pass, and `empirics/scripts/certify_scores.py` applies the
-> same replay to all 870 scored responses. The bound side: the ghost-reach relaxation of
-> `empirics/scripts/verify_full_model_optima.py` prices every blow at nominal damage and
-> dominates every legal play, so it upper-bounds every `(‡)` play as well. As a negative
-> control, the same replay under the old `DEFEND`-at-turn policy
-> (`check_defend_policy.py --legacy-defend`) reproduces all six violations above — plus
-> eight more, the exact replay being sharper than round 5's generous bound — which is the
-> evidence that the phase machinery is live rather than vacuously green. The optima,
-> baselines and responses below therefore stand as `(‡)` numbers, not as numbers of a
-> scripted-defence variant; the theorems never depended on this corpus either way.
-
-The model's task is the pre-battle allocation only. After it commits, the battle is played
-out by exhaustive search over attack-only plays — each stack passes or performs
-`WALK_AND_ATTACK`, branching over targets and over every legal approach hex. This is
-deliberately generous: we do not want to penalize a model for tactics it did not choose. As
-with the optima, the search omits `WAIT` and `MOVE`-only actions, so the value it credits to
-an allocation is not on its face an optimum over the whole action model, and a referee is
-right to ask whether the published ratios are therefore understated. They are not: the same
-relaxation closes with the allocation held fixed instead of quantified over, and all 870
-scored responses meet that upper bound (`empirics/scripts/certify_scores.py`, all pass) —
-and, as described above, the same script certifies each response's value under `(‡)` by
-phase-aware replay, so numerator and denominator alike are `(‡)` numbers.
-Each instance appears in two prompt variants:
-**assisted**, where the prompt lists which enemy stacks each slot can reach, and **raw**,
-where it gives only coordinates and the distance rule. The headline uses `assisted`, because
-the claim under test is about the allocation decision, not about hex arithmetic.
-
-Three tiers of one model family were run — `claude-haiku-4-5`, `claude-sonnet-5`,
-`claude-opus-5` — **one completion per cell**, no tools, no simulator access, identical
-sampling settings across tiers. A conflict note: the same model family assisted
-in writing this paper (the Acknowledgements name the models); the subjects here ran
-one-shot, without tools, and saw only the task prompts. One provenance limitation is flagged rather than hidden:
-the version history preserves every response byte-for-byte and every score is recomputed
-from those artifacts, but no per-call parameter manifests survive, so the sampling
-conditions themselves (temperature, one-shot discipline) rest on the run protocol, not on
-a recorded artifact. One completion per cell means every number below describes
-a single realized run: there are no repeats, and therefore no uncertainty intervals; we
-draw no conclusions that would need them. The full matrix is 870 cells (3 models × 145
-instances × 2 variants) and is complete: tasks were administered in batches of ten, and 12
-initially missing cells (token-limit truncations concentrated on hard `sonnet` raw cases,
-plus two lost responses) were filled by separate single-task runs rather than dropped —
-an easier protocol, which is a heterogeneity we flag rather than hide; the refill lowered
-one figure (`sonnet` raw, 0.992 → 0.991) and is reported as such. Both stages of the
-response set — the 858-cell batched run and the completed 870-cell matrix — are preserved
-in the artifact's version history with the twelve refilled cells identifiable exactly, so
-the shift is reproducible, not anecdotal. Responses were scored
-against the certified optima; a response that violates the stock budget is invalid and
-scores zero, since the budget is the constraint that makes the problem a knapsack. All
-three scorer strictness columns (`strict`, `valid_only`, `repaired`) agree to three
-decimals, and in the final matrix every one of the 870 responses parsed and was
-budget-legal, so the treatment of invalid responses drives nothing.
-
-### 5.2 Results
-
-Ratio to the certified optimum, and the fraction of instances solved exactly:
-
-| player | assisted | exact | raw | exact |
-|---|---|---|---|---|
-| `claude-haiku-4-5` | 0.926 | 76.6 % | 0.881 | 74.5 % |
-| `claude-sonnet-5` | 0.997 | 97.9 % | 0.991 | 97.9 % |
-| `claude-opus-5` | 0.998 | 97.2 % | 0.997 | 97.9 % |
-| greedy-value heuristic | 0.954 | 79 % | — | — |
-| greedy-density heuristic | 0.899 | 57 % | — | — |
-| 100-sample random search baseline | 0.971 | — | — | — |
-
-(The last row is a *search* baseline — the best of 100 random legal allocations per
-instance — so it consumes 100 attempts where each model consumes one; it is a yardstick,
-not a like-for-like competitor.)
-
-Three observations, all descriptive of this single run.
-
-1. **On this run the gap sits between the weakest tier and the mid tier, not between the mid
-   tier and the frontier.** Sonnet and Opus score within 0.001 of each other — a difference
-   of about one instance, well within what run-to-run noise or a ceiling effect could
-   produce, so we read it as "similar on this benchmark", not as evidence about saturation.
-   Haiku loses 7.4 % of the available value and misses the optimum on roughly one instance
-   in four — worse than the better of the two greedy heuristics.
-2. **The weak tier is below the strong tiers at every slot count, but its scores do not
-   decline with the slot count.** Every `k` bucket, assisted:
-
-   | `k` | 2 | 3 | 4 | 5 | 6 | 7 |
-   |---|---:|---:|---:|---:|---:|---:|
-   | `claude-haiku-4-5` | 0.981 | 0.973 | 0.857 | 0.946 | 0.952 | 0.828 |
-   | `claude-sonnet-5` | 1.000 | 1.000 | 1.000 | 0.993 | 1.000 | 0.990 |
-   | `claude-opus-5` | 1.000 | 1.000 | 1.000 | 0.993 | 0.998 | 0.995 |
-
-   Haiku's worst buckets are `k = 7` and `k = 4` and its best is `k = 2`, but the sequence
-   is **not** monotone — it rebounds at `k = 5` and `k = 6` — and the per-response rank
-   correlation between `k` and the ratio is only weakly negative (Spearman `-0.19`, and `-0.25`
-   on the natural families alone) — a modest association, not the strong ordering suggested by
-   quoting `k = 2`, `4` and `7` alone. Two confounds compound this: the family mix changes with `k`, since the flower family exists
-   only at `k ∈ {3, 6}` and contributes ten extra instances at `k = 6`, and the natural
-   instances at different `k` draw unrelated creatures and budgets. Restricting to the two
-   natural families, the only ones present at every `k`, does not restore a decline either
-   (`0.965, 0.943, 0.737, 0.902, 0.915, 0.701`).
-
-   **An earlier draft of this paper claimed monotone degradation in `k` and called it the
-   study's most informative figure.** That claim was false, and it was reached by quoting
-   `k = 2, 4, 7` and passing over the rebound. We retract it. **We assert no scaling law in
-   `k`.** What survives is the tier separation of observation 1, which does not involve `k`.
-   Sonnet and Opus stay above `0.985` at every `k`.
-3. **Supplied geometry helped mainly the weak tier.** Removing reachability from the prompt
-   cost Haiku 4.5 percentage points, Sonnet 0.61, and Opus 0.027 on this run (unrounded, Opus
-   scores `0.9976` assisted against `0.9973` raw) — the Opus figure amounts to about one
-   instance and is therefore not a measurement at one completion per cell.
-   (These are the unrounded gaps as `stats_recheck.py` prints them; an earlier draft
-   quoted 0.6 and 0.03, rounded from two different provenances.)
-
-### 5.3 Limitations, in the text and not in a footnote
-
-The instances are small — they have to be, since the optimum must be computed exactly — and
-the 100-sample random baseline already reaches 0.971. The defensible claim is therefore "on
-this benchmark, one-shot weak-tier allocations systematically fell short of an exactly
-known optimum", **not** "language models cannot solve an NP-hard problem", and **not** any
-claim about how the shortfall scales with `k` — observation 2 retracts that. The strong tiers in fact solve these small instances; the
-difficulty the theorems describe lives in the asymptotics, and this study illustrates that
-rather than contradicting it. The design limits are worth listing plainly: one completion
-per cell, so every comparison is descriptive of a single run and differences of a few
-thousandths are not evidence of anything; the protocol is heterogeneous (858 cells in
-batches of ten, 12 refills in single-task contexts, and the refills sat non-randomly on
-hard cases); the `k`-trend is confounded with family composition (observation 2); only one
-model family was tested, so a cross-vendor comparison is future work; and
-reinforcement-learning agents were not measured, because neither of the two HoMM3 RL
-environments we examined can express a pre-battle allocation at all. A publication-grade
-version of this study would use fresh single-task contexts throughout, repeated calls per
-cell with paired intervals, a balanced generator, and at least one more model family; until
-then this section claims description, not inference.
-
 ---
 
-## 6. Related work
+## 5. Related work
 
 **Turn-based tactics.** Gao [Gao19] gives the only prior complexity study of a commercial
 turn-based tactical RPG, proving a simplified Fire Emblem PSPACE-complete and its
@@ -1274,8 +961,8 @@ we do not claim it is.
 Bosboom and Hoffmann [BH17] prove Netrunner mate-in-1 weakly NP-hard from
 2-PARTITION; Romão et al. [RPU25] model an aggressive Flesh and Blood turn as an ILP
 containing 0-1 Knapsack, obtaining a weak hardness result that the authors themselves expect
-to be pseudo-polynomially solvable. UNO is NP-hard for a single player [DDHUUU14]; perfect
-information Hearthstone is PSPACE-hard [Zha23]; Magic: The Gathering is Turing-complete
+to be pseudo-polynomially solvable. UNO is NP-hard for a single player [DDHUUU14];
+perfect-information Hearthstone is PSPACE-hard [Zha23]; Magic: The Gathering is Turing-complete
 [CBH19].
 
 **Classical ancestry.** With a single type, `R = 1`, and each slot facing one enemy, our
@@ -1302,7 +989,7 @@ maps from terrain features.
 
 ---
 
-## 7. Open problems
+## 6. Open problems
 
 We list these in the order we would attack them, and we deliberately defer several that a
 reader might expect.
@@ -1331,8 +1018,9 @@ reader might expect.
    the version a referee is most likely to ask for.
 5. **Bounded speed.** Theorem 3 sets creature speed to the board size to avoid equalizing
    corridor lengths. Legal, but inelegant.
-6. **Adversarial defence.** Replacing the scripted policy by an optimizing opponent moves the
-   problem out of NP. The metatheorems of de Haan and Wolf [dHW18] suggest the second level
+6. **Adversarial defence.** The NP-membership argument given here does not extend to an
+   optimizing opponent, and we supply no lower bound for that variant: its complexity is
+   open. The metatheorems of de Haan and Wolf [dHW18] suggest the second level
    of the polynomial hierarchy rather than PSPACE if one player is strategically restricted.
 7. **Approximation.** None of our results gives inapproximability. Since Theorem 4 is bin
    covering, positive approximation results would have to beat what is already known offline,
@@ -1340,7 +1028,7 @@ reader might expect.
 
 ---
 
-## 8. Conclusion
+## 7. Conclusion
 
 Planning one round of HoMM3 combat is hard in two separable ways: choosing how to divide an
 army among slots, and choosing what to hit. Each remains strongly NP-hard under conditions
@@ -1355,7 +1043,7 @@ this paper.
 
 ---
 
-## 9. Acknowledgements
+## 8. Acknowledgements
 
 The proofs, the machine-checking apparatus and the drafts of this paper were produced with
 substantial AI assistance: several large language models worked as separate agents on the
@@ -1372,8 +1060,11 @@ scope stated precisely in Section 4 — bounded instances and selected engine me
 all statements and not a formal proof object. Every reference cited was independently
 located; the depth to which each load-bearing statement from the literature was verified
 varies by reference and is recorded in Appendix A — the two dependencies of Theorem 3 in
-detail, and every citation not read in full listed explicitly. The author reviewed the
-text and is responsible for the content.
+detail, and every citation not read in full listed explicitly. The subjects of the
+empirical companion note (`paper/companion-empirics.md`) are models of the same family that
+assisted in writing this paper; the note carries that conflict statement, and this paper
+claims nothing about its outcome. The author reviewed the text and is responsible for the
+content.
 
 ---
 
@@ -1437,7 +1128,7 @@ on Simulation*, 1986.
 
 [Par26] Parfenchuk. Artifact repository for this paper: model transcription, proofs,
 verification scripts, engine cross-check and empirical harness.
-<https://github.com/uson1x/homm3-hardness>, release tag `v1.2`, 2026.
+<https://github.com/uson1x/homm3-hardness>, release tag `v1.3`, 2026.
 
 [PS20] Ponomarenko, Sirotkin. Dota Underlords game is NP-complete. arXiv:2007.05020, 2020.
 <https://arxiv.org/abs/2007.05020>
@@ -1633,7 +1324,11 @@ reads the cap constant, and a stack of `c` player creatures delivers nominal dam
 `W = q`, all bounded by a polynomial in `|X| + |C|`, so the instance is polynomial even
 under **unary** encoding — which is what makes the hardness strong. The choice `def = 27`
 is not delicate: any `def(Q) > att(P)` gives `μ ∈ (0,1)`, which is all Lemma 3.2 needs;
-`27` merely keeps `0.65` clear of the floating-point hazard of Section 4.2 on both sides.
+`27` merely keeps `0.65` clear of the engine's cap hazard of Section 4.2 on both sides.
+(The reference simulator's own float hazard, also in Section 4.2, is not dodged by the
+constant: `1 − 0.65` is the double nearest `7/20`, which lies below it, so `⌊c · 0.35⌋` first
+loses a point at `c = 180`, i.e. `q ≥ 60` — far beyond every searched instance, `3q ≤ 12`, and
+immaterial to the lemma, which only needs `μ ∈ (0,1)`; the battery pins both facts.)
 A *defending* `E_S` has defence `27 + ⌊27·20/100⌋ = 32`, so `Δ = −31`, `0.025·31 = 0.775`
 is past the cap and `μ` drops from `0.35` to `0.3` — still in `(0,1)`, so Lemma 3.2
 applies unchanged to the only blows the bonus can ever touch (a waiting player's,
@@ -1853,8 +1548,24 @@ the set-vertex needs a hand-built adapter and the element vertex does not.
 *The deployment stub.* Take `v_e^1` and one axis direction `u` unused at it (one exists:
 `deg(v_e^1) ≤ 2`). Declare free the two hexes at distance 1 and 2 from the centre along
 `u`, and set `p_e` to the one at distance 2. Then `p_e` is connected to the plus, so it
-lies in `R_e`. Nothing else on the board is within distance 12 of the stub (SEP′), so it
-creates no adjacency anywhere else.
+lies in `R_e`; and `p_e` has **exactly one** free neighbour. For `u = RIGHT`:
+`p_e = (X+2, Y)` with `Y` even has neighbours `(X+1, Y)` (the stub's other hex, free),
+`(X+3, Y)` (beyond the two-hex stub, impassable), and four hexes in rows `Y ± 1`, where
+the only free hexes of the box are the vertical-axis cells `(X, Y±1)`, each at `L∞`
+distance ≥ 2 from all four. For a vertical `u`, say `p_e = (X, Y+2)`: rows `Y+1` and
+`Y+2` contain no free hex except the stub itself, and `(X, Y+3)`, `(X+1, Y+3)` lie
+beyond the stub. The cases `u = LEFT` and `u = UP` are checked the same way, hex by hex;
+the column case is *not* a reflection of the row case — reflecting in a column does not
+preserve hex adjacency in offset coordinates. The clause "exactly one free neighbour"
+holds for every used-port set and every unused `u`, in both row parities: the finitely
+many local configurations are enumerated in the apparatus (`check_stub.py`, adjacency
+taken from the model's own neighbour rule, 64 cases, 0 failures). Every free hex within
+`L∞` distance 12 of the stub belongs to a feature incident to `v_e^1`, hence to `R_e`: the
+corridors leaving `v_e^1` through its used ports come as close as `L∞` distance 5 on the
+instance corpus — measured by `verify_embedding.py`, which also checks that membership on
+every corpus board — and, lying outside the box of `v_e^1`, they stay at `L∞` distance ≥ 3
+from a stub two hexes from its centre; every non-incident feature is at distance ≥ 12 by
+(SEP′). So the stub creates no adjacency anywhere else.
 
 **Step 6: closing the board.** Declare impassable every hex not made free in steps 4–5;
 set `σ` to the hex count of the packed board (legal: creature statistics are input,
@@ -1880,7 +1591,7 @@ player stack gets its action.*
 
 *Proof.* Under `(‡)` the defence never initiates. An enemy retaliates only when struck,
 at most once per round (R12; neither `WAIT` nor `DEFEND` consumes the charge,
-Section 2.4), and its strike deals `max(1, ⌊1·1·1⌋) = 1` damage, since
+Section 2.4), and its strike deals `max(1, ⌊1·1·1·1⌋) = 1` damage, since
 `att(Q) = def(P) = 1` gives `Δ = 0`. A player stack of `c ≥ 1` creatures of 4 hit points
 absorbs 1 damage without losing a creature (R5, R6). Each player stack strikes at most
 once, so it receives at most one retaliation. Every living stack takes its terminal
@@ -1956,6 +1667,14 @@ that waits has *postponed* it, and the induction simply reaches it at its later 
 The argument never assumes an acting stack strikes, and the one-round lemma of
 Section 2.4 covers the only other effect of waiting — a possible damage reduction against
 a defended target, which only helps the no-direction.
+
+Lemma D.5 enters the proof only through "two stacks cannot occupy one hex", and the
+argument survives without it: count strikers instead of hexes. The three blows on `E_S`
+came from three distinct stacks (each strikes at most once, Lemma D.6), each from a
+docking of its own region by the first paragraph, and the dockings adjacent to `z_S` are
+`d_S^{e'}` for `e' ∈ S`, one per region — so the strikers are the stacks of the three slots
+of `S`, and slot `e` is among them. We keep Lemma D.5 because it is also what makes the
+phase-by-phase picture of Section 3.3 literal: nobody dies, nobody vacates a docking.
 
 **Lemma D.8 (yes ⟹ yes).** *If `(X, C)` has an exact cover, `G_3(X, C)` is a
 yes-instance.*
@@ -2051,12 +1770,12 @@ and rule tags `R1`–`R17` resolve to engine lines in Appendix B.
 
 Three of the repairs below change what the body says rather than only how it says it, and
 they are flagged where they occur: Theorem 1's no-direction is re-derived over disjoint
-striker sets and uses no reach hypothesis at all (E.2); Proposition 1.1's matching
+striker sets and uses no reach hypothesis at all (the Theorem 1 section); Proposition 1.1's matching
 hypothesis is quantified over *every* position reachable in round-1 play, not only over the
-starting position, because a dead unit stops blocking its hex (E.3); and all three
-reductions are made total (E.1).
+starting position, because a dead unit stops blocking its hex (the Proposition 1.1 section);
+and all three reductions are made total (the conventions section).
 
-### E.1 Conventions common to the three constructions
+### Conventions common to the three constructions
 
 **The grid.** We use the offset ("even-row shifted") coordinates of R1 throughout, in the
 concrete form printed in Appendix C: writing `(x, y)` for column `x` of row `y`, the six
@@ -2201,7 +1920,7 @@ proves nothing about later positions — this is the phenomenon Theorem 3 spends
 In Theorems 1, 2 and 4 no such lemma is needed, because the separation is metric: the bound
 of Lemma E.3 does not look at which hexes are free, so freeing hexes cannot violate it.
 
-### E.2 Theorem 1
+### Theorem 1
 
 > **Theorem 1.** `ARMY-ALLOCATION` is NP-complete, already for instances with `R = 1`, a
 > **single creature type** in the player's army, one creature per enemy stack, no obstacles,
@@ -2231,7 +1950,7 @@ encoding of `a`. (A map polynomial in the binary length is a fortiori polynomial
 unary one; Theorem 1 is *weak* hardness not because the map fails in unary but because
 Proposition 1.1's pseudo-polynomial algorithm decides the unary problem.)
 
-**Totality.** The three-way branch of E.1, instantiated: route to `G_no` every encoding that
+**Totality.** The three-way branch of the conventions section, instantiated: route to `G_no` every encoding that
 is malformed, or has some `a_i ≤ 0`, or has `Σ_i a_i` odd — in the last case no `S` can sum
 to the non-integer `Σ_i a_i / 2`, so a no-certificate is at hand; route the empty encoding
 `n = 0`, which is a `PARTITION` yes-instance because the empty subset sums to `0 = B`, to the
@@ -2241,12 +1960,14 @@ output `G(a)`.
 **Lemma E.4 (Separation in the corridor).** *In `G(a)`, `dist(p_j, e_j) = 1` for every `j`,
 and `dist(p_j, e_{j'}) = |5(j − j') − 1| ≥ 4` for `j ≠ j'`. A player stack has strike radius
 `spd + 1 = 3` (R11), so in **every** position of round 1 a stack standing on `p_j` can strike
-`E_j` and no other enemy.*
+no enemy other than `E_j`, and can strike `E_j` whenever `E_j` is alive.*
 
 *Proof.* On a one-row board R2 degenerates to `|δx|`, so
 `dist(p_j, e_{j'}) = |5(j−1) − 5(j'−1) − 1| = |5(j − j') − 1|`, which is 1 at `j' = j` and,
 for `|j − j'| ≥ 1`, at least `|5 − 1| = 4`. By Lemma E.3 a stack of speed 2 on `p_j` can
-strike only enemies at distance at most 3, and `E_j` is the only one. ∎
+strike only enemies at distance at most 3, and `E_j` is the only one. Conversely `e_j` is
+adjacent to `p_j`, so while `E_j` is alive `WALK_AND_ATTACK` against it with the empty walk and
+approach hex `p_j` is legal (R11), whatever else stands on the board. ∎
 
 The two numbers here are the reduction's one tight margin, and the phrase "consecutive
 blocks are 4 apart", which an earlier body draft used, named neither of them: consecutive blocks are **5** apart (block `j`
@@ -2330,7 +2051,7 @@ to yes-instances and no-instances to no-instances. The constructed instances hav
 single player creature type, one creature per enemy stack, no obstacles and one row.
 `PARTITION` is NP-complete [Kar72], so `ARMY-ALLOCATION` is NP-complete on this family. ∎
 
-### E.3 Proposition 1.1, and what "matching reach" has to mean
+### Proposition 1.1, and what "matching reach" has to mean
 
 The family Theorem 1 constructs admits a pseudo-polynomial algorithm, which is what makes the
 weak hardness of Theorem 1 tight. Stating the algorithm's hypothesis correctly takes one
@@ -2381,7 +2102,7 @@ strike `E_j`; and `j`'s stack has not struck. So `E_j` is alive. Its hex is adja
 by (1), so `WALK_AND_ATTACK` against `E_j` with the empty walk and approach hex `p_j` is
 legal (R11), and `E_j` is strikable. ∎
 
-**Lemma E.10 (The family of Theorem 1 qualifies).** *Every instance `G(a)` built in E.2 has
+**Lemma E.10 (The family of Theorem 1 qualifies).** *Every instance `G(a)` built in the Theorem 1 section has
 persistent matching reach.*
 
 *Proof.* Lemma E.4 gives `dist(p_j, e_j) = 1` and `dist(p_j, e_{j'}) ≥ 4 > 3 = spd + 1` for
@@ -2390,10 +2111,12 @@ persistent matching reach.*
 > **Proposition 1.1.** On the family of Theorem 1 — a single creature type of flat damage
 > `d ≥ 1` and stock `B`, `R = 1`, policy `(‡)`, damage under `(★)`, **one creature per enemy
 > stack**, and **persistent matching reach** in the sense of Definition E.8 —
-> `ARMY-ALLOCATION` is solvable in `O(k·B)` time and `O(B)` space.
+> `ARMY-ALLOCATION` is decidable in `O(k·B)` arithmetic operations and `O(B)` working space
+> after a polynomial-time preprocessing pass (one breadth-first search per slot), hence in
+> pseudo-polynomial time.
 
 *Proof.* Write `t_j` for the hit points and `v_j` for the value of the single creature of
-`E_j`, and `b_j := ⌈t_j/d⌉`; `b_j` is well defined because `d ≥ 1` (E.1). We show that the
+`E_j`, and `b_j := ⌈t_j/d⌉`; `b_j` is well defined because `d ≥ 1` (conventions section). We show that the
 optimum destroyed value equals
 
 ```
@@ -2401,7 +2124,16 @@ OPT = max{ Σ_{j∈S} v_j : S ⊆ [k], Σ_{j∈S} b_j ≤ B },                  
 ```
 
 a 0-1 knapsack over `k` items, which the textbook dynamic program over (slot prefix, consumed
-budget) solves in `O(kB)` time and `O(B)` space by keeping one budget row.
+budget) solves by keeping one budget row: `O(kB)` arithmetic operations on integers of the
+input's bit length, and `O(B)` stored values. That is the bound of the statement, and it counts
+the dynamic program only: the thresholds `b_j` and the bijection `j ↦ E_j` are computed first,
+in a polynomial-time preprocessing pass that reads the board — one breadth-first search per
+slot `j`, run in the starting position of the allocation that deploys a single creature in
+slot `j` and nothing else (feasible whenever `B ≥ 1`; the case `B = 0` is trivial). That
+starting position is a position reachable in the sense of Definition E.8, so the set the
+search finds is exactly `{E_j}`. The whole algorithm is therefore pseudo-polynomial —
+polynomial in the input length and in `B` — and not `O(kB)` outright: an input whose board is
+large and whose `kB` is small costs more than `kB` to read.
 
 *The optimum is at most `(K)`.* Fix a feasible allocation `(c_1, …, c_k)`, `Σ_j c_j ≤ B`, and
 any play of round 1; let `S` be the set of `j` with `E_j` dead. By Lemma E.1 every blow is
@@ -2431,7 +2163,7 @@ value is `Σ_{j∈S} v_j`. ∎
 of several creatures a non-finishing blow still kills whole creatures and still scores, the
 per-slot value is a staircase in `c_j` rather than a threshold, and `(K)` is false — round 10
 exhibited a matching-reach instance with six-creature stacks on which the threshold rule
-returns 0 against a true optimum of 3 (open problem 4, Section 7). *Persistent matching
+returns 0 against a true optimum of 3 (open problem 4, Section 6). *Persistent matching
 reach:* it does not follow from the other restrictions of Theorem 1's statement, not even on
 one row. Take hexes `0, …, 7`; one player type of flat damage 1, `hp = 5`, `spd = 1`, stock
 `B = 2`; slot 1 at hex 1 and slot 2 at hex 7; single-creature enemies `E_1` at hex 0 and
@@ -2443,7 +2175,7 @@ program, which indexes its items by slots through the enemy each slot uniquely r
 not even well defined. What Proposition 1.1 shows tight is the family the reduction
 *constructs*, not the family Theorem 1 quantifies over.
 
-### E.4 Theorem 2
+### Theorem 2
 
 > **Theorem 2.** `ARMY-ALLOCATION` is **strongly** NP-hard, already for `R = 1`, no
 > obstacles, no abilities, one creature per enemy stack, and instances in which every player
@@ -2454,7 +2186,7 @@ integers `a_1, …, a_{3m}` and a bound `T` with `Σ_i a_i = mT` and `T/4 < a_i 
 `i`, is there a partition of `[3m]` into `m` triples each summing to `T`? It remains
 NP-complete with all `a_i` bounded by a polynomial in `m`, i.e. written in unary.
 
-**The instance `G₃(a, T)`.** Given such an instance with `m ≥ 1`:
+**The instance `G_{3P}(a, T)`.** Given such an instance with `m ≥ 1`:
 
 * **Battlefield.** Three rows (`y ∈ {0,1,2}`) and `8m + 2` columns; no obstacles. For
   `g = 1, …, m` put `X_g := 8(g−1)+1` and place
@@ -2478,14 +2210,14 @@ Every number is bounded by a polynomial in `m` once the `a_i` are, and the board
 the `a_i` — which is what makes the hardness strong. The board is wide enough: `q_1^1` sits
 in column 0 and `e_m` in column `X_m = 8m − 7 ≤ 8m + 1`.
 
-**Totality.** As in E.1: route to `G_no` every encoding that is malformed, has a number of
+**Totality.** As in the conventions section: route to `G_no` every encoding that is malformed, has a number of
 items not divisible by 3, has some `a_i ≤ 0`, or fails `Σ_i a_i = mT` or `T/4 < a_i < T/2` —
 each check is a polynomial-time no-certificate under the convention that an encoding outside
 the problem's domain is a no; route the empty encoding `m = 0`, a yes-instance, to the fixed
-instance `G₃((1,1,1), 3)`, a yes-instance of `ARMY-ALLOCATION` by Lemma E.13; otherwise
-output `G₃(a, T)`.
+instance `G_{3P}((1,1,1), 3)`, a yes-instance of `ARMY-ALLOCATION` by Lemma E.13; otherwise
+output `G_{3P}(a, T)`.
 
-**Lemma E.11 (Three seats, and separation at distance 7).** *In `G₃(a, T)` each of
+**Lemma E.11 (Three seats, and separation at distance 7).** *In `G_{3P}(a, T)` each of
 `q_g^1, q_g^2, q_g^3` is a neighbour of `e_g`, the three are distinct, and for `g' ≠ g`*
 
 ```
@@ -2494,7 +2226,8 @@ dist(q_g^r, e_{g'}) ≥ 7          (r = 1, 2, 3),
 
 *with equality attained, e.g. at `q_{g+1}^1 = (X_g + 7, 1)` against `e_g`. Since a player
 stack has strike radius `spd + 1 = 3` (R11), in **every** position of round 1 a stack
-standing on `q_g^r` can strike `E_g` and no other enemy.*
+standing on `q_g^r` can strike no enemy other than `E_g`, and can strike `E_g` whenever
+`E_g` is alive.*
 
 *Proof.* Row 1 is odd, so by R1 the six neighbours of `(X_g, 1)` are `(X_g ± 1, 1)`,
 `(X_g − 1, 0)`, `(X_g, 0)`, `(X_g − 1, 2)`, `(X_g, 2)`; the three hexes `q_g^1, q_g^2, q_g^3`
@@ -2528,7 +2261,7 @@ bound is machine-checked on every constructed instance in the worst case for the
 all `3m` slots occupied (`brute_force.py`, `check_geometry_3partition`).
 
 **Lemma E.12 (Damage accounting).** *Fix an allocation and any play of round 1 of
-`G₃(a, T)`. For `g ∈ [m]` let `S_g ⊆ [3m]` be the set of types whose stack struck `E_g`. Then
+`G_{3P}(a, T)`. For `g ∈ [m]` let `S_g ⊆ [3m]` be the set of types whose stack struck `E_g`. Then
 the `S_g` are pairwise disjoint, `|S_g| ≤ 3`, the damage `E_g` absorbs is at most
 `Σ_{i∈S_g} a_i`, and `E_g` is dead at the end of the round only if `Σ_{i∈S_g} a_i ≥ T`.*
 
@@ -2552,7 +2285,7 @@ ever delivers retaliation damage*. The third is the one whose absence produced t
 recorded first error (Section 4.3).
 
 **Lemma E.13 (`3-PARTITION` yes ⟹ game yes).** *If `(a, T)` is a `3-PARTITION` yes-instance
-then `G₃(a, T)` is a yes-instance.*
+then `G_{3P}(a, T)` is a yes-instance.*
 
 *Proof.* Let `{G_1, …, G_m}` be a partition of `[3m]` into triples with `Σ_{i∈G_g} a_i = T`.
 Allocate the three types of `G_g` to the three slots `q_g^1, q_g^2, q_g^3`, one creature
@@ -2585,7 +2318,7 @@ Lemma E.12's computation and `E_g` dies.
 
 All `m` enemies die and the destroyed value is `m · 1 = W`. ∎
 
-**Lemma E.14 (Game yes ⟹ `3-PARTITION` yes).** *If `G₃(a, T)` is a yes-instance then
+**Lemma E.14 (Game yes ⟹ `3-PARTITION` yes).** *If `G_{3P}(a, T)` is a yes-instance then
 `(a, T)` is a `3-PARTITION` yes-instance.*
 
 *Proof.* Each enemy creature has value 1 and there are `m` of them, so a destroyed value of
@@ -2612,9 +2345,10 @@ per enemy stack, and every player type of stock one. ∎
 > **The three rows are not decoration.** In one row a hex has two neighbours, so a third
 > stack could not reach `E_g` without walking through a hex occupied by an ally, and occupied
 > hexes are not enterable (R4). The bug was found by the geometry self-check that verifies
-> Lemma E.11 on the *built* instance with all slots occupied (Section 4).
+> Lemma E.11 on the *built* instance with all slots occupied (the geometry self-check of the
+> Theorem 1–2 suite, Section 4.1).
 
-### E.5 Theorem 4 and its corollaries
+### Theorem 4 and its corollaries
 
 > **Theorem 4.** `ARMY-ALLOCATION` is **strongly** NP-hard already for instances with
 > `R = 1`; **no obstacles and no abilities of any kind**; every player creature type of stock
@@ -2646,8 +2380,11 @@ per enemy stack, and every player type of stock one. ∎
 The board fits: `X_1 = 2` and `X_m = 4m − 2 ≤ w − 3`, so every `e_g` has all six neighbours
 on the board; and `3m − 1 ≤ w − 1`, so the deployment row is long enough. The board has
 `6(4m+2) = O(m)` hexes and every number is polynomial in `m` once the `a_i` are, so the
-construction is polynomial under unary encoding. The totality branch is that of E.4 verbatim,
-with `G_F((1,1,1), 3)` as the fixed yes-instance.
+construction is polynomial under unary encoding. The totality branch is that of the Theorem 2
+section verbatim, with `G_F((1,1,1), 3)` as the fixed yes-instance. One qualification to the
+statement: its family clause — six rows, `4m + 2` columns, complete reachability — describes
+the image of every well-formed encoding; the degenerate encodings map to the fixed no-instance
+`G_no` of Lemma D.4, a `1 × 1` board, which is not of that shape.
 
 Three named hexes per enemy carry all the geometry:
 
@@ -2672,7 +2409,7 @@ differ in column or row. Across groups `|X_g − X_{g'}| ≥ 4`, while the colum
 `g` lie in `{X_g − 1, X_g, X_g + 1}`, so no two groups share a hex. All `q_g^r` lie in rows 2
 and 3, the `p_j` in row 0. ∎
 
-We used the offset convention of R1 in the form stated in E.1: from an *odd* row the two
+We used the offset convention of R1 in the form stated in the conventions section: from an *odd* row the two
 upper neighbours sit at columns `x − 1` and `x`; from an *even* row at columns `x` and
 `x + 1`. Every neighbour computation below is in that convention.
 
@@ -2751,8 +2488,9 @@ not necessarily attack-only. For `g ∈ [m]` let `S_g ⊆ [3m]` be the set of ty
 struck `E_g`. Then the `S_g` are pairwise disjoint, the nominal damage delivered to `E_g` is
 at most `Σ_{i∈S_g} a_i`, the damage `E_g` absorbs is at most `min(T, Σ_{i∈S_g} a_i)` — with
 equality when no striker of `E_g` waited; a waiting blow meets the postponed `DEFEND` bonus
-and delivers at most nominal — strictly less unless the clamp at 1 binds, as it does for
-`a_i = 1` — and `E_g` is dead
+and delivers at most nominal — under `(★)` the bonus is 1 and the factor `0.975`, so equality
+holds exactly when `a_i = 1`, where the clamp at 1 binds, and the blow is strictly less
+otherwise — and `E_g` is dead
 at the end of the round only if `Σ_{i∈S_g} a_i ≥ T`. If moreover no striker of `E_g` waited
 and `Σ_{i∈S_g} a_i ≥ T`, then `E_g` is dead.*
 
@@ -2837,7 +2575,7 @@ three-per-enemy targeting is realizable from any of them. The decision that enco
 Theorem 4 the targeting-driven endpoint of the two-source claim.
 
 > **Remark.** The board does impose one thing: an enemy has six neighbours, so at most six
-> stacks can strike it in one round. Under `(★)` as completed in E.1 this bound is correct —
+> stacks can strike it in one round. Under `(★)` as completed in the conventions section this bound is correct —
 > no striker is killed by the retaliation it draws (Lemma E.2), so no seat is ever vacated
 > mid-round. It never binds here, three stacks per enemy, but it is why "featureless" means
 > *complete reachability plus local seat capacity* and not "positions do not exist".

@@ -1,11 +1,13 @@
 {
   "_comment": [
-    "Single source of truth for the verification table in paper/main.md and",
-    "paper/main.tex (round-8 codex recommendation: the table rows drifted from",
-    "the artifacts twice; now scripts/gen_verification_table.py renders both",
-    "tables from this file, and test_regressions.py both re-renders them in",
+    "Single source of truth for the verification-suite table rendered into",
+    "README.md (round-8 codex recommendation: the table rows drifted from",
+    "the artifacts twice; now scripts/gen_verification_table.py renders the",
+    "table from this file, and test_regressions.py both re-renders it in",
     "check mode and compares the counters below against the artifacts that",
-    "generate them).",
+    "generate them). Until round 15 the table was rendered into both",
+    "paper/main.md and paper/main.tex; the paper's Section 4.4 now points",
+    "at README.md and the tex templates are gone.",
     "Counters are numbers cited anywhere in prose; rows reference them as",
     "{name} placeholders so a number lives in exactly one place.",
     "Each row's `literals` lists every digit-run that legitimately appears",
@@ -14,10 +16,12 @@
     "Round 11 (P11-1/2) showed the digit audit alone is NOT enough: a counter",
     "retyped as a digit already declared in `literals` passed, and swapping two",
     "placeholders inside a row passed. Each row's `placeholders` therefore",
-    "declares the exact ORDERED sequence of counter names its templates carry;",
-    "gen_verification_table.py fails unless the md cells, the tex cells and",
-    "this declaration all agree, order included. test_regressions.py drills",
-    "both historical mutations against the validators every run."
+    "declares the exact ORDERED sequence of counter names its templates carry,",
+    "and `cells` how many of them each cell carries (round 12, P12-7: a",
+    "counter moved across a cell boundary is a different table);",
+    "gen_verification_table.py fails unless the md cells and both",
+    "declarations agree, order included. test_regressions.py drills the",
+    "historical mutations against the validators every run."
   ],
   "counters": {
     "mechanics_checks": 90,
@@ -50,7 +54,7 @@
     "scored_responses": 870,
     "legacy_mismatches": 14,
     "legacy_round5_violations": 6,
-    "regressions": 280,
+    "regressions": 319,
     "banned_claims": 19,
     "engine_cases": 49,
     "engine_exact": 46,
@@ -69,14 +73,24 @@
     "free_order_no": 4,
     "free_order_flips": 1,
     "free_order_controls": 3,
-    "cited_paths": 31,
+    "cited_paths": 41,
     "free_order_reorder": 3860,
     "free_order_vanish": 6312,
     "free_order_multispot": 0,
+    "stub_cases": 64,
     "sep_min_bb": 12,
     "sep_min_bc": 16,
     "sep_min_cc": 20,
-    "sep_required": 12
+    "sep_required": 12,
+    "exact_calls": 909638,
+    "exact_fractional": 347332,
+    "exact_splits": 202,
+    "featureless_c6_instances": 2,
+    "featureless_c6_allocs": 3,
+    "featureless_c6_full_instances": 4,
+    "stub_near_hexes": 6584,
+    "stub_margin_min": 5,
+    "engine_reduction_cases": 12
   },
   "rows": [
     {
@@ -89,12 +103,12 @@
         "{mechanics_checks} checks",
         "all pass"
       ],
-      "tex": [
-        "\\src{verify\\_mechanics.py}",
-        "{mechanics_checks} checks",
-        "all pass"
-      ],
-      "literals": []
+      "literals": [],
+      "cells": [
+        0,
+        1,
+        0
+      ]
     },
     {
       "id": "brute_force",
@@ -109,16 +123,16 @@
         "{brute_force_base} + {brute_force_sharp} instances × 3 defence variants (`hold`, literal `(‡)`, attacking + `NO_RETALIATION`); the 3-PARTITION tier is m = 2 only, {brute_force_tri_yes} yes / {brute_force_tri_no} no",
         "all agree with PARTITION / 3-PARTITION"
       ],
-      "tex": [
-        "\\src{brute\\_force.py}",
-        "{brute_force_base} + {brute_force_sharp} instances $\\times$ 3 defence variants (\\src{hold}, literal $(\\ddagger)$, attacking + \\src{NO\\_RETALIATION}); the \\THREEPART{} tier is $m=2$ only, {brute_force_tri_yes} yes / {brute_force_tri_no} no",
-        "all agree with \\PARTITION{} / \\THREEPART{}"
-      ],
       "literals": [
         "2",
         "3",
         "3",
         "3"
+      ],
+      "cells": [
+        0,
+        4,
+        0
       ]
     },
     {
@@ -131,12 +145,12 @@
         "{obstacle_checks} checks",
         "all pass"
       ],
-      "tex": [
-        "\\src{test\\_obstacles.py}",
-        "{obstacle_checks} checks",
-        "all pass"
-      ],
-      "literals": []
+      "literals": [],
+      "cells": [
+        0,
+        1,
+        0
+      ]
     },
     {
       "id": "dp_single_type",
@@ -149,33 +163,63 @@
         "{dp_random_instances} random instances against exhaustive knapsack search, {dp_game_instances} single-creature corridors played out exhaustively in the game model, plus a multi-creature negative control",
         "agrees everywhere; the control disagrees, exactly as Proposition 1.1's hypotheses require"
       ],
-      "tex": [
-        "\\src{dp\\_single\\_type.py}",
-        "{dp_random_instances} random instances against exhaustive knapsack search, {dp_game_instances} single-creature corridors played out exhaustively in the game model, plus a multi-creature negative control",
-        "agrees everywhere; the control disagrees, exactly as Proposition 1.1's hypotheses require"
-      ],
       "literals": [
         "1.1"
+      ],
+      "cells": [
+        0,
+        2,
+        0
       ]
     },
     {
       "id": "verify_featureless",
       "placeholders": [
-        "featureless_runs"
+        "featureless_runs",
+        "featureless_c6_instances",
+        "featureless_c6_allocs"
       ],
       "md": [
         "`verify_featureless.py`",
-        "{featureless_runs} instance runs, `m ∈ {2,3}`, two defence variants",
-        "no mismatches"
-      ],
-      "tex": [
-        "\\src{verify\\_featureless.py}",
-        "{featureless_runs} instance runs, $m\\in\\{2,3\\}$, two defence variants",
-        "no mismatches"
+        "{featureless_runs} instance runs, `m ∈ {2,3}`, two defence variants, through the tiers C1–C5 (reachability, separation, every balanced assignment simulated, the arithmetic relaxation, saturation); plus the exhaustive play tier C6 — targets AND approach hexes, a passing stack may vanish — on the {featureless_c6_instances} smallest legal instances (`T = 13`, one yes and one no) × {featureless_c6_allocs} allocations each",
+        "no mismatches; C6's exact maximum decides 3-PARTITION and never exceeds the relaxation"
       ],
       "literals": [
         "2",
+        "3",
+        "1",
+        "5",
+        "6",
+        "13",
+        "6",
         "3"
+      ],
+      "cells": [
+        0,
+        3,
+        0
+      ]
+    },
+    {
+      "id": "verify_featureless_full",
+      "placeholders": [
+        "featureless_c6_full_instances",
+        "featureless_c6_allocs"
+      ],
+      "md": [
+        "`verify_featureless.py --full`",
+        "C6 on all {featureless_c6_full_instances} smallest legal instances (`T ∈ {13, 16}`, two yes, two no) × {featureless_c6_allocs} allocations; outside the battery, which pins the instance list's length in-process",
+        "same"
+      ],
+      "literals": [
+        "6",
+        "13",
+        "16"
+      ],
+      "cells": [
+        0,
+        2,
+        0
       ]
     },
     {
@@ -190,16 +234,16 @@
         "{x3c_default_built} instances ({x3c_default_yes} yes, {x3c_default_no} no), `q ≤ 2`, historical constants (`def 41`, `μ = 0.3`)",
         "all agree, all winners canonical"
       ],
-      "tex": [
-        "\\src{verify\\_x3c.py}",
-        "{x3c_default_built} instances ({x3c_default_yes} yes, {x3c_default_no} no), $q\\le 2$, historical constants (\\src{def 41}, $\\mu=0.3$)",
-        "all agree, all winners canonical"
-      ],
       "literals": [
         "2",
         "3",
         "41",
         "0.3"
+      ],
+      "cells": [
+        0,
+        3,
+        0
       ]
     },
     {
@@ -212,13 +256,13 @@
         "the same {x3c_default_built}, pure movement admitted",
         "identical answers"
       ],
-      "tex": [
-        "\\src{verify\\_x3c.py --vacate}",
-        "the same {x3c_default_built}, pure movement admitted",
-        "identical answers"
-      ],
       "literals": [
         "3"
+      ],
+      "cells": [
+        0,
+        1,
+        0
       ]
     },
     {
@@ -231,13 +275,13 @@
         "the same {x3c_default_built}, defence executing `(‡)` literally",
         "identical answers"
       ],
-      "tex": [
-        "\\src{verify\\_x3c.py --defend}",
-        "the same {x3c_default_built}, defence executing $(\\ddagger)$ literally",
-        "identical answers"
-      ],
       "literals": [
         "3"
+      ],
+      "cells": [
+        0,
+        1,
+        0
       ]
     },
     {
@@ -253,14 +297,14 @@
         "{x3c_full_vacate_built} instances ({x3c_full_vacate_yes} yes, {x3c_full_vacate_no} no), `q ≤ 4`, {x3c_full_vacate_skipped} skipped by the router",
         "all agree"
       ],
-      "tex": [
-        "\\src{verify\\_x3c.py --full --vacate}",
-        "{x3c_full_vacate_built} instances ({x3c_full_vacate_yes} yes, {x3c_full_vacate_no} no), $q\\le 4$, {x3c_full_vacate_skipped} skipped by the router",
-        "all agree"
-      ],
       "literals": [
         "3",
         "4"
+      ],
+      "cells": [
+        0,
+        4,
+        0
       ]
     },
     {
@@ -276,16 +320,16 @@
         "{crosscheck_full_built} machine-built planar boards ({crosscheck_full_yes} yes, {crosscheck_full_no} no), {crosscheck_full_skipped} skipped by the router, under the **published** Theorem 3 constants (`def 27`, `hp 4`, `μ = 0.35`)",
         "all agree"
       ],
-      "tex": [
-        "\\src{crosscheck\\_sol.py --full}",
-        "{crosscheck_full_built} machine-built planar boards ({crosscheck_full_yes} yes, {crosscheck_full_no} no), {crosscheck_full_skipped} skipped by the router, under the \\textbf{published} Theorem 3 constants (\\src{def 27}, \\src{hp 4}, $\\mu=0.35$)",
-        "all agree"
-      ],
       "literals": [
         "3",
         "4",
         "27",
         "0.35"
+      ],
+      "cells": [
+        0,
+        4,
+        0
       ]
     },
     {
@@ -298,13 +342,13 @@
         "{crosscheck_default_instances} instances, published constants AND literal `(‡)` — the combination round 8 found had never been run",
         "all agree"
       ],
-      "tex": [
-        "\\src{crosscheck\\_sol.py --defend}",
-        "{crosscheck_default_instances} instances, published constants AND literal $(\\ddagger)$---the combination round 8 found had never been run",
-        "all agree"
-      ],
       "literals": [
         "8"
+      ],
+      "cells": [
+        0,
+        1,
+        0
       ]
     },
     {
@@ -324,17 +368,17 @@
         "{free_order_built} boards — one corpus of eight q = 2 families, each built and searched under BOTH the historical (def 41) and the published (def 27) constants, the swap asserted at build time — searched with free activation order (any unacted player stack may act next), pass and vanish branches and exhaustive approach hexes, over every allocation ({free_order_yes} yes / {free_order_no} no builds), under the `hold` defence, which dominates (‡) for the player",
         "the free-order answer equals X3C and the fixed order on every (family, constant set, allocation) triple; yes-instances admit only the all-ones winner; {free_order_controls} discriminating controls — order, vanish, destination — on which the full search strictly beats its degraded variants; the negative control (defence = attack) flips {free_order_flips} planar no-instance to yes; the corpus tiers expanded {free_order_reorder} out-of-order activations and {free_order_vanish} vanish branches and met {free_order_multispot} states offering a second approach hex — Lemma D.7 from the searcher's side, so the destination branch is exercised by its control only"
       ],
-      "tex": [
-        "\\src{search\\_free\\_\\allowbreak order.py}",
-        "{free_order_built} boards --- one corpus of eight $q=2$ families, each built and searched under BOTH the historical (def 41) and the published (def 27) constants, the swap asserted at build time --- searched with free activation order (any unacted player stack may act next), pass and vanish branches and exhaustive approach hexes, over every allocation ({free_order_yes} yes / {free_order_no} no builds), under the \\src{hold} defence, which dominates $(\\ddagger)$ for the player",
-        "the free-order answer equals X3C and the fixed order on every (family, constant set, allocation) triple; yes-instances admit only the all-ones winner; {free_order_controls} discriminating controls --- order, vanish, destination --- on which the full search strictly beats its degraded variants; the negative control (defence = attack) flips {free_order_flips} planar no-instance to yes; the corpus tiers expanded {free_order_reorder} out-of-order activations and {free_order_vanish} vanish branches and met {free_order_multispot} states offering a second approach hex --- Lemma D.7 from the searcher's side, so the destination branch is exercised by its control only"
-      ],
       "literals": [
         "2",
         "3",
         "7",
         "27",
         "41"
+      ],
+      "cells": [
+        0,
+        3,
+        5
       ]
     },
     {
@@ -351,17 +395,15 @@
         "sep_min_bc",
         "sep_min_cc",
         "sep_required",
-        "lemma_endtoend"
+        "lemma_endtoend",
+        "sep_required",
+        "stub_near_hexes",
+        "stub_margin_min"
       ],
       "md": [
         "`verify_embedding.py`",
         "{lemma_families} corpus families through the Lemma D.4 embedding algorithm itself (DMP planarity → orthogonal drawing → `λ = 20` scaling, adapters, stubs): {lemma_built} boards built; {lemma_degenerate_no} certified degenerate no-instances, {lemma_degenerate_nonplanar} of them also non-planar; {lemma_nonplanar} certified non-planar — plus a separate battery of {lemma_malformed} malformed encodings and one planted non-planar control, all deterministic",
-        "I1–I4, the Lemma D.4 feature counts (4|C| boxes, 6|C| − |X| corridors) and the feature-based (SEP′) separation hold on every board ({sep_pairs} non-incident feature pairs, class minima L∞ {sep_min_bb}/{sep_min_bc}/{sep_min_cc} against the required {sep_required}); the no-certificate board, assembled from its own encoding, plays out as a genuine no; the full game search runs on {lemma_endtoend} of them — under the historical AND the published constants — and agrees with X3C"
-      ],
-      "tex": [
-        "\\src{verify\\_embedding.py}",
-        "{lemma_families} corpus families through the Lemma D.4 embedding algorithm itself (DMP planarity $\\to$ orthogonal drawing $\\to$ $\\lambda=20$ scaling, adapters, stubs): {lemma_built} boards built; {lemma_degenerate_no} certified degenerate no-instances, {lemma_degenerate_nonplanar} of them also non-planar; {lemma_nonplanar} certified non-planar --- plus a separate battery of {lemma_malformed} malformed encodings and one planted non-planar control, all deterministic",
-        "I1--I4, the Lemma D.4 feature counts ($4|C|$ boxes, $6|C|-|X|$ corridors) and the feature-based (SEP$'$) separation hold on every board ({sep_pairs} non-incident feature pairs, class minima $L_\\infty$ {sep_min_bb}/{sep_min_bc}/{sep_min_cc} against the required {sep_required}); the no-certificate board, assembled from its own encoding, plays out as a genuine no; the full game search runs on {lemma_endtoend} of them --- under the historical AND the published constants --- and agrees with X3C"
+        "I1–I4, the Lemma D.4 feature counts (4|C| boxes, 6|C| − |X| corridors) and the feature-based (SEP′) separation hold on every board ({sep_pairs} non-incident feature pairs, class minima L∞ {sep_min_bb}/{sep_min_bc}/{sep_min_cc} against the required {sep_required}); the no-certificate board, assembled from its own encoding, plays out as a genuine no; the full game search runs on {lemma_endtoend} of them — under the historical AND the published constants — and agrees with X3C; every free hex within L∞ < {sep_required} of a deployment stub lies in its own element's region ({stub_near_hexes} hexes on the corpus; the nearest free hex outside the stub's own vertex box is at L∞ {stub_margin_min}, which is why step 5 of Lemma D.4 no longer says nothing lies within that distance)"
       ],
       "literals": [
         "1",
@@ -371,7 +413,35 @@
         "4",
         "4",
         "6",
-        "20"
+        "20",
+        "4",
+        "5"
+      ],
+      "cells": [
+        0,
+        6,
+        9
+      ]
+    },
+    {
+      "id": "check_stub",
+      "placeholders": [
+        "stub_cases"
+      ],
+      "md": [
+        "`check_stub.py`",
+        "Lemma D.4 step 5, the deployment-stub clause: every used-port set of a vertex box (at most three ports) × every unused stub direction × both row parities, adjacency from the model's own neighbour rule — {stub_cases} local configurations",
+        "0 failures: the outer stub hex has exactly one free neighbour in every case"
+      ],
+      "literals": [
+        "4",
+        "5",
+        "0"
+      ],
+      "cells": [
+        0,
+        1,
+        0
       ]
     },
     {
@@ -386,13 +456,13 @@
         "{hp_objective_instances} instances ({hp_objective_yes} yes, {hp_objective_no} no), plus a negative control",
         "relaxation = `mT` iff 3-PARTITION; witness absorbs exactly `mT`"
       ],
-      "tex": [
-        "\\src{verify\\_hp\\_objective.py}",
-        "{hp_objective_instances} instances ({hp_objective_yes} yes, {hp_objective_no} no), plus a negative control",
-        "relaxation $=mT$ iff \\THREEPART; witness absorbs exactly $mT$"
-      ],
       "literals": [
         "3"
+      ],
+      "cells": [
+        0,
+        3,
+        0
       ]
     },
     {
@@ -403,15 +473,13 @@
       "md": [
         "`verify_full_model_optima.py`",
         "all {empirical_instances} empirical instances",
-        "every optimum certified over the full action model; the ghost bound also dominates every `(‡)` play (§5.1)"
+        "every optimum certified over the full action model; the ghost bound also dominates every `(‡)` play (see `paper/companion-empirics.md`)"
       ],
-      "tex": [
-        "\\src{verify\\_full\\_model\\_\\allowbreak optima.py}",
-        "all {empirical_instances} empirical instances",
-        "every optimum certified over the full action model; the ghost bound also dominates every $(\\ddagger)$ play (Section~\\ref{sec:design})"
-      ],
-      "literals": [
-        "5.1"
+      "literals": [],
+      "cells": [
+        0,
+        1,
+        0
       ]
     },
     {
@@ -424,12 +492,12 @@
         "all {scored_responses} scored responses",
         "every score certified likewise, and reproduced exactly by the `(‡)` phase-aware replay"
       ],
-      "tex": [
-        "\\src{certify\\_scores.py}",
-        "all {scored_responses} scored responses",
-        "every score certified likewise, and reproduced exactly by the $(\\ddagger)$ phase-aware replay"
-      ],
-      "literals": []
+      "literals": [],
+      "cells": [
+        0,
+        1,
+        0
+      ]
     },
     {
       "id": "check_defend_policy",
@@ -442,13 +510,38 @@
         "all {empirical_instances} replayed under `(‡)`, phase-aware",
         "all equal the recorded optima; `--legacy-defend` reproduces the {legacy_round5_violations} round-5 violations (negative control)"
       ],
-      "tex": [
-        "\\src{check\\_defend\\_policy.py}",
-        "all {empirical_instances} replayed under $(\\ddagger)$, phase-aware",
-        "all equal the recorded optima; \\src{--legacy-defend} reproduces the {legacy_round5_violations} round-5 violations (negative control)"
-      ],
       "literals": [
         "5"
+      ],
+      "cells": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "exact_arithmetic_crosscheck",
+      "placeholders": [
+        "exact_calls",
+        "exact_fractional",
+        "exact_splits",
+        "empirical_instances",
+        "scored_responses"
+      ],
+      "md": [
+        "`exact_arithmetic_crosscheck.py`",
+        "the three suites above re-run twice: every damage call evaluated in Python floats AND in the exact rationals of Section 2 of the paper ({exact_calls} calls, {exact_fractional} with a fractional factor), then with the exact routine installed outright",
+        "{exact_splits} call-level splits, each a float result one point below the exact one, none on a deciding branch: all {empirical_instances} optima, their `(‡)` replays and all {scored_responses} scores are reproduced exactly under exact arithmetic; positive control (float 62 vs exact 63) detected"
+      ],
+      "literals": [
+        "2",
+        "62",
+        "63"
+      ],
+      "cells": [
+        0,
+        2,
+        3
       ]
     },
     {
@@ -459,16 +552,16 @@
       ],
       "md": [
         "`test_regressions.py`",
-        "{regressions} regressions: one per error ever caught here, a phase-ordered trace of the capped defended branch, and a doc-consistency battery that re-renders this very table from its manifest, re-runs the generating suites to pin the manifest's counters (only the two `--full` Theorem 3 tiers excepted — those are swept against the proof document), sweeps the counter prose in the siblings and the paper body, and bans {banned_claims} retired claims verbatim",
-        "all pass"
-      ],
-      "tex": [
-        "\\src{test\\_regressions.py}",
-        "{regressions} regressions: one per error ever caught here, a phase-ordered trace of the capped defended branch, and a doc-consistency battery that re-renders this very table from its manifest, re-runs the generating suites to pin the manifest's counters (only the two \\src{--full} Theorem 3 tiers excepted --- those are swept against the proof document), sweeps the counter prose in the siblings and the paper body, and bans {banned_claims} retired claims verbatim",
+        "{regressions} regressions: one per error ever caught here, a phase-ordered trace of the capped defended branch, and a doc-consistency battery that re-renders this very table into README.md from its manifest, re-runs the generating suites to pin the manifest's counters (only the two `--full` Theorem 3 tiers excepted — those are swept against the proof document), sweeps the counter prose in the siblings, the paper body and the companion note, and bans {banned_claims} retired claims verbatim",
         "all pass"
       ],
       "literals": [
         "3"
+      ],
+      "cells": [
+        0,
+        2,
+        0
       ]
     },
     {
@@ -482,15 +575,15 @@
       "md": [
         "engine harness",
         "{engine_cases} cases",
-        "{engine_exact} exact, {engine_explained} explained (Section 4.2); includes {engine_turn_order_cases} turn-order cases run through the engine's own `battleGetTurnOrder`"
-      ],
-      "tex": [
-        "engine harness",
-        "{engine_cases} cases",
-        "{engine_exact} exact, {engine_explained} explained (Section~\\ref{sec:floats}); includes {engine_turn_order_cases} turn-order cases run through the engine's own \\src{battleGetTurnOrder}"
+        "{engine_exact} exact, {engine_explained} explained (Section 4.2 of the paper); includes {engine_turn_order_cases} turn-order cases run through the engine's own `battleGetTurnOrder`"
       ],
       "literals": [
         "4.2"
+      ],
+      "cells": [
+        0,
+        1,
+        3
       ]
     }
   ]

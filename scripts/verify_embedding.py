@@ -200,6 +200,54 @@ def check_separation(inst) -> tuple[list[str], dict]:
     return bad, stats
 
 
+def check_stub_margin(inst) -> tuple[list[str], int, int | None]:
+    """Step 5 of Lemma D.4, the sentence after the stub clause (round 16,
+    Opus review F8). The paper used to say "nothing else on the board is
+    within distance 12 of the stub (SEP')" — false: (SEP') separates only
+    NON-incident features, and the corridors leaving v_e^1 through its used
+    ports come within L∞ 5 of the stub (corpus minimum, measured here). The
+    corrected sentence is what this checks: every free hex within L∞ < λ−2ρ
+    of a deployment stub p_e belongs to R_e, the region of e's own element —
+    the board's exported ownership map is the region membership, and the
+    features incident to v_e^1 are exactly the ones e owns there.
+
+    Returns (violations, number of free hexes examined within the margin,
+    the corpus-side minimum L∞ from a stub to a free hex OUTSIDE the box of
+    its own vertex v_e^1 — the number the old sentence contradicted)."""
+    feats = inst["features"]
+    lam, rho = feats["lam"], feats["rho"]
+    need = lam - 2 * rho
+    W = inst["width"]
+    owner = inst["owner"]
+    bad = []
+    examined = 0
+    margin = None
+    for e, p in inst["deploy"].items():
+        px, py = p % W, p // W
+        # the box of v_e^1: the stub sits two hexes from its centre
+        centres = [c for c in feats["boxes"].values()
+                   if max(abs(c[0] - px), abs(c[1] - py)) == 2]
+        if len(centres) != 1:
+            bad.append(f"stub of element {e}: {len(centres)} vertex centres at "
+                       f"L∞ 2 (want exactly one)")
+            continue
+        cx, cy = centres[0]
+        for h, who in owner.items():
+            x, y = h % W, h // W
+            d = max(abs(x - px), abs(y - py))
+            if d < need:
+                examined += 1
+                if who != ("e", e):
+                    bad.append(f"stub of element {e} at {(px, py)}: free hex "
+                               f"{(x, y)} at L∞ {d} < {need} is owned by "
+                               f"{who}, not by element {e}")
+            if max(abs(x - cx), abs(y - cy)) <= rho:
+                continue                      # inside v_e^1's own box
+            if margin is None or d < margin:
+                margin = d
+    return bad, examined, margin
+
+
 def boards_equal(a, b) -> bool:
     if set(a) != set(b):
         return False
@@ -277,6 +325,8 @@ def main() -> int:
     max_side = 0
     sep_totals = {cls: [0, None] for cls in
                   ("box_box", "box_corridor", "corridor_corridor")}
+    stub_near = 0            # free hexes within λ−2ρ of a stub, all in R_e
+    stub_margin_min = None   # nearest free hex outside the own vertex box
     t0 = time.time()
     print(f"\n[1] the published corpora through the algorithm "
           f"({len(fams)} distinct families)")
@@ -321,6 +371,14 @@ def main() -> int:
         seps, sep_stats = check_separation(inst)
         for s in seps:
             fail(f"{sets}: (SEP') violated: {s}")
+        stub_bad, stub_examined, stub_margin = check_stub_margin(inst)
+        for s in stub_bad:
+            fail(f"{sets}: stub margin: {s}")
+        if stub_examined == 0 or stub_margin is None:
+            fail(f"{sets}: stub-margin check ran on no hexes — vacuous")
+        stub_near += stub_examined
+        if stub_margin_min is None or stub_margin < stub_margin_min:
+            stub_margin_min = stub_margin
         # round 12 (P12-8): round 11's closure line promised a per-board
         # class check and the code only aggregated. The per-board truth,
         # measured on the whole corpus: every built board exports >= 2
@@ -377,6 +435,14 @@ def main() -> int:
           f"class minima L∞ = {sep_mins[0]}/{sep_mins[1]}/{sep_mins[2]} "
           f"(box-box/box-corridor/corridor-corridor) against the required "
           f"{LAMBDA - 2 * RHO}")
+    # round 16 (F8): the sentence after the stub clause in step 5 is pinned —
+    # the old "nothing within distance 12 of the stub" is refuted by the
+    # margin printed here (incident corridors come closer); the new sentence
+    # ("every free hex within λ−2ρ of the stub lies in R_e") is what passed
+    print(f"   deployment stubs: {stub_near} free hexes within L∞ < "
+          f"{LAMBDA - 2 * RHO} of a stub, every one in its own element's "
+          f"region; nearest free hex outside the own vertex box at L∞ "
+          f"{stub_margin_min}")
 
     print("\n[2] the total-reduction branch (step 0, fuzzed)")
     malformed = 0

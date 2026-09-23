@@ -315,7 +315,8 @@ def test_defend_bonus_arithmetic():
     check("D1 def 0 -> +1 (floor)", defend_bonus(0), 1)
     check("D1 def 5 -> +1", defend_bonus(5), 1)
 
-    # The Dragon Fly blow of paper sec. 5.1: attack 10, defence 10, five
+    # The Dragon Fly blow of the companion note (paper/companion-empirics.md,
+    # formerly paper sec. 5.1): attack 10, defence 10, five
     # creatures of flat damage 4. Nominal 20; against a defender carrying the
     # DEFEND bonus (defence 12, delta = -2) it is floor(20 * 0.95) = 19.
     att = make("att", attack=10, damage=4)

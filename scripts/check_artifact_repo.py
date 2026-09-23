@@ -17,7 +17,8 @@ artifact push:
 It asserts, against the given ref of github.com/uson1x/homm3-hardness:
   1. every artifact-relative path the paper cites exists in the public tree;
   2. the public `verification_manifest.json` counters equal the local ones;
-  3. the public paper (main.md) is byte-identical to the local one;
+  3. the public paper (main.md) and the empirical companion note
+     (paper/companion-empirics.md) are byte-identical to the local ones;
   4. (round 13) every file git tracks under the artifact root is in the
      public tree with the same blob SHA, and the public tree holds nothing
      else -- the release-file hash manifest; 1. is now the readable
@@ -42,7 +43,7 @@ import subprocess
 import sys
 
 REPO = "uson1x/homm3-hardness"
-DEFAULT_REF = "v1.2"
+DEFAULT_REF = "v1.3"
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -50,8 +51,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KNOWN_DIRS = ("scripts/", "empirics/scripts/")
 
 
+CITING_DOCS = ("paper/main.md", "paper/companion-empirics.md", "README.md")
+
+
 def cited_paths(text: str | None = None, root: str = ROOT) -> set[str]:
-    """Artifact-relative paths cited by the md master of the paper.
+    """Artifact-relative paths cited by the md master of the paper, the
+    empirical companion note and the README (round 15: the suite table and
+    the empirical study moved out of the paper into the latter two, which
+    cite artifact paths of their own).
 
     Three citation forms, all swept (round 13, fable F-02 / codex Check 06:
     the round-12 sweep saw only backticked paths WITH a directory prefix --
@@ -66,13 +73,14 @@ def cited_paths(text: str | None = None, root: str = ROOT) -> set[str]:
          it must resolve to exactly one existing file, or the sweep fails
          loudly rather than silently dropping the citation.
 
-    The manifest is always included: the paper's table is rendered from it.
+    The manifest is always included: the README's table is rendered from it.
     """
     if text is None:
-        text = open(os.path.join(root, "paper", "main.md")).read()
+        text = "\n".join(open(os.path.join(root, *doc.split("/"))).read()
+                         for doc in CITING_DOCS)
     out = set()
     for m in re.finditer(
-            r"`((?:scripts|empirics|engine-check|proofs)/[A-Za-z0-9_./-]+"
+            r"`((?:scripts|empirics|engine-check|proofs|paper)/[A-Za-z0-9_./-]+"
             r"|MODEL\.md|VERIFICATION\.md|RELATED-WORK\.md)"
             r"(?:::[A-Za-z0-9_.]+)?(?: [-A-Za-z0-9 ._]*)?`", text):
         path = m.group(1)
@@ -130,12 +138,16 @@ def main() -> int:
                 if loc_counters.get(k) != pub_counters.get(k)}
         fails.append(f"manifest counters differ (local, {ref}): {diff}")
 
-    pub_paper = gh_json(f"repos/{REPO}/contents/paper/main.md?ref={ref}")
-    pub_text = base64.b64decode(pub_paper["content"])
-    loc_text = open(os.path.join(ROOT, "paper", "main.md"), "rb").read()
-    if pub_text != loc_text:
-        fails.append(f"paper/main.md differs from ref {ref} "
-                     f"({len(loc_text)} vs {len(pub_text)} bytes)")
+    for doc in ("paper/main.md", "paper/companion-empirics.md"):
+        if doc not in public:
+            fails.append(f"{doc} is absent from ref {ref}")
+            continue
+        pub_paper = gh_json(f"repos/{REPO}/contents/{doc}?ref={ref}")
+        pub_text = base64.b64decode(pub_paper["content"])
+        loc_text = open(os.path.join(ROOT, *doc.split("/")), "rb").read()
+        if pub_text != loc_text:
+            fails.append(f"{doc} differs from ref {ref} "
+                         f"({len(loc_text)} vs {len(pub_text)} bytes)")
 
     # 4. (round 13, codex Check 12 / finding 3) the whole tree, by content:
     #    every file git tracks under the artifact root must be in the public
@@ -168,7 +180,8 @@ def main() -> int:
             print(f"  - {f}")
         return 1
     print(f"ALL PASS  (artifact ref {ref}: {len(paths)} cited paths present, "
-          f"manifest counters equal, paper byte-identical, {n_equal} tracked "
+          f"manifest counters equal, paper and companion note byte-identical, "
+          f"{n_equal} tracked "
           f"files blob-identical and nothing extra)")
     return 0
 

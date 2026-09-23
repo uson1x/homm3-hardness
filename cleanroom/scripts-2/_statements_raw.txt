@@ -1,0 +1,190 @@
+L309: **Lemma 2.1 (membership).** `ARMY-ALLOCATION ∈ NP`.
+   
+   [--- proof cut ---]
+
+L385: > **Theorem 1.** `ARMY-ALLOCATION` is NP-complete, already for instances with `R = 1`, a
+   > **single creature type** in the player's army, one creature per enemy stack, no obstacles,
+   > and a battlefield of one row.
+   
+   The interesting word is *single*. There is nothing to choose about what to bring; the only
+   free variable is how many creatures go in each slot.
+   
+   *Construction.* From a PARTITION instance `a_1, …, a_n` with `Σ a_i = 2B`: one row of `5n`
+   hexes; block `j` occupies hexes `5(j−1) … 5j−1`, with the deployment hex `p_j := 5(j−1)` and
+   the enemy `E_j` at `e_j := 5(j−1)+1`. The player has one type with flat damage 1, `hp = 5`,
+   speed 2 and stock exactly `B`; `E_j` is one creature with `hp = value = a_j` and speed 1.
+   Set `R = 1`, `W = B`.
+   
+   *Correctness.* Player stacks reach distance at most 3 and consecutive blocks are 4 apart, so
+   slot `j` can strike `E_j` and nothing else. Its blow delivers at most `c_j` (Section 2.4), so
+   `E_j` dies only if `c_j ≥ a_j`, and a non-waiting blow with `c_j ≥ a_j` kills. If PARTITION
+   has a solution `S`, allocate `c_j = a_j` for `j ∈ S`: total `B`, destroyed value `B`.
+   Conversely, if the game is a yes-instance with dead set `S`, then
+   `B ≤ Σ_{j∈S} a_j ≤ Σ_{j∈S} c_j ≤ Σ_j c_j ≤ B`, so every inequality is tight and `S` solves
+   PARTITION. With Lemma 2.1 this gives NP-completeness. Full proof: `../proofs/candidate-A.md`
+   §3. ∎
+   
+   The numbers `a_j` are carried as hit points in binary, so this is only *weak* hardness — and
+   that is exactly right, because the family admits a matching algorithm:
+   
+L410: > **Proposition 1.1.** On the family of Theorem 1 — single creature type, `R = 1`, policy
+   > `(‡)`, damage under `(★)`, **one creature per enemy stack**, and a *matching reach
+   > structure* in which slot `j` reaches exactly one enemy `E_j` and each enemy is reached by
+   > exactly one slot — `ARMY-ALLOCATION` is solvable in `O(k·B)` time and `O(B)` space, `B`
+   > being the stock.
+   
+   [--- proof cut ---]
+
+L441: > **Theorem 2.** `ARMY-ALLOCATION` is **strongly** NP-hard, already for `R = 1`, no
+   > obstacles, no abilities, and instances in which every creature type has stock exactly one.
+   
+   *Construction.* From a 3-PARTITION instance `(a_1, …, a_{3m}; T)` with `Σ a_i = mT` and
+   `T/4 < a_i < T/2`: three rows and `8m + 2` columns. For each group `g`, an enemy `E_g` of
+   `hp = T`, value 1 and speed 1 sits at `(X_g, 1)` with `X_g = 8(g−1)+1`, and three deployment
+   hexes `q_g^1, q_g^2, q_g^3` are placed at three of its six neighbours. The player has `3m`
+   types, type `C_i` of flat damage `a_i`, `hp = 5`, speed 2 and **stock one**. `R = 1`,
+   `W = m`.
+   
+   *Correctness.* Each `q_g^r` is adjacent to `E_g` and at distance at least 6 from every other
+   enemy, so the three slots of group `g` strike `E_g` and nothing else. Each stack holds one
+   creature (stock one, slots homogeneous), so the damage available to `E_g` is at most
+   `Σ_{i ∈ S_g} a_i` where `S_g` is the set of types allocated to group `g`'s slots, and the
+   `S_g` are pairwise disjoint. Killing all `m` enemies forces `Σ_{i∈S_g} a_i ≥ T` for every
+   `g`; summing against `Σ a_i = mT` makes every inequality tight, and `T/4 < a_i < T/2` forces
+   `|S_g| = 3`. Full proof: `../proofs/candidate-A.md` §4. ∎
+   
+   > **The three rows are not decoration.** An earlier version of this construction used a
+   > single row, as Theorem 1 does. That is impossible: in one row a hex has two neighbours, so
+   > a third stack cannot reach `E_g` without walking through a hex occupied by an ally, and
+   > occupied hexes are not enterable. The bug was found by a geometry self-check that verifies
+   > the reachability lemma on the *built* instance with all slots occupied. See Section 4.
+   
+   ### 3.3 Theorem 3: a single type is enough
+   
+   Theorems 1 and 2 together tempt one into a story: hardness scales with the diversity of
+   the roster, since the single-type family of Theorem 1 has a pseudo-polynomial algorithm and
+   strong hardness needed `3m` distinct types. An earlier draft of this work recorded that story
+   as an explicit conjecture. It is false.
+   
+L472: > **Theorem 3.** `ARMY-ALLOCATION` is **strongly** NP-hard, already for `R = 1`, a **single
+   > creature type** in the player's army, one creature per enemy stack, all enemy creatures of
+   > one type and value 1, flat damage, no abilities, and static impassable hexes as the only
+   > terrain feature. With Lemma 2.1 it is strongly NP-complete on this family.
+   
+L477: > **Corollary 3.1 (fixed allocation).** The same instances remain strongly NP-hard when the
+   > allocation is given: fix one creature in every slot. `BATTLE-PLAY` is strongly NP-hard on
+   > single-type instances.
+   
+L481: **Corollary 3.1 is the form to quote, for a reason worth stating plainly.** In every
+   yes-instance of Theorem 3 the winning allocation is unique and is the all-ones vector — the
+   budget forces `3q` creatures into `3q` slots, one each. There is therefore no interesting
+   sizing decision, and it would be wrong to advertise this as "single-type stack sizing is
+   strongly hard". What the theorem establishes is that **target selection on the reach
+   hypergraph is strongly hard**, and that it stays hard when the roster is reduced to one type
+   and the allocation is removed from the problem altogether. That is precisely what kills the
+   roster-diversity conjecture.
+   
+   *Source problem.* `PLANAR-X3C`: exact cover by 3-sets whose element/set incidence graph is
+   planar. Dyer and Frieze prove exactly this problem NP-complete — their Lemma 2.2 states
+   "Planar X3C is NP-complete", with planarity defined on precisely this incidence graph
+   [DF86, p. 175] — and their instances additionally have every element in two or three
+   sets (p. 178), so the hardness survives that restriction too.
+   
+   *The arithmetic.* One player type `P` with `att = 1`, `def = 1`, flat damage 1, `hp = 4`,
+   speed `σ` = the hex count, stock exactly `3q`; one enemy type `Q` with `att = 1`,
+   **`def = 27`**, flat damage 1, `hp = 3`, speed 1, value 1. Then `Δ = −26` and
+   `0.025 · 26 = 0.65`, below the cap `0.7`, so `μ := 0.35` and a player stack of `c` creatures
+   delivers nominal damage
+   
+   ```
+   D(c) = max(1, ⌊μc⌋):    D(1..12) = 1,1,1,1,1,2,2,2,3,3,3,4.
+   ```
+   
+L506: > **Lemma 3.2 (resource lemma).** Let `0 < μ < 1` and `D(c) = max(1, ⌊μc⌋)`. If stacks of
+   > sizes `c_1, …, c_r ≥ 1` each deliver at most `D(c_i)` to one target and the total is at
+   > least 3, then `Σ c_i ≥ 3`, with equality iff `r = 3` and `c_1 = c_2 = c_3 = 1`.
+   >
+   [--- proof cut ---]
+
+L625: > **Theorem 4.** `ARMY-ALLOCATION` is **strongly** NP-hard already for instances with
+   > `R = 1`; **no obstacles and no abilities of any kind**; every creature type of stock one,
+   > one creature per enemy stack; a rectangular open battlefield of six rows and `4m + 2`
+   > columns; and
+   > **complete reachability** — in the starting position, with every slot occupied, every
+   > player stack can attack every enemy stack.
+   
+L632: > **Corollary 4.1.** The same instances are hard with the allocation *given*. `BATTLE-PLAY`
+   > is strongly NP-hard on obstacle-free boards with complete reachability.
+   
+L635: > **Corollary 4.2 (hit-point objective).** On the same instances, replace the objective by
+   > **total hit points removed** — absorbed damage, with overkill discarded — and the target
+   > by `W_hp = mT`. The problem remains strongly NP-hard, with the allocation free or given.
+   
+   [--- proof cut ---]
+
+L1520: **Lemma D.1 (Reach).** *Under (I1)–(I4), at the start of the battle the stack deployed in
+   slot `e` can strike exactly the enemies `E_S` with `S ∋ e`, and for each such `S` its only
+   legal approach hex is the docking `d_S^e`.*
+   
+   [--- proof cut ---]
+
+L1533: **Lemma D.2 (Alternating triples).** *The only pairwise non-adjacent 3-subsets of a hex's
+   six neighbours are the two alternating triples.*
+   
+   [--- proof cut ---]
+
+L1561: **Lemma D.3 (Adapters).** *An orthogonal drawing delivers the three edges of a set-vertex
+   along three of the four axis directions, and which three is not ours to choose; the three
+   dockings, by Lemma D.2, are fixed. For each of the four possible triples of incoming
+   directions there is a `9 × 9` pattern in which three pairwise non-touching paths run from
+   the three used boundary midpoints ("ports") to the three dockings, each path meeting
+   `z_S` only at its final hex, with the unused port left impassable.*
+   
+   [--- proof cut ---]
+
+L1581: **Lemma D.4 (Embedding).** *Let `(X, C)` be a `PLANAR-X3C` instance with `N = |X| + |C|`.
+   In time polynomial in `N` one can compute either*
+   
+   * *a hex board of polynomial size, a set of impassable hexes, enemy hexes `z_S` (`S ∈ C`)
+     and deployment hexes `p_e` (`e ∈ X`) satisfying (I1)–(I4), or*
+   * *a fixed no-instance `G_no` of `ARMY-ALLOCATION` (a `1 × 1` board, one slot, one
+     creature of stock one, no enemies, `W = 1`), emitted **only** when the given encoding is
+     malformed or fails one of the polynomial-time no-certificates of step 0 — `|X|` not
+     divisible by 3, `|C| < q`, an element lying in no set, or a failed planarity test.*
+   
+   "Only when", not "exactly when": every input sent to `G_no` is certifiably a no-instance,
+   but most no-instances are *not* sent there — they receive an ordinary board whose game
+   answer is no, which is what a many-one reduction should do. (An "exactly when" would be a
+   decision procedure for `PLANAR-X3C`.) The second branch is what makes the map a **total**
+   Karp reduction: it outputs a target instance on every source encoding.
+   
+   [--- proof cut ---]
+
+L1758: **Lemma D.5 (No interference).** *No player creature dies during round 1, and every
+   player stack gets its action.*
+   
+   [--- proof cut ---]
+
+L1769: **Lemma D.6 (Budget).** *Let the play kill `t` enemies. Then `t ≤ q`. If `t = q`, then
+   `Σ_e c_e = 3q`; every slot holds exactly one creature; every deployed stack strikes an
+   enemy that dies; and each dead enemy is struck by exactly three distinct one-creature
+   stacks.*
+   
+   [--- proof cut ---]
+
+L1800: **Lemma D.7 (Confinement).** *In the situation of Lemma D.6 with `t = q`, when the stack
+   of slot `e` takes its terminal action, every enemy `E_S` with `S ∋ e` is still alive.
+   Consequently, by Lemma D.1, that stack can strike only enemies `E_S` with `S ∋ e`.*
+   
+   [--- proof cut ---]
+
+L1838: **Lemma D.8 (yes ⟹ yes).** *If `(X, C)` has an exact cover, `G_3(X, C)` is a
+   yes-instance.*
+   
+   [--- proof cut ---]
+
+L1851: **Lemma D.9 (yes ⟹ exact cover).** *If `G_3(X, C)` is a yes-instance, `(X, C)` has an
+   exact cover.*
+   
+   [--- proof cut ---]
+

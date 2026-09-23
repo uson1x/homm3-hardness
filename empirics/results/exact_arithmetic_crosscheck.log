@@ -1,0 +1,15 @@
+positive control: the instrumented routine reports the base-90 split (float 62, exact 63)
+dual  verify_full_model_optima: rc=0, 6609 damage calls, 23s
+dual  check_defend_policy: rc=0, 64120 damage calls, 10s
+dual  certify_scores: rc=0, 838909 damage calls, 89s
+      e.g. base 60 att 26 def 5 defending False: float 122 exact 123
+      e.g. base 120 att 26 def 5 defending False: float 245 exact 246
+      e.g. base 60 att 26 def 5 defending False: float 122 exact 123
+      e.g. base 100 att 9 def 6 defending False: float 114 exact 115
+      e.g. base 100 att 15 def 12 defending False: float 114 exact 115
+dual  trace: 909638 damage calls, 347332 with a fractional factor, 34901 at an integer boundary, 202 float/exact disagreements; exact minus float on the splits: [1]
+exact verify_full_model_optima: rc=0, 23s
+exact check_defend_policy: rc=0, 10s
+exact certify_scores: rc=0, 86s
+exact-arithmetic cross-check: 909638 damage calls, 347332 with a fractional factor, 202 call-level float/exact splits, 0 certified numbers moved; suites under floats pass, under exact rationals pass
+ALL PASS: the 145 recorded optima (bound and witness), their (‡) replays and the 870 scored responses are reproduced exactly by the exact-rational routine of MODEL.md section 4; the call-level splits above lie on branches that do not decide any certified number

@@ -165,7 +165,8 @@ distance 0 and adjacent to the target). A player stack starts on `p_j` in row 0.
 attack-only play the only action that changes a player stack's hex is `WALK_AND_ATTACK`,
 whose destination is by definition adjacent to the struck target (`MODEL.md` §5,
 `BattleActionProcessor.cpp:216-352`), hence adjacent to some `e_g`, hence in rows 2, 3 or 4
-by `(N)`. A stack acts at most once in a round, so no other hex is ever entered. Rows 1 and
+by `(N)`. A stack takes at most one terminal action per round (a `WAIT` postpones it and
+moves nothing), so no other hex is ever entered. Rows 1 and
 5 contain no `e_g` and, by `(N)`, no neighbour of any `e_g`. ∎
 
 > **Why the restriction to attack-only plays, and why it costs nothing.** `H3-det` retains
@@ -183,8 +184,11 @@ by `(N)`. A stack acts at most once in a round, so no other hex is ever entered.
 > than any MOVE could — see §8.
 
 **Lemma 4.2 (access).** Fix `g` and `r ∈ {1,2,3}`. In any state reached by an attack-only
-play of round 1 in which `q_g^r` is free, a player stack still standing on its deployment
-hex `p_j` can move to `q_g^r` and strike `E_g`.
+play of round 1 in which `E_g` is alive and `q_g^r` is free, a player stack still standing
+on its deployment hex `p_j` that has not yet taken its terminal action can, on its
+activation, move to `q_g^r` and strike `E_g`. (The liveness hypothesis was added in review
+round 14, propagating the round-13 repair of the paper's Lemma E.17: with `E_g` dead the
+move is still legal but there is nothing to strike.)
 
 *Proof.* By Lemma 4.1 every hex of row 1 is free. Row 0 is even, so the two lower
 neighbours of `p_j = (j−1, 0)` are `(j−1, 1)` and `(j, 1)`, both in row 1: the stack can
@@ -276,9 +280,10 @@ absorbed damage on E_g           =  min( T , actual damage delivered ),
 ```
 
 with both inequalities equalities whenever no striker of `E_g` waited (a striker that
-waited meets the postponed `DEFEND` bonus and delivers at most its nominal `a_i` — strictly
-less unless the clamp at 1 binds). Review round 12 (P12-2) retired the earlier form of the
-second line, `absorbed = min(T, nominal delivered)`, which the repository's own simulator
+waited meets the postponed `DEFEND` bonus and delivers at most its nominal `a_i` — under
+`(★)` the bonus is 1 and the factor `0.975`, so equality holds exactly when `a_i = 1`, where
+the clamp at 1 binds, and the blow is strictly less otherwise). Review round 12 (P12-2) retired the earlier two-line form
+of this display, whose absorption line read `absorbed = min(T, nominal delivered)` — a form the repository's own simulator
 refutes on an all-`WAIT` play (`m = 1`, `a = (2,2,2)`, `T = 6`: absorbed 3, not 6); the
 paper's Lemma E.20 and Corollary 4.2 carry the repaired chain.
 
@@ -293,8 +298,8 @@ bonus cannot reduce the blow below its nominal value. The argument only ever nee
 inequality, and stating it as strict would be false on exactly those instances.) Damage
 accumulates in `E_g`'s single health pool (`MODEL.md` §3), which holds `T` points, and
 damage beyond that pool is discarded (**the overkill rule**, `MODEL.md` §3,
-`CUnitState.cpp:202-203`) — which is why the second line is an equality only for
-*absorbed* damage, not for delivered damage. No other damage reaches `E_g`: retaliation by
+`CUnitState.cpp:202-203`) — which is why the third displayed line is an equality for
+*absorbed* damage, while actual delivered damage need not equal nominal damage. No other damage reaches `E_g`: retaliation by
 `E_g` damages the *player*, and under `(‡)` no enemy attacks, so no player stack ever
 delivers a retaliation. ∎
 
@@ -589,7 +594,7 @@ This is the same failure mode as candidate-A iteration 1, and it is the reason �
 4. **MOVE-only, WAIT and DEFEND are still absent from the simulator.** C6's vanish
    relaxation dominates MOVE-only. `WAIT` and player-side `DEFEND` are not covered by any
    check; the argument that neither can help at `R = 1` is written out — a stack that waits
-   or defends still acts at most once, Lemma 5.2 counts blows rather than order, and by
+   or defends still takes at most one terminal action, Lemma 5.2 counts blows rather than order, and by
    `candidate-A.md` §2.1 `(‡c)` a waiting stack's blow is *at most* nominal — waiting is
    the only way, at `R = 1`, to meet an enemy whose postponed `DEFEND` has already
    landed — but it is not machine-checked here. (The phase mechanics themselves are

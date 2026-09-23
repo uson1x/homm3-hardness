@@ -25,6 +25,8 @@ import random
 from homm3_model import Battle, Battlefield, CreatureType, Stack
 from brute_force import max_destroyed_value
 
+ALPHA = 1           # att = def = 1: the paper's (★) verbatim (round 16, F9; was 5)
+
 
 def dp(values, needs, budget):
     """0-1 knapsack, O(k*B) time, O(B) space."""
@@ -61,9 +63,9 @@ def build_corridor(enemies):
     dealt exactly. `enemies` is a list of (count, hp, value) triples; returns
     a function allocation -> Battle."""
     n = len(enemies)
-    player = CreatureType("P", attack=5, defense=5, dmg_min=1, dmg_max=1,
+    player = CreatureType("P", attack=ALPHA, defense=ALPHA, dmg_min=1, dmg_max=1,
                           hp=5, speed=2)
-    etypes = [CreatureType(f"E{j}", attack=5, defense=5, dmg_min=1, dmg_max=1,
+    etypes = [CreatureType(f"E{j}", attack=ALPHA, defense=ALPHA, dmg_min=1, dmg_max=1,
                            hp=hp, speed=0, value=val)
               for j, (_, hp, val) in enumerate(enemies)]
 

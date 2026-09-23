@@ -93,7 +93,8 @@ definition is used by `candidate-C-featureless.md` and `candidate-D-singletype.m
 An earlier version of `(‡)` issued `DEFEND` directly at the stack's own `NORMAL`-phase
 turn. That policy satisfies the theorems equally well — every player creature in the
 constructions is strictly faster than every enemy — but it diverges from the empirical
-corpus of the paper's Section 5 exactly when an enemy is *faster* than a player stack,
+corpus of the empirical companion note (`paper/companion-empirics.md`, the paper's former
+Section 5) exactly when an enemy is *faster* than a player stack,
 and external review round 5 showed six recorded optima to be unattainable under it. The
 present `(‡)` was adopted, and verified reduction by reduction, in round 6: postponing
 the `DEFEND` into the `WAIT` phase puts it after every non-waiting player action
@@ -512,15 +513,32 @@ Proving any version under native formations is left open (§6).
 > which slot `j` reaches exactly one enemy `E_j`, hold policy `‡`), `ARMY-ALLOCATION` is
 > solvable in `O(k·B)` time and `O(B)` space, where `B` is the stock of the single type.
 
-*Proof.* After deployment the play is forced: slot `j` either finishes `E_j` or achieves
-nothing (§2, `(★)` and `(†)`; this needs **one creature per enemy stack** — against a
-multi-creature stack a non-finishing blow still kills whole creatures and still scores, the
-per-slot value is a staircase, and the 0-1 framing fails: round 10 exhibited a
-matching-reach corridor with six-creature stacks where the threshold rule returns 0 and the
-true optimum is 3). Slot `j` finishes `E_j` iff `c_j · d ≥ t_j`, i.e.
-`c_j ≥ b_j := ⌈t_j / d⌉`, and any surplus above `b_j` is wasted. So the optimum is: choose
-`S ⊆ [k]` maximising `Σ_{j∈S} v_j` subject to `Σ_{j∈S} b_j ≤ B` — a 0-1 knapsack over `k`
-items, solved by the textbook dynamic program over (slot prefix, budget) in `O(k·B)`. ∎
+*Proof.* "Reaches" is taken in the starting position, with every slot occupied and every
+enemy alive: slot `j` reaches `E` if some free hex adjacent to `E` is within `spd` moves
+of `p_j` along free hexes. Reach is not static during play (a dead enemy frees its hex, an
+ally on its approach hex may block a path), so the two directions are argued separately.
+
+*Upper bound, no geometry.* A stack strikes at most once in the round (`WAIT` postpones,
+it does not double); a one-creature enemy of `t_j` hit points dies only once `t_j` damage
+has accumulated; every blow delivers at most `c_j · d` (exactly nominal without `WAIT`
+under `(★)`, at most nominal with it, by the one-round lemma (‡c) of §2.1). So a dead `E_j` was
+struck by stacks of total count `≥ b_j := ⌈t_j / d⌉`, striker sets of distinct dead
+enemies are disjoint, and the counts sum to `≤ B`: every play, whatever reach becomes
+after a death, scores at most `max{Σ_{j∈S} v_j : Σ_{j∈S} b_j ≤ B}`. This needs **one
+creature per enemy stack** — against a multi-creature stack a non-finishing blow still
+kills whole creatures and still scores, the per-slot value is a staircase, and the 0-1
+framing fails: round 10 exhibited a matching-reach corridor with six-creature stacks
+where the threshold rule returns 0 and the true optimum is 3.
+
+*Lower bound.* For a feasible `S` put `c_j = b_j` in slot `j ∈ S`; each such stack walks
+its static path to its approach hex and strikes `E_j` without waiting, so the blow is
+nominal and `E_j` dies. No such path is blocked by an ally: a hex of slot `i`'s path or
+approach hex lying on slot `j`'s path would give slot `j` a static path to a hex adjacent
+to `E_i`, i.e. slot `j` would reach two enemies, contradicting the matching. So the
+optimum is exactly the 0-1 knapsack `max{Σ_{j∈S} v_j : Σ_{j∈S} b_j ≤ B}` over `k` items,
+solved by the textbook dynamic program over (slot prefix, budget) in `O(k·B)` time and
+`O(B)` space — the bound counts the dynamic program only, after the thresholds `b_j` and
+the reach matching are computed in a polynomial preprocessing pass. ∎
 
 Two consequences, stated carefully. First, *within the corridor family of Theorem 1* the
 result is tight: that restriction is weakly NP-complete, admits a pseudo-polynomial

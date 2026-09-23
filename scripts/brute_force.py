@@ -50,7 +50,9 @@ from homm3_model import (
     scripted_defence,
 )
 
-ALPHA = 10          # common attack/defence value, so the damage factors are 1.0
+ALPHA = 1           # att = def = 1: the paper's (★) verbatim (round 16, F9; was 10,
+                    # which also gave factors 1.0 but a DEFEND bonus of +2 instead
+                    # of the +1 the paper's arithmetic reasons about)
 PLAYER_HP = 5       # large enough that no player creature dies in one round
 PLAYER_SPEED = 2
 ENEMY_SPEED = 1
@@ -102,27 +104,49 @@ def max_destroyed_value(battle: Battle, rounds: int, policy=policy_hold) -> int:
 
 
 def relaxed_upper_bound(battle: Battle, order, i: int, initial) -> int:
-    """Upper-bound the value reachable by the unprocessed player stacks.
+    """Upper-bound the value the unprocessed player stacks can still destroy.
 
-    For each future stack, remove all other player blockers and sum its maximum
-    damage independently into every enemy it can reach. Reusing a stack across
-    enemies makes this deliberately over-generous, so the result is safe for
-    branch-and-bound and does not discard any legal action.
+    For each future player stack, walk the board with NO stack treated as a
+    blocker — allied and enemy alike; only the field's obstacles block — and add
+    its full nominal damage, against an un-raised defence, into every living
+    enemy adjacent to that relaxed reach. Reusing a stack across enemies and
+    ignoring every blocker makes the bound over-generous, so pruning on it
+    discards no legal action of the searched fragment: a real walk uses free
+    hexes only, and the free hexes at any later moment are a subset of the
+    non-obstacle hexes whatever kills open up (R4: a dead unit stops blocking).
+
+    Round 16 (Opus review, F6) found the previous version kept the LIVING
+    ENEMIES as blockers. That is unsound once a kill opens a doorway: on the
+    5x2 board of test_regressions.test_prune_survives_opened_doorway a first
+    stack kills the enemy standing in a corridor and a second walks through
+    the freed hex to a second enemy; the old bound said 1 where the truth is 2,
+    and the search pruned the winning branch. Enemies are targets, never walls.
+    On the Theorem 1–2 boards no kill ever extends reach (Lemmas E.4, E.11
+    bound it metrically), so no published number moved; the docstring's
+    "does not discard any legal action" was nevertheless false in general.
+
+    The caller applies the bound only where every point of destroyed value
+    comes from a searched player blow (the defence never strikes, or the
+    player cannot retaliate): retaliation damage is not counted here.
     """
     enemies = [(idx, stack) for idx, stack in enumerate(battle.stacks)
-               if stack.side == 1]
+               if stack.side == 1 and stack.alive()]
     future_damage = {idx: 0 for idx, _ in enemies}
     for idx, _phase in order[i:]:
         attacker = battle.stacks[idx]
         if attacker.side != 0 or not attacker.alive():
             continue
         probe = attacker.clone()
-        relaxed_enemies = [stack.clone() for _, stack in enemies]
-        relaxed = Battle(battle.field, [probe] + relaxed_enemies)
-        enemy_index = {id(stack): original_idx
-                       for stack, (original_idx, _) in zip(relaxed_enemies, enemies)}
-        for target in relaxed.attackable(probe):
-            future_damage[enemy_index[id(target)]] += compute_damage(probe, target)
+        # a battle holding the probe alone: `reachable` then blocks on the
+        # field's obstacles only, so this reach contains every reach the
+        # probe can have in any later state of the real battle
+        reach = Battle(battle.field, [probe]).reachable(probe)
+        for enemy_idx, enemy in enemies:
+            if not any(battle.field.adjacent(h, enemy.hex) for h in reach):
+                continue
+            target = enemy.clone()
+            target.defending = False          # the un-raised defence: max damage
+            future_damage[enemy_idx] += compute_damage(probe, target)
 
     upper = destroyed_value(battle, initial)
     for idx, enemy in enemies:
@@ -223,7 +247,11 @@ def _play(battle: Battle, order, i: int, initial, rounds_left: int, policy,
     if best >= score_cap:
         memo[state] = best
         return best
-    if rounds_left == 1 and relaxed_upper_bound(battle, order, i, initial) <= best:
+    # The prune is sound only where every point of destroyed value comes from
+    # a searched player blow — the same condition as the coarser memo key
+    # above (defence never strikes, or no player stack retaliates), so that
+    # retaliation damage the bound does not count cannot exist.
+    if simplify_acted_players and relaxed_upper_bound(battle, order, i, initial) <= best:
         memo[state] = best
         return best
     for target in battle.attackable(stack):

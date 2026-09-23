@@ -375,7 +375,8 @@ def test_enemy_branch_no_state_leak() -> None:
 
 
 def test_wait_defend_lands_after_normal_blows() -> None:
-    """The Dragon Fly mechanism of paper sec. 5.1, as a search-level check.
+    """The Dragon Fly mechanism of the companion note (formerly paper sec. 5.1),
+    as a search-level check.
 
     Enemy speed 13 against player speed 6: an enemy that DEFENDs at its
     NORMAL-phase activation (the paper's old policy) raises its defence from 10
@@ -486,23 +487,26 @@ def test_docs_match_artifacts() -> None:
     man = json.loads((root / "verification_manifest.json").read_text())
     cnt = man["counters"]
 
-    # (a) both paper tables are exactly the manifest's render
+    # (a) the README's suite table is exactly the manifest's render (round
+    # 15: the table left the paper; Section 4.4 points at README.md)
     gen = subprocess.run(
         [_sys.executable, str(root / "scripts" / "gen_verification_table.py")],
         capture_output=True, text=True)
-    check("verification tables match the manifest render "
+    check("the README verification table matches the manifest render "
           "(gen_verification_table.py check mode)", gen.returncode, 0)
     # round 10 (fable): deleting a manifest row used to drop a suite from
     # both rendered tables with a green battery — the row list is now pinned
     check("manifest rows: the expected suites, in order",
           [r["id"] for r in man["rows"]],
           ["verify_mechanics", "brute_force", "test_obstacles",
-           "dp_single_type", "verify_featureless", "verify_x3c_default",
+           "dp_single_type", "verify_featureless", "verify_featureless_full",
+           "verify_x3c_default",
            "verify_x3c_vacate", "verify_x3c_defend", "verify_x3c_full_vacate",
            "crosscheck_full", "crosscheck_defend", "search_free_order",
-           "verify_embedding",
+           "verify_embedding", "check_stub",
            "verify_hp_objective", "verify_full_model_optima",
-           "certify_scores", "check_defend_policy", "test_regressions",
+           "certify_scores", "check_defend_policy",
+           "exact_arithmetic_crosscheck", "test_regressions",
            "engine_harness"])
 
     # round 11 (P11-1/2): a guard's sentence about its own coverage is a
@@ -528,19 +532,17 @@ def test_docs_match_artifacts() -> None:
     def retype(bad):
         for row in bad["rows"]:
             if row["id"] == "verify_x3c_default":
-                for kind in ("md", "tex"):
-                    row[kind] = [c.replace("{x3c_default_built}", "3")
-                                 for c in row[kind]]
+                row["md"] = [c.replace("{x3c_default_built}", "3")
+                             for c in row["md"]]
 
     def swap(bad):
         for row in bad["rows"]:
             if row["id"] == "verify_embedding":
-                for kind in ("md", "tex"):
-                    row[kind] = [
-                        c.replace("{lemma_built}", "\0")
-                        .replace("{lemma_nonplanar}", "{lemma_built}")
-                        .replace("\0", "{lemma_nonplanar}")
-                        for c in row[kind]]
+                row["md"] = [
+                    c.replace("{lemma_built}", "\0")
+                    .replace("{lemma_nonplanar}", "{lemma_built}")
+                    .replace("\0", "{lemma_nonplanar}")
+                    for c in row["md"]]
 
     check("mutation drill: counter retyped as a declared literal is caught",
           drilled(retype), True)
@@ -549,10 +551,12 @@ def test_docs_match_artifacts() -> None:
 
     # round 12 (P12-7): two more escaping mutations, demonstrated live by
     # the panel, drilled the same way. (3) a counter moved across a CELL
-    # boundary in the md render only — the flat sequence was blind to it
-    # and the two renders put the number in different table columns;
-    # (4) deleting one occurrence of a digit that appears twice — set
-    # equality was blind to multiplicity.
+    # boundary — the flat sequence was blind to it and (while the table had
+    # two renders) the renders put the number in different table columns;
+    # since round 15 the per-cell placement is held to the manifest's own
+    # `cells` declaration instead of to a second render; (4) deleting one
+    # occurrence of a digit that appears twice — set equality was blind to
+    # multiplicity.
     def cellmove(bad):
         for row in bad["rows"]:
             if row["id"] == "verify_embedding":
@@ -585,51 +589,33 @@ def test_docs_match_artifacts() -> None:
     check("mutation drill: deleted duplicate digit-run is caught",
           drilled_literals(dupdigit), True)
 
-    # round 13 (fable F-05, codex Check 05): four more escaping mutations,
+    # round 13 (fable F-05, codex Check 05): two more escaping mutations,
     # demonstrated live by the panel. (5) the (SEP') class minima swapped
-    # 12/16/20 -> 20/16/12 in BOTH renders — a multiset of literals does
-    # not see order, so the minima are now counters and the swap is a
-    # placeholder-sequence change; (6) a sign: `def 41` -> `def -41` —
-    # unsigned digit-runs did not see it; (7) a tex-only deletion of a
-    # digit-run, which "tex may carry fewer" allowed by design; (8) a
-    # tex-only 27 <-> 41 swap, invisible to any multiset — the tex mirror
-    # is now held to the md master cell by cell, in order.
+    # 12/16/20 -> 20/16/12 — a multiset of literals does not see order, so
+    # the minima are now counters and the swap is a placeholder-sequence
+    # change; (6) a sign: `def 41` -> `def -41` — unsigned digit-runs did
+    # not see it. Round 13 also drilled two tex-only mutations (a deleted
+    # digit-run, a 27 <-> 41 swap in the LaTeX render only); round 15
+    # retired the LaTeX render with the table's place in the paper, and
+    # those two drills with it — there is one render now.
     def minswap(bad):
         for row in bad["rows"]:
             if row["id"] == "verify_embedding":
-                for kind in ("md", "tex"):
-                    row[kind] = [c.replace("{sep_min_bb}", "\0")
-                                 .replace("{sep_min_cc}", "{sep_min_bb}")
-                                 .replace("\0", "{sep_min_cc}")
-                                 for c in row[kind]]
+                row["md"] = [c.replace("{sep_min_bb}", "\0")
+                             .replace("{sep_min_cc}", "{sep_min_bb}")
+                             .replace("\0", "{sep_min_cc}")
+                             for c in row["md"]]
 
     def sign(bad):
         for row in bad["rows"]:
             if row["id"] == "verify_x3c_default":
-                for kind in ("md", "tex"):
-                    row[kind] = [c.replace("def 41", "def -41")
-                                 for c in row[kind]]
-
-    def texdel(bad):
-        for row in bad["rows"]:
-            if row["id"] == "verify_x3c_default":
-                row["tex"] = [c.replace("def 41", "def") for c in row["tex"]]
-
-    def texswap(bad):
-        for row in bad["rows"]:
-            if row["id"] == "search_free_order":
-                row["tex"] = [c.replace("def 41", "\0")
-                              .replace("def 27", "def 41")
-                              .replace("\0", "def 27") for c in row["tex"]]
+                row["md"] = [c.replace("def 41", "def -41")
+                             for c in row["md"]]
 
     check("mutation drill: (SEP') class minima reordered is caught",
           drilled(minswap), True)
     check("mutation drill: a sign in front of a literal is caught",
           drilled_literals(sign), True)
-    check("mutation drill: tex-only deleted digit-run is caught",
-          drilled_literals(texdel), True)
-    check("mutation drill: tex-only 27 <-> 41 swap is caught",
-          drilled_literals(texswap), True)
 
     # (b) manifest counters against their generating artifacts
     engine_doc = json.loads(
@@ -733,6 +719,20 @@ def test_docs_match_artifacts() -> None:
            cnt["sep_min_cc"]))
     check("(SEP') required separation == the paper's λ - 2ρ",
           cnt["sep_required"], 20 - 2 * 4)
+    # round 16 (Opus F8): step 5 of Lemma D.4 said "nothing else on the board
+    # is within distance 12 of the stub (SEP')" — false, (SEP') covers only
+    # non-incident features and the incident corridors come within L∞ 5. The
+    # corrected sentence (every free hex within λ−2ρ of the stub lies in R_e)
+    # is checked on every corpus board and both numbers are pinned here.
+    m = re.search(r"deployment stubs: (\d+) free hexes within L∞ < (\d+) of a "
+                  r"stub, every one in its own element's region; nearest free "
+                  r"hex outside the own vertex box at L∞ (\d+)", emb.stdout)
+    check("stub margin: count, required margin and corpus minimum == manifest",
+          tuple(int(g) for g in m.groups()) if m else None,
+          (cnt["stub_near_hexes"], cnt["sep_required"], cnt["stub_margin_min"]))
+    check("stub margin: the retired 'nothing within 12' sentence is refuted "
+          "by the measured minimum",
+          cnt["stub_margin_min"] < cnt["sep_required"], True)
 
     # round 13 (codex Check 10): the G_no payload is played AS ENCODED —
     # a corrupted encoding (slot off the board, its hex impassable, the
@@ -817,6 +817,17 @@ def test_docs_match_artifacts() -> None:
         m = re.search(r"ALL PASS\s+\((\d+) instance runs", feat.stdout)
         check("manifest featureless_runs == verify_featureless.py's count",
               int(m.group(1)) if m else None, cnt["featureless_runs"])
+        # round 16 (Opus F5): the exhaustive play tier C6 is a DEFAULT tier
+        # now — the only tier of this suite that searches plays of a
+        # no-instance — and its scale is the suite's own final line; the
+        # --full extension is pinned in-process (test_round16_apparatus)
+        m = re.search(r"C6 on (\d+) instances x (\d+) allocations", feat.stdout)
+        check("manifest C6 default scale == verify_featureless.py's own line",
+              tuple(int(g) for g in m.groups()) if m else None,
+              (cnt["featureless_c6_instances"], cnt["featureless_c6_allocs"]))
+        check("C6 ran on both smallest cases and passed",
+              feat.stdout.count("best=") == cnt["featureless_c6_instances"]
+              and "MISMATCH" not in feat.stdout and feat.returncode == 0, True)
 
         bfo = subprocess.run(
             [_sys.executable, str(root / "scripts" / "brute_force.py")],
@@ -894,6 +905,79 @@ def test_docs_match_artifacts() -> None:
               (cnt["free_order_reorder"] > 0, cnt["free_order_vanish"] > 0),
               (True, True))
 
+        # merge of the burn-session line (2026-09-10): step 5 of Lemma D.4
+        # now claims the deployment stub has EXACTLY ONE free neighbour and
+        # points at check_stub.py (64 local configurations, adjacency from
+        # the model's own neighbour rule). The clean-room line shipped the
+        # script without a battery pin; here the count is the manifest's
+        # and both paper renders must quote it.
+        stub = subprocess.run(
+            [_sys.executable, str(root / "scripts" / "check_stub.py")],
+            capture_output=True, text=True)
+        check("check_stub.py (deployment-stub clause) passes",
+              stub.returncode, 0)
+        m = re.search(r"deployment-stub clause: (\d+) \(port set, u, parity\) "
+                      r"cases, (\d+) failures", stub.stdout)
+        check("manifest stub_cases == check_stub.py's own line",
+              tuple(int(g) for g in m.groups()) if m else None,
+              (cnt["stub_cases"], 0))
+        stub_phrase = f"{cnt['stub_cases']} cases, 0 failures"
+        for name in ("main.md", "main.tex"):
+            flat = re.sub(r"\s+", " ",
+                          (root / "paper" / name).read_text())
+            check(f"{name} quotes the stub case count",
+                  stub_phrase in flat, True)
+
+        # round 14 (gpt-6-astra pro F2): the empirical optima are defined by
+        # the float simulator, the theorems by exact rationals, and the two
+        # split on some calls. exact_arithmetic_crosscheck.py (out of the
+        # battery: it re-runs the 84 s scoring suite twice) measured the
+        # agreement on this corpus; its recorded final line is pinned here,
+        # and its cheap half — every recorded optimum replayed under (‡)
+        # with the EXACT routine installed — is re-run in-process (~10 s).
+        import exact_damage as E
+        import homm3_model as M
+        _sys.path.insert(0, str(root / "empirics" / "scripts"))
+        import solve as _solve
+        import instance as _inst
+        import check_defend_policy as _cdp
+        xlog = (root / "empirics" / "results"
+                / "exact_arithmetic_crosscheck.log").read_text()
+        m = re.search(r"exact-arithmetic cross-check: (\d+) damage calls, (\d+) "
+                      r"with a fractional factor, (\d+) call-level float/exact "
+                      r"splits, 0 certified numbers moved; suites under floats "
+                      r"pass, under exact rationals pass", xlog)
+        check("manifest exact-arithmetic counters == the recorded final line "
+              "of exact_arithmetic_crosscheck.py (0 certified numbers moved)",
+              tuple(int(g) for g in m.groups()) if m else None,
+              (cnt["exact_calls"], cnt["exact_fractional"],
+               cnt["exact_splits"]))
+        check("exact_arithmetic_crosscheck.py's recorded run ends in ALL PASS",
+              "ALL PASS" in xlog.strip().splitlines()[-1], True)
+        saved = (M.compute_damage, _solve.compute_damage)
+        M.compute_damage = E.exact_compute_damage
+        _solve.compute_damage = E.exact_compute_damage
+        try:
+            optima_x = json.loads(
+                (root / "empirics" / "instances" / "optima.json").read_text())
+            replayed = mism = 0
+            for path in sorted((root / "empirics" / "instances").glob("*.json")):
+                if path.name in ("optima.json", "index.json"):
+                    continue
+                inst = _inst.load(path)
+                rec = optima_x[inst["id"]]
+                alloc = _inst.normalise_allocation(inst, rec["allocation"])
+                best = _cdp.best_under_policy(inst, alloc, legacy=False)
+                replayed += 1
+                mism += best != rec["optimum"]
+        finally:
+            M.compute_damage, _solve.compute_damage = saved
+        check("every recorded optimum is reproduced by the (‡) replay under "
+              "EXACT rational arithmetic (in-process, exact routine installed)",
+              (replayed, mism), (cnt["empirical_instances"], 0))
+        check("the exact routine is uninstalled after the replay",
+              M.compute_damage.__name__, "compute_damage")
+
     # the empirical counters are the lengths of shipped artifacts, and the
     # turn-order count is the T-* subset of the engine case list itself
     optima_rec = json.loads(
@@ -907,11 +991,22 @@ def test_docs_match_artifacts() -> None:
     check("manifest engine_turn_order_cases == the T-* cases in cases.json",
           sum(1 for case in _ec.CASES if str(case["id"]).startswith("T-")),
           cnt["engine_turn_order_cases"])
+    # round 16 (Opus F10): the R-* cases are 11 damage / kill-threshold blows
+    # and ONE retaliation blow — §4.1 used to file all 12 under retaliation
+    r_cases = [case for case in _ec.CASES if str(case["id"]).startswith("R-")]
+    check("manifest engine_reduction_cases == the R-* cases in cases.json",
+          len(r_cases), cnt["engine_reduction_cases"])
+    check("exactly one reduction-drawn engine case is a retaliation blow",
+          sum(1 for case in r_cases if "retaliation" in str(case["id"])), 1)
 
-    # round 9 (DeepSeek API): §5.2's observation-2 statistics — the Spearman
+    # round 9 (DeepSeek API): the observation-2 statistics — the Spearman
     # pair, the k-bucket table and the natural-family sequence — now have a
     # generating artifact (stats_recheck.py, from results/llm.json), and the
-    # paper's prose must quote its output verbatim in both versions
+    # quoting document must quote its output verbatim. Round 15: the
+    # quoting document is the empirical companion note; the paper's Section
+    # 5 moved there verbatim (paper/companion-empirics.md, Markdown only —
+    # a LaTeX mirror of the note is backlog, so the former main.tex pins
+    # have no target and are gone, not silently kept vacuous).
     st = subprocess.run(
         [_sys.executable,
          str(root / "empirics" / "scripts" / "stats_recheck.py")],
@@ -919,74 +1014,53 @@ def test_docs_match_artifacts() -> None:
     check("stats_recheck.py runs", st.returncode, 0)
     paper_md = (root / "paper" / "main.md").read_text()
     paper_tex = (root / "paper" / "main.tex").read_text()
+    note_md = (root / "paper" / "companion-empirics.md").read_text()
     m = re.search(r"Spearman\(k, ratio\) all = (-\d+\.\d+); "
                   r"natural = (-\d+\.\d+)", st.stdout)
     check("stats_recheck.py reports both Spearman coefficients",
           m is not None, True)
     if m:
         sp_all, sp_nat = m.group(1), m.group(2)
-        check("main.md quotes the recomputed Spearman pair",
-              f"Spearman `{sp_all}`, and `{sp_nat}`" in paper_md, True)
-        check("main.tex quotes the recomputed Spearman pair",
-              f"Spearman ${sp_all}$, and ${sp_nat}$" in paper_tex, True)
-    def tex_row_pattern(mdline: str) -> str:
-        # a printed markdown row, as the equivalent LaTeX tabular row: `x`
-        # becomes \src{x}, — becomes ---, " %" becomes "\,\%", and cell
-        # padding around & is free
-        cells = [c.strip() for c in mdline.strip().strip("|").split("|")]
-        out = []
-        for c in cells:
-            c = c.replace("—", "---")
-            if c.startswith("`") and c.endswith("`"):
-                c = "\\src{" + c[1:-1] + "}"
-            c = c.replace(" %", "\\,\\%")
-            out.append(re.escape(c))
-        return r"\s*&\s*".join(out)
+        check("companion note quotes the recomputed Spearman pair",
+              f"Spearman `{sp_all}`, and `{sp_nat}`" in note_md, True)
 
     for line in st.stdout.splitlines():
         if line.startswith("| `claude-") and "%" not in line:
-            check(f"main.md k-bucket row matches llm.json ({line[2:24]}…)",
-                  line in paper_md, True)
-            check(f"main.tex k-bucket row matches llm.json ({line[2:24]}…)",
-                  " & ".join(line.strip("| ").split(" | ")[1:]) in paper_tex,
-                  True)
-        # round 10: the §5.2 headline rows, the baseline rows and the
+            check(f"companion note k-bucket row matches llm.json "
+                  f"({line[2:24]}…)", line in note_md, True)
+        # round 10: the headline rows, the baseline rows and the
         # observation-3 percentage points are generated now too
         if (line.startswith("| `claude-") and "%" in line) or \
                 line.startswith("| greedy-") or \
                 line.startswith("| 100-sample"):
-            check(f"main.md headline/baseline row matches the artifacts "
-                  f"({line[2:26]}…)", line in paper_md, True)
-            check(f"main.tex headline/baseline row matches the artifacts "
-                  f"({line[2:26]}…)",
-                  re.search(tex_row_pattern(line), paper_tex) is not None,
-                  True)
+            check(f"companion note headline/baseline row matches the "
+                  f"artifacts ({line[2:26]}…)", line in note_md, True)
         if line.startswith("geometry-removal cost: "):
             phrase = "cost " + line.split(": ", 1)[1]
-            check("main.md quotes the geometry-removal percentage points",
-                  phrase in paper_md, True)
-            check("main.tex quotes the geometry-removal percentage points",
-                  phrase in paper_tex, True)
+            check("companion note quotes the geometry-removal percentage "
+                  "points", phrase in note_md, True)
         if line.startswith("natural-family haiku sequence: "):
             seq = line.split(": ", 1)[1]
-            check("both papers quote the natural-family haiku sequence",
-                  seq in paper_md and seq in paper_tex, True)
+            check("companion note quotes the natural-family haiku sequence",
+                  seq in note_md, True)
+    # round 15: the paper itself must NOT carry the study's numbers any more
+    # — the one sentence it keeps (Section 1.2) names the instance count only
+    for label, text in (("main.md", paper_md), ("main.tex", paper_tex)):
+        check(f"{label} no longer prints the ratio table or the Spearman "
+              f"pair (moved to the companion note)",
+              ("claude-haiku-4-5" in text, "Spearman" in text), (False, False))
 
-    # round 10 (M2): §5.1's ability-projection numbers are pinned to the
+    # round 10 (M2): the ability-projection numbers are pinned to the
     # committed audit artifact (the audit itself needs a VCMI checkout, so
-    # the battery pins the papers to the shipped JSON, not the JSON to VCMI)
+    # the battery pins the note to the shipped JSON, not the JSON to VCMI)
     ab = json.loads(
         (root / "empirics" / "results" / "ability_projection.json")
         .read_text())
     for name, n in {**ab["tally_melee"], **ab["tally_extended"]}.items():
-        m = re.search(rf"`{name}` on\s+(\d+)", paper_md)
-        check(f"main.md quotes the {name} slot count",
+        m = re.search(rf"`{name}` on\s+(\d+)", note_md)
+        check(f"companion note quotes the {name} slot count",
               int(m.group(1)) if m else None, n)
-        m = re.search(re.escape("\\src{" + name.replace("_", r"\_") + "}")
-                      + r" on\s+(\d+)", paper_tex)
-        check(f"main.tex quotes the {name} slot count",
-              int(m.group(1)) if m else None, n)
-    for label, text in (("main.md", paper_md), ("main.tex", paper_tex)):
+    for label, text in (("companion-empirics.md", note_md),):
         m = re.search(r"(\d+) of the (\d+) natural instances name at least",
                       text)
         check(f"{label} quotes the melee-scope affected count",
@@ -1040,19 +1114,48 @@ def test_docs_match_artifacts() -> None:
         ("ASSESSMENT.md", r"(\d+) проверок механики",
          (cnt["mechanics_checks"],)),
         # round 9: the paper body joins the sweep — the recipe's hard-coded
-        # comments and the §1.2 instance count previously had no guard at all
-        ("paper/main.md", r"# (\d+) checks: damage formula",
+        # comments and the §1.2 instance count previously had no guard at all;
+        # round 15: the full recipe moved to README.md, the paper keeps a
+        # four-line summary and the §1.2 instance count
+        ("README.md", r"# (\d+) checks: damage formula",
          (cnt["mechanics_checks"],)),
-        ("paper/main.md", r"# (\d+) checks on geometry and blocking",
+        ("README.md", r"# (\d+) checks on geometry and blocking",
          (cnt["obstacle_checks"],)),
-        ("paper/main.md", r"language models on (\d+) instances",
+        ("README.md", r"stub clause, (\d+) cases", (cnt["stub_cases"],)),
+        ("paper/main.md", r"language\s+models on (\d+) instances",
          (cnt["empirical_instances"],)),
-        ("paper/main.tex", r"# (\d+) checks: damage formula",
+        ("paper/main.tex", r"language\s+models on (\d+) instances",
+         (cnt["empirical_instances"],)),
+        # round 15: the suite table left the paper, so the paper's prose is
+        # the only place it prints the engine and arithmetic counts — pinned
+        # here in both renders (the tex wraps lines, hence \s+)
+        ("paper/main.md", r"engine numbers: (\d+) checks",
          (cnt["mechanics_checks"],)),
-        ("paper/main.tex", r"# (\d+) checks on geometry and blocking",
-         (cnt["obstacle_checks"],)),
-        ("paper/main.tex", r"language models on (\d+) instances",
-         (cnt["empirical_instances"],)),
+        ("paper/main.tex", r"engine numbers:\s+(\d+) checks",
+         (cnt["mechanics_checks"],)),
+        ("paper/main.md",
+         r"(\d+) cases, (\d+) exact agreements, the other (\d+) explained",
+         (cnt["engine_cases"], cnt["engine_exact"], cnt["engine_explained"])),
+        ("paper/main.tex",
+         r"(\d+) cases, (\d+)\s+exact agreements, the other (\d+) explained",
+         (cnt["engine_cases"], cnt["engine_exact"], cnt["engine_explained"])),
+        ("paper/main.md", r"(\d+) of the (\d+) engine cases",
+         (cnt["engine_explained"], cnt["engine_cases"])),
+        ("paper/main.tex", r"(\d+) of the (\d+) engine cases",
+         (cnt["engine_explained"], cnt["engine_cases"])),
+        ("paper/main.md", r"(\d+) of (\d+) damage calls",
+         (cnt["exact_splits"], cnt["exact_calls"])),
+        ("paper/main.tex", r"(\d+) of\s+(\d+) damage calls",
+         (cnt["exact_splits"], cnt["exact_calls"])),
+        # and the companion note's own headline counts
+        ("paper/companion-empirics.md",
+         r"(\d+) instances of `ARMY-ALLOCATION`", (cnt["empirical_instances"],)),
+        ("paper/companion-empirics.md", r"(\d+) model responses scored",
+         (cnt["scored_responses"],)),
+        ("paper/companion-empirics.md", r"The full matrix is (\d+) cells",
+         (cnt["scored_responses"],)),
+        ("paper/companion-empirics.md", r"certifies all (\d+) per-response",
+         (cnt["scored_responses"],)),
         # round 10: candidate-D's non-table prose joins the sweep (M1 —
         # ":978 all 32 default instances" had drifted from 31), and §4.4's
         # rewritten skip/non-planarity remark is pinned to the manifest
@@ -1063,26 +1166,50 @@ def test_docs_match_artifacts() -> None:
          r"test_obstacles\.py`\*\* \((\d+) checks\)",
          (cnt["obstacle_checks"],)),
         # round 10 (fable): "the six round-5 violations" was literal text in
-        # both rendered tables — the count is a placeholder now, swept here
-        ("paper/main.md", r"reproduces the (\d+) round-5 violations",
+        # the rendered table — the count is a placeholder now, swept here;
+        # round 15: the table and the built/skipped remark live in README.md
+        ("README.md", r"reproduces the (\d+) round-5 violations",
          (cnt["legacy_round5_violations"],)),
-        ("paper/main.tex", r"reproduces the (\d+) round-5 violations",
-         (cnt["legacy_round5_violations"],)),
-        ("paper/main.md", r"(\d+) router skip events",
+        ("README.md", r"(\d+) router skip events",
          (cnt["x3c_full_vacate_skipped"] + cnt["crosscheck_full_skipped"],)),
-        ("paper/main.md",
+        ("README.md",
          r"(\d+) in the `--full --vacate` tier, (\d+) in the crosscheck",
          (cnt["x3c_full_vacate_skipped"], cnt["crosscheck_full_skipped"])),
-        ("paper/main.tex", r"(\d+) router skip events",
-         (cnt["x3c_full_vacate_skipped"] + cnt["crosscheck_full_skipped"],)),
+        ("README.md", r"exactly (\d+) non-planar famil",
+         (cnt["lemma_degenerate_nonplanar"],)),
+        # round 16 (Opus F5, F8): the paper's §4.1 now says what the Theorem 4
+        # suite searches at which scale, and step 5 of Lemma D.4 quotes the
+        # measured stub margin — both renders, both numbers from the manifest
+        ("paper/main.md",
+         r"runs on (\d+) instances × (\d+) allocations in the battery and on "
+         r"(\d+) instances under",
+         (cnt["featureless_c6_instances"], cnt["featureless_c6_allocs"],
+          cnt["featureless_c6_full_instances"])),
         ("paper/main.tex",
-         r"(\d+) in the \\src\{--full --vacate\} tier, (\d+) in the "
-         r"crosscheck",
-         (cnt["x3c_full_vacate_skipped"], cnt["crosscheck_full_skipped"])),
-        ("paper/main.md", r"exactly (\d+) non-planar famil",
-         (cnt["lemma_degenerate_nonplanar"],)),
-        ("paper/main.tex", r"exactly (\d+) non-planar famil",
-         (cnt["lemma_degenerate_nonplanar"],)),
+         r"runs on (\d+) instances\s+\$\\times\$\s+(\d+) allocations in the "
+         r"battery\s+and on\s+(\d+)\s+instances under",
+         (cnt["featureless_c6_instances"], cnt["featureless_c6_allocs"],
+          cnt["featureless_c6_full_instances"])),
+        ("paper/main.md",
+         r"come as close as `L∞` distance (\d+) on the\s+instance corpus",
+         (cnt["stub_margin_min"],)),
+        ("paper/main.tex",
+         r"come as close as\s+\$L_\\infty\$\s+distance (\d+) on the\s+instance\s+corpus",
+         (cnt["stub_margin_min"],)),
+        # round 16 (Opus F10): §4.1 attributes the 12 reduction-drawn engine
+        # cases to what they test (damage and kill thresholds, one retaliation
+        # blow), and §4.2 quotes the battery's own float-vs-exact constants
+        # (test_round14_apparatus: equality to c = 2000, first split at 180)
+        ("paper/main.md",
+         r"(\d+) damage and kill-threshold cases drawn from the reduction",
+         (cnt["engine_reduction_cases"],)),
+        ("paper/main.tex",
+         r"(\d+) damage and kill-threshold cases drawn from the reduction",
+         (cnt["engine_reduction_cases"],)),
+        ("paper/main.md", r"equality up\s+to `c = (\d+)` creatures", (2000,)),
+        ("paper/main.tex", r"equality up to \$c=(\d+)\$ creatures", (2000,)),
+        ("paper/main.md", r"published undefended branch at `c = (\d+)`", (180,)),
+        ("paper/main.tex", r"published undefended\s+branch at \$c=(\d+)\$", (180,)),
     ]
     for rel, pattern, want in sweep:
         found = re.search(pattern, (root / rel).read_text())
@@ -1143,8 +1270,10 @@ def test_docs_match_artifacts() -> None:
     # pinned, and it is drilled on a synthetic text below.
     from check_artifact_repo import cited_paths
     cited = cited_paths(root=str(root))
-    check("the paper's cited-path count == the manifest's pin",
-          len(cited), cnt["cited_paths"])
+    check("the cited-path count (paper + companion note + README) == the "
+          "manifest's pin", len(cited), cnt["cited_paths"])
+    check("the companion note is itself a cited path of the paper",
+          "paper/companion-empirics.md" in cited, True)
     check("the round-12 drifted file is in the sweep",
           "scripts/search_free_order.py" in cited, True)
     for path in sorted(cited):
@@ -1163,6 +1292,125 @@ def test_docs_match_artifacts() -> None:
     for path, pattern in banned:
         check(f"{path.name}: retired claim absent ({pattern[:40]})",
               re.search(pattern, path.read_text(), re.DOTALL) is None, True)
+
+
+def doorway_case() -> Battle:
+    """Round 16 (Opus review, F6): a kill that opens a doorway.
+
+    5x2 board; row 1 is impassable except (1,1), where P1 stands. P2 at (0,0)
+    is walled in by E_A at (1,0). Both players have speed 3, damage 1; each
+    enemy has 1 hit point and value 1; E_B stands at (4,0). The optimum is 2:
+    P1 kills E_A from where it stands, P2 walks through the freed hex to (3,0)
+    and kills E_B. A relaxation that keeps living enemies as blockers sees no
+    path for P2 at the root, bounds the value by 1, and prunes the win.
+    """
+    W, H = 5, 2
+
+    def idx(x: int, y: int) -> int:
+        return x + y * W
+
+    obst = frozenset({idx(0, 1), idx(2, 1), idx(3, 1), idx(4, 1)})
+    field = Battlefield(width=W, height=H, obstacles=obst)
+    P = CreatureType("P", 1, 1, 1, 1, hp=5, speed=3)
+    EA = CreatureType("EA", 1, 1, 1, 1, hp=1, speed=1, value=1)
+    EB = CreatureType("EB", 1, 1, 1, 1, hp=1, speed=1, value=1)
+    return Battle(field, [
+        Stack(P, 1, side=0, slot=0, hex_=idx(1, 1)),
+        Stack(P, 1, side=0, slot=1, hex_=idx(0, 0)),
+        Stack(EA, 1, side=1, slot=0, hex_=idx(1, 0)),
+        Stack(EB, 1, side=1, slot=1, hex_=idx(4, 0)),
+    ])
+
+
+def _enemies_as_walls_bound(battle: Battle, order, i: int, initial) -> int:
+    """The pre-round-16 relaxation, verbatim in effect: allied blockers removed,
+    living enemies kept as blockers. Kept only as the mutation-drill fixture."""
+    from homm3_model import compute_damage, kills_for_damage
+    enemies = [(k, s) for k, s in enumerate(battle.stacks) if s.side == 1]
+    future = {k: 0 for k, _ in enemies}
+    for k, _phase in order[i:]:
+        attacker = battle.stacks[k]
+        if attacker.side != 0 or not attacker.alive():
+            continue
+        probe = attacker.clone()
+        walls = [s.clone() for _, s in enemies]
+        relaxed = Battle(battle.field, [probe] + walls)
+        back = {id(w): k2 for w, (k2, _) in zip(walls, enemies)}
+        for target in relaxed.attackable(probe):
+            future[back[id(target)]] += compute_damage(probe, target)
+    upper = destroyed_value(battle, initial)
+    for k, enemy in enemies:
+        upper += kills_for_damage(enemy, future[k]) * enemy.ctype.value
+    return upper
+
+
+def test_prune_survives_opened_doorway() -> None:
+    """Round 16 (Opus F6): `brute_force.relaxed_upper_bound` must not treat
+    living enemies as walls. The docstring promised the bound "does not discard
+    any legal action"; on the doorway board the old bound discarded the win.
+    No published number moved (on the Theorem 1–2 boards no kill extends reach,
+    Lemmas E.4/E.11), but the promise was false in general and the searcher is
+    described as assumption-free. The drill re-installs the old relaxation and
+    requires the search to lose the second kill — 1 before the fix, truth 2.
+    """
+    import brute_force as bf
+    from brute_force import policy_hold
+    check("doorway board, hold: the fixed prune keeps both kills",
+          max_destroyed_value(doorway_case(), 1, policy_hold), 2)
+    check("doorway board, (‡): the fixed prune keeps both kills",
+          max_destroyed_value(doorway_case(), 1, policy_wait_defend), 2)
+    original = bf.relaxed_upper_bound
+    try:
+        bf.relaxed_upper_bound = lambda *a, **k: 10 ** 9      # prune disabled
+        truth = max_destroyed_value(doorway_case(), 1, policy_hold)
+        bf.relaxed_upper_bound = _enemies_as_walls_bound
+        old = max_destroyed_value(doorway_case(), 1, policy_hold)
+    finally:
+        bf.relaxed_upper_bound = original
+    check("doorway board: search without any prune agrees", truth, 2)
+    check("mutation drill: the pre-round-16 relaxation (enemies as walls) "
+          "prunes the winning branch", old, 1)
+
+
+def test_round16_apparatus() -> None:
+    """Round 16 (Opus review, in-process pins).
+
+    (a) F9: the verifiers build the paper's `(★)` instances — `att = def = 1`
+    in the Theorem 1–2, Theorem 4 / Corollary 4.2 and Proposition 1.1 suites
+    (they used 10, 10 and 5: the same factors 1.0, but a DEFEND bonus of +2
+    instead of the +1 the paper's arithmetic reasons about). Re-running every
+    suite at α = 1 moved no counter and no C6 node count.
+    (b) F5: the `--full` extension of C6 runs on the suite's own list of the
+    four smallest legal instances; its length and the default allocation
+    sample are the manifest's numbers.
+    """
+    import json
+    from pathlib import Path
+
+    import brute_force as bf
+    import dp_single_type as dp
+    import verify_featureless as vf
+    root = Path(__file__).resolve().parent.parent
+    cnt = json.loads((root / "verification_manifest.json").read_text())["counters"]
+    check("(★) in the verifiers: brute_force.ALPHA, verify_featureless.ALPHA, "
+          "dp_single_type.ALPHA == 1", (bf.ALPHA, vf.ALPHA, dp.ALPHA), (1, 1, 1))
+    field, enemies, player, slots, _B, _W = bf.build_partition_instance([1, 3])
+    check("Theorem 1 instance built at att = def = 1",
+          (player.attack, player.defense, enemies[0][0].attack,
+           enemies[0][0].defense), (1, 1, 1, 1))
+    inst = vf.build([4, 4, 4, 4, 5, 5], 13)
+    check("Theorem 4 instance built at att = def = 1",
+          (inst["player_types"][0].attack, inst["enemies"][0][0].defense), (1, 1))
+    check("manifest featureless_c6_full_instances == len(SMALL_CASES)",
+          len(vf.SMALL_CASES), cnt["featureless_c6_full_instances"])
+    check("manifest featureless_c6_instances == the default C6 slice",
+          vf.C6_DEFAULT_INSTANCES, cnt["featureless_c6_instances"])
+    check("manifest featureless_c6_allocs == identity + the default sample",
+          1 + vf.C6_DEFAULT_ALLOCS, cnt["featureless_c6_allocs"])
+    check("the default C6 slice is the T = 13 pair, one yes and one no",
+          [(T, vf.three_partition_answer(a, T))
+           for a, T in vf.SMALL_CASES[:vf.C6_DEFAULT_INSTANCES]],
+          [(13, True), (13, False)])
 
 
 def test_round13_apparatus():
@@ -1221,7 +1469,113 @@ def test_round13_apparatus():
               f"the {key} trace", S.TRACE[key], 0)
 
 
+def test_round14_apparatus():
+    """Round 14 (gpt-6-astra pro, web reviewer): three apparatus pins, in-process.
+
+    (a) `certify_scores.check_coverage` — F5: the old coverage check compared
+    SETS of (task_id, model) keys, so replacing one cell by a duplicate of
+    another in both files kept 870 records, 869 keys per side, equal sets, and
+    printed ALL PASS (reproduced on a shadow copy). The matrix check now runs
+    on the raw lists against the DECLARED design (llm_tasks x three tiers);
+    the drills rebuild the duplicate, a missing cell and an undeclared model.
+    (b) `exact_damage` — F2: the reference simulator's floats and the
+    exact rationals of MODEL.md section 4 split on some calls (base 90 /
+    def 10 / DEFEND: 62 vs 63); the dual instrumentation must SEE that split
+    (positive control), and on the constructions' own constants the two
+    arithmetics must agree over every stack size the paper reasons about —
+    the published Theorem-3 undefended branch is where they first part, at
+    c = 180, which the paper now states and this drill pins as the number it is.
+    (c) the slow block of `test_docs_match_artifacts` replays all 145 optima
+    with the exact routine installed (the witness half of
+    `exact_arithmetic_crosscheck.py`, ~10 s) and pins the script's recorded
+    final line to the manifest.
+    """
+    import json
+    import sys as _sys
+    from pathlib import Path
+
+    root = Path(__file__).resolve().parent.parent
+    _sys.path.insert(0, str(root / "empirics" / "scripts"))
+    import certify_scores as CS
+
+    rows = json.loads((root / "empirics" / "results" / "llm.json")
+                      .read_text())["per_response"]
+    raw = [json.loads(l) for l in
+           open(root / "empirics" / "responses_final.jsonl") if l.strip()]
+    expected = CS.expected_keys(root / "empirics" / "llm_tasks.jsonl")
+    raw_keys = [(r["task_id"], r["model"]) for r in raw]
+    scored_keys = [(r["task_id"], r["model"]) for r in rows]
+    check("coverage: the declared matrix is tasks x tiers",
+          len(expected), len(rows))
+    check("coverage: the genuine response and score lists fill the matrix "
+          "exactly once", CS.check_coverage(raw_keys, scored_keys, expected), [])
+    a, b = raw_keys[0], next(k for k in raw_keys if k != raw_keys[0])
+    dup_raw = [a if k == b else k for k in raw_keys]
+    dup_scored = [a if k == b else k for k in scored_keys]
+    check("mutation drill (F5): one cell duplicated in both lists is caught",
+          bool(CS.check_coverage(dup_raw, dup_scored, expected)), True)
+    check("mutation drill (F5): a missing cell is caught",
+          bool(CS.check_coverage(raw_keys[1:], scored_keys[1:], expected)), True)
+    stray = [(a[0], "no-such-tier")]
+    check("mutation drill (F5): an undeclared model is caught",
+          bool(CS.check_coverage(raw_keys + stray, scored_keys + stray,
+                                 expected)), True)
+
+    import exact_damage as E
+    import homm3_model as M
+    import solve as _solve
+    check("exact arithmetic positive control: the base-90 cell splits "
+          "(float 62, exact 63)",
+          (E.probe_call(M.compute_damage), E.probe_call(E.exact_compute_damage)),
+          (62, 63))
+    trace = E.DualTrace()
+    undo = E.install_dual(trace, _solve)
+    try:
+        E.probe_call(M.compute_damage)
+    finally:
+        undo()
+    check("exact arithmetic instrumentation records the split it is fed",
+          (trace.calls, [d[-2:] for d in trace.disagreements]), (1, [(62, 63)]))
+    check("exact arithmetic instrumentation is removed after use",
+          (M.compute_damage.__name__, E.probe_call(M.compute_damage)),
+          ("compute_damage", 62))
+
+    def split_sizes(att, deff, defending, upto=2000):
+        a = M.CreatureType("a", attack=att, defense=1, dmg_min=1, dmg_max=1,
+                           hp=1, speed=1)
+        d = M.CreatureType("d", attack=1, defense=deff, dmg_min=1, dmg_max=1,
+                           hp=10**6, speed=1)
+        out = []
+        for c in range(1, upto + 1):
+            s, t = M.Stack(a, c, 0, 0, 0), M.Stack(d, 1, 1, 0, 1)
+            t.defending = defending
+            if M.compute_damage(s, t) != E.exact_compute_damage(s, t):
+                out.append(c)
+        return out
+
+    # (★): att = def = 1, a waiting blow meets the +1 DEFEND bonus (factor 0.975)
+    check("floats == exact rationals on every (★) waiting blow up to c = 2000",
+          split_sizes(1, 1, True), [])
+    # Theorem 3, historical constants (def 41): both branches
+    check("floats == exact rationals on Theorem 3's historical branches up "
+          "to c = 2000", (split_sizes(1, 41, False), split_sizes(1, 41, True)),
+          ([], []))
+    # Theorem 3, published constants (def 27): defended branch agrees; the
+    # undefended one (1 - 0.65, the double nearest 7/20 lies below it) first
+    # splits at c = 180 — beyond every searched instance (3q <= 12), pinned
+    # as the measurement the paper's Appendix D states
+    check("floats == exact rationals on Theorem 3's published defended branch "
+          "up to c = 2000", split_sizes(1, 27, True), [])
+    pub = split_sizes(1, 27, False)
+    check("Theorem 3's published undefended branch: floats first part from "
+          "exact rationals at c = 180, well past every searched stock",
+          (pub[:1], all(c > 12 for c in pub)), ([180], True))
+
+
 def main() -> int:
+    test_round16_apparatus()
+    test_prune_survives_opened_doorway()
+    test_round14_apparatus()
     test_round13_apparatus()
     test_exhaustive_destinations()
     test_moved_stack_frees_hex()
@@ -1234,8 +1588,8 @@ def main() -> int:
     test_docs_match_artifacts()
 
     # The manifest's counter for THIS suite, checked outside `check()` so the
-    # comparison cannot change the number it verifies. The paper rows are the
-    # manifest's render (checked above), so this covers main.md and main.tex.
+    # comparison cannot change the number it verifies. The README's table row
+    # is the manifest's render (checked above), so this covers it too.
     import json
     import sys
     from pathlib import Path

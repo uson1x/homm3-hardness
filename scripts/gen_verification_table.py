@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
-"""Render the paper's verification table from verification_manifest.json.
+"""Render the artifact's verification-suite table from verification_manifest.json.
 
 Round-8 review (codex leg) recommendation: the table's rows drifted from the
 artifacts twice, because every number was retyped by hand in two files. Now
 the numbers live once, in ../verification_manifest.json, and this script
-renders the Markdown and LaTeX tables from it, between marker comments:
+renders the Markdown table from it, between marker comments in ../README.md:
 
     <!-- verification-table:begin -->  /  <!-- verification-table:end -->
-    % verification-table:begin        /  % verification-table:end
+
+Round 15 (restructuring): the table left the paper -- Section 4.4 of the paper
+now points at README.md -- so the LaTeX render, its templates and the tex-only
+mutation drills are gone; the md render is the only render, and its guards
+(ordered placeholder sequence, signed digit-run multiset per row, in-memory
+mutation drills in test_regressions.py) are unchanged.
 
 Modes:
     python3 gen_verification_table.py            # CHECK: exit 1 + diff if the
@@ -17,8 +22,8 @@ Modes:
 test_regressions.py runs the check mode as part of the doc-consistency
 battery, so an edit to the table that bypasses the manifest fails the suite.
 Placeholders: `{name}` where `name` is a key of the manifest's `counters`
-map is substituted; every other brace (LaTeX, set notation) is left alone —
-which is why str.format is deliberately NOT used here.
+map is substituted; every other brace (set notation) is left alone — which
+is why str.format is deliberately NOT used here.
 """
 
 from __future__ import annotations
@@ -32,13 +37,10 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 MANIFEST = ROOT / "verification_manifest.json"
-MD = ROOT / "paper" / "main.md"
-TEX = ROOT / "paper" / "main.tex"
+MD = ROOT / "README.md"
 
 MD_BEGIN = "<!-- verification-table:begin -->"
 MD_END = "<!-- verification-table:end -->"
-TEX_BEGIN = "% verification-table:begin"
-TEX_END = "% verification-table:end"
 
 
 def load_manifest() -> dict:
@@ -59,8 +61,7 @@ def substitute(cell: str, counters: dict) -> str:
     # (a typo WITHOUT one) still slipped through. Now every bare lowercase
     # brace-word is an error unless it is on the explicit allowlist of
     # legitimate LaTeX brace groups used by the templates.
-    # \src{hold} and \textbf{published} in the tex templates
-    allowed = {"hold", "published"}
+    allowed: set[str] = set()   # no LaTeX brace groups since round 15
     for leftover in re.finditer(r"\{([a-z][a-z0-9_]*)\}", out):
         if leftover.group(1) not in allowed:
             raise SystemExit(
@@ -72,11 +73,10 @@ def substitute(cell: str, counters: dict) -> str:
 
 
 def placeholder_cells(cells: list[str], counters: dict) -> list[list[str]]:
-    """Counter names per cell, in template order (non-counter brace groups —
-    LaTeX macros — are not placeholders and are skipped). Kept per cell:
-    round 12 (P12-7) showed that a flat, concatenated sequence lets a counter
-    move across a cell boundary, putting the same number in different table
-    columns of the md and tex renders."""
+    """Counter names per cell, in template order (non-counter brace groups
+    are not placeholders and are skipped). Kept per cell: round 12 (P12-7)
+    showed that a flat, concatenated sequence lets a counter move across a
+    cell boundary, putting the same number in a different table column."""
     return [[n for n in re.findall(r"\{([a-z_][a-z0-9_]*)\}", cell)
              if n in counters]
             for cell in cells]
@@ -92,9 +92,13 @@ def validate_placeholders(manifest: dict) -> None:
     a counter retyped as a digit that row already declared in `literals`,
     and two placeholders swapped inside one row (sets don't see order).
     Every row now declares `placeholders`: the exact ordered sequence of
-    counter names its templates carry. The md cells, the tex cells and the
-    declaration must all agree; a retyped counter drops out of the
-    sequence, a swap changes its order — both fail here."""
+    counter names its templates carry. The md cells and the declaration must
+    agree; a retyped counter drops out of the sequence, a swap changes its
+    order — both fail here. Round 12 (P12-7) added a per-cell declaration
+    (`cells`: how many placeholders each cell carries, in order) so that a
+    counter moved across a cell boundary is a different table; round 15
+    dropped the tex render, so that per-cell agreement is now checked
+    against the declaration rather than against a second render."""
     counters = manifest["counters"]
     problems = []
     for row in manifest["rows"]:
@@ -106,41 +110,24 @@ def validate_placeholders(manifest: dict) -> None:
         if unknown:
             problems.append(f"row {row['id']}: declared placeholders "
                             f"{unknown} are not manifest counters")
-        for kind in ("md", "tex"):
-            got = placeholder_sequence(row.get(kind, []), counters)
-            if got != declared:
-                problems.append(
-                    f"row {row['id']}: {kind} placeholder sequence {got} != "
-                    f"declared {declared}")
-        # round 12 (P12-7): the md and tex CELLS must agree placeholder-for-
-        # placeholder, not just their concatenations — a counter moved
-        # across a cell boundary in one render only is a different table.
-        md_cells = placeholder_cells(row.get("md", []), counters)
-        tex_cells = placeholder_cells(row.get("tex", []), counters)
-        if md_cells != tex_cells:
+        got = placeholder_sequence(row.get("md", []), counters)
+        if got != declared:
             problems.append(
-                f"row {row['id']}: md cells carry placeholders {md_cells} "
-                f"but tex cells carry {tex_cells} — the two renders would "
-                f"put a number in different columns")
+                f"row {row['id']}: md placeholder sequence {got} != "
+                f"declared {declared}")
+        md_cells = placeholder_cells(row.get("md", []), counters)
+        cells_declared = row.get("cells")
+        if cells_declared is None:
+            problems.append(f"row {row['id']}: no `cells` declaration")
+        elif [len(c) for c in md_cells] != cells_declared:
+            problems.append(
+                f"row {row['id']}: md cells carry {[len(c) for c in md_cells]} "
+                f"placeholders per cell but the manifest declares "
+                f"{cells_declared} — a counter moved across a cell boundary")
     if problems:
         raise SystemExit("placeholder-sequence audit failed:\n  " +
                          "\n  ".join(problems))
 
-
-# LaTeX macros the tex templates use that HIDE or carry digits. Expanded
-# before the literal audit so the tex mirror can be held to the SAME
-# multiset as the md master (round 13, fable F-05 D3/D4: "tex may carry
-# fewer" let a tex-only deletion of `41` and a tex-only 27<->41 swap render
-# a false PDF table under a green battery).
-TEX_DIGIT_MACROS = {
-    r"\\THREEPART(?:\{\})?": "3-PARTITION",
-    r"\\PARTITION(?:\{\})?": "PARTITION",
-}
-# Section labels the tex cells reference where the md master carries the
-# section NUMBER. The audit resolves them here, explicitly, so that md and
-# tex are held to one multiset; an unlisted label fails the audit rather
-# than silently vanishing (that is what "tex may carry fewer" amounted to).
-TEX_REF_NUMBERS = {"sec:design": "5.1", "sec:floats": "4.2"}
 
 # A digit-run, with its sign when the sign is a free-standing minus (start
 # of cell, whitespace or an opening bracket before it) -- round 13, codex
@@ -149,21 +136,9 @@ TEX_REF_NUMBERS = {"sec:design": "5.1", "sec:floats": "4.2"}
 LITERAL_RE = re.compile(r"(?:(?<=^)|(?<=[\s(\[]))-\d+(?:\.\d+)?|\d+(?:\.\d+)?")
 
 
-def literal_runs(cell: str, kind: str) -> list[str]:
+def literal_runs(cell: str) -> list[str]:
     """The signed digit-runs of one template cell outside its placeholders."""
     stripped = re.sub(r"\{[a-z_][a-z0-9_]*\}", "", cell)
-    if kind == "tex":
-        for macro, expansion in TEX_DIGIT_MACROS.items():
-            stripped = re.sub(macro, expansion, stripped)
-
-        def ref(m):
-            label = m.group(1)
-            if label not in TEX_REF_NUMBERS:
-                raise SystemExit(f"tex cell references label {label!r}, not "
-                                 f"in TEX_REF_NUMBERS -- add it with the "
-                                 f"section number the md master prints")
-            return TEX_REF_NUMBERS[label]
-        stripped = re.sub(r"\\ref\{([^}]*)\}", ref, stripped)
     return LITERAL_RE.findall(stripped)
 
 
@@ -175,31 +150,21 @@ def validate_literals(manifest: dict) -> None:
     section numbers). Round 12 (P12-7): the audit is MULTISET equality
     for the md master -- set equality was blind to deleting one occurrence
     of a digit that appears twice -- with one `literals` entry per md
-    occurrence. Round 13 (F-05, Check 05): the tex mirror is held to the
-    SAME per-cell literal SEQUENCE after expanding the digit-carrying
-    macros it uses (TEX_DIGIT_MACROS, TEX_REF_NUMBERS) -- "fewer is fine"
-    let tex-only deletions and swaps through -- and digit-runs are read
-    with a free-standing sign."""
+    occurrence. Round 13 (F-05, Check 05): digit-runs are read with a
+    free-standing sign. (Rounds 13-14 also held a LaTeX mirror of the
+    table to the md master cell by cell; the mirror was retired in round
+    15 together with the table's place in the paper.)"""
     from collections import Counter
 
     problems = []
     for row in manifest["rows"]:
-        counts = {kind: Counter(run for cell in row.get(kind, [])
-                                for run in literal_runs(cell, kind))
-                  for kind in ("md", "tex")}
+        counts = Counter(run for cell in row.get("md", [])
+                         for run in literal_runs(cell))
         declared = Counter(row.get("literals", []))
-        if counts["md"] != declared:
+        if counts != declared:
             problems.append(
-                f"row {row['id']}: md digit-runs {dict(counts['md'])} "
+                f"row {row['id']}: md digit-runs {dict(counts)} "
                 f"!= declared literals {dict(declared)}")
-        # the tex mirror is held cell by cell, IN ORDER, to the md master
-        # (a multiset would still pass a tex-only 27<->41 swap, F-05 D4)
-        md_seq = [literal_runs(c, "md") for c in row.get("md", [])]
-        tex_seq = [literal_runs(c, "tex") for c in row.get("tex", [])]
-        if md_seq != tex_seq:
-            problems.append(
-                f"row {row['id']}: per-cell literal sequences differ -- md "
-                f"{md_seq} vs tex {tex_seq} (after macro expansion)")
     if problems:
         raise SystemExit("literal-digit audit failed:\n  " +
                          "\n  ".join(problems))
@@ -211,15 +176,6 @@ def render_md(manifest: dict) -> str:
     for row in manifest["rows"]:
         cells = [substitute(c, counters) for c in row["md"]]
         lines.append("| " + " | ".join(cells) + " |")
-    return "\n".join(lines)
-
-
-def render_tex(manifest: dict) -> str:
-    counters = manifest["counters"]
-    lines = []
-    for row in manifest["rows"]:
-        cells = [substitute(c, counters) for c in row["tex"]]
-        lines.append(" & ".join(cells) + " \\\\")
     return "\n".join(lines)
 
 
@@ -261,10 +217,10 @@ def main() -> int:
     validate_placeholders(manifest)
     validate_literals(manifest)
     ok_md = process(MD, MD_BEGIN, MD_END, render_md(manifest), write)
-    ok_tex = process(TEX, TEX_BEGIN, TEX_END, render_tex(manifest), write)
-    if ok_md and ok_tex:
+    if ok_md:
         if not write:
-            print("OK: both verification tables match the manifest render")
+            print("OK: the README verification table matches the manifest "
+                  "render")
         return 0
     return 1
 

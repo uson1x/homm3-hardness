@@ -26,24 +26,31 @@ What is checked, per instance
                         neighbourhood, with every other region saturated: the legal
                         approach hexes are always exactly the free neighbours of the
                         target, so blocking is local seat capacity and nothing else
-  C6  unrestricted      (--full) exhaustive search over one allocation's play on the
-                        real, fully crowded board, branching over targets AND over
-                        approach hexes, with an over-generous extra branch in which a
-                        passing stack vanishes from the board (strictly more permissive
-                        than the MOVE-only action the reference simulator omits).  Run
-                        on the identity allocation plus a sample, for the smallest
-                        legal instances.
+  C6  unrestricted      exhaustive search over one allocation's play on the real, fully
+                        crowded board, branching over targets AND over approach hexes,
+                        with an over-generous extra branch in which a passing stack
+                        vanishes from the board (strictly more permissive than the
+                        MOVE-only action the reference simulator omits).  Run on the
+                        identity allocation plus a sample of partial allocations.  By
+                        default (since round 16) on the two smallest legal instances,
+                        T = 13, exactly one yes and one no; `--full` extends it to all
+                        four SMALL_CASES.  This is the only tier that searches PLAYS
+                        of a no-instance; C1-C5 never do.
 
 C3 settles the yes-direction constructively (a real play is simulated and its destroyed
-value read off), C4 settles the no-direction over every allocation at once, C5 certifies
-the geometry exhaustively, and C6 is a redundant assumption-free cross-check.
+value read off), C4 settles the no-direction over every allocation at once — it is the
+inequality of Lemma E.20 recomputed from `a` and `T`, not a game search — C5 certifies
+the geometry exhaustively, and C6 is a redundant assumption-free cross-check on the
+instances small enough to afford it.  The printed `game` column is the witness play of
+a yes-instance read off the simulator; on a no-instance it is N by construction (no
+witness is built), so "3part=N game=N" records the C4 bound, not a search.
 
 Mechanics come from homm3_model.py only; nothing about the combat rules is restated here.
 The Geometry class in front of the model's BFS is a cache, not a reimplementation, and
 selfcheck_geometry_cache compares it against uncached model calls.
 
-Run:  python3 verify_featureless.py
-      python3 verify_featureless.py --full     (adds the C6 tier, slow: ~2 min)
+Run:  python3 verify_featureless.py             (C1-C5 on 46 runs, C6 on 2 instances: ~2 min)
+      python3 verify_featureless.py --full      (C6 on all four smallest cases: ~3 min)
 """
 
 from __future__ import annotations
@@ -63,7 +70,10 @@ from homm3_model import (
     scripted_defence,
 )
 
-ALPHA = 10          # common attack/defence value, so both damage factors are 1.0
+ALPHA = 1           # att = def = 1: the paper's (★) verbatim (round 16, F9; was 10,
+                    # which also gave factors 1.0 but a DEFEND bonus of +2, not +1)
+C6_DEFAULT_INSTANCES = 2   # C6 by default: the two smallest legal instances (T = 13)
+C6_DEFAULT_ALLOCS = 2      # C6: random allocations sampled on top of the identity one
 PLAYER_HP = 5       # > 2, so no player creature can die in one round (see below)
 ENEMY_SPEED = 1     # strictly below the player speed: all player stacks act first
 ENEMY_DAMAGE = 1
@@ -666,8 +676,8 @@ def _solution_assignment(a: list[int], T: int, m: int) -> list[int]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--full", action="store_true",
-                    help="add the C6 tier: exhaustive play search per allocation, slow")
-    ap.add_argument("--allocs", type=int, default=2,
+                    help="C6 on all four smallest cases instead of the two T = 13 ones")
+    ap.add_argument("--allocs", type=int, default=C6_DEFAULT_ALLOCS,
                     help="C6: random allocations sampled on top of the identity one")
     ap.add_argument("--seed", type=int, default=20260801)
     args = ap.parse_args()
@@ -711,12 +721,19 @@ def main() -> int:
                       f"saturation={r['saturation']}")
         print()
 
-    if args.full:
+    # C6 -- since round 16 a default tier (Opus review, F5: "for each allocation,
+    # search the plays" described no default tier of this suite); the battery
+    # re-runs this script and pins the instance and allocation counts below.
+    c6_cases = SMALL_CASES if args.full else SMALL_CASES[:C6_DEFAULT_INSTANCES]
+    c6_allocs = 1 + args.allocs
+    if True:
         print("=" * 78)
         print("C6  exhaustive play search per allocation on the real, crowded board")
         print("    (branching over targets and over approach hexes; a passing stack")
         print("    may also vanish, which dominates the MOVE-only action the")
         print("    reference simulator does not implement)")
+        print(f"    {len(c6_cases)} instances x {c6_allocs} allocations "
+              f"({'--full: all four smallest cases' if args.full else 'default: the two T = 13 cases, one yes and one no; --full adds two'})")
         print("=" * 78)
         probe = build(cases_m2[0][0], cases_m2[0][1], variant="hold")
         n_cmp = selfcheck_geometry_cache(probe)
@@ -726,7 +743,7 @@ def main() -> int:
         # T/4 < a_i < T/2 leaves exactly {4,5,6}, and exactly one yes and one no
         # instance exist.  Small T keeps the damage-vector part of the memo small;
         # the board, and hence the geometric branching, is the same at every T.
-        for a, T in SMALL_CASES:
+        for a, T in c6_cases:
             inst = build(a, T, variant="hold")
             budget, geo = Budget(200_000_000), Geometry()
             bound = relaxation_bound(a, T, inst["m"])
@@ -760,7 +777,8 @@ def main() -> int:
         for f in failures:
             print(f"  - {f}")
         return 1
-    print(f"ALL PASS  ({total} instance runs, {dt:.1f}s)")
+    print(f"ALL PASS  ({total} instance runs, C6 on {len(c6_cases)} instances x "
+          f"{c6_allocs} allocations, {dt:.1f}s)")
     return 0
 
 

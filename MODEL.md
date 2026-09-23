@@ -191,21 +191,34 @@ Then
   (`:123-131`: base damage is multiplied by `getCount()`; `:576-577`: floor and the
   lower clamp at 1).
 
-**Arithmetic semantics (round 4, finding 3.4).** In the *mathematical* problem the
-constants above are the exact rationals `1/20`, `4`, `1/40`, `7/10`, the products are exact
-rational arithmetic, and `⌊·⌋` is the exact integer floor. All theorem statements are about
-this exact-rational model. For the theorem constructions the exact and floating readings
-provably agree: Theorems 1, 2 and 4 set `Δ = 0` and never form a fractional product at
-all, and Theorem 3's damage tables are recomputed and compared under both cap readings
-(`verify_x3c.py`, `crosscheck_sol.py`). The *engine* evaluates the same formula in IEEE-754
-doubles with constants parsed from JSON; the one observed divergence — the cap `0.7`
-loading as `0.7000000000000001`, one ULP high, which changes `⌊base · 0.3⌋` when
-`base · 0.3` is an exact integer — is documented in `engine-check/REPORT.md` and dodged by
-every construction (candidate-D §3.3). The reference implementation (`scripts/homm3_model.py`)
-computes in Python floats, i.e. the engine's semantics; for the empirical instances of
-`empirics/` that implementation is the operative definition of the optimum. Where the two
-semantics could differ, mathematical statements mean the exact-rational model, and engine
-behaviour is reported as an implementation cross-check.
+**Arithmetic semantics (round 4, finding 3.4; scope corrected in round 14, F2).** There
+are three arithmetics in play, and they are not asserted to agree on all plays.
+(1) In the *mathematical* problem the constants above are the exact rationals `1/20`, `4`,
+`1/40`, `7/10`, the products are exact rational arithmetic, and `⌊·⌋` is the exact integer
+floor. All theorem statements are about this exact-rational model. (2) The reference
+implementation (`scripts/homm3_model.py`) evaluates the same formula in Python (IEEE-754)
+floats with the constants written as decimal literals. (3) The *engine* evaluates it in
+doubles with constants parsed from JSON by its own parser, and with bounded integer
+representations; the one observed divergence from (2) — the cap `0.7` loading as
+`0.7000000000000001`, one ULP high, which changes `⌊base · 0.3⌋` when `base · 0.3` is an
+exact integer — is documented in `engine-check/REPORT.md` and dodged by every construction
+(candidate-D §3.3). (1) and (2) differ too, in the other direction: `0.025 · 12` is the
+double `0.30000000000000004`, `1 − 0.30000000000000004` lies below `7/10`, and a defended
+blow of base 90 against attack 0 / defence 10 floors to 62 in floats and to 63 exactly
+(`scripts/exact_damage.py`; on a grid of attack, defence ≤ 60 and base ≤ 2000 the two split
+on 0.6 % of the cells). What the theorems consume is robust to this: the non-waiting witness
+plays of Theorems 1, 2 and 4 have `Δ = 0` and form no fractional product at all; a waiting
+play in those constructions meets the postponed `DEFEND` bonus (`Δ = −1`), and the
+no-directions use only "delivered at most nominal", true under every arithmetic; Theorem 3's
+resource lemma is stated for every `μ ∈ (0,1)` and its damage tables are recomputed under
+both cap readings (`verify_x3c.py`, `crosscheck_sol.py`). For the empirical instances of
+`empirics/` the float implementation (2) is the operative definition of the optimum, and
+the agreement with (1) is *measured*, not assumed: `empirics/scripts/exact_arithmetic_crosscheck.py`
+re-runs the three certification suites with the exact-rational routine installed and
+requires every recorded optimum, replay and score to be reproduced (round 14: reproduced;
+the two arithmetics split on 202 of 909 638 individual damage calls, all on branches that
+decide no certified number). Where the semantics could differ, mathematical statements mean
+the exact-rational model, and engine behaviour is reported as an implementation cross-check.
 
 **Determinisation.** The only randomness left in this stripped model is `d`, morale and
 luck. We remove morale and luck by forbidding the corresponding abilities and setting

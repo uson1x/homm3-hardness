@@ -43,7 +43,20 @@ natural instances with fast enemies; check_defend_policy.py --legacy-defend
 keeps that negative control runnable.)
 
 Where all three meet, the recorded value is exact for the full action model,
-under `hold` and under (‡) alike. Run from homm3/empirics/:
+under `hold` and under (‡) alike.
+
+COVERAGE (review round 14, gpt-6-astra pro F5). The old coverage check compared
+the SET of (task_id, model) keys seen in responses_final.jsonl with the SET of
+keys in results/llm.json -- and both sides were built through a dict / set, so
+multiplicity was discarded: replacing one cell by a duplicate of another in
+BOTH files kept 870 records, 869 keys on each side, equal sets, and printed
+ALL PASS (reproduced on a shadow copy in round 14). `check_coverage` now runs
+BEFORE any dict is built, on the raw key lists: every key unique on each side,
+and both equal to the DECLARED design -- every task of llm_tasks.jsonl (145
+instances x 2 variants) crossed with the three model tiers of the companion note --
+not to whichever records happen to be present.
+
+Run from homm3/empirics/:
 
     python3 scripts/certify_scores.py
 
@@ -94,6 +107,38 @@ def fixed_allocation_ghost_bound(inst: dict, alloc: list, ghost: dict) -> int:
     return max(solve.value_of_damage(inst, dmg) for dmg in states)
 
 
+# The three tiers the companion note (paper/companion-empirics.md) reports; the matrix is
+# every task (instance x prompt variant) crossed with these.
+MODELS = ("claude-haiku-4-5", "claude-sonnet-5", "claude-opus-5")
+
+
+def expected_keys(tasks_path: Path = ROOT / "llm_tasks.jsonl") -> set:
+    tasks = [json.loads(l)["task_id"] for l in open(tasks_path) if l.strip()]
+    if len(tasks) != len(set(tasks)):
+        raise SystemExit("llm_tasks.jsonl carries a duplicate task_id")
+    return {(t, m) for t in tasks for m in MODELS}
+
+
+def check_coverage(raw_keys: list, scored_keys: list, expected: set) -> list[str]:
+    """Uniqueness and completeness of the (task_id, model) matrix, on the raw
+    LISTS -- before anything is converted to a set or a dict."""
+    problems = []
+    for label, keys in (("responses", raw_keys), ("scored rows", scored_keys)):
+        if len(keys) != len(set(keys)):
+            dup = sorted({k for k in keys if keys.count(k) > 1})[:5]
+            problems.append(f"{label}: {len(keys) - len(set(keys))} duplicate "
+                            f"key(s), e.g. {dup}")
+    for label, keys in (("responses", raw_keys), ("scored rows", scored_keys)):
+        got = set(keys)
+        if got != expected:
+            missing = sorted(expected - got)[:5]
+            extra = sorted(got - expected)[:5]
+            problems.append(f"{label}: {len(got)} keys vs {len(expected)} "
+                            f"declared cells; missing e.g. {missing}; "
+                            f"undeclared e.g. {extra}")
+    return problems
+
+
 def bind_row(row: dict, value: int, optimum: int) -> list[str]:
     """Round 13 (codex Check 16): the certification used to bind only the
     VALUE of a scored row; the row's `optimum`, `ratio` and task metadata
@@ -126,12 +171,24 @@ def bind_row(row: dict, value: int, optimum: int) -> list[str]:
 def main() -> int:
     instances = load_instances()
     optima = json.load(open(ROOT / "instances" / "optima.json"))
+    per_response = json.load(open(ROOT / "results" / "llm.json"))["per_response"]
+    raw_records = [json.loads(l) for l in open(ROOT / "responses_final.jsonl")
+                   if l.strip()]
+    # Round 14 (F5): uniqueness and completeness of the experimental matrix,
+    # checked on the raw lists before any dict/set can hide a duplicate.
+    coverage = check_coverage(
+        [(r["task_id"], r["model"]) for r in raw_records],
+        [(r["task_id"], r["model"]) for r in per_response],
+        expected_keys())
+    if coverage:
+        print("COVERAGE FAILED before certification:")
+        for c in coverage:
+            print(f"    {c}")
+        print("\nFAILED")
+        return 1
     # A task_id names an instance and a prompt variant, not a response: the same
     # task_id appears once per model. Key by both or the three tiers collapse.
-    scored = {
-        (r["task_id"], r["model"]): r
-        for r in json.load(open(ROOT / "results" / "llm.json"))["per_response"]
-    }
+    scored = {(r["task_id"], r["model"]): r for r in per_response}
 
     ghost_cache: dict[str, dict] = {}
     certified = 0
@@ -185,9 +242,9 @@ def main() -> int:
 
     # Coverage is part of the claim: silently checking 869 rows and printing ALL PASS
     # would be exactly the kind of unguarded quantitative sentence this project keeps
-    # getting caught by. Assert the response set and the scored set agree exactly.
-    seen = {(json.loads(l)["task_id"], json.loads(l)["model"])
-            for l in open(ROOT / "responses_final.jsonl") if l.strip()}
+    # getting caught by. The matrix check above is the guard; this set comparison
+    # stays as the older, weaker line (it cannot see duplicates -- round 14, F5).
+    seen = {(r["task_id"], r["model"]) for r in raw_records}
     if seen != set(scored):
         only_scored = sorted(set(scored) - seen)[:5]
         only_seen = sorted(seen - set(scored))[:5]

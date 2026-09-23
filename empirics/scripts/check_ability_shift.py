@@ -11,7 +11,7 @@ The projection drops every shipped ability, including the Efreet's
 recorded optimum under the projection, then restores that single ability
 and re-certifies: the optimum moves 1136 -> 2020, i.e. the certified
 optimum is 56% of the optimum of the instance the creature names
-describe. Section 5.1 states this in one sentence; test_regressions.py
+describe. The companion note states this in one sentence; test_regressions.py
 pins this script's output line.
 
 Stdlib only, no VCMI checkout needed: the HATE fact above is transcribed
