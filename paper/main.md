@@ -900,7 +900,7 @@ that guard does and does not establish is recorded in the artifact's `VERIFICATI
 ---
 
 **Data and code availability.** Everything this section runs is published as an artifact
-repository [Par26], release tag `v1.5` — cite and check out the tag, not the moving branch;
+repository [Par26], release tag `v1.6` — cite and check out the tag, not the moving branch;
 `scripts/check_artifact_repo.py` pins the tag to the paper: every path the paper or the
 companion note names (their count is pinned in the manifest), the manifest counters, and
 byte-identical copies of `main.md` and of the companion note (`paper/companion-empirics.md`).
@@ -1133,7 +1133,7 @@ Simulation Conference*, Reno, NV, pp. 1054–1058, 1986.
 
 [Par26] Parfenchuk. Artifact repository for this paper: model transcription, proofs,
 verification scripts, engine cross-check and empirical harness.
-<https://github.com/uson1x/homm3-hardness>, release tag `v1.5`, 2026.
+<https://github.com/uson1x/homm3-hardness>, release tag `v1.6`, 2026.
 
 [PS20] Ponomarenko, Sirotkin. Dota Underlords game is NP-complete. arXiv:2007.05020, 2020.
 <https://arxiv.org/abs/2007.05020>

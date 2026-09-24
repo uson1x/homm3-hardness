@@ -23,6 +23,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{lmodern}
 \usepackage[margin=3cm]{geometry}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{booktabs}
@@ -36,7 +37,7 @@
 % Latin Modern Roman has no italic small caps, so the \textsc problem names
 % inside italic amsthm bodies fall back with ten font warnings; substitute the
 % upright small-caps shape deliberately instead.
-\DeclareFontShape{T1}{lmr}{m}{scit}{<->ssub*lmr/m/sc}{}
+\AtBeginDocument{\DeclareFontShape{T1}{lmr}{m}{scit}{<->ssub*lmr/m/sc}{}}
 
 % The statement numbers below are hardcoded rather than counter-driven, because
 % main.md numbers satellites off the theorem they hang from (Proposition 1.1
@@ -1097,7 +1098,7 @@ what that guard does and does not establish is recorded in the artifact's
 
 \paragraph{Data and code availability.}
 Everything this section runs is published as an artifact repository~\cite{Par26}, release
-tag \src{v1.5}---cite and check out the tag, not the moving branch;
+tag \src{v1.6}---cite and check out the tag, not the moving branch;
 \src{scripts/check\_\allowbreak artifact\_\allowbreak repo.py} pins the tag to the paper: every
 path the paper or the companion note names (their count is pinned in the manifest), the
 manifest counters, and byte-identical copies of \src{main.md} and of the companion note
@@ -1329,7 +1330,7 @@ Magic III Maps. IEEE CIG 2018, pp.~1--8.
 
 \bibitem[Par26]{Par26} I.~Parfenchuk. Artifact repository for this paper: model
 transcription, proofs, verification scripts, engine cross-check and empirical harness.
-\url{https://github.com/uson1x/homm3-hardness}, release tag \src{v1.5}, 2026.
+\url{https://github.com/uson1x/homm3-hardness}, release tag \src{v1.6}, 2026.
 
 \bibitem[PS20]{PS20} A.~A. Ponomarenko, D.~V. Sirotkin. Dota Underlords game is NP-complete.
 arXiv:2007.05020, 2020. \url{https://arxiv.org/abs/2007.05020}
