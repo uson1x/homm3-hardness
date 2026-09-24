@@ -1098,7 +1098,7 @@ what that guard does and does not establish is recorded in the artifact's
 
 \paragraph{Data and code availability.}
 Everything this section runs is published as an artifact repository~\cite{Par26}, release
-tag \src{v1.3}---cite and check out the tag, not the moving branch;
+tag \src{v1.4}---cite and check out the tag, not the moving branch;
 \src{scripts/check\_\allowbreak artifact\_\allowbreak repo.py} pins the tag to the paper: every
 path the paper or the companion note names (their count is pinned in the manifest), the
 manifest counters, and byte-identical copies of \src{main.md} and of the companion note
@@ -1154,8 +1154,9 @@ unit-multiplicity heterogeneous attackers and per-slot thresholds it is a form o
 Covering}, strongly NP-hard by Assmann, Johnson, Kleitman and Leung~\cite{AJKL84}.
 Weapon-Target Assignment is NP-complete~\cite{LW86} but draws its hardness from a nonlinear
 probabilistic objective, so it is an ancestor rather than a competitor. The Colonel Blotto
-literature runs the other way, with polynomial equilibrium algorithms including the indivisible
-case~\cite{Har08}; hardness appears only when the resource stops being homogeneous~\cite{DSST21}.
+literature runs the other way: closed-form equilibria for the discrete game~\cite{Har08} and
+polynomial-time equilibrium computation for the general case~\cite{ADHLMS19}; hardness appears
+only when the resource stops being homogeneous~\cite{DSST21}.
 Stripped of the game, Theorem 4 \emph{is} bin covering, and we say so: the interest is in how
 little of HoMM3 the hardness needs, not in the combinatorial core.
 
@@ -1227,15 +1228,17 @@ The proofs, the machine-checking apparatus and the drafts of this paper were pro
 substantial AI assistance: several large language models worked as separate agents on the model
 transcription, proof exploration and drafting, the verification code, the literature survey and
 the empirical harness. Concretely: the model transcription, the proofs, the verification code
-and the drafts were written by Anthropic's Claude agents (Claude Fable 5 and Claude Opus 5, run
-through Claude Code); the second, independent proof of Theorem 3 by an OpenAI GPT-5.6 agent
-(\src{codex}); and the adversarial review rounds by OpenAI GPT-5.6 (\src{codex} CLI), DeepSeek
-v4-pro, and Claude Fable 5 and Claude Opus 5 agents. Theorem 3 was proved twice, independently and in parallel, by two agents
+and the drafts were written by Anthropic's Claude agents (Claude Fable 5 and 5.1, Claude Opus 5 and 5.5,
+run through Claude Code); the second, independent proof of Theorem 3 by an OpenAI GPT-5.6 agent
+(\src{codex}); and the adversarial review rounds by OpenAI GPT-5.6 and GPT-6 (\src{codex} CLI,
+one round through ChatGPT Pro), DeepSeek v4-pro, and Claude Fable 5, Fable 5.1, Opus 5 and
+Opus 5.5 agents. Theorem 3 was proved twice, independently and in parallel, by two agents
 that were not permitted to see each other's work; the two proofs agreed and were merged. The
 author treats that agreement as an error-catching redundancy, not as independent scientific
 validation. The mechanics and the constructions were tested to the scope stated precisely in
 Section~\ref{sec:checking}---bounded instances and selected engine mechanics, not all statements
-and not a formal proof object. Every reference cited was independently located; the depth to
+and not a formal proof object. Every reference cited was independently located, with the one exception recorded in
+Appendix~A; the depth to
 which each load-bearing statement from the literature was verified varies by reference and is
 recorded in Appendix~A---the two dependencies of Theorem 3 in detail, and every citation not
 read in full listed explicitly. The subjects of the empirical companion note
@@ -1245,6 +1248,11 @@ its outcome. The author reviewed the text and is responsible for the content.
 
 \begin{thebibliography}{DDHUUU14}
 
+\bibitem[ADHLMS19]{ADHLMS19} A.~Ahmadinejad, S.~Dehghani, M.~Hajiaghayi, B.~Lucier, H.~Mahini,
+S.~Seddighin. From Duels to Battlefields: Computing Equilibria of Blotto and Other Games.
+\emph{Mathematics of Operations Research} 44(4):1304--1325, 2019.
+\url{https://doi.org/10.1287/moor.2018.0971}
+
 \bibitem[AJKL84]{AJKL84} S.~F. Assmann, D.~S. Johnson, D.~J. Kleitman, J.~Y.-T. Leung.
 On a dual version of the one-dimensional bin packing problem.
 \emph{Journal of Algorithms} 5(4):502--525, 1984.
@@ -1252,6 +1260,10 @@ On a dual version of the one-dimensional bin packing problem.
 
 \bibitem[BH17]{BH17} J.~Bosboom, M.~Hoffmann. Netrunner Mate-in-1 or -2 is Weakly NP-Hard.
 arXiv:1710.05121, 2017. \url{https://arxiv.org/abs/1710.05121}
+
+\bibitem[BM04]{BM04} J.~M. Boyer, W.~J. Myrvold. On the Cutting Edge: Simplified $O(n)$ Planarity
+by Edge Addition. \emph{Journal of Graph Algorithms and Applications} 8(3):241--273, 2004.
+\url{https://doi.org/10.7155/jgaa.00091}
 
 \bibitem[CBH19]{CBH19} A.~Churchill, S.~Biderman, A.~Herrick. Magic: The Gathering is Turing
 Complete. arXiv:1904.09828, 2019; FUN 2021, LIPIcs 157, art.~9, pp.~9:1--9:19.
@@ -1276,8 +1288,12 @@ for Strategic Defense Games. FUN 2018, LIPIcs 100, art.~17, pp.~17:1--17:14.
 \bibitem[Dio10]{Dio10} D.~I. Diochnos. Leveling-Up in Heroes of Might and Magic III.
 FUN 2010, LNCS 6099, pp.~145--155. \url{https://doi.org/10.1007/978-3-642-13122-6_16}
 
+\bibitem[DMP64]{DMP64} G.~Demoucron, Y.~Malgrange, R.~Pertuiset. Graphes planaires: reconnaissance
+et construction de repr\'esentations planaires topologiques. \emph{Revue Fran\c{c}aise de
+Recherche Op\'erationnelle} 8:33--47, 1964.
+
 \bibitem[DSST21]{DSST21} S.~Dehghani, H.~Saleh, S.~Seddighin, S.-H. Teng. Computational Analyses
-of the Electoral College. AAAI 2021, pp.~5294--5302.
+of the Electoral College: Campaigning Is Hard But Approximately Manageable. AAAI 2021, pp.~5294--5302.
 \url{https://doi.org/10.1609/aaai.v35i6.16668}
 
 \bibitem[FB10]{FB10} T.~Furtak, M.~Buro. On the Complexity of Two-Player Attrition Games Played on
@@ -1297,21 +1313,24 @@ Freeman, 1979.
 Hearthstone's Boomsday Lab are NP-hard. arXiv:2010.08862, 2020.
 \url{https://arxiv.org/abs/2010.08862}
 
+\bibitem[HT74]{HT74} J.~Hopcroft, R.~Tarjan. Efficient Planarity Testing. \emph{Journal of the
+ACM} 21(4):549--568, 1974. \url{https://doi.org/10.1145/321850.321852}
+
 \bibitem[Kar72]{Kar72} R.~M. Karp. Reducibility Among Combinatorial Problems.
 In \emph{Complexity of Computer Computations}, Plenum Press, 1972, pp.~85--103.
 \url{https://doi.org/10.1007/978-1-4684-2001-2_9}
 
-\bibitem[KMPPPS18]{KMPPPS18} R.~Kowalski, M.~Miernik, M.~Pytlik, M.~Pawlikowski, K.~Piecuch,
+\bibitem[KMPPPS18]{KMPPPS18} J.~Kowalski, R.~Miernik, P.~Pytlik, M.~Pawlikowski, K.~Piecuch,
 J.~S\k{e}kowski. Strategic Features and Terrain Generation for Balanced Heroes of Might and
 Magic III Maps. IEEE CIG 2018, pp.~1--8.
 \url{https://doi.org/10.1109/CIG.2018.8490430}
 
 \bibitem[LW86]{LW86} S.~P. Lloyd, H.~S. Witsenhausen. Weapons allocation is NP-complete.
-\emph{Proc. 1986 Summer Conference on Simulation}, 1986.
+\emph{Proc. 1986 Summer Computer Simulation Conference}, Reno, NV, pp.~1054--1058, 1986.
 
 \bibitem[Par26]{Par26} I.~Parfenchuk. Artifact repository for this paper: model
 transcription, proofs, verification scripts, engine cross-check and empirical harness.
-\url{https://github.com/uson1x/homm3-hardness}, release tag \src{v1.3}, 2026.
+\url{https://github.com/uson1x/homm3-hardness}, release tag \src{v1.4}, 2026.
 
 \bibitem[PS20]{PS20} A.~A. Ponomarenko, D.~V. Sirotkin. Dota Underlords game is NP-complete.
 arXiv:2007.05020, 2020. \url{https://arxiv.org/abs/2007.05020}
@@ -1370,11 +1389,16 @@ was verified and from what.
   proof body and the biconnected $2n+4$ refinement (not used here) remain unread.
 \end{itemize}
 
-Everything else cited was read in full, with three exceptions, listed so that the previous
-sentence cannot silently overclaim: \cite{HLW20} was read in detail in its sections 1--3 and
+Everything else cited was read in full, with the following exceptions, listed so that the
+previous sentence cannot silently overclaim. \cite{LW86} could not be located: the 1986
+proceedings are not online, and the entry follows the standard secondary citation; it is cited
+only for the attribution of NP-completeness. \cite{GJ79} was consulted for its catalogue
+entries SP12 and SP15, not read cover to cover. \cite{ADHLMS19}, \cite{HT74}, \cite{BM04} and
+\cite{DMP64} are cited for attribution of known algorithms; their abstracts and theorem
+statements were consulted, not the full texts. \cite{HLW20} was read in detail in its sections 1--3 and
 its load-bearing theorem statements were transcribed verbatim, but not cover to cover;
 \cite{PS20} was verified from its abstract and problem statement; \cite{BH17} from its
-abstract and introduction. All three are cited as related work---for which game they study
+abstract and introduction. These last three are cited as related work---for which game they study
 and that a hardness result exists---and none of their constructions is reused anywhere in
 this paper.
 
@@ -1642,8 +1666,8 @@ bookkeeping assumes at least one element.
 If $|X|$ is not divisible by 3, if $|C|<q$, or if some element lies in no member of $C$,
 no exact cover exists: output $G_{\mathrm{no}}$. Otherwise every set-vertex of $G$ has degree
 exactly 3 and every element vertex degree $d_e\ge 1$. Compute a combinatorial planar embedding of
-$G$---a rotation system with a choice of outer face---in linear time (Hopcroft--Tarjan, or
-Boyer--Myrvold, which returns the embedding directly). If $G$ is not planar, the encoding is not
+$G$---a rotation system with a choice of outer face---in linear time (Hopcroft--Tarjan~\cite{HT74}, or
+Boyer--Myrvold~\cite{BM04}, which returns the embedding directly). If $G$ is not planar, the encoding is not
 a \PX{} instance and maps to $G_{\mathrm{no}}$, which keeps the reduction total under either
 convention for defining the promise.
 
@@ -1945,7 +1969,7 @@ machine-checked directly. The embedding algorithm of Lemma D.4 is implemented st
 the lemma's literal constants ($\lambda=20$, $\rho=4$, the D.3 adapters unchanged):
 \src{embed\_lemma.py} is steps 0--6, on top of the planarity and drawing machinery of
 \src{planar\_embed.py}---with three subroutine substitutions, named here so that a reader who
-opens the artifact is not surprised. The planarity test is Demoucron--Malgrange--Pertuiset (cubic,
+opens the artifact is not surprised. The planarity test is Demoucron--Malgrange--Pertuiset~\cite{DMP64} (cubic,
 chosen because it yields the face set directly), not the linear-time Hopcroft--Tarjan or
 Boyer--Myrvold that step 0 cites; the drawing is a from-scratch st-ordered visibility
 construction for maximum degree 3, not \cite{TT89} as quoted in step 3; and step 2's packing of

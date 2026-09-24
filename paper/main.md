@@ -1,17 +1,5 @@
 # Two Sources of Hardness in Generalized Heroes of Might and Magic III Combat
 
-<!-- Title decision (2026-08-03): round 4 asked for a title that owns the generalization.
-     Chosen: insert "Generalized" into the original title — it keeps the recognizable game
-     name and the two-source story while conceding the model scope up front. Considered
-     and not taken: "Allocation and Targeting Hardness in Generalized One-Round Heroes III
-     Combat" (more precise, less inviting). Ivan can override. -->
-
-**Master draft.** This Markdown file is the authoritative text; `main.tex` mirrors it for
-typesetting. Section numbers here are the paper's. This document carries the statements,
-the short proofs, and proof sketches; the long proofs are written out in full in
-Appendix D (Theorem 3) and Appendix E (the lemma apparatus behind Theorems 1, 2, 4 and
-Proposition 1.1); the proof repository `proofs/` retains the working documents.
-
 **Author.** Ivan Parfenchuk.
 
 ---
@@ -912,7 +900,7 @@ that guard does and does not establish is recorded in the artifact's `VERIFICATI
 ---
 
 **Data and code availability.** Everything this section runs is published as an artifact
-repository [Par26], release tag `v1.3` — cite and check out the tag, not the moving branch;
+repository [Par26], release tag `v1.4` — cite and check out the tag, not the moving branch;
 `scripts/check_artifact_repo.py` pins the tag to the paper: every path the paper or the
 companion note names (their count is pinned in the manifest), the manifest counters, and
 byte-identical copies of `main.md` and of the companion note (`paper/companion-empirics.md`).
@@ -971,8 +959,9 @@ unit-multiplicity heterogeneous attackers and per-slot thresholds it is a form o
 COVERING, strongly NP-hard by Assmann, Johnson, Kleitman and Leung [AJKL84]. Weapon-Target
 Assignment is NP-complete [LW86] but draws its hardness from a nonlinear probabilistic
 objective, so it is an ancestor rather than a competitor. The Colonel Blotto literature runs
-the other way, with polynomial equilibrium algorithms including the indivisible case [Har08];
-hardness appears only when the resource stops being homogeneous [DSST21]. Stripped of the
+the other way: closed-form equilibria for the discrete game [Har08] and polynomial-time
+equilibrium computation for the general case [ADHLMS19]; hardness appears only when the
+resource stops being homogeneous [DSST21]. Stripped of the
 game, Theorem 4 *is* bin covering, and we say so: the interest is in how little of HoMM3 the
 hardness needs, not in the combinatorial core.
 
@@ -1049,16 +1038,17 @@ The proofs, the machine-checking apparatus and the drafts of this paper were pro
 substantial AI assistance: several large language models worked as separate agents on the
 model transcription, proof exploration and drafting, the verification code, the literature
 survey and the empirical harness. Concretely: the model transcription, the proofs, the
-verification code and the drafts were written by Anthropic's Claude agents (Claude Fable 5 and
-Claude Opus 5, run through Claude Code); the second, independent proof of Theorem 3 by an
-OpenAI GPT-5.6 agent (`codex`); and the adversarial review rounds by OpenAI GPT-5.6 (`codex`
-CLI), DeepSeek v4-pro, and Claude Fable 5 and Claude Opus 5 agents. Theorem 3 was proved twice, independently and in parallel,
+verification code and the drafts were written by Anthropic's Claude agents (Claude Fable 5 and 5.1,
+Claude Opus 5 and 5.5, run through Claude Code); the second, independent proof of Theorem 3 by
+an OpenAI GPT-5.6 agent (`codex`); and the adversarial review rounds by OpenAI GPT-5.6 and GPT-6
+(`codex` CLI, one round through ChatGPT Pro), DeepSeek v4-pro, and Claude Fable 5, Fable 5.1,
+Opus 5 and Opus 5.5 agents. Theorem 3 was proved twice, independently and in parallel,
 by two agents that were not permitted to see each other's work; the two proofs agreed and
 were merged. The author treats that agreement as an error-catching redundancy, not as
 independent scientific validation. The mechanics and the constructions were tested to the
 scope stated precisely in Section 4 — bounded instances and selected engine mechanics, not
 all statements and not a formal proof object. Every reference cited was independently
-located; the depth to which each load-bearing statement from the literature was verified
+located, with the one exception recorded in Appendix A; the depth to which each load-bearing statement from the literature was verified
 varies by reference and is recorded in Appendix A — the two dependencies of Theorem 3 in
 detail, and every citation not read in full listed explicitly. The subjects of the
 empirical companion note (`paper/companion-empirics.md`) are models of the same family that
@@ -1070,12 +1060,20 @@ content.
 
 ## References
 
+[ADHLMS19] Ahmadinejad, Dehghani, Hajiaghayi, Lucier, Mahini, Seddighin. From Duels to
+Battlefields: Computing Equilibria of Blotto and Other Games. *Mathematics of Operations
+Research* 44(4):1304–1325, 2019. <https://doi.org/10.1287/moor.2018.0971>
+
 [AJKL84] Assmann, Johnson, Kleitman, Leung. On a dual version of the one-dimensional bin
 packing problem. *Journal of Algorithms* 5(4):502–525, 1984.
 <https://doi.org/10.1016/0196-6774(84)90004-X>
 
 [BH17] Bosboom, Hoffmann. Netrunner Mate-in-1 or -2 is Weakly NP-Hard. arXiv:1710.05121,
 2017. <https://arxiv.org/abs/1710.05121>
+
+[BM04] Boyer, Myrvold. On the Cutting Edge: Simplified O(n) Planarity by Edge Addition.
+*Journal of Graph Algorithms and Applications* 8(3):241–273, 2004.
+<https://doi.org/10.7155/jgaa.00091>
 
 [CBH19] Churchill, Biderman, Herrick. Magic: The Gathering is Turing Complete.
 arXiv:1904.09828, 2019; FUN 2021, LIPIcs 157, art. 9, pp. 9:1–9:19.
@@ -1098,8 +1096,12 @@ Defense Games. FUN 2018, LIPIcs 100, art. 17, pp. 17:1–17:14.
 [Dio10] Diochnos. Leveling-Up in Heroes of Might and Magic III. FUN 2010, LNCS 6099,
 pp. 145–155. <https://doi.org/10.1007/978-3-642-13122-6_16>
 
-[DSST21] Dehghani, Saleh, Seddighin, Teng. Computational Analyses of the Electoral College.
-AAAI 2021, pp. 5294–5302. <https://doi.org/10.1609/aaai.v35i6.16668>
+[DMP64] Demoucron, Malgrange, Pertuiset. Graphes planaires: reconnaissance et construction de
+représentations planaires topologiques. *Revue Française de Recherche Opérationnelle*
+8:33–47, 1964.
+
+[DSST21] Dehghani, Saleh, Seddighin, Teng. Computational Analyses of the Electoral College:
+Campaigning Is Hard But Approximately Manageable. AAAI 2021, pp. 5294–5302. <https://doi.org/10.1609/aaai.v35i6.16668>
 
 [FB10] Furtak, Buro. On the Complexity of Two-Player Attrition Games Played on Graphs.
 AIIDE 2010, pp. 113–119. <https://doi.org/10.1609/aiide.v6i1.12410>
@@ -1115,6 +1117,9 @@ Theory* 36(3–4):441–460, 2008. <https://doi.org/10.1007/s00182-007-0099-9>
 [HLW20] Hoffmann, Lynch, Winslow. Mad Science is Provably Hard: Puzzles in Hearthstone's
 Boomsday Lab are NP-hard. arXiv:2010.08862, 2020. <https://arxiv.org/abs/2010.08862>
 
+[HT74] Hopcroft, Tarjan. Efficient Planarity Testing. *Journal of the ACM* 21(4):549–568, 1974.
+<https://doi.org/10.1145/321850.321852>
+
 [Kar72] Karp. Reducibility Among Combinatorial Problems. In *Complexity of Computer
 Computations*, Plenum Press, 1972, pp. 85–103.
 <https://doi.org/10.1007/978-1-4684-2001-2_9>
@@ -1123,12 +1128,12 @@ Computations*, Plenum Press, 1972, pp. 85–103.
 Terrain Generation for Balanced Heroes of Might and Magic III Maps. IEEE CIG 2018, pp. 1–8.
 <https://doi.org/10.1109/CIG.2018.8490430>
 
-[LW86] Lloyd, Witsenhausen. Weapons allocation is NP-complete. *Proc. 1986 Summer Conference
-on Simulation*, 1986.
+[LW86] Lloyd, Witsenhausen. Weapons allocation is NP-complete. *Proc. 1986 Summer Computer
+Simulation Conference*, Reno, NV, pp. 1054–1058, 1986.
 
 [Par26] Parfenchuk. Artifact repository for this paper: model transcription, proofs,
 verification scripts, engine cross-check and empirical harness.
-<https://github.com/uson1x/homm3-hardness>, release tag `v1.3`, 2026.
+<https://github.com/uson1x/homm3-hardness>, release tag `v1.4`, 2026.
 
 [PS20] Ponomarenko, Sirotkin. Dota Underlords game is NP-complete. arXiv:2007.05020, 2020.
 <https://arxiv.org/abs/2007.05020>
@@ -1182,11 +1187,16 @@ what was verified and from what.
   paywalled proof body and the biconnected `2n + 4` refinement (not used here) remain
   unread.
 
-Everything else cited was read in full, with three exceptions, listed so that the previous
-sentence cannot silently overclaim: **[HLW20]** was read in detail in its sections 1–3 and
+Everything else cited was read in full, with the following exceptions, listed so that the
+previous sentence cannot silently overclaim. **[LW86]** could not be located: the 1986
+proceedings are not online, and the entry follows the standard secondary citation; it is cited
+only for the attribution of NP-completeness. **[GJ79]** was consulted for its catalogue
+entries SP12 and SP15, not read cover to cover. **[ADHLMS19]**, **[HT74]**, **[BM04]** and
+**[DMP64]** are cited for attribution of known algorithms; their abstracts and theorem
+statements were consulted, not the full texts. **[HLW20]** was read in detail in its sections 1–3 and
 its load-bearing theorem statements were transcribed verbatim, but not cover to cover;
 **[PS20]** was verified from its abstract and problem statement; **[BH17]** from its
-abstract and introduction. All three are cited as related work — for which game they study
+abstract and introduction. These last three are cited as related work — for which game they study
 and that a hardness result exists — and none of their constructions is reused anywhere in
 this paper.
 
@@ -1427,7 +1437,8 @@ If `|X|` is not divisible by 3, if `|C| < q`, or if some element lies
 in no member of `C`, no exact cover exists: output `G_no`. Otherwise every set-vertex of
 `G` has degree exactly 3 and every element vertex degree `d_e ≥ 1`. Compute a
 combinatorial planar embedding of `G` — a rotation system with a choice of outer face —
-in linear time (Hopcroft–Tarjan, or Boyer–Myrvold, which returns the embedding directly).
+in linear time (Hopcroft–Tarjan [HT74], or Boyer–Myrvold [BM04], which returns the embedding
+directly).
 If `G` is not planar, the encoding is not a `PLANAR-X3C` instance and maps to `G_no`,
 which keeps the reduction total under either convention for defining the promise.
 
@@ -1727,7 +1738,7 @@ step by step with the lemma's literal constants (`λ = 20`, `ρ = 4`, the D.3 ad
 unchanged): `embed_lemma.py` is steps 0–6, on top of the planarity and drawing machinery
 of `planar_embed.py` — with three subroutine substitutions, named here so that a reader
 who opens the artifact is not surprised. The planarity test is Demoucron–Malgrange–Pertuiset
-(cubic, chosen because it yields the face set directly), not the linear-time
+[DMP64] (cubic, chosen because it yields the face set directly), not the linear-time
 Hopcroft–Tarjan or Boyer–Myrvold that step 0 cites; the drawing is a from-scratch
 st-ordered visibility construction for maximum degree 3, not [TT89] as quoted in step 3;
 and step 2's packing of finished boards is realized one level earlier, as a packing of
