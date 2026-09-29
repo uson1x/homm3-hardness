@@ -54,7 +54,7 @@
     "scored_responses": 870,
     "legacy_mismatches": 14,
     "legacy_round5_violations": 6,
-    "regressions": 319,
+    "regressions": 342,
     "banned_claims": 19,
     "engine_cases": 49,
     "engine_exact": 46,
@@ -73,7 +73,7 @@
     "free_order_no": 4,
     "free_order_flips": 1,
     "free_order_controls": 3,
-    "cited_paths": 41,
+    "cited_paths": 44,
     "free_order_reorder": 3860,
     "free_order_vanish": 6312,
     "free_order_multispot": 0,
@@ -90,7 +90,11 @@
     "featureless_c6_full_instances": 4,
     "stub_near_hexes": 6584,
     "stub_margin_min": 5,
-    "engine_reduction_cases": 12
+    "engine_reduction_cases": 12,
+    "lean_modules": 35,
+    "lean_lines": 12039,
+    "lean_theorems": 700,
+    "lean_headline": 113
   },
   "rows": [
     {
@@ -542,6 +546,38 @@
         0,
         2,
         3
+      ]
+    },
+    {
+      "id": "lean",
+      "placeholders": [
+        "lean_modules",
+        "lean_lines",
+        "lean_theorems",
+        "lean_headline"
+      ],
+      "md": [
+        "`formal/lean/` (`lake build`)",
+        "Section 4.5 of the paper, Lean 4 + Mathlib: {lean_modules} modules, {lean_lines} lines, {lean_theorems} theorems — Theorems 1–4, Proposition 1.1, Corollaries 3.1, 4.1, 4.2 and Lemma D.4 (steps 4–6, drawing as input), each in total-reduction form, with kernel cross-checks against the suites above",
+        "no `sorry`; {lean_headline} headline statements on the three standard axioms only (`Axioms.lean`); not run by the battery, which recounts the sources"
+      ],
+      "literals": [
+        "4.5",
+        "4",
+        "1",
+        "4",
+        "1.1",
+        "3.1",
+        "4.1",
+        "4.2",
+        "4",
+        "4",
+        "6"
+      ],
+      "cells": [
+        0,
+        3,
+        1
       ]
     },
     {

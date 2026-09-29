@@ -20,6 +20,7 @@ the paper's `\src{...}` pointers resolve against this tree's root.
 | `proofs/candidate-D-singletype.md` | Theorem 3 working document (the paper's Appendix D supersedes it) |
 | `proofs/attempts/` | Failed reduction attempts, kept with the reason each breaks |
 | `scripts/` | The executable model and every verification suite (stdlib-only Python 3) |
+| `formal/lean/` | The Lean 4 development of the paper's Section 4.5: every theorem, the proposition and the corollaries proved against a formal transcription of the model, with kernel cross-checks against the Python suites; `formal/lean/README.md` maps modules to lemmas, `formal/lean/PROGRESS.md` is the session log |
 | `verification_manifest.json` | Single source of truth for every number the verification-suite table below quotes |
 | `engine-check/` | The VCMI engine cross-check: C++ harness, cases, shipped engine outputs, report |
 | `empirics/` | The companion note's instance corpus, certified optima, LLM responses, scoring and statistics |
@@ -61,6 +62,9 @@ python3 empirics/scripts/check_ability_shift.py  # ability projection shifts an 
 python3 empirics/scripts/stats_recheck.py    # every statistic the companion note quotes
 python3 empirics/scripts/exact_arithmetic_crosscheck.py  # floats vs exact rationals, three suites twice
 python3 scripts/test_regressions.py          # regressions + the doc-consistency battery
+cd formal/lean && lake exe cache get && lake build   # Section 4.5: the Lean 4 library (needs elan; Mathlib cache once, then minutes)
+lake build CrossCheck CrossCheckX3C CrossCheckLemma CrossCheckDrawing   # its kernel cross-checks (1-6 min each)
+lake env lean CrossCheckRun1.lean   # and Run2, Run3: the compiled comparisons (Run1 ≈ 90 CPU-min)
 cd engine-check && ./build.sh && ./run.sh && python3 compare.py
 ```
 
@@ -146,7 +150,8 @@ its engine reading is pinned by the harness's ULP cases.
 | `certify_scores.py` | all 870 scored responses | every score certified likewise, and reproduced exactly by the `(‡)` phase-aware replay |
 | `check_defend_policy.py` | all 145 replayed under `(‡)`, phase-aware | all equal the recorded optima; `--legacy-defend` reproduces the 6 round-5 violations (negative control) |
 | `exact_arithmetic_crosscheck.py` | the three suites above re-run twice: every damage call evaluated in Python floats AND in the exact rationals of Section 2 of the paper (909638 calls, 347332 with a fractional factor), then with the exact routine installed outright | 202 call-level splits, each a float result one point below the exact one, none on a deciding branch: all 145 optima, their `(‡)` replays and all 870 scores are reproduced exactly under exact arithmetic; positive control (float 62 vs exact 63) detected |
-| `test_regressions.py` | 319 regressions: one per error ever caught here, a phase-ordered trace of the capped defended branch, and a doc-consistency battery that re-renders this very table into README.md from its manifest, re-runs the generating suites to pin the manifest's counters (only the two `--full` Theorem 3 tiers excepted — those are swept against the proof document), sweeps the counter prose in the siblings, the paper body and the companion note, and bans 19 retired claims verbatim | all pass |
+| `formal/lean/` (`lake build`) | Section 4.5 of the paper, Lean 4 + Mathlib: 35 modules, 12039 lines, 700 theorems — Theorems 1–4, Proposition 1.1, Corollaries 3.1, 4.1, 4.2 and Lemma D.4 (steps 4–6, drawing as input), each in total-reduction form, with kernel cross-checks against the suites above | no `sorry`; 113 headline statements on the three standard axioms only (`Axioms.lean`); not run by the battery, which recounts the sources |
+| `test_regressions.py` | 342 regressions: one per error ever caught here, a phase-ordered trace of the capped defended branch, and a doc-consistency battery that re-renders this very table into README.md from its manifest, re-runs the generating suites to pin the manifest's counters (only the two `--full` Theorem 3 tiers excepted — those are swept against the proof document), sweeps the counter prose in the siblings, the paper body and the companion note, and bans 19 retired claims verbatim | all pass |
 | engine harness | 49 cases | 46 exact, 3 explained (Section 4.2 of the paper); includes 6 turn-order cases run through the engine's own `battleGetTurnOrder` |
 <!-- verification-table:end -->
 

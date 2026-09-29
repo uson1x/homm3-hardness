@@ -1,0 +1,42 @@
+name = "Homm3"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = ["Homm3"]
+
+[leanOptions]
+pp.unicode.fun = true # pretty-prints `fun a ↦ b`
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = false
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.34.0"
+
+[[lean_lib]]
+name = "Homm3"
+
+[[lean_lib]]
+# execution cross-check (target 4); not a default target: `lake build CrossCheck`
+name = "CrossCheck"
+
+[[lean_lib]]
+# session 4: Theorem 3 cross-check against verify_x3c.py (not a default target):
+# `lake build CrossCheckX3C`
+name = "CrossCheckX3C"
+roots = ["CrossCheckX3CData", "CrossCheckX3C"]
+
+# session 4: Theorem 3 on the literal boards of Lemma D.4's construction (not a default target):
+# `lake build CrossCheckLemma` (four check modules, built in parallel)
+[[lean_lib]]
+name = "CrossCheckLemma"
+roots = ["CrossCheckLemmaData", "CrossCheckLemmaA", "CrossCheckLemmaB", "CrossCheckLemmaC",
+  "CrossCheckLemmaD", "CrossCheckLemma"]
+
+# session 5: Lemma D.4 through the universal lemma on the corpus drawings (not a default target):
+# `lake build CrossCheckDrawing` (four check modules, built in parallel)
+[[lean_lib]]
+name = "CrossCheckDrawing"
+roots = ["CrossCheckDrawingData", "CrossCheckDrawingA", "CrossCheckDrawingB", "CrossCheckDrawingC",
+  "CrossCheckDrawingD", "CrossCheckDrawing"]

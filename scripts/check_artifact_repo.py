@@ -43,7 +43,7 @@ import subprocess
 import sys
 
 REPO = "uson1x/homm3-hardness"
-DEFAULT_REF = "v1.6"
+DEFAULT_REF = "v1.7"
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -80,11 +80,11 @@ def cited_paths(text: str | None = None, root: str = ROOT) -> set[str]:
                          for doc in CITING_DOCS)
     out = set()
     for m in re.finditer(
-            r"`((?:scripts|empirics|engine-check|proofs|paper)/[A-Za-z0-9_./-]+"
+            r"`((?:scripts|empirics|engine-check|proofs|paper|formal)/[A-Za-z0-9_./-]+"
             r"|MODEL\.md|VERIFICATION\.md|RELATED-WORK\.md)"
             r"(?:::[A-Za-z0-9_.]+)?(?: [-A-Za-z0-9 ._]*)?`", text):
         path = m.group(1)
-        if path.endswith((".py", ".md", ".cpp", ".json", ".sh")):
+        if path.endswith((".py", ".md", ".cpp", ".json", ".sh", ".lean")):
             out.add(path)
     for m in re.finditer(r"python3 ((?:scripts|empirics/scripts)/"
                          r"[A-Za-z0-9_./-]+\.py)", text):

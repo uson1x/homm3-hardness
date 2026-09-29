@@ -25,7 +25,11 @@ themselves. Each reduction was exhaustively regression-tested on bounded instanc
 an executable transcription of the rules. That process caught three substantive errors in
 the reductions and their verifiers, two of them in earlier versions of the proofs presented
 here; external review caught others that bounded checks cannot see. We report them rather
-than silently correcting them.
+than silently correcting them. Beyond the bounded checks, every theorem, the proposition and
+the corollaries are proved in Lean 4 against the formal transcription; outside the proof
+assistant remain the NP-hardness of the source problems, the running-time bounds, the
+planarity and orthogonal-drawing literature that Lemma D.4 cites, and the transcription's
+fidelity to the engine (Section 4.5).
 
 ---
 
@@ -101,12 +105,21 @@ appears" would be false and we do not claim it.
    isolates unrestricted target assignment as the hard decision; and an objective changed
    from creatures killed to hit points removed.
 7. **A machine-checking methodology** (Section 4) and an honest report of the errors it
-   caught. One scope note belongs up front: the checks exercise the constructions on
-   bounded instances; the embedding algorithm of Lemma D.4 is implemented step by step —
-   with three named subroutine substitutions, disclosed in Appendix D.6 — and validated on
-   the whole instance corpus (Appendix D.6; the suite table is the artifact's `README.md`),
-   but its correctness on *all* inputs — like
-   every proof in this paper — rests on the hand proof, not on a proof assistant.
+   caught. The checks come in two kinds. The bounded checks exercise the constructions on
+   bounded instances and cross-check the arithmetic against the shipped engine
+   (Sections 4.1–4.4). The formal proofs (Section 4.5) establish every theorem, the
+   proposition and the corollaries in Lean 4 against a formal transcription of the model of
+   Section 2: each reduction is proved correct for every input, in total Karp form, and
+   cross-checked against the instances the bounded suites play, in the kernel where
+   Section 4.5 says so. Outside the proof assistant stay, and the scope statement of
+   Section 4.5 says exactly which: the NP-hardness of the source problems and every
+   running-time bound, quoted or by inspection as usual; the transcription's fidelity to the
+   engine, which is a matter of citation and cross-checking, not of proof; and steps 0–3 of
+   the embedding algorithm of Lemma D.4 — the
+   planarity test and the orthogonal drawing theorem it quotes, implemented in the artifact
+   with three named subroutine substitutions disclosed in Appendix D.6 — whose output the
+   formal statement takes as an input verified by a checker. Steps 4–6, the hex-level
+   construction, are proved for every valid drawing.
 8. **An empirical companion note** in the artifact (`paper/companion-empirics.md`) measures
    the certified optimum against one-shot allocations proposed by three tiers of language
    models on 145 instances, each allocation completed by oracle-optimal play; it is not part
@@ -559,8 +572,8 @@ integer boundaries of
 the engine's `0.29999999999999993` — lies in `(0,1)`, which is the only property the proof
 consumes.
 
-*The board.* Four invariants carry the whole correctness argument, and nothing below refers
-to the layout:
+*The board.* Four invariants are what the construction guarantees and what the correctness
+argument reads, and nothing below refers to the layout:
 
 * **(I1)** every enemy hex `z_S` has exactly three free neighbours, pairwise non-adjacent;
 * **(I2)** the free non-enemy hexes fall into exactly `3q` connected components, one per
@@ -569,11 +582,15 @@ to the layout:
   each adjacent to `z_S` alone;
 * **(I4)** the speed `σ` satisfies `σ ≥ max_e |R_e|`, the maximum taken over all elements.
 
+(The formal proof of Section 4.5 consumes less than the four: (I1), the clause "alone" in
+(I3) and the requirement in (I2) that *every* free non-enemy hex lie in some region are
+properties the construction delivers, not hypotheses the correctness argument uses.)
+
 (I1) is not a design choice. The only pairwise non-adjacent triples among a hex's six
 neighbours are the two *alternating* triples, so an enemy that must be reachable
 simultaneously from three mutually sealed regions is forced to present one. This is the single place where
-hex geometry does real work, and it is why the construction would not transfer unchanged to a
-square grid.
+hex geometry does real work in the construction, and it is why the construction would not
+transfer unchanged to a square grid.
 
 The local picture is worth having in mind for the whole proof (`#` impassable, `Z` the enemy
 `E_S`, `U/R/D` its three dockings — the alternating triple; even rows drawn half a step
@@ -749,13 +766,15 @@ the two-source statement of Section 1.1.
 
 Every rule of Section 2 was transcribed into code, every reduction was regression-tested
 exhaustively on bounded instances against that transcription, and the arithmetic was
-cross-checked against the shipped engine. We are deliberate about the vocabulary: nothing
-here is **machine-verified** in the sense of a proof assistant — there is no formal proof
-object, and the universal theorems rest on the hand proofs; what we claim is
-**exhaustively regression-tested on bounded instances** and **engine-cross-checked**, to
-the scope stated below; the artifact's `VERIFICATION.md` carries the iteration-by-iteration
-record. Throughout, *review round `n`* refers to the `n`-th pass of the external review
-process this manuscript went through; the numbering is internal.
+cross-checked against the shipped engine. We are deliberate about the vocabulary. Three
+claims are made, each to the scope stated in its section: the reductions are
+**exhaustively regression-tested on bounded instances** (Section 4.1), the arithmetic is
+**engine-cross-checked** (Sections 4.1–4.2), and the correctness of every reduction is
+**machine-verified** in Lean 4 against a formal transcription of the model (Section 4.5),
+whose scope statement
+names what remains outside the proof assistant; the artifact's `VERIFICATION.md` carries
+the iteration-by-iteration record. Throughout, *review round `n`* refers to the `n`-th pass
+of the external review process this manuscript went through; the numbering is internal.
 
 ### 4.1 The three layers
 
@@ -869,6 +888,17 @@ section counted them among the errors the checks caught, and one of them was its
 external review. The full accounts, error by error and with who found each, are the
 artifact's `VERIFICATION.md`.
 
+The formalization of Section 4.5 caught no false theorem, but it caught four gaps in the
+*text* of Appendix D, each repaired in this version and marked where it occurs: Lemma D.3
+lacked the boundary clause that step 6 of Lemma D.4 relies on (an arm hex on the box's
+boundary side of a port belongs to that port's arm); (D2)–(D3) of step 3 did not say that
+edge paths are simple and avoid every vertex point other than their own endpoints; the
+step-4 case analysis discussed two runs leaving one box and was silent on incident features
+away from their shared vertex; and step 6 asserted that features of distinct regions are
+non-incident in the drawing, which is false at a set box, for two corridors and for a
+corridor and an arm of another element. It also found several hypotheses to be stronger than the proofs use; the remarks at
+those places (Section 3.3, Appendix D.5, Lemma E.11) say so.
+
 ### 4.4 Reproducing
 
 ```
@@ -876,6 +906,9 @@ python3 scripts/test_regressions.py          # battery: every counter pinned, ch
 python3 scripts/verify_x3c.py --full --vacate  # Theorem 3, q ≤ 4 corpus (minutes; not re-run above)
 python3 scripts/crosscheck_sol.py --full     # Theorem 3 at the PUBLISHED def 27, hp 4, μ = 0.35
 cd engine-check && ./build.sh && ./run.sh && python3 compare.py   # needs a VCMI checkout
+cd formal/lean && lake exe cache get && lake build   # Section 4.5: Lean library (elan; minutes)
+lake build CrossCheck CrossCheckX3C CrossCheckLemma CrossCheckDrawing   # kernel cross-checks
+lake env lean CrossCheckRun1.lean   # and Run2, Run3: compiled comparisons (Run1 ≈ 90 CPU-min)
 ```
 
 There are no dependencies beyond the Python standard library, except for the engine
@@ -897,13 +930,82 @@ that quote the two `--full` Theorem 3 tiers, which it does not re-run. It also s
 counters this paper and the companion note quote, and bans retired claims verbatim; what
 that guard does and does not establish is recorded in the artifact's `VERIFICATION.md`.
 
+### 4.5 Formal proofs in Lean 4
+
+Everything above tests bounded instances. This section states what is *proved*, for every
+input, in the Lean 4 development shipped in the artifact under `formal/lean/` (Lean 4.34.0,
+Mathlib `v4.34.0`): 35 modules, 12039 lines, 700 theorems, no `sorry`, and no axiom beyond
+Lean's three standard ones (`propext`, `Classical.choice`, `Quot.sound`), which
+`formal/lean/Homm3/Axioms.lean` prints for the 113 headline statements; the `README.md`
+there maps every module to the lemma it carries. The development was written by Claude
+Opus 5.5 agents in five sessions (Section 8). It is not part of the battery of Section 4.4,
+which only counts it; `lake build` reproduces the library in minutes once Mathlib's cache is
+fetched, and the cross-checks below are the separate targets listed in Section 4.4.
+
+*What is formalized.* The model of Section 2 as a transition relation on positions — R1–R2
+adjacency and distance, R7 damage in exact rationals, the health pool, the round queue with
+`WAIT` and `DEFEND` under the policy `(‡)`, and `ARMY-ALLOCATION` as the existence of an
+allocation and a play — with an executable search proved equivalent to it and Lemma 2.1 in
+certificate form. On top of it: **Theorem 1** and **Proposition 1.1** in the generality of
+Definition E.8 (Lemmas E.3–E.4 and E.9–E.10, the corridor as a special case, and the array
+dynamic program of `dp_single_type.py` proved equal to the knapsack optimum); **Theorem 2**
+(Lemmas E.11–E.14); **Theorem 4** with **Corollaries 4.1 and 4.2** (Lemmas E.15–E.22, E.20
+in the R9 order, E.2 for the family); **Theorem 3** with **Corollary 3.1** for *every* board
+satisfying the invariants (I1)–(I4) (Lemma 3.2 for all `μ ∈ (0,1)`, Lemmas D.1 and D.5–D.9);
+Lemma D.2 for both row parities and the four adapters of Lemma D.3, checked hex by hex in the
+kernel; and **Lemma D.4**, steps 4–6, for every drawing satisfying (D1)–(D3) together with
+the step-1 shape of `G'`: the board built from it satisfies (I1)–(I4) in full and has
+`(20g_w − 7) × (20g_h − 7)` hexes for a drawing in a box of `g_w × g_h` grid points; step 0's
+no-certificates and step 1's vertex and edge counts are proved as well. Each theorem is also
+stated as a *total* reduction on encodings — a map defined on every encoding (integer lists;
+for Theorem 3, a triple `(q, C, drawing)`), sending malformed ones to a fixed no-instance —
+so that no promise is left implicit.
+
+*What is cross-checked against the Python suites.* The Lean semantics and the Python
+transcription were compared instance by instance, in two ways. As *kernel-checked theorems*:
+Theorem 2 on its 14 instances, the three no-instances proved as non-existence where the
+suite only bounds them; Theorem 4 on both instances of the `C6` tier and their identity
+allocations; Theorem 3 on the 31 boards of the default tier of `verify_x3c.py`, under both
+the historical and the published constants, with the negative control of Appendix D.6
+reproduced; and Lemma D.4 on the 44 boards of the corpus that `embed_lemma.py` builds — for
+each, the drawing passes the (D1)–(D3) checker, the board built *in Lean* from that drawing
+equals the artifact's board hex for hex, and the game verdict follows from the theorem. As
+*compiled evaluation of the verified search* — the executable decision procedure proved
+equivalent to the semantics, run outside the kernel because the kernel does not reduce its
+sorting and finite sums: the dynamic program on 40 instances of `dp_single_type.py` (whose
+game half runs the `hold` policy at speed 0, while Lean runs `(‡)`; the answers agree),
+Theorem 1 on the 28 instances the reduction suite plays, and the remaining four `C6`
+allocations, where the verified lower bound meets the proved upper bound. Every comparison
+agreed.
+
+*What is not formalized, and what the formal statements therefore say.* (i) The
+transcription's fidelity to VCMI is a matter of citation (Appendix B) and of the engine
+cross-check (Section 4.1), not of proof: Lean proves theorems about the model of Section 2,
+exactly as the paper does. (ii) The NP-hardness of the source problems — PARTITION,
+3-PARTITION, PLANAR-X3C — is quoted from the literature; what Lean proves is the
+correctness of each reduction, the equivalence of source and target on every input, together
+with explicit size bounds; that the maps, and the certificate checker of Lemma 2.1, run in
+polynomial time is by inspection, as usual.
+(iii) Steps 0–3 of Lemma D.4 — deduplication, the planarity test, the rotation-preserving
+degree reduction and the orthogonal drawing theorem [TT89, DG13] — are executed by the
+artifact but not proved in Lean: the formal Theorem 3 takes the drawing of `G'` as part of
+its input and verifies (D1)–(D3) with a checker whose soundness is proved. Its statement is
+therefore "`PLANAR-X3C`, presented together with an orthogonal grid drawing of its
+degree-reduced incidence graph, reduces to `ARMY-ALLOCATION`", and the drawing literature
+supplies the missing half exactly where Appendix D quotes it. (iv) Several proofs consume
+less than the paper states — Theorem 3 uses only a fragment of (I1)–(I4), Lemma D.5 is not
+used by its correctness argument, Corollary 3.1 does not use Lemma 3.2, and Theorem 2's
+equivalence does not use the separation of Lemma E.11; the remarks at those places say so.
+None of this changes a statement of the paper.
+
 ---
 
 **Data and code availability.** Everything this section runs is published as an artifact
-repository [Par26], release tag `v1.6` — cite and check out the tag, not the moving branch;
+repository [Par26], release tag `v1.7` — cite and check out the tag, not the moving branch;
 `scripts/check_artifact_repo.py` pins the tag to the paper: every path the paper or the
-companion note names (their count is pinned in the manifest), the manifest counters, and
-byte-identical copies of `main.md` and of the companion note (`paper/companion-empirics.md`).
+companion note names (their count is pinned in the manifest), the manifest counters,
+byte-identical copies of `main.md` and of the companion note (`paper/companion-empirics.md`),
+and every tracked file of the tree, the Lean development of Section 4.5 included.
 All file paths in this paper are relative to the artifact root. The engine cross-check was
 run against a VCMI [VCMI26] checkout at commit `b5cee70`; every VCMI file this paper cites is
 byte-for-byte identical to the public tree at commit `deeab240` (`develop`, 2026-06-19),
@@ -1039,15 +1141,18 @@ substantial AI assistance: several large language models worked as separate agen
 model transcription, proof exploration and drafting, the verification code, the literature
 survey and the empirical harness. Concretely: the model transcription, the proofs, the
 verification code and the drafts were written by Anthropic's Claude agents (Claude Fable 5 and 5.1,
-Claude Opus 5 and 5.5, run through Claude Code); the second, independent proof of Theorem 3 by
+Claude Opus 5 and 5.5, run through Claude Code); the Lean 4 development of Section 4.5 by
+Claude Opus 5.5 agents in five sessions, each directed and re-checked by a Claude Fable 5.1
+agent; the second, independent proof of Theorem 3 by
 an OpenAI GPT-5.6 agent (`codex`); and the adversarial review rounds by OpenAI GPT-5.6 and GPT-6
 (`codex` CLI, one round through ChatGPT Pro), DeepSeek v4-pro, and Claude Fable 5, Fable 5.1,
 Opus 5 and Opus 5.5 agents. Theorem 3 was proved twice, independently and in parallel,
 by two agents that were not permitted to see each other's work; the two proofs agreed and
 were merged. The author treats that agreement as an error-catching redundancy, not as
 independent scientific validation. The mechanics and the constructions were tested to the
-scope stated precisely in Section 4 — bounded instances and selected engine mechanics, not
-all statements and not a formal proof object. Every reference cited was independently
+scope stated precisely in Section 4 — bounded instances and selected engine mechanics — and
+the theorems were proved in Lean 4 to the scope stated in Section 4.5, which names what
+stays outside the proof assistant. Every reference cited was independently
 located, with the one exception recorded in Appendix A; the depth to which each load-bearing statement from the literature was verified
 varies by reference and is recorded in Appendix A — the two dependencies of Theorem 3 in
 detail, and every citation not read in full listed explicitly. The subjects of the
@@ -1133,7 +1238,7 @@ Simulation Conference*, Reno, NV, pp. 1054–1058, 1986.
 
 [Par26] Parfenchuk. Artifact repository for this paper: model transcription, proofs,
 verification scripts, engine cross-check and empirical harness.
-<https://github.com/uson1x/homm3-hardness>, release tag `v1.6`, 2026.
+<https://github.com/uson1x/homm3-hardness>, release tag `v1.7`, 2026.
 
 [PS20] Ponomarenko, Sirotkin. Dota Underlords game is NP-complete. arXiv:2007.05020, 2020.
 <https://arxiv.org/abs/2007.05020>
@@ -1392,14 +1497,18 @@ along three of the four axis directions, and which three is not ours to choose; 
 dockings, by Lemma D.2, are fixed. For each of the four possible triples of incoming
 directions there is a `9 × 9` pattern in which three pairwise non-touching paths run from
 the three used boundary midpoints ("ports") to the three dockings, each path meeting
-`z_S` only at its final hex, with the unused port left impassable.*
+`z_S` only at its final hex, with the unused port left impassable — and with the boundary
+clause that every arm hex lying on the box's boundary side of a port belongs to the arm of
+that port, so that a corridor entering through one port never touches another port's arm.*
 
 *Proof.* Exhibited, one pattern per case, in Appendix C, and machine-checked hex by hex
 (`scripts/verify_x3c.py::check_enemy_adapters`): each arm is a path, starts at its port,
 ends at a distinct member of the alternating triple, touches the enemy only at its last
 hex, no two arms share or touch a hex, and the unused port is untouched. The arms are
 matched to the dockings in cyclic order, which is what keeps the routing planar inside
-the box. ∎
+the box. The boundary clause is checked separately, in the kernel of the Lean development
+(Section 4.5); it is what step 6 of Lemma D.4 uses where a corridor and an arm of another
+element meet at the same box, and an earlier version of this lemma omitted it. ∎
 
 The box is `9 × 9` with the enemy at its centre `(4, 4)` in a local frame whose row 4 is
 even; the ports are the four boundary midpoints. The parity of the local frame is
@@ -1480,9 +1589,10 @@ pairs included, so the substituted packing is verified directly on every built b
 
 **Step 3: an orthogonal grid drawing.** For a connected plane graph `H` with `Δ(H) ≤ 4`
 on `n` vertices we need a drawing with **(D1)** vertices at distinct points of `ℤ²`;
-**(D2)** edges as rectilinear grid paths leaving each endpoint along one of the four axis
-directions, each (vertex, direction) pair used at most once; **(D3)** two edge paths
-meeting only at a shared endpoint and no path passing through a vertex; **(D4)** all
+**(D2)** edges as simple rectilinear grid paths leaving each endpoint along one of the four
+axis directions, each (vertex, direction) pair used at most once; **(D3)** two edge paths
+meeting only at a shared endpoint, and no path passing through any vertex point other than
+its own two endpoints, which it meets only at its ends; **(D4)** all
 coordinates polynomial in `n`; **(D5)** computable in polynomial time. Nothing else — not
 bend-minimality, not area optimality, not preservation of the step-1 embedding (the
 correctness argument never refers to it again). Tamassia–Tollis [TT89], in the form of
@@ -1537,7 +1647,10 @@ on the other are at `L∞` distance `max(t, t′)` (perpendicular axes) or `t + 
 axes), and outside the box `t, t′ ≥ ρ + 1 = 5`, so in either case the distance is ≥ 5 ≥ 2
 and the runs never touch.
 (Both cases occur: every three of the four axis directions contain exactly one opposite
-pair.)
+pair.) The formal proof of Section 4.5 runs this case analysis at the level of unit
+segments of `Γ` — a box against a unit segment, two unit segments — which also covers
+incident features away from their shared vertex, a case the two-runs argument above does
+not spell out.
 
 **Step 5: the gadget boxes.** *Set-vertex `S`.* Its image sits on an even row. Replace
 the `9 × 9` box around it by the Lemma D.3 adapter for the triple of axis directions
@@ -1585,8 +1698,13 @@ three arm ends — the alternating triple, pairwise non-adjacent by Lemma D.2 �
 outside the box is adjacent to `z_S` by (SEP′). **(I2)** the pluses of `e`'s path
 vertices, joined by the path-edge corridors, with the incidence corridors, the adapter
 arms ending at `e`'s dockings and the stub, form one connected set; distinct regions
-never touch — their features are non-incident in `Γ`, so (SEP′) applies, and inside an
-adapter box Lemma D.3 has checked the three arms pairwise non-touching; every free
+never touch: two features of distinct elements that share no box are non-incident in `Γ`,
+so (SEP′) applies; inside an adapter box Lemma D.3 has checked the three arms pairwise
+non-touching; and at a set box, the only place where features of distinct regions *are*
+incident in `Γ`, two corridors of distinct elements entering `S`'s box leave it through
+different ports and stay at `L∞` distance ≥ 5 outside it (step 4), while a corridor of `e`
+entering through its port meets only the arm of that port, by the boundary clause of
+Lemma D.3; every free
 non-enemy hex belongs to exactly one element, so there are exactly `3q` components.
 **(I3)** `R_e` contains `p_e`; its hexes adjacent to an enemy are exactly the dockings
 `d_S^e` for `S ∋ e` (inside `S`'s box only the last hex of each arm touches `z_S`;
@@ -1685,7 +1803,10 @@ came from three distinct stacks (each strikes at most once, Lemma D.6), each fro
 docking of its own region by the first paragraph, and the dockings adjacent to `z_S` are
 `d_S^{e'}` for `e' ∈ S`, one per region — so the strikers are the stacks of the three slots
 of `S`, and slot `e` is among them. We keep Lemma D.5 because it is also what makes the
-phase-by-phase picture of Section 3.3 literal: nobody dies, nobody vacates a docking.
+phase-by-phase picture of Section 3.3 literal: nobody dies, nobody vacates a docking. (The
+formal proof of Section 4.5 dispenses with it, holds for any `hp(P) ≥ 1`, and proves
+Lemma D.7 in a stronger form: for every allocation with at most one creature per slot, in
+every position of round 1, reading only the strikes recorded so far.)
 
 **Lemma D.8 (yes ⟹ yes).** *If `(X, C)` has an exact cover, `G_3(X, C)` is a
 yes-instance.*
@@ -1728,7 +1849,9 @@ disjoint, so killing `t` enemies consumes at least `3t` of the `3q` stacks and `
 at `t = q` every dead enemy is struck by exactly three singleton stacks and every stack
 strikes a dead enemy — the conclusion of Lemma D.6, obtained here without the resource
 lemma's equality case (which is only needed to rule out unequal stack sizes). Lemmas D.7
-and D.9 then apply verbatim. ∎
+and D.9 then apply verbatim. ∎ (The formal proof confirms that Lemma 3.2 is not used here
+at all: the corollary holds whenever `def(Q) ≥ att(P)`, including under the
+negative-control constants of Appendix D.6 that break Theorem 3 itself.)
 
 ### D.6 Scope of the machine checks
 
@@ -1761,9 +1884,13 @@ under the historical and the published constants — and agrees with `X3C`.
 The big exhaustive-search suites still take their boards from a compact router
 (placement by hill-climbing, corridors by BFS with clearance), because the lemma's
 literal boards are `λ` times larger per drawing unit than the router's; the router
-reports failure rather than emitting a board that violates the invariants. What remains
-a hand proof is the lemma's universal claim — that the algorithm succeeds on *every*
-planar instance — the scope note of Section 1.2, item 7. The correctness suite
+reports failure rather than emitting a board that violates the invariants. The lemma's
+universal claim splits in two. Steps 4–6 — that the hex-level construction succeeds on
+*every* drawing satisfying (D1)–(D3) — are proved in Lean 4 (Section 4.5), and on every
+corpus board the board built in Lean from the artifact's drawing equals the artifact's
+board hex for hex. Steps 0–3 — the planarity test and the orthogonal drawing — remain the
+literature's, executed here with the substitutions named above; this is the scope note of
+Section 1.2, item 7. The correctness suite
 additionally verifies, on every built
 yes-instance, that the unique winning allocation is the all-ones vector predicted by
 Lemma D.6, and runs a negative control with `def(Q) = att(P)` — destroying Lemma 3.2 —
@@ -2265,6 +2392,12 @@ and put `D := X_{g'} − X_g = 8(g' − g)`, so `|D| ≥ 8`. Then `(δA, δy)` f
 minimum is 7, attained at `r = 1`, `D = −8`, i.e. at `q_{g+1}^1` against `e_g`. Since
 `7 > 3`, Lemma E.3 leaves `E_g` as the only enemy a stack on `q_g^r` can ever strike. ∎
 
+(The formal proof of Section 4.5 uses the three seats and not the separation: Theorem 2's
+no-direction is proved once for every layout of the stock-one family, and its yes-direction
+is a witness play on the layout of `G_{3P}`, which uses the seats but not the distance-7
+separation; the separation serves the reading that the play is forced, not the
+equivalence.)
+
 An earlier body draft said "at distance at least 6" — true but slack, and its derivation
 subtracted a unit twice; the computation above is in the paper's own metric, is tight, and
 is what the body now states. The
@@ -2588,5 +2721,6 @@ Theorem 4 the targeting-driven endpoint of the two-source claim.
 > **Remark.** The board does impose one thing: an enemy has six neighbours, so at most six
 > stacks can strike it in one round. Under `(★)` as completed in the conventions section this bound is correct —
 > no striker is killed by the retaliation it draws (Lemma E.2), so no seat is ever vacated
-> mid-round. It never binds here, three stacks per enemy, but it is why "featureless" means
+> mid-round, and two living stacks never share a hex (R3), so six seats hold at most six
+> strikers. It never binds here, three stacks per enemy, but it is why "featureless" means
 > *complete reachability plus local seat capacity* and not "positions do not exist".

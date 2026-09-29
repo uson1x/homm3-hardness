@@ -506,7 +506,7 @@ def test_docs_match_artifacts() -> None:
            "verify_embedding", "check_stub",
            "verify_hp_objective", "verify_full_model_optima",
            "certify_scores", "check_defend_policy",
-           "exact_arithmetic_crosscheck", "test_regressions",
+           "exact_arithmetic_crosscheck", "lean", "test_regressions",
            "engine_harness"])
 
     # round 11 (P11-1/2): a guard's sentence about its own coverage is a
@@ -1210,6 +1210,30 @@ def test_docs_match_artifacts() -> None:
         ("paper/main.tex", r"equality up to \$c=(\d+)\$ creatures", (2000,)),
         ("paper/main.md", r"published undefended branch at `c = (\d+)`", (180,)),
         ("paper/main.tex", r"published undefended\s+branch at \$c=(\d+)\$", (180,)),
+        # round 17: Section 4.5 quotes the Lean development's size and the
+        # instance counts of its kernel cross-checks; the sizes are recounted
+        # from the sources by test_lean_sources below, the instance counts are
+        # the very counters of the Python suites the checks compare against
+        ("paper/main.md", r"(\d+) modules, (\d+) lines, (\d+) theorems",
+         (cnt["lean_modules"], cnt["lean_lines"], cnt["lean_theorems"])),
+        ("paper/main.tex", r"(\d+) modules, (\d+) lines, (\d+) theorems",
+         (cnt["lean_modules"], cnt["lean_lines"], cnt["lean_theorems"])),
+        ("paper/main.md", r"for the (\d+) headline statements", (cnt["lean_headline"],)),
+        ("paper/main.tex", r"for the (\d+) headline statements", (cnt["lean_headline"],)),
+        ("paper/main.md", r"dynamic program on (\d+) instances", (cnt["dp_game_instances"],)),
+        ("paper/main.tex", r"dynamic program on (\d+) instances", (cnt["dp_game_instances"],)),
+        ("paper/main.md", r"Theorem 2 on its (\d+) instances",
+         (cnt["brute_force_tri_yes"] + cnt["brute_force_tri_no"],)),
+        ("paper/main.tex", r"Theorem 2 on its (\d+) instances",
+         (cnt["brute_force_tri_yes"] + cnt["brute_force_tri_no"],)),
+        ("paper/main.md", r"Theorem 3 on the (\d+) boards of the default tier",
+         (cnt["x3c_default_built"],)),
+        ("paper/main.tex", r"Theorem 3\s+on the (\d+) boards of the default tier",
+         (cnt["x3c_default_built"],)),
+        ("paper/main.md", r"Lemma D\.4 on the (\d+) boards of the corpus",
+         (cnt["lemma_built"],)),
+        ("paper/main.tex", r"Lemma D\.4 on the (\d+) boards\s+of the corpus",
+         (cnt["lemma_built"],)),
     ]
     for rel, pattern, want in sweep:
         found = re.search(pattern, (root / rel).read_text())
@@ -1572,7 +1596,54 @@ def test_round14_apparatus():
           (pub[:1], all(c > 12 for c in pub)), ([180], True))
 
 
+def test_lean_sources() -> None:
+    """Round 17: Section 4.5 and the README's `lean` row quote the size of
+    the Lean development and say it carries no `sorry`. The battery does
+    not build it (that needs elan and Mathlib's cache), but every number
+    it quotes is recounted here from the shipped sources, the way the
+    `--full` Theorem 3 tiers are swept rather than re-run: module count,
+    line count, theorem count (the same regex the development's own
+    PROGRESS.md documents), the number of `#print axioms` lines in
+    Axioms.lean, a zero count of the token `sorry` in the library and the
+    cross-check drivers, and the board counts of the two exported data
+    modules against the Python suites' own counters."""
+    import glob
+    import json
+    import re
+    from pathlib import Path
+
+    root = Path(__file__).resolve().parent.parent
+    cnt = json.loads((root / "verification_manifest.json").read_text())["counters"]
+    lean = root / "formal" / "lean"
+    mods = sorted(glob.glob(str(lean / "Homm3" / "*.lean")))
+    texts = {m: Path(m).read_text() for m in mods}
+    check("manifest lean_modules == files in formal/lean/Homm3/",
+          len(mods), cnt["lean_modules"])
+    check("manifest lean_lines == their line count",
+          sum(t.count("\n") for t in texts.values()), cnt["lean_lines"])
+    thm = re.compile(r"^(@\[[^\]]*\] )?(private |protected )?theorem ", re.M)
+    check("manifest lean_theorems == `theorem` declarations in the library",
+          sum(len(thm.findall(t)) for t in texts.values()), cnt["lean_theorems"])
+    check("manifest lean_headline == `#print axioms` lines in Axioms.lean",
+          len(re.findall(r"^#print axioms ", texts[str(lean / "Homm3" / "Axioms.lean")],
+                         re.M)), cnt["lean_headline"])
+    drivers = [Path(f).read_text() for f in glob.glob(str(lean / "CrossCheck*.lean"))]
+    check("no `sorry` in the Lean library or its cross-check drivers",
+          sum(len(re.findall(r"\bsorry\b", t)) for t in list(texts.values()) + drivers), 0)
+    check("no `native_decide` in the Lean library or its cross-check drivers "
+          "(a comment may name it; a tactic call is `by native_decide`)",
+          sum(len(re.findall(r"by\s+native_decide", t))
+              for t in list(texts.values()) + drivers), 0)
+    check("Lean X3C cross-check data: one board per default-tier instance",
+          len(re.findall(r"^def b\d", (lean / "CrossCheckX3CData.lean").read_text(), re.M)),
+          cnt["x3c_default_built"])
+    check("Lean Lemma D.4 cross-check data: one board per corpus board",
+          len(re.findall(r"^def l\d", (lean / "CrossCheckLemmaData.lean").read_text(), re.M)),
+          cnt["lemma_built"])
+
+
 def main() -> int:
+    test_lean_sources()
     test_round16_apparatus()
     test_prune_survives_opened_doorway()
     test_round14_apparatus()
