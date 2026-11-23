@@ -1642,7 +1642,29 @@ def test_lean_sources() -> None:
           cnt["lemma_built"])
 
 
+def test_short_paper_examples() -> None:
+    from brute_force import assemble, build_partition_instance
+    from verify_featureless import relaxation_bound
+
+    field, enemies, player, slots, _, _ = build_partition_instance([2, 2])
+    scores = []
+    for split in [(1, 1), (2, 0)]:
+        units = [(player, count, j, slots[j]) for j, count in enumerate(split)]
+        battle = assemble(field, enemies, units)
+        scores.append(max_destroyed_value(battle, 1, policy_wait_defend))
+    check("dropping a fixed allocation can change the answer", scores, [0, 2])
+    check("in-family negative board cannot kill both enemies",
+          relaxation_bound([4, 4, 4, 6, 6, 6], 15, 2), 1)
+
+    from dataclasses import replace
+    fast = replace(player, speed=1 << 80)
+    battle = assemble(field, enemies, [(fast, 1, 0, slots[0])])
+    check("binary speed cannot walk through the adjacent live enemy in a single row",
+          battle.reachable(battle.stacks[0]), {slots[0]})
+
+
 def main() -> int:
+    test_short_paper_examples()
     test_lean_sources()
     test_round16_apparatus()
     test_prune_survives_opened_doorway()

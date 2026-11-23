@@ -1,5 +1,9 @@
 # Two Sources of Hardness in Generalized Heroes of Might and Magic III Combat — artifact
 
+**[Read the four-page paper](paper/one-round-combat.pdf)** · [Follow the proof with two battles](paper/how-the-proof-works.md) · [Read the full paper](paper/main.pdf) · [November revision notes](paper/revision-notes.md)
+
+Can six attackers kill two 15-HP enemies without wasting a hit? The short edition starts there. The walkthrough then gives every attacker one damage and shows why a killed enemy's hex cannot become a shortcut. Both fights use the paper's generalized combat rules.
+
 This repository is the complete verification artifact for the paper
 *Two Sources of Hardness in Generalized Heroes of Might and Magic III Combat*
 (Ivan Parfenchuk, 2026). It contains the full proofs the paper's body
@@ -150,8 +154,8 @@ its engine reading is pinned by the harness's ULP cases.
 | `certify_scores.py` | all 870 scored responses | every score certified likewise, and reproduced exactly by the `(‡)` phase-aware replay |
 | `check_defend_policy.py` | all 145 replayed under `(‡)`, phase-aware | all equal the recorded optima; `--legacy-defend` reproduces the 6 round-5 violations (negative control) |
 | `exact_arithmetic_crosscheck.py` | the three suites above re-run twice: every damage call evaluated in Python floats AND in the exact rationals of Section 2 of the paper (909638 calls, 347332 with a fractional factor), then with the exact routine installed outright | 202 call-level splits, each a float result one point below the exact one, none on a deciding branch: all 145 optima, their `(‡)` replays and all 870 scores are reproduced exactly under exact arithmetic; positive control (float 62 vs exact 63) detected |
-| `formal/lean/` (`lake build`) | Section 4.5 of the paper, Lean 4 + Mathlib: 35 modules, 12039 lines, 700 theorems — Theorems 1–4, Proposition 1.1, Corollaries 3.1, 4.1, 4.2 and Lemma D.4 (steps 4–6, drawing as input), each in total-reduction form, with kernel cross-checks against the suites above | no `sorry`; 113 headline statements on the three standard axioms only (`Axioms.lean`); not run by the battery, which recounts the sources |
-| `test_regressions.py` | 342 regressions: one per error ever caught here, a phase-ordered trace of the capped defended branch, and a doc-consistency battery that re-renders this very table into README.md from its manifest, re-runs the generating suites to pin the manifest's counters (only the two `--full` Theorem 3 tiers excepted — those are swept against the proof document), sweeps the counter prose in the siblings, the paper body and the companion note, and bans 19 retired claims verbatim | all pass |
+| `formal/lean/` (`lake build`) | Section 4.5 of the paper, Lean 4 + Mathlib: 35 modules, 12033 lines, 702 theorems — Theorems 1–4, Proposition 1.1, Corollaries 3.1, 4.1, 4.2 and Lemma D.4 (steps 4–6, drawing as input), each in total-reduction form, with kernel cross-checks against the suites above | no `sorry`; 114 headline statements on the three standard axioms only (`Axioms.lean`); not run by the battery, which recounts the sources |
+| `test_regressions.py` | 345 regressions: one per error ever caught here, a phase-ordered trace of the capped defended branch, and a doc-consistency battery that re-renders this very table into README.md from its manifest, re-runs the generating suites to pin the manifest's counters (only the two `--full` Theorem 3 tiers excepted — those are swept against the proof document), sweeps the counter prose in the siblings, the paper body and the companion note, and bans 19 retired claims verbatim | all pass |
 | engine harness | 49 cases | 46 exact, 3 explained (Section 4.2 of the paper); includes 6 turn-order cases run through the engine's own `battleGetTurnOrder` |
 <!-- verification-table:end -->
 

@@ -6,30 +6,9 @@
 
 ## Abstract
 
-We study the complexity of planning a single round of combat in a generalized version of
-*Heroes of Might and Magic III* (HoMM3) — the player's stacks start on prescribed deployment
-hexes and the defending garrison follows a fixed scripted policy (wait, then defend) — using
-the open-source VCMI reimplementation [VCMI26] as the specification of the rules. We show that one-round combat planning has **two independent
-sources of strong NP-completeness**: pre-battle allocation of an army to slots is strongly
-hard once the roster carries heterogeneous damage values, and in-battle target selection
-remains strongly hard even with a fixed, single-type army. Between them we place a positive
-result — a pseudo-polynomial `O(kB)` dynamic program — which points at what makes the
-tractable case tractable, and it is not the poverty of the roster but the triviality of
-the *reach structure* relating slots to enemies. All four hardness statements — three of them
-strong, one weak and provably tight — hold under severe restrictions of the game: one round, flat damage, no spells, no heroes, no abilities,
-and in three of the four no obstacles at all.
+How much of a one-round battle is decided when the army is split, and how much by the choice of targets? We study a deterministic melee model of Heroes of Might and Magic III based on VCMI [VCMI26]. The board and number of army slots can grow, the scenario prescribes deployment hexes, and defenders wait and then defend. When each deployed stack can strike only one enemy, choosing which creatures go into each slot can already be strongly NP-complete. With one identical creature fixed in every slot, choosing targets can also be strongly NP-complete. The latter construction uses walls and the one-point minimum damage. On an open board, heterogeneous attackers can encode the grouping problem by choosing targets even when everyone is within reach. On a one-to-one pairing of slots and single-creature enemies that persists throughout the round, allocation with homogeneous attackers and linear nominal damage reduces to knapsack.
 
-Every rule of the model is cited to a line of the VCMI source; the combat arithmetic and the
-health mechanics are additionally cross-checked against the shipped engine classes
-themselves. Each reduction was exhaustively regression-tested on bounded instances against
-an executable transcription of the rules. That process caught three substantive errors in
-the reductions and their verifiers, two of them in earlier versions of the proofs presented
-here; external review caught others that bounded checks cannot see. We report them rather
-than silently correcting them. Beyond the bounded checks, every theorem, the proposition and
-the corollaries are proved in Lean 4 against the formal transcription; outside the proof
-assistant remain the NP-hardness of the source problems, the running-time bounds, the
-planarity and orthogonal-drawing literature that Lemma D.4 cites, and the transcription's
-fidelity to the engine (Section 4.5).
+Lean 4 checks the reduction equivalences against a formal combat model. For the walled construction, Lean takes a valid orthogonal drawing as input. Published graph-drawing results supply the drawing. Section 4 describes the selected engine comparisons and the scope of the formal checks.
 
 ---
 
@@ -197,7 +176,7 @@ obstacle objects, and siege walls (R3). **A hex occupied by a living unit is not
 enterable, and a dead unit stops blocking** (R4), which matters a great deal in
 Section 3.3.
 
-**Units.** A creature type is `(att, def, dmg_min, dmg_max, hp, spd, flags)`, plus a
+**Units.** Each labelled creature type has statistics `(att, def, dmg_min, dmg_max, hp, spd, flags)`, plus a
 nonnegative *value* used by the objective. A stack is a type together with a creature
 count, and its health is stored as a pair `(fullUnits, firstHPleft)` representing a pool
 `avail = firstHPleft + hp · fullUnits` (R5); a fresh stack of `c` creatures has
@@ -297,8 +276,7 @@ the empirical companion note (Section 1.2) live in the same fragment.
 > one type, each type's total at most its stock) and a sequence of player actions such that
 > after `R` rounds against `(‡)` the total value of enemy creatures killed is at least `W`?
 
-`BATTLE-PLAY` is the same question with the allocation given as part of the input, so
-`ARMY-ALLOCATION` contains `BATTLE-PLAY` as a special case.
+`BATTLE-PLAY` takes the allocation as input. Forgetting that allocation can change the answer. In the one-row construction with two 2-HP enemies and two one-damage creatures, a 1+1 split kills neither enemy and a 2+0 split kills one. Corollaries 3.1 and 4.1 prove hardness for their particular fixed deployments.
 
 Three points on the formulation. The enemy plays one concrete scripted policy, not an
 adversarial one, which keeps the problem in NP and matches the informal "against a fixed
@@ -322,9 +300,7 @@ certificate is the allocation together with the player's actions: for each stack
 pair, an optional `WAIT` bit and one terminal action: `DEFEND`, a destination hex (move), or
 a (destination hex, target) pair (`WALK_AND_ATTACK`) — at most `2kR` action tokens, since a
 stack that waits still takes its terminal action later in the same round (Section 2.2).
-Simulating the battle takes a polynomial number of arithmetic operations and BFS
-computations, `(‡)` is computable in constant time, and comparing destroyed value to `W`
-completes the check. ∎
+For each move, breadth-first search on the explicitly listed board visits each reachable hex once, up to the unit's speed. This takes polynomial time even for a binary speed larger than the board. The scripted defender takes constant time to choose an action. Health, damage and score have polynomial bit length, so simulating the round sequence and comparing its score to the threshold take polynomial time. ∎
 
 ### 2.4 The garrison policy
 
@@ -423,11 +399,7 @@ If PARTITION has a solution `S`, allocate `c_j = a_j` for `j ∈ S`: total `B`, 
 `B ≤ Σ_{j∈S} a_j ≤ Σ_{j∈S} c_j ≤ Σ_j c_j ≤ B`, so every inequality is tight and `S` solves
 PARTITION. On a malformed encoding, a non-positive `a_i`, or an odd `Σ a_i`, the reduction
 outputs the fixed no-instance of Lemma D.4; on the empty instance `n = 0` — a PARTITION
-*yes*-instance — it outputs `G((1,1))`, which keeps the map total. Theorems 2 and 4 route `|a| ≠ 3m`, some `a_i ≤ 0`, `Σ a_i ≠ mT` or an `a_i`
-outside `(T/4, T/2)` to `G_no` the same way (Appendix E, the Theorem 2 and Theorem 4 sections);
-`G_no` is a `1 × 1` board and not of the shape Theorem 4 names — its family clause describes the
-image of every well-formed encoding, and the degenerate encodings, no-instances certified in
-polynomial time, go to the one fixed no-instance shared by all three constructions. With
+*yes*-instance — it outputs `G((1,1))`, which keeps the map total. Theorems 2 and 4 use their own in-family negative boards (Appendix E). With
 Lemma 2.1 this gives NP-completeness. The full proof is Appendix E. ∎
 
 The numbers `a_j` are carried as hit points in binary, so this is only *weak* hardness — and
@@ -495,7 +467,7 @@ all `m` enemies forces `Σ_{i∈S_g} a_i ≥ T` for every `g`; summing against `
 every inequality tight, and `T/4 < a_i < T/2` forces `|S_g| = 3`. The sufficiency direction,
 where the game semantics are discharged — all three stacks of a group strike in the `NORMAL`
 phase before the enemy's postponed `DEFEND`, and their damage accumulates in the health pool
-(R8) — is Lemma E.13; the degenerate encodings are routed as in Theorem 1. The full proof is
+(R8) — is Lemma E.13; the degenerate encodings use the in-family fallback of Appendix E. The full proof is
 Appendix E. ∎
 
 > **The three rows are not decoration.** An earlier version of this construction used a
@@ -727,7 +699,7 @@ play (Lemma E.16), so a stack still on `p_j = (j−1, 0)` steps into row 1, walk
 descends to its seat, spending at most `w + 2 = 4m + 4 ≤ s = 4m + 8` movement points
 regardless of the activation order (Lemma E.17); hence complete reachability holds with all
 `3m` slots occupied, and every three-per-enemy assignment `φ` is simultaneously realizable
-(Lemmas E.18 and E.19). The degenerate encodings are routed as in Theorem 1. The full proof
+(Lemmas E.18 and E.19). The degenerate encodings use the in-family fallback of Appendix E. The full proof
 is Appendix E.
 
 Two honest qualifications. First, the confinement argument that keeps row 1 clear holds along
@@ -934,9 +906,9 @@ that guard does and does not establish is recorded in the artifact's `VERIFICATI
 
 Everything above tests bounded instances. This section states what is *proved*, for every
 input, in the Lean 4 development shipped in the artifact under `formal/lean/` (Lean 4.34.0,
-Mathlib `v4.34.0`): 35 modules, 12039 lines, 700 theorems, no `sorry`, and no axiom beyond
+Mathlib `v4.34.0`): 35 modules, 12033 lines, 702 theorems, no `sorry`, and no axiom beyond
 Lean's three standard ones (`propext`, `Classical.choice`, `Quot.sound`), which
-`formal/lean/Homm3/Axioms.lean` prints for the 113 headline statements; the `README.md`
+`formal/lean/Homm3/Axioms.lean` prints for the 114 headline statements; the `README.md`
 there maps every module to the lemma it carries. The development was written by Claude
 Opus 5.5 agents in five sessions (Section 8). It is not part of the battery of Section 4.4,
 which only counts it; `lake build` reproduces the library in minutes once Mathlib's cache is
@@ -984,8 +956,7 @@ cross-check (Section 4.1), not of proof: Lean proves theorems about the model of
 exactly as the paper does. (ii) The NP-hardness of the source problems — PARTITION,
 3-PARTITION, PLANAR-X3C — is quoted from the literature; what Lean proves is the
 correctness of each reduction, the equivalence of source and target on every input, together
-with explicit size bounds; that the maps, and the certificate checker of Lemma 2.1, run in
-polynomial time is by inspection, as usual.
+with explicit size bounds; running times are justified outside Lean. The membership proof uses the visited-set search of Lemma 2.1. The Lean replay routine expands one layer per unit of speed, so its runtime need not be polynomial in the binary input length.
 (iii) Steps 0–3 of Lemma D.4 — deduplication, the planarity test, the rotation-preserving
 degree reduction and the orthogonal drawing theorem [TT89, DG13] — are executed by the
 artifact but not proved in Lean: the formal Theorem 3 takes the drawing of `G'` as part of
@@ -1001,7 +972,7 @@ None of this changes a statement of the paper.
 ---
 
 **Data and code availability.** Everything this section runs is published as an artifact
-repository [Par26], release tag `v1.7` — cite and check out the tag, not the moving branch;
+repository [Par26], release tag `v1.8` — cite and check out the tag, not the moving branch;
 `scripts/check_artifact_repo.py` pins the tag to the paper: every path the paper or the
 companion note names (their count is pinned in the manifest), the manifest counters,
 byte-identical copies of `main.md` and of the companion note (`paper/companion-empirics.md`),
@@ -1158,8 +1129,7 @@ varies by reference and is recorded in Appendix A — the two dependencies of Th
 detail, and every citation not read in full listed explicitly. The subjects of the
 empirical companion note (`paper/companion-empirics.md`) are models of the same family that
 assisted in writing this paper; the note carries that conflict statement, and this paper
-claims nothing about its outcome. The author reviewed the text and is responsible for the
-content.
+claims nothing about its outcome. OpenAI Codex prepared the November 2026 short edition, walkthrough and revisions to the manuscript, formal reductions and tests.
 
 ---
 
@@ -1238,7 +1208,7 @@ Simulation Conference*, Reno, NV, pp. 1054–1058, 1986.
 
 [Par26] Parfenchuk. Artifact repository for this paper: model transcription, proofs,
 verification scripts, engine cross-check and empirical harness.
-<https://github.com/uson1x/homm3-hardness>, release tag `v1.7`, 2026.
+<https://github.com/uson1x/homm3-hardness>, release tag `v1.8`, 2026.
 
 [PS20] Ponomarenko, Sirotkin. Dota Underlords game is NP-complete. arXiv:2007.05020, 2020.
 <https://arxiv.org/abs/2007.05020>
@@ -1955,7 +1925,7 @@ three components of the constructed tuples undetermined — the player's defence
 enemies' attack and damage — so that the reductions did not output a single well-defined
 `ARMY-ALLOCATION` instance. The form above fixes them, and Lemma E.2 is where they are used.
 
-**Complete tuples.** A creature type is the tuple
+**Complete tuples.** Types are labelled roster entries. Distinct entries may have equal statistics. Each type has the tuple
 `(att, def, dmg_min, dmg_max, hp, spd, flags)` together with its *value* (Section 2.2). In
 all three constructions `flags = ∅`: every creature is melee, single-hex, non-shooting, with
 the default single retaliation charge — the fragment `H3-det-melee` of Section 2.2. Every
@@ -1970,9 +1940,7 @@ made total by the same three-way branch, in the pattern of Lemma D.4:
 
 1. If the encoding is malformed, or fails one of the syntactic checks listed with the
    construction — each of which certifies in polynomial time that no solution exists —
-   output the fixed no-instance `G_no` of Lemma D.4: a `1 × 1` board, one slot, one creature
-   of stock one, no enemies, `W = 1`. Its destroyed value is `0 < 1`, so it is a no-instance,
-   and `W = 1 ∈ ℤ_{>0}` as the Problem requires.
+   output a fixed negative board. Theorem 1 uses the single-row board of Lemma D.4. Theorems 2 and 4 each apply their own construction to damage values 4, 4, 4, 6, 6, 6 with two enemies of 15 HP each. Killing both requires every point of nominal damage, but no sum of even values equals 15.
 2. If the source instance is *empty* — no numbers at all — it is a **yes**-instance (the
    empty selection works), so output instead the instance the construction builds from a
    fixed nonempty source yes-instance, named with each construction. Sending the empty
@@ -1980,9 +1948,7 @@ made total by the same three-way branch, in the pattern of Lemma D.4:
    `W = 0 ∉ ℤ_{>0}`.
 3. Otherwise, run the construction.
 
-"Only when", not "exactly when", again: every encoding routed to `G_no` is certifiably a no,
-and most no-instances are not routed there but receive an ordinary board whose game answer
-is no.
+Ordinary negative inputs that pass the syntactic checks receive their own constructed board.
 
 **Lemma E.1 (One blow, and where it is issued).** *Fix any allocation and any play of
 round 1 against `(‡)` in any of the three constructions. Then every player stack delivers
@@ -2348,12 +2314,7 @@ Every number is bounded by a polynomial in `m` once the `a_i` are, and the board
 the `a_i` — which is what makes the hardness strong. The board is wide enough: `q_1^1` sits
 in column 0 and `e_m` in column `X_m = 8m − 7 ≤ 8m + 1`.
 
-**Totality.** As in the conventions section: route to `G_no` every encoding that is malformed, has a number of
-items not divisible by 3, has some `a_i ≤ 0`, or fails `Σ_i a_i = mT` or `T/4 < a_i < T/2` —
-each check is a polynomial-time no-certificate under the convention that an encoding outside
-the problem's domain is a no; route the empty encoding `m = 0`, a yes-instance, to the fixed
-instance `G_{3P}((1,1,1), 3)`, a yes-instance of `ARMY-ALLOCATION` by Lemma E.13; otherwise
-output `G_{3P}(a, T)`.
+**Totality.** If the item count is not divisible by three, the sum differs from `mT`, or an item falls outside the strict bounds, use the three-row negative board specified above. The empty list maps to the positive board built from (1,1,1) with target 3. Otherwise use the input values.
 
 **Lemma E.11 (Three seats, and separation at distance 7).** *In `G_{3P}(a, T)` each of
 `q_g^1, q_g^2, q_g^3` is a neighbour of `e_g`, the three are distinct, and for `g' ≠ g`*
@@ -2524,11 +2485,7 @@ per enemy stack, and every player type of stock one. ∎
 The board fits: `X_1 = 2` and `X_m = 4m − 2 ≤ w − 3`, so every `e_g` has all six neighbours
 on the board; and `3m − 1 ≤ w − 1`, so the deployment row is long enough. The board has
 `6(4m+2) = O(m)` hexes and every number is polynomial in `m` once the `a_i` are, so the
-construction is polynomial under unary encoding. The totality branch is that of the Theorem 2
-section verbatim, with `G_F((1,1,1), 3)` as the fixed yes-instance. One qualification to the
-statement: its family clause — six rows, `4m + 2` columns, complete reachability — describes
-the image of every well-formed encoding; the degenerate encodings map to the fixed no-instance
-`G_no` of Lemma D.4, a `1 × 1` board, which is not of that shape.
+construction is polynomial under unary encoding. Theorem 4 uses the same normalized inputs as Theorem 2 and builds the six-row board in every branch. The negative fallback has six labelled attackers, the identity allocation in Corollary 4.1, and a hit-point target of 30 in Corollary 4.2. The even-damage argument above rules out both objectives. The empty list maps to the positive board built from (1,1,1) with target 3.
 
 Three named hexes per enemy carry all the geometry:
 

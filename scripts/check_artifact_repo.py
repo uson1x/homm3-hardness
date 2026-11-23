@@ -43,7 +43,7 @@ import subprocess
 import sys
 
 REPO = "uson1x/homm3-hardness"
-DEFAULT_REF = "v1.7"
+DEFAULT_REF = "v1.8"
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

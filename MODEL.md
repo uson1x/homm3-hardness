@@ -92,7 +92,7 @@ For the deterministic model we use only *static impassable hexes*; the "stopper"
 
 ## 3. Units
 
-**Definition 3.1 (Creature type).** A creature type `t` is a tuple
+**Definition 3.1 (Creature type).** A creature type is a labelled roster entry with a stat tuple. Distinct entries may have identical statistics. For type `t`, write
 
 ```
 t = (att, def, dmg_min, dmg_max, hp, spd, flags)

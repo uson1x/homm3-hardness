@@ -54,7 +54,7 @@
     "scored_responses": 870,
     "legacy_mismatches": 14,
     "legacy_round5_violations": 6,
-    "regressions": 342,
+    "regressions": 345,
     "banned_claims": 19,
     "engine_cases": 49,
     "engine_exact": 46,
@@ -92,9 +92,9 @@
     "stub_margin_min": 5,
     "engine_reduction_cases": 12,
     "lean_modules": 35,
-    "lean_lines": 12039,
-    "lean_theorems": 700,
-    "lean_headline": 113
+    "lean_lines": 12033,
+    "lean_theorems": 702,
+    "lean_headline": 114
   },
   "rows": [
     {

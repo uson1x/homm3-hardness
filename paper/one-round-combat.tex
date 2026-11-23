@@ -1,0 +1,120 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,booktabs,array,color}
+\usepackage[top=23mm,bottom=23mm,left=25mm,right=25mm]{geometry}
+\usepackage[colorlinks=true,allcolors=link]{hyperref}
+\definecolor{ink}{rgb}{0.10,0.15,0.18}
+\definecolor{link}{rgb}{0.02,0.32,0.35}
+\definecolor{light}{rgb}{0.82,0.85,0.85}
+\hypersetup{pdftitle={Choosing stacks and targets in one round of Heroes III},pdfauthor={Ivan Parfenchuk}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.2pt plus 0.8pt}
+\setlength{\emergencystretch}{1.6em}
+\raggedbottom
+\newcommand{\titleline}[1]{{\sffamily\bfseries\fontsize{22}{25}\selectfont #1\par}\vspace{4pt}}
+\newcommand{\topic}[1]{\par\addvspace{7pt}{\sffamily\bfseries\large #1\par}\nobreak\vspace{-2pt}}
+\newcommand{\smallhead}[1]{{\sffamily\bfseries\color{link}#1}}
+\newcommand{\edition}{https://github.com/uson1x/homm3-hardness}
+\newcommand{\artifact}[2]{\href{\edition/blob/v1.8/#1}{#2}}
+\newcommand{\refpaper}{\artifact{paper/main.pdf}{Full proofs (v1.8)}}
+\newcommand{\hexcell}[1]{\begin{picture}(0,0)
+\put(0,8){\line(2,-1){7}}\put(7,4.5){\line(0,-1){9}}
+\put(7,-4.5){\line(-2,-1){7}}\put(0,-8){\line(-2,1){7}}
+\put(-7,-4.5){\line(0,1){9}}\put(-7,4.5){\line(2,1){7}}
+\put(0,0){\makebox(0,0){\small\sffamily #1}}\end{picture}}
+\newcommand{\cluster}[4]{\put(0,0){\hexcell{#1}}\put(-7,12.5){\hexcell{#2}}
+\put(14,0){\hexcell{#3}}\put(-7,-12.5){\hexcell{#4}}
+\put(7,12.5){\hexcell{$\times$}}\put(-14,0){\hexcell{$\times$}}\put(7,-12.5){\hexcell{$\times$}}}
+\makeatletter
+\def\ps@note{\def\@oddhead{}\let\@evenhead\@oddhead
+\def\@oddfoot{\small\sffamily\color{link}Ivan Parfenchuk\hfil One round of Heroes III\hfil\thepage}\let\@evenfoot\@oddfoot}
+\makeatother
+\pagestyle{note}
+\begin{document}\color{ink}\fontsize{10.95}{15}\selectfont
+\titleline{Choosing stacks and targets\\in one round of Heroes III}
+{\sffamily\color{link}A complexity result for battles with prescribed starting positions}\par\vspace{3pt}
+{\large Ivan Parfenchuk}\hfill {\sffamily\small November 2026}\par
+\vspace{3pt}
+
+Six stacks can deal 4, 4, 5, 5, 6 and 6 damage. Two enemies have 15 hit points each. Every stack can reach either enemy, and each gets one attack. Can you kill both this round?
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}lll@{}}
+\toprule
+ & Enemy A & Enemy B \\ \midrule
+Send the two sixes together & $6+6+4=16$ & $4+5+5=14$ \\
+Split the sixes & $6+5+4=15$ & $6+5+4=15$ \\ \bottomrule
+\end{tabular}
+\end{center}
+
+Both plans spend 30 damage. In the first, one point lands on an enemy that needed only 15. The other survives on one hit point. Changing two stacks' orders kills both. This is a small instance of the open-board construction on page 3.
+
+In \emph{Heroes of Might and Magic III}, a stack is a group of creatures of one type that move and attack together. A player can make a grouping decision twice. Before combat, creatures go into army slots. During combat, stacks choose targets. Here either decision can encode a problem for which no polynomial-time algorithm is known, even when the other decision has been settled. The most surprising case gives every stack one identical creature. All the difficulty is in choosing where to send it.
+
+\topic{Which battles does the result cover?}
+The original game has seven army slots per side, an $11\times17$ battlefield and starting positions taken from formation tables. Here the board, roster and number of slots can grow. A scenario specifies the starting hex of every slot, the enemies, their stats and any obstacles. The defenders wait and then defend in place. They can retaliate when struck. Damage is deterministic, and all units are single-hex melee creatures with no spells, heroes or special abilities.
+
+The result concerns the \emph{worst case} in this larger family. It leaves open how hard ordinary seven-slot fights are to solve. The examples also supply battles with known answers against which a combat planner can be tested.
+
+\topic{How the little puzzle becomes a theorem}
+A pair of fifteen-point enemies is easy to solve by hand. The question is what happens as more enemies and stacks are added. Someone who hands you a set of orders makes checking easy. Move the stacks and add up the damage. To see why finding the orders can be hard, start with a known hard puzzle and build a battle whose target score is attainable exactly when the puzzle can be solved. A fast solver for every such battle would also solve every puzzle of that kind.
+
+\newpage
+\titleline{Identical attackers, different targets}
+Consider an enemy with three hit points and enough defence to reduce a weak attack to the game's minimum of one damage. Three creatures in one stack deal one point in the scenario below. Split them into three singletons and each deals one point. Three attacks kill.
+
+Now give each creature its own starting region. Walls channel its path to a choice of enemies. Each enemy touches exactly three regions, one at each of three alternating hexes. The other three neighbouring hexes are blocked.
+
+\begin{center}
+\setlength{\unitlength}{1mm}
+\begin{picture}(147,51)
+\put(36,28){\cluster{3}{A}{B}{C}}
+\put(108,28){\cluster{$\circ$}{1}{1}{1}}
+\put(36,2){\makebox(0,0){\small\sffamily Before the attacks}}
+\put(108,2){\makebox(0,0){\small\sffamily After the third hit}}
+\end{picture}
+\end{center}
+{\small The same seven hexes at two moments. A, B and C are the ends of separate approach paths. Each 1 is an attacker that has struck and stays on its hex. The circle is the vacated enemy hex. Crosses mark walls.\par}
+
+\topic{Why a dead enemy matters}
+A living enemy blocks its hex. Killing it opens a route between the regions, which looks like a way for a fourth creature to slip through and reach a different target. But consider a winning plan with $3q$ creatures that must kill $q$ enemies. Each kill needs three points and each singleton can strike only once. There is no spare attack. At the first kill, the three creatures that could use that doorway have already acted, occupy its approaches and survive retaliation. The same argument applies at each subsequent kill. Waiting can change when a stack strikes, but it cannot give it another attack.
+
+Associate one creature with each of $3q$ elements and one enemy with each allowed triple of elements. An approach path exists exactly when the element belongs to the triple. Killing $q$ enemies uses each element once. Conversely, any $q$ disjoint triples covering the elements give orders that kill the corresponding enemies. This is \emph{planar exact cover by triples}, a known NP-complete problem. A polynomial-size hex board realizes its paths. The full construction handles bends, disconnected pieces and the three approaches to each enemy. [\href{\edition/blob/v1.8/paper/main.md\#appendix-d-the-full-proof-of-theorem-3}{Theorem 3, Corollary 3.1 and Appendices C--D}]
+
+The same construction works when the player may split the army freely. For a stack of $c$ creatures the nominal hit is $\max(1,\lfloor 7c/20\rfloor)$. This equals $c$ only at $c=1$ and is smaller for every $c>1$. A winning allocation must therefore split every creature off. With the split prescribed in advance, the covering problem still remains.
+
+\newpage
+\titleline{What changes with the battlefield?}
+The score is the sum of the values of enemy creatures killed by the end of round one. Given a target score, the question is whether any legal plan attains it. The board is listed cell by cell and numerical stats and stocks are written in binary. With the split free, a plan supplies one creature type and count per occupied slot, within its stock budget, then legal actions. With the split fixed, only the actions are chosen. This can change the answer on the same board. Against two isolated enemies of two hit points each, two one-damage creatures split 1+1 kill neither. A 2+0 split kills one.
+
+\topic{One slot per enemy}
+Space the slots along one row so each occupied slot can strike only its paired enemy, and that enemy stays reachable until the slot acts. Every enemy stack contains one creature. If its health is $h_j$ and each friendly creature deals $d$ damage on an ordinary hit, killing it costs $\lceil h_j/d\rceil$ creatures from the stock $B$. With equal attack and defence, striking before the defender's bonus delivers exactly that damage per creature. Extra attackers in the same slot earn nothing.
+
+Choosing the enemies worth killing is ordinary 0--1 knapsack. If $h_j$ and the value of enemy $j$ both equal $a_j$, $d=1$, and $\sum a_j=2B$, a score of $B$ requires a subset summing to exactly $B$. This gives weak NP-completeness on the constructed corridor family. With $k$ slots, the more general paired case has an $O(kB)$ dynamic program using $O(B)$ working space after polynomial preprocessing. This is pseudo-polynomial because $B$ itself can be exponentially larger than its written length. The one-creature enemy and the persistent pairing both matter. [\href{\edition/blob/v1.8/paper/main.md\#theorem-1}{Theorem 1 and Proposition 1.1}]
+
+\topic{Three slots per enemy}
+Give each enemy $T$ hit points and three adjacent deployment slots. Separate groups far enough that a stack in one group cannot attack another group's enemy. The player brings one creature of each of $3m$ labelled types, with damage values $a_i$ summing to $mT$ and $T/4<a_i<T/2$. Equal damage values may belong to different roster entries. Killing all $m$ enemies uses every point of damage. The creatures placed by each enemy must therefore sum to $T$, and the strict bounds force exactly three per group. Any such partition supplies a winning deployment. Choosing who goes into the slots already solves \textsc{3-Partition}. [\href{\edition/blob/v1.8/paper/main.md\#theorem-2}{Theorem 2}]
+
+\topic{Every slot can reach every enemy}
+Put the attackers along the top of a six-row open board. Fix one creature per slot. Leave a travel row clear and reserve three distinct approach hexes for each enemy. Along a winning plan, a stack can always get to its assigned place, even after earlier stacks have stopped. The player now solves the same grouping problem by issuing attack orders. The opening puzzle is the case $m=2$, $T=15$. For a negative instance on the same board, use damages 4, 4, 4, 6, 6, 6. Killing both enemies would require every nominal blow to land in full, and even numbers cannot sum to 15. This also supplies an in-family negative output for invalid source encodings. Awarding points for hit points removed gives the same result at target $mT$, since any overkill loses points. [\href{\edition/blob/v1.8/paper/main.md\#theorem-4-and-its-corollaries}{Theorem 4 and Corollaries 4.1--4.2}]
+
+\newpage
+\titleline{Evidence and limits}
+\topic{What the complexity claim says}
+A proposed allocation and set of orders can be checked in polynomial time. Each stack may wait, then take one terminal action. An ordinary breadth-first search visits each reachable board hex once to check a move and its approach to the target. A simple path never needs more steps than the board has cells, even if the unit's speed is enormous.
+
+Deciding whether a target score is attainable is \emph{strongly NP-complete} on the three-slot, open-board and walled single-type families. These families stay hard even when all numerical values are polynomially bounded in the size of the source puzzle. Nothing here measures how often a hard position arises in play. Whether comparable results hold with native formations, with seven slots, or against an opponent trying to win remains open in this study.
+
+\topic{What was checked}
+The Lean 4 development proves the equivalences between the source puzzles and the constructed battles in a formal combat model. For the identical-attacker result it verifies the conversion of a valid orthogonal grid drawing into a hex board. Obtaining a suitable drawing uses published graph-drawing results. The source problems' hardness and the time bounds are mathematical arguments outside Lean. In particular, the released Lean replay routine expands reach one layer per point of speed. A checker for binary speeds uses the bounded board search described above. [\href{\edition/tree/v1.8/formal/lean}{Formal development}]
+
+The rules were transcribed from VCMI, an open-source engine. In 49 selected checks against its engine classes, 46 agreed exactly and three differed by one damage point at a floating-point rounding boundary. The paper uses exact rational arithmetic. The model also allows occupation of the side columns and simplifies initiative ties. All constructed attackers are faster than the defenders, so ties between the sides never arise. The cases are evidence about specified rules and positions. [\artifact{engine-check/REPORT.md}{Engine comparison}]
+
+\topic{Related work and full proofs}
+Furtak and Buro studied how to divide attack power in graph-based attrition games. Hoffmann, Lynch and Winslow used the same exact-sum targeting idea in \emph{Hearthstone}. Diochnos studied level-ups in \emph{Heroes III}. The game-specific contribution here is to realize allocation and targeting separately with legal moves of the generalized combat model, especially the three-way approach to a single enemy. [\href{https://doi.org/10.1609/aiide.v6i1.12410}{Attrition games}] [\href{https://doi.org/10.2197/ipsjjip.28.919}{Hearthstone}] [\href{https://doi.org/10.1007/978-3-642-13122-6_16}{Heroes III level-ups}]
+
+Dyer and Frieze prove planar exact cover by triples NP-complete (Lemma 2.2). The drawing step uses Tamassia and Tollis, in the connected case stated by Duncan and Goodrich (Theorem 7.3). [\href{https://www.math.cmu.edu/~af1p/Texfiles/3DM.pdf}{Exact cover}] [\href{https://doi.org/10.1109/31.34669}{Grid embedding}] [\href{https://cs.brown.edu/people/rtamassi/gdhandbook/chapters/orthogonal.pdf}{Drawing theorem}]
+
+{\small \smallhead{Provenance.} This short edition draws on \emph{Two Sources of Hardness in Generalized Heroes of Might and Magic III Combat}. AI agents wrote the original proofs, formalization, verification code and drafts, and performed adversarial reviews. This edition was also prepared with AI assistance. The long version identifies the models and their roles. \refpaper{} $\cdot$ \href{\edition/tree/v1.8}{Code and test cases}\par}
+\end{document}

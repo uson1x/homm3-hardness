@@ -18,10 +18,12 @@ and checking it is a polynomial simulation.  Formalized here as:
 So the certificate has length linear in `R · (k + n)` (with `R` in unary, polynomial in the
 input size), every entry of `l` is bounded by feasibility (a type index below the army length,
 a count at most a stock), every entry of `path` is below the length of the successor list it
-indexes, and the checker is a computable function of the certificate.  What is *not*
-formalized is a cost model: that `checkCert` runs in polynomial time is read off its
-definition (`replay` makes `path.length` calls to `succs`, each a BFS over the board plus
-linear scans), not proved.
+indexes, and the checker is a computable function of the certificate.  The running time of this reference implementation is a separate issue:
+`reachListOf` calls `reachL` with the numerical speed, which can be exponential in
+its binary encoding. For the polynomial membership verifier, use a queue with a
+visited set on the explicitly listed hexes to check the destination and target of
+each supplied action (paper §2.3). The shortest walk to any reachable hex is simple.
+The equivalence below is about the accepted instances and does not assert a cost bound.
 -/
 
 namespace Homm3

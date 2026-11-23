@@ -489,25 +489,34 @@ end Thm2
 
 /-! ## Totality -/
 
-/-- **The total reduction** of Appendix E (Theorem 2, *Totality*; Theorem 4 "verbatim"), for a
-construction `G`: an encoding failing a syntactic check goes to `G_no`, the empty encoding to
-the fixed yes-instance `G((1,1,1), 3)`, every other one to `G(a, T)`. -/
-def reduction3P (G : List ℕ → ℕ → Instance) (a : List ℤ) (T : ℤ) : Instance :=
-  if InDomain3P a T then (if a = [] then G [1, 1, 1] 3 else G (a.map Int.toNat) T.toNat)
-  else Corridor.Gno
+/-- Normalize the encoded source before constructing a board. Even malformed inputs
+produce a member of the promised family, so the rectangle and reach conditions hold
+on every output of the reduction. -/
+def normalize3P (a : List ℤ) (T : ℤ) : List ℕ × ℕ :=
+  if InDomain3P a T then
+    if a = [] then ([1, 1, 1], 3) else (a.map Int.toNat, T.toNat)
+  else ([4, 4, 4, 6, 6, 6], 15)
 
-/-- The totality branch is correct for any construction that is correct on the promise. -/
+theorem normalize3P_spec (a : List ℤ) (T : ℤ) :
+    Promise3P (normalize3P a T).1 (normalize3P a T).2 ∧
+    (THREE_PARTITIONℤ a T ↔ THREE_PARTITION (normalize3P a T).1 (normalize3P a T).2) := by
+  unfold normalize3P
+  split_ifs with hd he
+  · subst a
+    exact ⟨ThreeP.promise_111, ⟨fun _ => ThreeP.yes_111, fun _ => ThreeP.nil_iff T⟩⟩
+  · exact ⟨ThreeP.promise_toNat hd he, ThreeP.toNat_iff hd⟩
+  · have hn : ¬ THREE_PARTITION [4, 4, 4, 6, 6, 6] 15 :=
+      ThreeP.not_of_checkNoTriple (by decide) (by decide)
+    exact ⟨by decide, ⟨fun h => (hd h.1).elim, fun h => (hn h).elim⟩⟩
+
+def reduction3P (G : List ℕ → ℕ → Instance) (a : List ℤ) (T : ℤ) : Instance :=
+  G (normalize3P a T).1 (normalize3P a T).2
+
 theorem reduction3P_iff (G : List ℕ → ℕ → Instance)
     (hG : ∀ a T, Promise3P a T → (THREE_PARTITION a T ↔ ArmyAllocation (G a T)))
-    (a : List ℤ) (T : ℤ) : THREE_PARTITIONℤ a T ↔ ArmyAllocation (reduction3P G a T) := by
-  unfold reduction3P
-  split_ifs with hd hnil
-  · subst hnil
-    exact ⟨fun _ => (hG _ _ ThreeP.promise_111).mp ThreeP.yes_111, fun _ => ThreeP.nil_iff T⟩
-  · rw [ThreeP.toNat_iff hd]; exact hG _ _ (ThreeP.promise_toNat hd hnil)
-  · exact ⟨fun h => absurd h.1 hd, fun h => absurd h Corridor.Gno_no⟩
+    (a : List ℤ) (T : ℤ) : THREE_PARTITIONℤ a T ↔ ArmyAllocation (reduction3P G a T) :=
+  (normalize3P_spec a T).2.trans (hG _ _ (normalize3P_spec a T).1)
 
-/-- **Theorem 2, total form**: the reduction is correct on every integer encoding. -/
 theorem theorem2_total (a : List ℤ) (T : ℤ) :
     THREE_PARTITIONℤ a T ↔ ArmyAllocation (reduction3P G3P a T) :=
   reduction3P_iff G3P Thm2.theorem2 a T

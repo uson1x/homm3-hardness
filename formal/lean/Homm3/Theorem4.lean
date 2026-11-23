@@ -931,12 +931,6 @@ end ThmF
 
 /-! ## Totality -/
 
-/-- **Theorem 4, total form** ("the totality branch is that of the Theorem 2 section
-verbatim, with `G_F((1,1,1), 3)` as the fixed yes-instance"). -/
-theorem theorem4_total (a : List ℤ) (T : ℤ) :
-    THREE_PARTITIONℤ a T ↔ ArmyAllocation (reduction3P GF a T) :=
-  reduction3P_iff GF ThmF.theorem4 a T
-
 /-- The fixed allocation for `G_no` (one creature of the one type in the one slot). -/
 def αGno : ℕ → SlotAlloc := fun _ => ⟨0, 1⟩
 
@@ -946,46 +940,34 @@ theorem αGno_feasible : Feasible Corridor.Gno αGno := by
   subst this
   simp [αGno, Corridor.Gno, Instance.k]
 
-/-- The total reduction of Corollary 4.1: an instance together with its given allocation. -/
-def reduction41 (a : List ℤ) (T : ℤ) : Instance × (ℕ → SlotAlloc) :=
-  if InDomain3P a T then
-    (if a = [] then (GF [1, 1, 1] 3, ThmF.αId) else (GF (a.map Int.toNat) T.toNat, ThmF.αId))
-  else (Corridor.Gno, αGno)
-
-/-- **Corollary 4.1, total form.** -/
-theorem cor41_total (a : List ℤ) (T : ℤ) :
-    THREE_PARTITIONℤ a T ↔ ThmF.BattlePlay (reduction41 a T).1 (reduction41 a T).2 := by
-  unfold reduction41
-  split_ifs with hd hnil
-  · subst hnil
-    exact ⟨fun _ => (ThmF.cor41 _ _ ThreeP.promise_111).mp ThreeP.yes_111,
-      fun _ => ThreeP.nil_iff T⟩
-  · rw [ThreeP.toNat_iff hd]; exact ThmF.cor41 _ _ (ThreeP.promise_toNat hd hnil)
-  · refine ⟨fun h => absurd h.1 hd, fun ⟨s, hs, hdn, hW⟩ => absurd ?_ Corridor.Gno_no⟩
-    exact ⟨αGno, αGno_feasible, s, hs, hdn, hW⟩
-
-/-- The total reduction of Corollary 4.2: an instance together with its target `W_hp`. -/
-def reduction42 (a : List ℤ) (T : ℤ) : Instance × ℕ :=
-  if InDomain3P a T then
-    (if a = [] then (GF [1, 1, 1] 3, 3)
-     else (GF (a.map Int.toNat) T.toNat, a.length / 3 * T.toNat))
-  else (Corridor.Gno, 1)
-
 theorem absorbed_Gno (s : State) : ThmF.absorbed Corridor.Gno s = 0 := by
   simp [ThmF.absorbed, Instance.n, Corridor.Gno]
 
-/-- **Corollary 4.2, total form** (allocation free). -/
+/-- Every branch constructs an open six-row board from a promised source instance. -/
+theorem theorem4_total (a : List ℤ) (T : ℤ) :
+    THREE_PARTITIONℤ a T ↔ ArmyAllocation (reduction3P GF a T) :=
+  reduction3P_iff GF ThmF.theorem4 a T
+
+def reduction41 (a : List ℤ) (T : ℤ) : Instance × (ℕ → SlotAlloc) :=
+  (reduction3P GF a T, ThmF.αId)
+
+/-- Corollary 4.1, with the identity allocation on every output. -/
+theorem cor41_total (a : List ℤ) (T : ℤ) :
+    THREE_PARTITIONℤ a T ↔ ThmF.BattlePlay (reduction41 a T).1 (reduction41 a T).2 :=
+  (normalize3P_spec a T).2.trans (ThmF.cor41 _ _ (normalize3P_spec a T).1)
+
+def reduction42 (a : List ℤ) (T : ℤ) : Instance × ℕ :=
+  let (xs, target) := normalize3P a T
+  (GF xs target, xs.length / 3 * target)
+
+/-- Corollary 4.2, total form for a freely chosen allocation. -/
 theorem cor42_total (a : List ℤ) (T : ℤ) :
-    THREE_PARTITIONℤ a T ↔ ThmF.HpAllocation (reduction42 a T).1 (reduction42 a T).2 := by
-  unfold reduction42
-  split_ifs with hd hnil
-  · subst hnil
-    exact ⟨fun _ => (ThmF.cor42 _ _ ThreeP.promise_111).1.mp ThreeP.yes_111,
-      fun _ => ThreeP.nil_iff T⟩
-  · rw [ThreeP.toNat_iff hd]
-    have := (ThmF.cor42 _ _ (ThreeP.promise_toNat hd hnil)).1
-    simpa using this
-  · refine ⟨fun h => absurd h.1 hd, fun ⟨α, _, s, _, _, hW⟩ => ?_⟩
-    rw [absorbed_Gno] at hW; omega
+    THREE_PARTITIONℤ a T ↔ ThmF.HpAllocation (reduction42 a T).1 (reduction42 a T).2 :=
+  (normalize3P_spec a T).2.trans (ThmF.cor42 _ _ (normalize3P_spec a T).1).1
+
+/-- The same total reduction works for the prescribed allocation. -/
+theorem cor42_fixed_total (a : List ℤ) (T : ℤ) :
+    THREE_PARTITIONℤ a T ↔ ThmF.HpPlay (reduction42 a T).1 ThmF.αId (reduction42 a T).2 :=
+  (normalize3P_spec a T).2.trans (ThmF.cor42 _ _ (normalize3P_spec a T).1).2
 
 end Homm3

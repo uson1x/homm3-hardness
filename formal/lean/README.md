@@ -22,7 +22,7 @@ drawing on the input (`theorem3_drawing`, total form `theorem3_drawing_total`). 
 no-certificates and step 1's sizes are formalized, and those combinatorially. On all 44 corpus
 drawings the kernel certifies validity. It also checks that the Lean-built board equals
 `build_board_lemma`'s board as data.
-Totals at the end of session 5: 35 modules, 12039 library lines, 700 theorems, **0 `sorry`**,
+Release v1.8: 35 modules, 12033 library lines, 702 theorems, **0 `sorry`**,
 no axioms beyond `propext`, `Classical.choice`, `Quot.sound`, no `native_decide`.
 Progress, timings, open `sorry`s and findings: `PROGRESS.md`.
 

@@ -72,6 +72,7 @@ import Homm3.Step1
 #print axioms Homm3.ThmF.Fam.hp_no
 #print axioms Homm3.ThmF.cor42
 #print axioms Homm3.cor42_total
+#print axioms Homm3.cor42_fixed_total
 #print axioms Homm3.orderInv
 #print axioms Homm3.wait_attack_defended
 #print axioms Homm3.Fam.lemmaE2
